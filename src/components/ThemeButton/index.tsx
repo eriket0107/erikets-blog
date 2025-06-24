@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Moon, MoonIcon, MoonStar, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const ThemeButton = () => {
@@ -31,11 +32,10 @@ export const ThemeButton = () => {
   return (
     <Button
       onClick={handleThemeChange}
-      className="bg-accent cursor-pointer"
-      variant="outline"
-      size="icon"
+      className="bg-accent-foreground cursor-pointer"
+      variant="default"
     >
-      {theme === "dark" ? "🌙" : "☀️"}
+      {theme === "dark" ? <MoonStar color="black" /> : <Sun color="white" />}
     </Button>
   );
 };

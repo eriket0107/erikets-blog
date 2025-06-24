@@ -1,60 +1,118 @@
-const TypographyH1 = ({ children }: { children: React.ReactNode }) => {
+import { cn } from "@/utils";
+import { HTMLAttributes } from "react";
+
+interface TypographyProps extends HTMLAttributes<HTMLElement> {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const TypographyH1 = ({ children, className, ...rest }: TypographyProps) => {
   return (
-    <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
+    <h1
+      className={cn(
+        "scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance",
+        className,
+      )}
+      {...rest}
+    >
       {children}
     </h1>
   );
 };
 
-const TypographyH2 = ({ children }: { children: React.ReactNode }) => {
+const TypographyH2 = ({ children, className, ...rest }: TypographyProps) => {
   return (
-    <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+    <h2
+      className={cn(
+        "scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+        className,
+      )}
+      {...rest}
+    >
       {children}
     </h2>
   );
 };
 
-const TypographyH3 = ({ children }: { children: React.ReactNode }) => {
+const TypographyH3 = ({ children, className, ...rest }: TypographyProps) => {
   return (
-    <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+    <h3
+      className={cn(
+        "scroll-m-20 text-2xl font-semibold tracking-tight",
+        className,
+      )}
+      {...rest}
+    >
       {children}
     </h3>
   );
 };
 
-const TypographyH4 = ({ children }: { children: React.ReactNode }) => {
+const TypographyH4 = ({ children, className, ...rest }: TypographyProps) => {
   return (
-    <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+    <h4
+      className={cn(
+        "scroll-m-20 text-xl font-semibold tracking-tight",
+        className,
+      )}
+      {...rest}
+    >
       {children}
     </h4>
   );
 };
 
-const TypographyP = ({ children }: { children: React.ReactNode }) => {
+const TypographyP = ({ children, className, ...rest }: TypographyProps) => {
   return (
-    <p className="leading-7 [&:not(:first-child)]:mt-6">
-      The king, seeing how much happier his subjects were, realized the error of
-      his ways and repealed the joke tax.
+    <p
+      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      {...rest}
+    >
+      {children}
     </p>
   );
 };
 
-const TypographyLead = ({ children }: { children: React.ReactNode }) => {
-  return <p className="text-muted-foreground text-xl">{children}</p>;
-};
-
-const TypographyBlockquote = ({ children }: { children: React.ReactNode }) => {
+const TypographyLead = ({ children, className, ...rest }: TypographyProps) => {
   return (
-    <blockquote className="mt-6 border-l-2 pl-6 italic">{children}</blockquote>
+    <p className={cn("text-muted-foreground text-xl", className)} {...rest}>
+      {children}
+    </p>
   );
 };
 
-const TypographySmall = ({ children }: { children: React.ReactNode }) => {
-  return <small className="text-sm leading-none font-medium">{children}</small>;
+const TypographyBlockquote = ({
+  children,
+  className,
+  ...rest
+}: TypographyProps) => {
+  return (
+    <blockquote
+      className={cn("mt-6 border-l-2 pl-6 italic", className)}
+      {...rest}
+    >
+      {children}
+    </blockquote>
+  );
 };
 
-const TypographyMuted = ({ children }: { children: React.ReactNode }) => {
-  return <p className="text-muted-foreground">{children}</p>;
+const TypographySmall = ({ children, className, ...rest }: TypographyProps) => {
+  return (
+    <small
+      className={cn("text-sm leading-none font-medium", className)}
+      {...rest}
+    >
+      {children}
+    </small>
+  );
+};
+
+const TypographyMuted = ({ children, className, ...rest }: TypographyProps) => {
+  return (
+    <p className={cn("text-muted-foreground", className)} {...rest}>
+      {children}
+    </p>
+  );
 };
 
 export const Typography = {
