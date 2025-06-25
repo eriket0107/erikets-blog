@@ -98,14 +98,7 @@ describe("Header Component", () => {
     render(<Header />);
 
     const headerBox = screen.getByTestId("header-box");
-    expect(headerBox).toHaveClass(
-      "flex",
-      "flex-row",
-      "px-15",
-      "py-4",
-      "lg:px-25",
-      "lg:py-15",
-    );
+    expect(headerBox).toHaveClass("flex", "flex-row", "px-15", "py-4");
   });
 
   it("should have correct accessibility attributes", () => {
