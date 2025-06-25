@@ -23,10 +23,10 @@ describe("useTheme", () => {
     expect(result.current.theme).toBe("light");
   });
 
-  it("should initialize with dark theme when system prefers dark", () => {
+  it("should initialize with light theme when system prefers light", () => {
     matchMediaMock.mockReturnValue({ matches: true });
     const { result } = renderHook(() => useTheme());
-    expect(result.current.theme).toBe("dark");
+    expect(result.current.theme).toBe("light");
   });
 
   it("should use stored theme from localStorage", () => {

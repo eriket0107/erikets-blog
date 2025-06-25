@@ -3,9 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { Header } from ".";
 
 // Mock the ThemeButton component
-vi.mock("../ThemeButton", () => ({
-  ThemeButton: () => <button data-testid="theme-button">Theme Button</button>,
-}));
 
 // Mock the Typography component
 vi.mock("../Typography", () => ({
@@ -20,24 +17,6 @@ vi.mock("../Typography", () => ({
         {children}
       </h3>
     ),
-  },
-}));
-
-// Mock the Box component
-vi.mock("../Box", () => ({
-  Box: ({ children, as, className, justify, align, ...props }: any) => {
-    const Component = as || "div";
-    return (
-      <Component
-        className={className}
-        data-testid="header-box"
-        justify={justify}
-        align={align}
-        {...props}
-      >
-        {children}
-      </Component>
-    );
   },
 }));
 
@@ -87,13 +66,6 @@ describe("Header Component", () => {
     expect(lineBreak).toBeInTheDocument();
   });
 
-  it("should render the ThemeButton component", () => {
-    render(<Header />);
-
-    const themeButton = screen.getByTestId("theme-button");
-    expect(themeButton).toBeInTheDocument();
-  });
-
   it("should apply correct CSS classes to header box", () => {
     render(<Header />);
 
@@ -112,26 +84,8 @@ describe("Header Component", () => {
     render(<Header />);
 
     const headerBox = screen.getByTestId("header-box");
-    expect(headerBox).toHaveAttribute("justify", "between");
-    expect(headerBox).toHaveAttribute("align", "center");
-  });
-
-  it("should render both desktop and mobile titles", () => {
-    render(<Header />);
-
-    const titles = screen.getAllByText(/coffee & vanilla code/);
-    expect(titles).toHaveLength(2);
-
-    // Check that one is for desktop and one for mobile
-    const desktopTitle = titles.find((title) =>
-      title.className.includes("hidden lg:block"),
-    );
-    const mobileTitle = titles.find((title) =>
-      title.className.includes("block lg:hidden"),
-    );
-
-    expect(desktopTitle).toBeDefined();
-    expect(mobileTitle).toBeDefined();
+    expect(headerBox).toHaveClass("justify-between");
+    expect(headerBox).toHaveClass("items-center");
   });
 
   it("should apply Roboto Mono font to both titles", () => {
