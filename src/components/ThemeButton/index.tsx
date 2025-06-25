@@ -6,7 +6,7 @@ import { cn } from "@/utils";
 import { Beer, Coffee, MoonStar, Sun } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
-export const ThemeButton = () => {
+const ThemeButton = () => {
   const { handleThemeChange, theme } = useTheme();
   return (
     <Tooltip>
@@ -21,9 +21,15 @@ export const ThemeButton = () => {
           )}
           data-testid="theme-btn"
         >
-          {theme === "dark" ? <Coffee color="black" /> : <Beer color="white" />}
+          {theme === "dark" ? (
+            <Coffee suppressHydrationWarning color="black" />
+          ) : (
+            <Beer suppressHydrationWarning color="white" />
+          )}
         </Button>
       </TooltipTrigger>
     </Tooltip>
   );
 };
+
+export default ThemeButton;

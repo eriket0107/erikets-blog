@@ -1,6 +1,6 @@
 import { vi, describe, it, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { ThemeButton } from ".";
+import ThemeButton from ".";
 
 const mockHandleThemeChange = vi.fn();
 let theme: "light" | "dark" = "dark";

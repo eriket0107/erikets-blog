@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import { Box } from "../Box";
-import { ThemeButton } from "../ThemeButton";
 import { Typography } from "../Typography";
 
 import { Roboto_Mono } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { cn } from "@/utils";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const ThemeButton = dynamic(() => import("../ThemeButton"), {
+  ssr: false,
+});
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
@@ -17,7 +22,7 @@ const robotoMono = Roboto_Mono({
 
 export const Header = () => {
   const location = usePathname();
-  const isHome = location === "/" || location === "home";
+  const isHome = location === "/";
 
   return (
     <Box
@@ -38,19 +43,6 @@ export const Header = () => {
           coffee & <br /> vanilla code ☕️
         </Typography.H3>
       </Link>
-
-      <nav className="hidden items-center gap-5 md:flex">
-        <Link href="/" className="hover:underline hover:opacity-85">
-          Home
-        </Link>
-        <Link href="/blog" className="hover:underline hover:opacity-85">
-          Blog
-        </Link>
-        <Link href="/about" className="hover:underline hover:opacity-85">
-          About
-        </Link>
-        <ThemeButton />
-      </nav>
     </Box>
   );
 };

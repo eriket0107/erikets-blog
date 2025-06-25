@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import { Box } from "@/components/Box";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -28,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+    <html lang="en" className="light" style={{ colorScheme: "light" }}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
@@ -36,7 +35,9 @@ export default function RootLayout({
         className={`${roboto.className} flex min-h-dvh w-full flex-col antialiased`}
       >
         <Header />
+
         {children}
+
         <Footer />
       </body>
     </html>

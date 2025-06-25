@@ -1,10 +1,13 @@
+'use client'
+
 import { useEffect, useState } from "react";
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState<"dark" | "light">("light");
+  const storagedTheme = localStorage?.getItem("@coffeAndVanillaCode: theme") || 'light'
+
+  const [theme, setTheme] = useState<"dark" | "light">(storagedTheme as "dark" | "light" || 'light');
 
   useEffect(() => {
-    const storagedTheme = localStorage.getItem("@coffeAndVanillaCode: theme");
     const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     const initialTheme =
