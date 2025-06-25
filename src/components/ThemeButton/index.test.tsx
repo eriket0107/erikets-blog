@@ -29,9 +29,9 @@ describe("Theme Button Test", () => {
   });
 
   it("should render with dark theme", () => {
-    render(<ThemeButton />);
+    const { getByTestId } = render(<ThemeButton />);
 
-    const themeButton = screen.getByTestId("theme-btn");
+    const themeButton = getByTestId("theme-btn");
     expect(themeButton).toHaveClass("bg-white");
   });
 
@@ -40,9 +40,9 @@ describe("Theme Button Test", () => {
       theme = "light";
     }
 
-    render(<ThemeButton />);
+    const { getByTestId } = render(<ThemeButton />);
 
-    const themeButton = screen.getByTestId("theme-btn");
+    const themeButton = getByTestId("theme-btn");
     expect(themeButton).toHaveClass("bg-accent-foreground");
   });
 });
