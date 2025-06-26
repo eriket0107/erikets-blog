@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import { render, fireEvent } from "@testing-library/react";
 import { Navbar } from ".";
 
 describe("Navbar component", () => {
@@ -11,7 +11,7 @@ describe("Navbar component", () => {
   });
 
   it("should have with as auto", () => {
-    const { getByTestId, debug } = render(<Navbar />);
+    const { getByTestId } = render(<Navbar />);
 
     const navbar = getByTestId("navbar");
     expect(navbar).toHaveClass("w-auto");
@@ -25,7 +25,7 @@ describe("Navbar component", () => {
   });
 
   it("should be not visible when is mobile", () => {
-    const { getByTestId, debug } = render(<Navbar />);
+    const { getByTestId } = render(<Navbar />);
 
     const navbar = getByTestId("navbar");
     expect(navbar).toHaveClass("hidden");

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
 import { cn } from "@/utils";
-import { Beer, Coffee, MoonStar, Sun } from "lucide-react";
+import { Beer, Coffee } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const ThemeButton = ({
@@ -18,9 +18,9 @@ const ThemeButton = ({
     menu: () => (
       <Button
         className={
-          "flex flex-row items-center border-none text-base transition-all duration-100 ease-in-out"
+          "flex cursor-pointer flex-row items-center border-none text-base transition-all duration-100 ease-in-out"
         }
-        variant={"link"}
+        variant={"ghost"}
         size={"default-icon"}
         onClick={handleThemeChange}
         data-testid="theme-btn"

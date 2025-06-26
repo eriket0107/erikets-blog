@@ -10,13 +10,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { BookUser, Home, Menu, User } from "lucide-react";
-import { useTheme } from "@/hooks/useTheme";
 import { cn } from "@/utils";
 import ThemeButton from "../ThemeButton";
 import { usePathname } from "next/navigation";
 
-const linkClass =
-  "flex flex-row items-center text-base transition-all duration-100 ease-in-out";
+const classes = {
+  link: "flex flex-row items-center text-base transition-all duration-100 ease-in-out",
+  dropdownMenuItem: "flex w-full cursor-pointer justify-between text-base",
+  selected: "bg-accent rounded-sm",
+};
 
 export const BurgerMenu = () => {
   const location = usePathname();
@@ -26,8 +28,7 @@ export const BurgerMenu = () => {
         <Button
           variant="default"
           className={cn(
-            "bg-accent-foreground",
-            "flex cursor-pointer gap-4 md:hidden",
+            "bg-accent-foreground flex cursor-pointer gap-4 md:hidden",
           )}
         >
           <Menu className={cn("bg-accent-foreground", "text-accent")} />
@@ -35,35 +36,42 @@ export const BurgerMenu = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="flex min-w-0 md:hidden">
         <DropdownMenuGroup>
-          <DropdownMenuItem className="flex w-full flex-1 justify-between">
-            <Link
-              href="/"
-              className={cn(location === "/" && "underline", linkClass)}
-            >
+          <Link
+            href="/"
+            className={cn(classes.link, location === "/" && classes.selected)}
+          >
+            <DropdownMenuItem className={classes.dropdownMenuItem}>
               Home
-            </Link>
-            <Home size={16} className="text-primary" />
-          </DropdownMenuItem>
-          <DropdownMenuItem className="flex w-full justify-between">
-            <Link
-              href="/about"
-              className={cn(location === "/about" && "underline", linkClass)}
-            >
+              <Home size={16} className="text-primary" />
+            </DropdownMenuItem>
+          </Link>
+          <Link
+            href="/about"
+            className={cn(
+              classes.link,
+              location === "/about" && classes.selected,
+            )}
+          >
+            <DropdownMenuItem className={classes.dropdownMenuItem}>
               About
-            </Link>
-            <User size={16} className="text-primary" />
-          </DropdownMenuItem>
-          <DropdownMenuItem className="flex w-full justify-between">
-            <Link
-              href="/blog"
-              className={cn(location === "/blog" && "underline", linkClass)}
-            >
+              <User size={16} className="text-primary" />
+            </DropdownMenuItem>
+          </Link>
+          <Link
+            href="/blog"
+            className={cn(
+              classes.link,
+              location === "/blog" && classes.selected,
+            )}
+          >
+            <DropdownMenuItem className={classes.dropdownMenuItem}>
               Blog
-            </Link>
-            <BookUser size={16} className="text-primary" />
-          </DropdownMenuItem>
+              <BookUser size={16} className="text-primary" />
+            </DropdownMenuItem>
+          </Link>
+
           <DropdownMenuItem
-            className="flex w-full justify-between"
+            className={classes.dropdownMenuItem}
             onSelect={(e) => e.preventDefault()}
           >
             <ThemeButton variant="menu" />
