@@ -1,11 +1,8 @@
-"use client";
-
 import Link from "next/link";
 import { Box } from "../Box";
 import { Typography } from "../Typography";
 
 import { Roboto_Mono } from "next/font/google";
-import { usePathname } from "next/navigation";
 import { cn } from "@/utils";
 import { Navbar } from "../Navbar";
 import { BurgerMenu } from "../BurgerMenu";
@@ -17,17 +14,13 @@ const robotoMono = Roboto_Mono({
 });
 
 export const Header = () => {
-  const location = usePathname();
-  const isHome = location === "/";
-
   return (
     <Box
       as="header"
       justify="between"
       align="center"
       className={cn(
-        isHome ? "animate-fade-in" : "",
-        "shadow-accent flex flex-row border-b-1 px-15 py-4 shadow",
+        "shadow-accent animate-fade-in flex flex-row border-b-1 px-15 py-4 shadow",
       )}
       aria-label="Header of screen"
       data-testid="header-box"

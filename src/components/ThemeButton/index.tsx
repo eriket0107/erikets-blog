@@ -18,7 +18,7 @@ const ThemeButton = ({
     menu: () => (
       <Button
         className={
-          "flex flex-row items-center text-base transition-all duration-100 ease-in-out"
+          "flex flex-row items-center border-none text-base transition-all duration-100 ease-in-out"
         }
         variant={"link"}
         size={"default-icon"}

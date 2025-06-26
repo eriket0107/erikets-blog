@@ -31,6 +31,16 @@ export const Navbar = () => {
         <Home size={16} /> Home
       </Link>
       <Link
+        href="/about"
+        prefetch
+        className={linkClass}
+        aria-label="Navigate to about page"
+        role="link"
+      >
+        <User size={16} />
+        About
+      </Link>
+      <Link
         href="/blog"
         className={cn(linkClass)}
         prefetch
@@ -40,17 +50,9 @@ export const Navbar = () => {
         <BookUser size={16} />
         Blog
       </Link>
-      <Link
-        href="/about"
-        prefetch
-        className={cn(linkClass)}
-        aria-label="Navigate to about page"
-        role="link"
-      >
-        <User size={16} />
-        About
-      </Link>
-      <ThemeButton />
+      <Suspense>
+        <ThemeButton />
+      </Suspense>
     </Box>
   );
 };
