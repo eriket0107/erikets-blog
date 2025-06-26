@@ -1,35 +1,54 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
+interface ThemeState {
+  theme: 'dark' | 'light';
+  setTheme: (theme: 'dark' | 'light') => void;
+  toggleTheme: () => void;
+}
+
+const useThemeStore = create<ThemeState>()(
+  persist(
+    (set, get) => ({
+      theme: 'dark',
+      setTheme: (theme) => set({ theme }),
+      toggleTheme: () => {
+        const currentTheme = get().theme;
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        set({ theme: newTheme });
+      },
+    }),
+    {
+      name: '@coffeAndVanillaCode:theme',
+    }
+  )
+);
 
 export const useTheme = () => {
-  const storagedTheme = localStorage?.getItem("@coffeAndVanillaCode: theme") || 'light'
-
-  const [theme, setTheme] = useState<"dark" | "light">(storagedTheme as "dark" | "light" || 'light');
+  const { theme, setTheme, toggleTheme } = useThemeStore();
 
   useEffect(() => {
-    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    const initialTheme =
-      (storagedTheme as "dark" | "light") || (isDark ? "dark" : "light");
-    setTheme(initialTheme);
-    document.documentElement.classList.value = initialTheme;
-  }, []);
+    if (!localStorage.getItem('@coffeAndVanillaCode:theme')) {
+      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const systemTheme = isDark ? 'dark' : 'light';
+      setTheme(systemTheme);
+    }
+
+    document.documentElement.classList.value = theme;
+    document.documentElement.style.colorScheme = theme;
+  }, [theme, setTheme]);
 
   const handleThemeChange = () => {
-    setTheme((prev) => {
-      const newTheme = prev === "dark" ? "light" : "dark";
-      document.documentElement.classList.value = newTheme;
-      document.documentElement.style.colorScheme = newTheme;
-      if (window !== undefined) {
-        localStorage.setItem("@coffeAndVanillaCode: theme", newTheme);
-      }
-      return newTheme;
-    });
+    toggleTheme();
   };
 
   return {
     theme,
-    handleThemeChange
-  }
-}
+    handleThemeChange,
+    setTheme,
+  };
+};

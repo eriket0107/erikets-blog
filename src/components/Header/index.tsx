@@ -8,6 +8,7 @@ import { Roboto_Mono } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { cn } from "@/utils";
 import { Navbar } from "../Navbar";
+import { BurgerMenu } from "../BurgerMenu";
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
@@ -45,6 +46,7 @@ export const Header = () => {
       </Link>
 
       <Navbar />
+      <BurgerMenu />
     </Box>
   );
 };
