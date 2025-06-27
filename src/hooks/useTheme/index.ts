@@ -31,7 +31,6 @@ export const useTheme = () => {
   const { theme, setTheme, toggleTheme } = useThemeStore();
 
   useEffect(() => {
-
     if (!localStorage.getItem('@coffeAndVanillaCode:theme')) {
       const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       const systemTheme = isDark ? 'dark' : 'light';
@@ -46,7 +45,10 @@ export const useTheme = () => {
     toggleTheme();
   };
 
+  const isDark = theme === 'dark'
+
   return {
+    isDark,
     theme,
     handleThemeChange,
     setTheme,

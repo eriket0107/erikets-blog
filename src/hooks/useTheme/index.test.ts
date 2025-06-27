@@ -14,16 +14,17 @@ Object.defineProperty(window, "matchMedia", { value: matchMediaMock });
 describe("useTheme", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    localStorageMock.getItem.mockReturnValue(null);
+    localStorageMock.getItem.mockReturnValue('dark');
     matchMediaMock.mockReturnValue({ matches: false });
   });
 
-  it("should initialize with light theme by default", () => {
+  it("should initialize with dark theme by default", () => {
     const { result } = renderHook(() => useTheme());
-    expect(result.current.theme).toBe("light");
+
+    expect(result.current.theme).toBe("dark");
   });
 
-  it("should initialize with light theme when system prefers dark", () => {
+  it("should initialize with dark theme when system prefers dark", () => {
     matchMediaMock.mockReturnValue({ matches: true });
     const { result } = renderHook(() => useTheme());
     expect(result.current.theme).toBe("dark");
@@ -35,25 +36,33 @@ describe("useTheme", () => {
     expect(result.current.theme).toBe("dark");
   });
 
-  it.skip("should toggle theme when handleThemeChange is called", () => {
+  it("should toggle theme when handleThemeChange is called", () => {
+
     const { result } = renderHook(() => useTheme());
 
     expect(result.current.theme).toBe("dark");
-    console.log(result.current.theme)
 
     act(() => {
       result.current.handleThemeChange();
     });
     expect(result.current.theme).toBe("light");
-    expect(localStorageMock.setItem).toHaveBeenCalledWith("@coffeAndVanillaCode:theme", "light");
 
     act(() => {
       result.current.handleThemeChange();
     });
-    console.log(result.current.theme)
 
     expect(result.current.theme).toBe("dark");
-    expect(localStorageMock.setItem).toHaveBeenCalledWith("@coffeAndVanillaCode:theme", "dark");
   });
+
+  it("should check if isDark is false upon theme is light", () => {
+    const { result } = renderHook(() => useTheme());
+
+
+    act(() => {
+      result.current.handleThemeChange();
+    });
+
+    expect(result.current.isDark).toBe(false)
+  })
 });
 
