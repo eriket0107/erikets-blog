@@ -31,7 +31,7 @@ export const BurgerMenu = () => {
             "bg-accent-foreground flex cursor-pointer gap-4 md:hidden",
           )}
         >
-          <Menu className={cn("bg-accent-foreground", "text-accent")} />
+          <Menu />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="flex min-w-0 md:hidden">
