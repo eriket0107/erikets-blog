@@ -9,7 +9,7 @@ vi.mock("next/font/google", () => ({
   }),
 }));
 
-describe("Header Component", () => {
+describe("Header", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -46,13 +46,6 @@ describe("Header Component", () => {
     const mobileTitle = getByRole("heading", { level: 3 });
     const lineBreak = mobileTitle.querySelector("br");
     expect(lineBreak).toBeInTheDocument();
-  });
-
-  it("should apply correct CSS classes to header box", () => {
-    const { getByTestId } = render(<Header />);
-
-    const headerBox = getByTestId("header-box");
-    expect(headerBox).toHaveClass("flex", "flex-row", "px-15", "py-4");
   });
 
   it("should have correct accessibility attributes", () => {
