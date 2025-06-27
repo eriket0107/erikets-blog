@@ -13,6 +13,7 @@ import { BookUser, Home, Menu, User } from "lucide-react";
 import { cn } from "@/utils";
 import ThemeButton from "../ThemeButton";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const classes = {
   link: "flex flex-row items-center text-base transition-all duration-100 ease-in-out",
@@ -22,10 +23,13 @@ const classes = {
 
 export const BurgerMenu = () => {
   const location = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <DropdownMenu>
+    <DropdownMenu onOpenChange={setIsOpen} open={isOpen}>
       <DropdownMenuTrigger asChild>
         <Button
+          data-testid="burger-menu"
           variant="default"
           className={cn(
             "bg-accent-foreground flex cursor-pointer gap-4 md:hidden",
@@ -35,7 +39,7 @@ export const BurgerMenu = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="flex min-w-0 md:hidden">
-        <DropdownMenuGroup>
+        <DropdownMenuGroup data-testid="burger-menu-container">
           <Link
             href="/"
             className={cn(classes.link, location === "/" && classes.selected)}
