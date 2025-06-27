@@ -20,7 +20,7 @@ export const Header = () => {
       justify="between"
       align="center"
       className={cn(
-        "shadow-accent animate-fade-in flex flex-row border-b-1 px-15 py-4 shadow",
+        "shadow-accent animate-fade-in flex flex-row border-b-1 p-4 shadow",
       )}
       aria-label="Header of screen"
       data-testid="header-box"

@@ -2,15 +2,12 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Box } from "../Box";
-import { BookUser, Home, User } from "lucide-react";
-import { cn } from "@/utils";
+
+import { routesConfig } from "@/constants/Routes";
 
 const ThemeButton = dynamic(() => import("../ThemeButton"), {
   ssr: true,
 });
-
-const linkClass =
-  "flex flex-row items-center hover:border-b-1 border-b-accent-foreground hover:opacity-85 text-base gap-1 transition-all duration-100 ease-in-out";
 
 export const Navbar = () => {
   return (
@@ -21,37 +18,23 @@ export const Navbar = () => {
       data-testid="navbar"
       aria-label="Main navigation"
     >
-      <Link
-        href="/"
-        className={cn(linkClass)}
-        prefetch
-        aria-label="Navigate to home page"
-        role="link"
-      >
-        <Home size={16} /> Home
-      </Link>
-      <Link
-        href="/about"
-        prefetch
-        className={linkClass}
-        aria-label="Navigate to about page"
-        role="link"
-      >
-        <User size={16} />
-        About
-      </Link>
-      <Link
-        href="/blog"
-        className={cn(linkClass)}
-        prefetch
-        aria-label="Navigate to blog page"
-        role="link"
-      >
-        <BookUser size={16} />
-        Blog
-      </Link>
+      {routesConfig.map(({ href, icon, title, label }) => (
+        <Link
+          key={href}
+          href={href}
+          className={
+            "border-b-accent-foreground flex flex-row items-center gap-1 text-base font-normal transition-all duration-100 ease-in-out hover:border-b-1 hover:opacity-85"
+          }
+          prefetch
+          aria-label={label}
+          role="link"
+        >
+          {icon}
+          {title}
+        </Link>
+      ))}
       <Suspense>
-        <ThemeButton />
+        <ThemeButton variant="nav" />
       </Suspense>
     </Box>
   );

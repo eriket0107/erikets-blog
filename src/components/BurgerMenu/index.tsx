@@ -9,11 +9,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
-import { BookUser, Home, Menu, User } from "lucide-react";
+import { Menu } from "lucide-react";
 import { cn } from "@/utils";
 import ThemeButton from "../ThemeButton";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { routesConfig } from "@/constants/Routes";
 
 const classes = {
   link: "flex flex-row items-center text-base transition-all duration-100 ease-in-out",
@@ -40,40 +41,21 @@ export const BurgerMenu = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="flex min-w-0 md:hidden">
         <DropdownMenuGroup data-testid="burger-menu-container">
-          <Link
-            href="/"
-            className={cn(classes.link, location === "/" && classes.selected)}
-          >
-            <DropdownMenuItem className={classes.dropdownMenuItem}>
-              Home
-              <Home size={16} className="text-primary" />
-            </DropdownMenuItem>
-          </Link>
-          <Link
-            href="/about"
-            className={cn(
-              classes.link,
-              location === "/about" && classes.selected,
-            )}
-          >
-            <DropdownMenuItem className={classes.dropdownMenuItem}>
-              About
-              <User size={16} className="text-primary" />
-            </DropdownMenuItem>
-          </Link>
-          <Link
-            href="/blog"
-            className={cn(
-              classes.link,
-              location === "/blog" && classes.selected,
-            )}
-          >
-            <DropdownMenuItem className={classes.dropdownMenuItem}>
-              Blog
-              <BookUser size={16} className="text-primary" />
-            </DropdownMenuItem>
-          </Link>
-
+          {routesConfig.map(({ href, icon, title }) => (
+            <Link
+              key={title}
+              href={href}
+              className={cn(
+                classes.link,
+                location === href && classes.selected,
+              )}
+            >
+              <DropdownMenuItem className={classes.dropdownMenuItem}>
+                {title}
+                {icon}
+              </DropdownMenuItem>
+            </Link>
+          ))}
           <DropdownMenuItem
             className={classes.dropdownMenuItem}
             onSelect={(e) => e.preventDefault()}
