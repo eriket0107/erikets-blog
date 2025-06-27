@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test:watch": "vitest --watch ",
-    "test": "vitest --watch=false"
+    "test": "vitest --watch=false",
+    "prepare": "husky"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "2.1.15",
@@ -40,6 +41,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "happy-dom": "18.0.1",
+    "husky": "9.1.7",
     "prettier": "3.6.0",
     "prettier-plugin-tailwindcss": "0.6.13",
     "tailwindcss": "^4",
