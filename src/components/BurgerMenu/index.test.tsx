@@ -21,7 +21,7 @@ describe("BurgerMenu", () => {
     expect(burgerContainer).toBeInTheDocument();
   });
 
-  it("should have all the menu items", () => {
+  it("should have all the menu links", () => {
     const { getByText, getByTestId } = render(<BurgerMenu />);
     const burgerButton = getByTestId("burger-menu");
 
@@ -29,11 +29,9 @@ describe("BurgerMenu", () => {
     const homeLink = getByText(/Home/);
     const blogLink = getByText(/Blog/);
     const aboutLink = getByText(/About/);
-    const themeButton = getByText(/Theme/);
 
     expect(aboutLink).toBeInTheDocument();
     expect(homeLink).toBeInTheDocument();
     expect(blogLink).toBeInTheDocument();
-    expect(themeButton).toBeInTheDocument();
   });
 });

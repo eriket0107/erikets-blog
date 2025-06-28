@@ -3,16 +3,19 @@ import { render, fireEvent } from "@testing-library/react";
 import ThemeButton from ".";
 
 const mockHandleThemeChange = vi.fn();
+
 let theme: "light" | "dark" = "dark";
+let isDark = false;
 
 vi.mock("../../hooks/useTheme", () => ({
   useTheme: () => ({
     theme,
     handleThemeChange: mockHandleThemeChange,
+    isDark,
   }),
 }));
 
-describe("Theme Button", () => {
+describe("Theme Button Nav", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -46,6 +49,12 @@ describe("Theme Button", () => {
     const themeButton = getByTestId("theme-btn-nav");
     expect(themeButton).toHaveClass("bg-accent-foreground");
   });
+});
+
+describe("Theme Button Menu", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
 
   it("should be able to click theme menu", async () => {
     const { findByTestId } = render(<ThemeButton variant="menu" />);
@@ -74,5 +83,22 @@ describe("Theme Button", () => {
 
     const themeButton = getByTestId("theme-btn-menu");
     expect(themeButton).toHaveClass("dark:bg-white");
+  });
+
+  it("should display the correct text if is light ", () => {
+    const { getByTestId } = render(<ThemeButton variant="menu" />);
+
+    const themeButton = getByTestId("theme-btn-menu");
+    expect(themeButton).toHaveTextContent("Dark");
+  });
+
+  it("should display the correct text if is dark ", () => {
+    if (!isDark) {
+      isDark = true;
+    }
+    const { getByTestId } = render(<ThemeButton variant="menu" />);
+    const themeButton = getByTestId("theme-btn-menu");
+
+    expect(themeButton).toHaveTextContent("Light");
   });
 });
