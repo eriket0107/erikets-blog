@@ -11,6 +11,7 @@ export const Footer = () => {
       justify="between"
       className="shadow-accent bottom-0 flex flex-row gap-10 border-t-1 p-3 shadow"
       aria-label="Footer of screen"
+      role="footer"
     >
       <Typography.Small className="text-muted-foreground w-[450px] md:w-full">
         by: Erik Oliveira ⓒ - 🇧🇷 - {new Date().getFullYear()}
@@ -21,6 +22,7 @@ export const Footer = () => {
           <NavLink
             link={link}
             key={link.href}
+            isFooter
             target="_blank"
             className="text-muted-foreground group hover:border-b-muted-foreground flex flex-row items-center gap-1 border-b-1 border-b-transparent text-sm"
           />

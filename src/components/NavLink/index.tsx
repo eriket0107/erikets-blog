@@ -10,9 +10,15 @@ interface INavLink
   extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
   link: ILink;
   className?: string;
+  isFooter?: boolean;
 }
 
-export const NavLink = ({ link, className, ...rest }: INavLink) => {
+export const NavLink = ({
+  link,
+  className,
+  isFooter = false,
+  ...rest
+}: INavLink) => {
   const { href, icon, label, title } = link;
   const pathname = usePathname();
   const isSelected = pathname === href;
@@ -32,7 +38,7 @@ export const NavLink = ({ link, className, ...rest }: INavLink) => {
       {...rest}
     >
       {icon}
-      {title}
+      <span className={cn(isFooter && "hidden md:flex")}>{title}</span>
     </Link>
   );
 };

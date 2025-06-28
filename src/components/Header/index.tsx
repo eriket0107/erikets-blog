@@ -24,6 +24,7 @@ export const Header = () => {
       )}
       aria-label="Header of screen"
       data-testid="header-box"
+      role="header"
     >
       <Link href="/">
         <Typography.H2

@@ -35,7 +35,7 @@ export const socialLinks: ILink[] = [
     href: "https://github.com/eriket0107",
   },
   {
-    icon: <Linkedin className="h-[20px] w-[18px]" />,
+    icon: <Linkedin className="h-[20px] w-[20px]" />,
     title: "LinkedIn",
     href: "https://www.linkedin.com/in/oliveira-erik/",
   },
