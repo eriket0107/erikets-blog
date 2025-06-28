@@ -14,7 +14,7 @@ import { cn } from "@/utils";
 import ThemeButton from "../ThemeButton";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { routesConfig } from "@/constants/Routes";
+import { routesConfig } from "@/constants/Links";
 
 const classes = {
   link: "flex flex-row items-center text-base transition-all duration-100 ease-in-out",

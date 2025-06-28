@@ -2,14 +2,13 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "About",
+    default: "Blog",
     template: "%s | Coffe and Vanilla Code",
   },
   description: "Coffe and Vanilla Code",
 };
 
-const About = () => {
-  return <>About</>;
+const Blog = () => {
+  return <>Blog</>;
 };
-
-export default About;
+export default Blog;
