@@ -17,7 +17,7 @@ const ThemeButtonMenu = () => {
       onClick={handleThemeChange}
       data-testid="theme-btn-menu"
     >
-      Theme
+      {isDark ? "Light" : "Dark"}
       {isDark ? (
         <Coffee suppressHydrationWarning color="white" />
       ) : (
@@ -60,11 +60,11 @@ interface ThemeButtonProps {
 
 const ThemeButton = ({ variant = "nav" }: ThemeButtonProps) => {
   switch (variant) {
-    case "nav":
-      return <ThemeButtonNav />;
     case "menu":
-    default:
       return <ThemeButtonMenu />;
+    case "nav":
+    default:
+      return <ThemeButtonNav />;
   }
 };
 
