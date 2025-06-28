@@ -1,13 +1,7 @@
-import { BookUser, Home, User } from "lucide-react";
+import { ILink } from "@/interfaces/link";
+import { BookUser, Home, User, Github, Linkedin } from "lucide-react";
 
-interface IRoutes {
-  title: string;
-  icon: React.ReactNode;
-  href: string;
-  label: string;
-}
-
-export const routesConfig: IRoutes[] = [
+export const routesConfig: ILink[] = [
   {
     href: "/",
     icon: <Home size={16} className="text-primary" />,
@@ -32,4 +26,17 @@ export const routesConfig: IRoutes[] = [
   //   title: "Setup",
   //   label: "Navigate to Setup page",
   // },
+] as const;
+
+export const socialLinks: ILink[] = [
+  {
+    icon: <Github className="h-[20px] w-[20px]" />,
+    title: "Github",
+    href: "https://github.com/eriket0107",
+  },
+  {
+    icon: <Linkedin className="h-[20px] w-[18px]" />,
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/in/oliveira-erik/",
+  },
 ] as const;

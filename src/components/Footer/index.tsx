@@ -1,7 +1,7 @@
-import { socialLinks } from "@/constants/SocialLinks";
 import { Box } from "../Box";
 import { Typography } from "../Typography";
-import Link from "next/link";
+import { NavLink } from "../NavLink";
+import { socialLinks } from "@/constants/Links";
 
 export const Footer = () => {
   return (
@@ -17,18 +17,13 @@ export const Footer = () => {
       </Typography.Small>
 
       <Box as="span" justify="end" className="w-auto" gap="5">
-        {socialLinks.map(({ href, icon, title }) => (
-          <Link
-            key={href}
-            href={href}
+        {socialLinks.map((link) => (
+          <NavLink
+            link={link}
+            key={link.href}
             target="_blank"
             className="text-muted-foreground group hover:border-b-muted-foreground flex flex-row items-center gap-1 border-b-1 border-b-transparent text-sm"
-          >
-            {icon}
-            <Typography.Small className="hidden text-base md:flex">
-              {title}
-            </Typography.Small>
-          </Link>
+          />
         ))}
       </Box>
     </Box>

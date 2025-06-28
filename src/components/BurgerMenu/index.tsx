@@ -23,7 +23,7 @@ const classes = {
 };
 
 export const BurgerMenu = () => {
-  const location = usePathname();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -47,7 +47,7 @@ export const BurgerMenu = () => {
               href={href}
               className={cn(
                 classes.link,
-                location === href && classes.selected,
+                pathname === href && classes.selected,
               )}
             >
               <DropdownMenuItem className={classes.dropdownMenuItem}>
