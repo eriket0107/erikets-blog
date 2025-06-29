@@ -165,7 +165,7 @@ export const Box = ({
   ].filter(Boolean);
 
   return (
-    <Component role="container" className={cn(classes, className)} {...rest}>
+    <Component className={cn(classes, className)} {...rest}>
       {children}
     </Component>
   );

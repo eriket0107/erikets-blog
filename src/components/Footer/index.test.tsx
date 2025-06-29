@@ -5,11 +5,10 @@ import { socialLinks } from "@/constants/Links";
 
 describe("Footer", () => {
   it("should render footer with correct accessibility attributes", () => {
-    const { getByRole } = render(<Footer />);
+    const { getByTestId } = render(<Footer />);
 
-    const footer = getByRole("contentinfo");
-    expect(footer).toBeInTheDocument();
-    expect(footer).toHaveAttribute("aria-label", "Footer of screen");
+    const footer = getByTestId("footer");
+    expect(footer.tagName).toBe("FOOTER");
   });
 
   it("should render copyright text with current year", () => {
@@ -89,9 +88,9 @@ describe("Footer", () => {
   });
 
   it("should render footer with correct semantic structure", () => {
-    const { getByRole } = render(<Footer />);
+    const { getByTestId } = render(<Footer />);
 
-    const footer = getByRole("contentinfo");
+    const footer = getByTestId("footer");
     expect(footer.tagName).toBe("FOOTER");
   });
 

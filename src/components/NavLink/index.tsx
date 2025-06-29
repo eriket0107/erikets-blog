@@ -34,7 +34,6 @@ export const NavLink = ({
       )}
       prefetch
       aria-label={label}
-      role="link"
       {...rest}
     >
       {icon}

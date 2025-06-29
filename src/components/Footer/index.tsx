@@ -11,12 +11,11 @@ export const Footer = () => {
       justify="between"
       className="shadow-accent bottom-0 flex flex-row gap-10 border-t-1 p-3 shadow"
       aria-label="Footer of screen"
-      role="footer"
+      data-testid="footer"
     >
       <Typography.Small className="text-muted-foreground w-[450px] md:w-full">
         by: Erik Oliveira ⓒ - 🇧🇷 - {new Date().getFullYear()}
       </Typography.Small>
-
       <Box as="span" justify="end" className="w-auto" gap="5">
         {socialLinks.map((link) => (
           <NavLink
