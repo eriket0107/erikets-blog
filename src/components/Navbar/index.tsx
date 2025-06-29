@@ -1,15 +1,13 @@
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
+"use client";
+
 import { Box } from "../Box";
 
 import { NavLink } from "../NavLink";
 import { routesConfig } from "@/constants/Links";
-
-const ThemeButton = dynamic(() => import("../ThemeButton"), {
-  ssr: true,
-});
+import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
+  const pathname = usePathname();
   return (
     <Box
       as="nav"
@@ -19,11 +17,12 @@ export const Navbar = () => {
       aria-label="Main navigation"
     >
       {routesConfig.map((link) => (
-        <NavLink link={link} key={link.href} />
+        <NavLink
+          link={link}
+          key={link.href}
+          isSelected={pathname === link.href}
+        />
       ))}
-      <Suspense>
-        <ThemeButton variant="nav" />
-      </Suspense>
     </Box>
   );
 };

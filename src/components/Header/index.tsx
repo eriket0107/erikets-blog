@@ -1,19 +1,19 @@
-import Link from "next/link";
 import { Box } from "../Box";
-import { Typography } from "../Typography";
 
-import { Roboto_Mono } from "next/font/google";
 import { cn } from "@/utils";
 import { Navbar } from "../Navbar";
 import { BurgerMenu } from "../BurgerMenu";
+import { memo } from "react";
+import { Suspense } from "react";
 
-const robotoMono = Roboto_Mono({
-  variable: "--font-roboto-mono",
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700"],
+import dynamic from "next/dynamic";
+import { Logo } from "../Logo";
+
+const ThemeButton = dynamic(() => import("../ThemeButton"), {
+  ssr: true,
 });
 
-export const Header = () => {
+export const Header = memo(() => {
   return (
     <Box
       as="header"
@@ -25,21 +25,20 @@ export const Header = () => {
       aria-label="Header of screen"
       data-testid="header-box"
     >
-      <Link href="/">
-        <Typography.H2
-          className={`${robotoMono.className} hidden flex-1 lg:block`}
-        >
-          coffee & vanilla code ☕️
-        </Typography.H2>
-        <Typography.H3
-          className={`${robotoMono.className} block flex-1 lg:hidden`}
-        >
-          coffee & <br /> vanilla code ☕️
-        </Typography.H3>
-      </Link>
+      <Box>
+        <Logo />
+      </Box>
 
-      <Navbar />
+      <Box justify="end" align="center" gap="4">
+        <Navbar />
+        <Suspense>
+          <ThemeButton variant="nav" />
+        </Suspense>
+      </Box>
+
       <BurgerMenu />
     </Box>
   );
-};
+});
+
+Header.displayName = "Header";

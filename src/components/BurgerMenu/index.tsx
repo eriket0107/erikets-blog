@@ -13,8 +13,8 @@ import { Menu } from "lucide-react";
 import { cn } from "@/utils";
 import ThemeButton from "../ThemeButton";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import { routesConfig } from "@/constants/Links";
+import { memo } from "react";
 
 const classes = {
   link: "flex flex-row items-center text-base transition-all duration-100 ease-in-out",
@@ -22,12 +22,11 @@ const classes = {
   selected: "bg-accent rounded-sm",
 };
 
-export const BurgerMenu = () => {
+export const BurgerMenu = memo(() => {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <DropdownMenu onOpenChange={setIsOpen} open={isOpen}>
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
           data-testid="burger-menu"
@@ -66,4 +65,5 @@ export const BurgerMenu = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
+});
+BurgerMenu.displayName = "BurgerMenu";

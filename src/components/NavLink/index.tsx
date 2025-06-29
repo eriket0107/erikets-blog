@@ -1,43 +1,44 @@
-"use client";
-
 import { ILink } from "@/interfaces/link";
 import { cn } from "@/utils";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { AnchorHTMLAttributes } from "react";
+import { AnchorHTMLAttributes, memo } from "react";
 
 interface INavLink
   extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
   link: ILink;
   className?: string;
   isFooter?: boolean;
+  isSelected?: boolean;
 }
 
-export const NavLink = ({
-  link,
-  className,
-  isFooter = false,
-  ...rest
-}: INavLink) => {
-  const { href, icon, label, title } = link;
-  const pathname = usePathname();
-  const isSelected = pathname === href;
+export const NavLink = memo(
+  ({
+    link,
+    className,
+    isFooter = false,
+    isSelected = false,
+    ...rest
+  }: INavLink) => {
+    const { href, icon, label, title } = link;
 
-  return (
-    <Link
-      key={href}
-      href={href}
-      className={cn(
-        "border-b-accent-foreground flex flex-row items-center gap-1 text-base font-normal transition-all duration-100 ease-in-out hover:border-b-1 hover:opacity-85",
-        isSelected && "border-b-1",
-        className,
-      )}
-      prefetch
-      aria-label={label}
-      {...rest}
-    >
-      {icon}
-      <span className={cn(isFooter && "hidden md:flex")}>{title}</span>
-    </Link>
-  );
-};
+    return (
+      <Link
+        key={href}
+        href={href}
+        className={cn(
+          "border-b-accent-foreground flex flex-row items-center gap-1 text-base font-normal transition-all duration-100 ease-in-out hover:border-b-1 hover:opacity-85",
+          isSelected && "border-b-1",
+          className,
+        )}
+        prefetch
+        aria-label={label}
+        {...rest}
+      >
+        {icon}
+        <span className={cn(isFooter && "hidden md:flex")}>{title}</span>
+      </Link>
+    );
+  },
+);
+
+NavLink.displayName = "NavLink";

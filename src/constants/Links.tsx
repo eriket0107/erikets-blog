@@ -1,22 +1,28 @@
 import { ILink } from "@/interfaces/link";
 import { BookUser, Home, User, Github, Linkedin } from "lucide-react";
 
+const homeIcon = <Home size={16} className="text-primary" />;
+const blogIcon = <BookUser size={16} className="text-primary" />;
+const aboutIcon = <User size={16} className="text-primary" />;
+const githubIcon = <Github className="h-[20px] w-[20px]" />;
+const linkedinIcon = <Linkedin className="h-[20px] w-[20px]" />;
+
 export const routesConfig: ILink[] = [
   {
     href: "/",
-    icon: <Home size={16} className="text-primary" />,
+    icon: homeIcon,
     title: "Home",
     label: "Navigate to Home page",
   },
   {
     href: "/blog",
-    icon: <BookUser size={16} className="text-primary" />,
+    icon: blogIcon,
     title: "Blog",
     label: "Navigate to Blog page",
   },
   {
     href: "/about",
-    icon: <User size={16} className="text-primary" />,
+    icon: aboutIcon,
     title: "About me",
     label: "Navigate to About page",
   },
@@ -30,12 +36,12 @@ export const routesConfig: ILink[] = [
 
 export const socialLinks: ILink[] = [
   {
-    icon: <Github className="h-[20px] w-[20px]" />,
+    icon: githubIcon,
     title: "Github",
     href: "https://github.com/eriket0107",
   },
   {
-    icon: <Linkedin className="h-[20px] w-[20px]" />,
+    icon: linkedinIcon,
     title: "LinkedIn",
     href: "https://www.linkedin.com/in/oliveira-erik/",
   },

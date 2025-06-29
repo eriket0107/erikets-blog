@@ -22,32 +22,6 @@ describe("Header", () => {
     expect(headerBox.tagName).toBe("HEADER");
   });
 
-  it("should render the desktop title (hidden on mobile)", () => {
-    const { getByRole } = render(<Header />);
-
-    const desktopTitle = getByRole("heading", { level: 2 });
-    expect(desktopTitle).toBeInTheDocument();
-    expect(desktopTitle).toHaveTextContent("coffee & vanilla code ☕️");
-    expect(desktopTitle).toHaveClass("font-roboto-mono", "hidden", "lg:block");
-  });
-
-  it("should render the mobile title (visible on mobile)", () => {
-    const { getByRole } = render(<Header />);
-
-    const mobileTitle = getByRole("heading", { level: 3 });
-    expect(mobileTitle).toBeInTheDocument();
-    expect(mobileTitle).toHaveTextContent("coffee & vanilla code ☕️");
-    expect(mobileTitle).toHaveClass("font-roboto-mono", "block", "lg:hidden");
-  });
-
-  it("should render the mobile title with line break", () => {
-    const { getByRole } = render(<Header />);
-
-    const mobileTitle = getByRole("heading", { level: 3 });
-    const lineBreak = mobileTitle.querySelector("br");
-    expect(lineBreak).toBeInTheDocument();
-  });
-
   it("should have correct accessibility attributes", () => {
     const { getByTestId } = render(<Header />);
 
@@ -61,21 +35,5 @@ describe("Header", () => {
     const headerBox = getByTestId("header-box");
     expect(headerBox).toHaveClass("justify-between");
     expect(headerBox).toHaveClass("items-center");
-  });
-
-  it("should apply Roboto Mono font to both titles", () => {
-    const { getAllByText } = render(<Header />);
-
-    const titles = getAllByText(/coffee & vanilla code/);
-    titles.forEach((title) => {
-      expect(title).toHaveClass("font-roboto-mono");
-    });
-  });
-
-  it("should render the coffee emoji in both titles", () => {
-    const { getAllByText } = render(<Header />);
-
-    const titles = getAllByText(/coffee & vanilla code ☕️/);
-    expect(titles).toHaveLength(2);
   });
 });

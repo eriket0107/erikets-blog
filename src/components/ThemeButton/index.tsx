@@ -5,6 +5,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { cn } from "@/utils";
 import { Beer, Coffee } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { memo } from "react";
 
 const ThemeButtonMenu = () => {
   const { handleThemeChange, isDark } = useTheme();
@@ -39,7 +40,7 @@ const ThemeButtonNav = () => {
           className={cn(
             isDark ? "bg-white" : "bg-accent-foreground",
             isDark ? "border-accent-foreground" : "border-white",
-            "cursor-pointer",
+            "hidden cursor-pointer md:flex",
           )}
           data-testid="theme-btn-nav"
         >
@@ -58,7 +59,7 @@ interface ThemeButtonProps {
   variant?: "nav" | "menu";
 }
 
-const ThemeButton = ({ variant = "nav" }: ThemeButtonProps) => {
+const ThemeButton = memo(({ variant = "nav" }: ThemeButtonProps) => {
   switch (variant) {
     case "menu":
       return <ThemeButtonMenu />;
@@ -66,6 +67,7 @@ const ThemeButton = ({ variant = "nav" }: ThemeButtonProps) => {
     default:
       return <ThemeButtonNav />;
   }
-};
+});
 
+ThemeButton.displayName = "ThemeButton";
 export default ThemeButton;

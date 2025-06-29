@@ -7,7 +7,14 @@ interface BoxProps extends HTMLAttributes<HTMLElement> {
   className?: string;
   display?: "flex" | "grid";
   direction?: "row" | "col" | "row-reverse" | "col-reverse";
-  justify?: "start" | "center" | "end" | "between" | "around" | "evenly";
+  justify?:
+    | "start"
+    | "center"
+    | "end"
+    | "between"
+    | "around"
+    | "evenly"
+    | "none";
   align?: "start" | "center" | "end" | "stretch" | "baseline";
   gap?: string;
   border?: string;
@@ -37,6 +44,7 @@ const justifyClasses = {
   between: "justify-between",
   around: "justify-around",
   evenly: "justify-evenly",
+  none: "",
 };
 
 const alignClasses = {
