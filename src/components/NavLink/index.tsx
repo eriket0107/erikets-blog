@@ -26,7 +26,7 @@ export const NavLink = memo(
         key={href}
         href={href}
         className={cn(
-          "border-b-accent-foreground flex flex-row items-center gap-1 text-base font-normal transition-all duration-100 ease-in-out hover:border-b-1 hover:opacity-85",
+          "border-b-accent-foreground flex flex-row items-center gap-1 text-base font-normal transition-discrete duration-100 ease-in-out hover:scale-95 hover:border-b-1 hover:opacity-85",
           isSelected && "border-b-1",
           className,
         )}

@@ -40,7 +40,7 @@ const ThemeButtonNav = () => {
           className={cn(
             isDark ? "bg-white" : "bg-accent-foreground",
             isDark ? "border-accent-foreground" : "border-white",
-            "hidden cursor-pointer md:flex",
+            "hidden cursor-pointer hover:scale-95 md:flex",
           )}
           data-testid="theme-btn-nav"
         >
