@@ -32,7 +32,7 @@ const ThemeButtonNav = () => {
   const { handleThemeChange, isDark } = useTheme();
 
   return (
-    <Tooltip>
+    <Tooltip delayDuration={300}>
       <TooltipContent>{isDark ? "Light" : "Dark"}</TooltipContent>
       <TooltipTrigger asChild>
         <Button
