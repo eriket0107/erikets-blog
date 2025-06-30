@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
-import { ThemeScript } from "@/components/ThemeScript";
+import { ThemeScript } from "@/scripts/ThemeScript";
 
 const roboto = Roboto({
   variable: "--font-roboto",

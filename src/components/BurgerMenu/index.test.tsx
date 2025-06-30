@@ -1,11 +1,26 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
 import { BurgerMenu } from ".";
 import { NextIntlClientProvider } from "next-intl";
 import messages from "../../../messages/en.json";
 
+vi.mock("next/navigation", () => ({
+  usePathname: () => "/",
+  useRouter: () => ({
+    back: vi.fn(),
+    forward: vi.fn(),
+    refresh: vi.fn(),
+    push: vi.fn(),
+    prefetch: vi.fn(),
+    replace: vi.fn(),
+  }),
+  permanentRedirect: vi.fn(),
+  redirect: vi.fn(),
+  useParams: () => ({ locale: "en" }),
+  useSelectedLayoutSegment: () => ({ locale: "en" }),
+}));
+
 describe("BurgerMenu", () => {
-  beforeEach(() => {});
   it("should render burger menu", () => {
     const { getByTestId } = render(
       <NextIntlClientProvider locale="en" messages={messages}>

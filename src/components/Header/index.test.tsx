@@ -12,6 +12,22 @@ vi.mock("next/font/google", () => ({
   }),
 }));
 
+vi.mock("next/navigation", () => ({
+  usePathname: () => "/",
+  useRouter: () => ({
+    back: vi.fn(),
+    forward: vi.fn(),
+    refresh: vi.fn(),
+    push: vi.fn(),
+    prefetch: vi.fn(),
+    replace: vi.fn(),
+  }),
+  permanentRedirect: vi.fn(),
+  redirect: vi.fn(),
+  useParams: () => ({ locale: "en" }),
+  useSelectedLayoutSegment: () => ({ locale: "en" }),
+}));
+
 const renderComponent = () => {
   render(
     <NextIntlClientProvider locale="en" messages={messages}>

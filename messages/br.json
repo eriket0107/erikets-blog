@@ -1,0 +1,15 @@
+{
+  "Home": {
+    "title": "Olá mundo!"
+  },
+  "Constants": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "Sobre mim"
+  },
+  "LocaleSwitcher": {
+    "title": "Idioma",
+    "label": "Trocar idioma",
+    "locale": "{locale, select, en {Inglês 🇺🇸} br {Português 🇧🇷} other {Desconhecido}}"
+  }
+}

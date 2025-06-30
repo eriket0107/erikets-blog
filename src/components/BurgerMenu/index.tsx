@@ -16,6 +16,7 @@ import { memo } from "react";
 import { Link } from "../Link";
 import { usePathname } from "@/hooks/usePathname";
 import { useTranslations } from "next-intl";
+import LocaleSwitcher from "../LocaleSwitcher";
 
 const classes = {
   link: "flex flex-row items-center text-base transition-all duration-100 ease-in-out",
@@ -58,11 +59,18 @@ export const BurgerMenu = memo(() => {
               </DropdownMenuItem>
             </Link>
           ))}
+
           <DropdownMenuItem
             className={classes.dropdownMenuItem}
             onSelect={(e) => e.preventDefault()}
           >
             <ThemeButton variant="menu" />
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className={classes.dropdownMenuItem}
+            onSelect={(e) => e.preventDefault()}
+          >
+            <LocaleSwitcher />
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

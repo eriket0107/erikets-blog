@@ -6,5 +6,10 @@
     "home": "Home",
     "blog": "Blog",
     "about": "About me"
+  },
+  "LocaleSwitcher": {
+    "title": "Language",
+    "label": "Change language",
+    "locale": "{locale, select, en {English 🇺🇸} br {Portuguese 🇧🇷} other {Unkown}}"
   }
 }

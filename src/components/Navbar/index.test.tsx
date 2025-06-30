@@ -1,9 +1,25 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Navbar } from ".";
 
 import { NextIntlClientProvider } from "next-intl";
 import messages from "../../../messages/en.json";
+
+vi.mock("next/navigation", () => ({
+  usePathname: () => "/",
+  useRouter: () => ({
+    back: vi.fn(),
+    forward: vi.fn(),
+    refresh: vi.fn(),
+    push: vi.fn(),
+    prefetch: vi.fn(),
+    replace: vi.fn(),
+  }),
+  permanentRedirect: vi.fn(),
+  redirect: vi.fn(),
+  useParams: () => ({ locale: "en" }),
+  useSelectedLayoutSegment: () => ({ locale: "en" }),
+}));
 
 const renderComponent = () => {
   render(

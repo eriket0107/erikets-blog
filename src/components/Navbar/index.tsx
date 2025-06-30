@@ -6,6 +6,7 @@ import { Box } from "../Box";
 import { NavLink } from "../NavLink";
 import { usePathname } from "@/hooks/usePathname";
 import { useTranslations } from "next-intl";
+import LocaleSwitcher from "../LocaleSwitcher";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -27,6 +28,7 @@ export const Navbar = () => {
           suppressHydrationWarning
         />
       ))}
+      <LocaleSwitcher />
     </Box>
   );
 };
