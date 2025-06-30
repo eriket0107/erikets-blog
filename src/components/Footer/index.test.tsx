@@ -44,7 +44,6 @@ describe("Footer", () => {
   });
 
   it("should render social link icons", () => {
-    // Check for Lucide icons by their class names
     const githubIcon = document.querySelector(".lucide-github");
     const linkedinIcon = document.querySelector(".lucide-linkedin");
 
@@ -81,12 +80,12 @@ describe("Footer", () => {
     );
   });
 
-  it.skip("should hide social link titles on mobile and show on desktop", () => {
+  it("should hide social link titles on mobile and show on desktop", () => {
     const githubTitle = screen.getByText("Github");
     const linkedinTitle = screen.getByText("LinkedIn");
 
-    expect(githubTitle).toHaveClass("hidden", "text-base", "md:flex");
-    expect(linkedinTitle).toHaveClass("hidden", "text-base", "md:flex");
+    expect(githubTitle).toHaveClass("hidden", "md:flex");
+    expect(linkedinTitle).toHaveClass("hidden", "md:flex");
   });
 
   it("should render footer with correct semantic structure", () => {
