@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
+import { ThemeScript } from "@/components/ThemeScript";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -32,13 +33,14 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale} className="light" style={{ colorScheme: "light" }}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
         className={`${roboto.className} flex min-h-dvh w-full flex-col antialiased`}
       >
+        <ThemeScript />
         <NextIntlClientProvider>
           <Header />
 
