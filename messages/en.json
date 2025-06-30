@@ -1,5 +1,5 @@
 {
-  "Home": {
+  "HomePage": {
     "title": "Hello world!"
   },
   "Constants": {
@@ -26,5 +26,10 @@
     "title": "About me",
     "locale": "br",
     "namespace": "Metadata"
-  }
+  },
+  "NotFoundPage": {
+    "goBackBtn": "Go to Home page",
+    "title": "Ops... Page Not Found"
+  },
+  "ErrorPage": {}
 }

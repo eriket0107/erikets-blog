@@ -20,7 +20,7 @@ export async function generateMetadata({
 }
 
 const Home = () => {
-  const t = useTranslations("Home");
+  const t = useTranslations("HomePage");
   return <Layout>{t("title")}</Layout>;
 };
 

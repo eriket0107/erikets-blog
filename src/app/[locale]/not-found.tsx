@@ -1,10 +1,12 @@
-import { Box } from "@/components/Box";
-import { Layout } from "@/components/Layout";
-import { Link } from "@/components/Link";
-import { Typography } from "@/components/Typography";
 import { ArrowRight, RouteOff } from "lucide-react";
+import { Box } from "../../components/Box";
+import { Layout } from "../../components/Layout";
+import { Typography } from "../../components/Typography";
+import { Link } from "../../components/Link";
+import { useTranslations } from "next-intl";
 
-const NotFound = () => {
+const NotFoundPage = () => {
+  const t = useTranslations("NotFoundPage");
   return (
     <Layout>
       <Box
@@ -20,7 +22,7 @@ const NotFound = () => {
             404
           </Typography.H1>
           <Typography.H2 className="text-accent-foreground">
-            Ops... Page Not Found
+            {t("title")}
           </Typography.H2>
         </Box>
 
@@ -28,7 +30,7 @@ const NotFound = () => {
           href={"/"}
           className="text-accent-foreground hover:border-muted-foreground flex items-center gap-0.5 border-b-1 border-transparent hover:opacity-70"
         >
-          Go to Home page
+          {t("goBackBtn")}
           <ArrowRight size={16} />
         </Link>
       </Box>
@@ -36,4 +38,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFoundPage;
