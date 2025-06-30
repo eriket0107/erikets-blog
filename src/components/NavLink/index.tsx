@@ -1,7 +1,7 @@
 import { ILink } from "@/interfaces/link";
 import { cn } from "@/utils";
-import Link from "next/link";
 import { AnchorHTMLAttributes, memo } from "react";
+import { Link } from "../Link";
 
 interface INavLink
   extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {

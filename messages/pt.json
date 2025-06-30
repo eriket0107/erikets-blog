@@ -1,0 +1,10 @@
+{
+  "Home": {
+    "title": "Teste"
+  },
+  "Constants": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "Sobre mim"
+  }
+}

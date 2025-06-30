@@ -1,5 +1,5 @@
+import { Link } from "../Link";
 import { Typography } from "../Typography";
-import Link from "next/link";
 
 import { Roboto_Mono } from "next/font/google";
 
