@@ -1,42 +1,47 @@
-import { describe, it, expect } from "vitest";
-import { render } from "@testing-library/react";
+import { describe, it, expect, beforeEach } from "vitest";
+import { render, screen } from "@testing-library/react";
 import { Navbar } from ".";
 
-describe("Navbar component", () => {
-  it("should render box as nav", () => {
-    const { getByTestId } = render(<Navbar />);
+import { NextIntlClientProvider } from "next-intl";
+import messages from "../../../messages/en.json";
 
-    const navbar = getByTestId("navbar");
+const renderComponent = () => {
+  render(
+    <NextIntlClientProvider locale="en" messages={messages}>
+      <Navbar />
+    </NextIntlClientProvider>,
+  );
+};
+
+describe("Navbar component", () => {
+  beforeEach(() => {
+    renderComponent();
+  });
+
+  it("should render box as nav", () => {
+    const navbar = screen.getByTestId("navbar");
     expect(navbar.tagName).toBe("NAV");
   });
 
   it("should have with as auto", () => {
-    const { getByTestId } = render(<Navbar />);
-
-    const navbar = getByTestId("navbar");
+    const navbar = screen.getByTestId("navbar");
     expect(navbar).toHaveClass("w-auto");
   });
 
   it("should be visible when is desktop", () => {
-    const { getByTestId } = render(<Navbar />);
-
-    const navbar = getByTestId("navbar");
+    const navbar = screen.getByTestId("navbar");
     expect(navbar).toHaveClass("md:flex");
   });
 
   it("should be not visible when is mobile", () => {
-    const { getByTestId } = render(<Navbar />);
-
-    const navbar = getByTestId("navbar");
+    const navbar = screen.getByTestId("navbar");
     expect(navbar).toHaveClass("hidden");
   });
 
   it("should have all the current links to pages", () => {
-    const { getByText } = render(<Navbar />);
-
-    const homeLink = getByText(/Home/);
-    const blogLink = getByText(/Blog/);
-    const aboutLink = getByText(/About/);
+    const homeLink = screen.getByText(/Home/);
+    const blogLink = screen.getByText(/Blog/);
+    const aboutLink = screen.getByText(/About/);
 
     expect(aboutLink).toBeInTheDocument();
     expect(homeLink).toBeInTheDocument();
@@ -44,12 +49,11 @@ describe("Navbar component", () => {
   });
 
   it("should redirect to current path", () => {
-    const { getByText } = render(<Navbar />);
-    const homeLink = getByText(/Home/);
+    const homeLink = screen.getByText(/Home/);
     expect(homeLink).toBeInTheDocument();
-    const blogLink = getByText(/Blog/);
+    const blogLink = screen.getByText(/Blog/);
     expect(blogLink).toBeInTheDocument();
-    const aboutLink = getByText(/About/);
+    const aboutLink = screen.getByText(/About/);
     expect(aboutLink).toBeInTheDocument();
   });
 });

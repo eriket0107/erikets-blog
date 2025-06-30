@@ -27,7 +27,7 @@ export const BurgerMenu = memo(() => {
   const pathname = usePathname();
   const t = useTranslations("Constants");
   const routesConfig = getRoutesConfig(t);
-  console.log(pathname);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -69,4 +69,5 @@ export const BurgerMenu = memo(() => {
     </DropdownMenu>
   );
 });
+
 BurgerMenu.displayName = "BurgerMenu";

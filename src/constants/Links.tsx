@@ -7,9 +7,9 @@ const aboutIcon = <User size={16} className="text-primary" />;
 const githubIcon = <Github className="h-[20px] w-[20px]" />;
 const linkedinIcon = <Linkedin className="h-[20px] w-[20px]" />;
 
-type tKey = "home" | "about" | "blog";
+type routesConfigKeyType = "home" | "about" | "blog";
 
-export const getRoutesConfig = (t: (key: tKey) => string) =>
+export const getRoutesConfig = (t: (key: routesConfigKeyType) => string) =>
   [
     {
       href: "/",
