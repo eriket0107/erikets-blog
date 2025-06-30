@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
+import { ThemeScript } from "@/components/ThemeScript";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -21,24 +25,29 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="en" className="light" style={{ colorScheme: "light" }}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
         className={`${roboto.className} flex min-h-dvh w-full flex-col antialiased`}
       >
-        <Header />
+        <ThemeScript />
+        <NextIntlClientProvider>
+          <Header />
 
-        {children}
+          {children}
 
-        <Footer />
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

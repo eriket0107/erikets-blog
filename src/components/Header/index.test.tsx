@@ -1,6 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Header } from ".";
+
+import { NextIntlClientProvider } from "next-intl";
+import messages from "../../../messages/en.json";
 
 // Mock next/font/google
 vi.mock("next/font/google", () => ({
@@ -9,30 +12,33 @@ vi.mock("next/font/google", () => ({
   }),
 }));
 
+const renderComponent = () => {
+  render(
+    <NextIntlClientProvider locale="en" messages={messages}>
+      <Header />
+    </NextIntlClientProvider>,
+  );
+};
+
 describe("Header", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    renderComponent();
   });
 
   it("should render the header with correct structure", () => {
-    const { getByTestId } = render(<Header />);
-
-    const headerBox = getByTestId("header-box");
+    const headerBox = screen.getByTestId("header-box");
     expect(headerBox).toBeInTheDocument();
     expect(headerBox.tagName).toBe("HEADER");
   });
 
   it("should have correct accessibility attributes", () => {
-    const { getByTestId } = render(<Header />);
-
-    const headerBox = getByTestId("header-box");
+    const headerBox = screen.getByTestId("header-box");
     expect(headerBox).toHaveAttribute("aria-label", "Header of screen");
   });
 
   it("should have correct Box component props", () => {
-    const { getByTestId } = render(<Header />);
-
-    const headerBox = getByTestId("header-box");
+    const headerBox = screen.getByTestId("header-box");
     expect(headerBox).toHaveClass("justify-between");
     expect(headerBox).toHaveClass("items-center");
   });

@@ -31,15 +31,10 @@ export const useTheme = () => {
   const { theme, setTheme, toggleTheme } = useThemeStore();
 
   useEffect(() => {
-    if (!localStorage.getItem('@coffeAndVanillaCode:theme')) {
-      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const systemTheme = isDark ? 'dark' : 'light';
-      setTheme(systemTheme);
-    }
-
-    document.documentElement.classList.value = theme;
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
     document.documentElement.style.colorScheme = theme;
-  }, [theme, setTheme]);
+  }, [theme]);
 
   const handleThemeChange = () => {
     toggleTheme();

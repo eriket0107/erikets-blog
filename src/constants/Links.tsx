@@ -7,32 +7,35 @@ const aboutIcon = <User size={16} className="text-primary" />;
 const githubIcon = <Github className="h-[20px] w-[20px]" />;
 const linkedinIcon = <Linkedin className="h-[20px] w-[20px]" />;
 
-export const routesConfig: ILink[] = [
-  {
-    href: "/",
-    icon: homeIcon,
-    title: "Home",
-    label: "Navigate to Home page",
-  },
-  {
-    href: "/blog",
-    icon: blogIcon,
-    title: "Blog",
-    label: "Navigate to Blog page",
-  },
-  {
-    href: "/about",
-    icon: aboutIcon,
-    title: "About me",
-    label: "Navigate to About page",
-  },
-  // {
-  //   href: "/setup",
-  //   icon: <Settings2 size={20} className="text-primary" />,
-  //   title: "Setup",
-  //   label: "Navigate to Setup page",
-  // },
-] as const;
+type routesConfigKeyType = "home" | "about" | "blog";
+
+export const getRoutesConfig = (t: (key: routesConfigKeyType) => string) =>
+  [
+    {
+      href: "/",
+      icon: homeIcon,
+      title: t("home"),
+      label: "Navigate to Home page",
+    },
+    {
+      href: "/blog",
+      icon: blogIcon,
+      title: t("blog"),
+      label: "Navigate to Blog page",
+    },
+    {
+      href: "/about",
+      icon: aboutIcon,
+      title: t("about"),
+      label: "Navigate to About page",
+    },
+    // {
+    //   href: "/setup",
+    //   icon: <Settings2 size={20} className="text-primary" />,
+    //   title: "Setup",
+    //   label: "Navigate to Setup page",
+    // },
+  ] as const;
 
 export const socialLinks: ILink[] = [
   {

@@ -1,18 +1,28 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
 import { BurgerMenu } from ".";
+import { NextIntlClientProvider } from "next-intl";
+import messages from "../../../messages/en.json";
 
 describe("BurgerMenu", () => {
   beforeEach(() => {});
   it("should render burger menu", () => {
-    const { getByTestId } = render(<BurgerMenu />);
+    const { getByTestId } = render(
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <BurgerMenu />
+      </NextIntlClientProvider>,
+    );
     const burgerButton = getByTestId("burger-menu");
 
     expect(burgerButton).toBeInTheDocument();
   });
 
   it("should open burger menu", () => {
-    const { getByTestId } = render(<BurgerMenu />);
+    const { getByTestId } = render(
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <BurgerMenu />
+      </NextIntlClientProvider>,
+    );
     const burgerButton = getByTestId("burger-menu");
 
     fireEvent.pointerDown(burgerButton);
@@ -22,7 +32,11 @@ describe("BurgerMenu", () => {
   });
 
   it("should have all the menu links", () => {
-    const { getByText, getByTestId } = render(<BurgerMenu />);
+    const { getByText, getByTestId } = render(
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <BurgerMenu />
+      </NextIntlClientProvider>,
+    );
     const burgerButton = getByTestId("burger-menu");
 
     fireEvent.pointerDown(burgerButton);

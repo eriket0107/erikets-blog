@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,9 +11,11 @@ import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 import { cn } from "@/utils";
 import ThemeButton from "../ThemeButton";
-import { usePathname } from "next/navigation";
-import { routesConfig } from "@/constants/Links";
+import { getRoutesConfig } from "@/constants/Links";
 import { memo } from "react";
+import { Link } from "../Link";
+import { usePathname } from "@/hooks/usePathname";
+import { useTranslations } from "next-intl";
 
 const classes = {
   link: "flex flex-row items-center text-base transition-all duration-100 ease-in-out",
@@ -24,6 +25,8 @@ const classes = {
 
 export const BurgerMenu = memo(() => {
   const pathname = usePathname();
+  const t = useTranslations("Constants");
+  const routesConfig = getRoutesConfig(t);
 
   return (
     <DropdownMenu>
@@ -66,4 +69,5 @@ export const BurgerMenu = memo(() => {
     </DropdownMenu>
   );
 });
+
 BurgerMenu.displayName = "BurgerMenu";

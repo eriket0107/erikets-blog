@@ -1,13 +1,16 @@
 "use client";
 
+import { getRoutesConfig } from "@/constants/Links";
 import { Box } from "../Box";
 
 import { NavLink } from "../NavLink";
-import { routesConfig } from "@/constants/Links";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/hooks/usePathname";
+import { useTranslations } from "next-intl";
 
 export const Navbar = () => {
   const pathname = usePathname();
+  const t = useTranslations("Constants");
+  const routesConfig = getRoutesConfig(t);
   return (
     <Box
       as="nav"
@@ -21,6 +24,7 @@ export const Navbar = () => {
           link={link}
           key={link.href}
           isSelected={pathname === link.href}
+          suppressHydrationWarning
         />
       ))}
     </Box>

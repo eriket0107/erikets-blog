@@ -1,8 +1,8 @@
 import { Box } from "@/components/Box";
 import { Layout } from "@/components/Layout";
+import { Link } from "@/components/Link";
 import { Typography } from "@/components/Typography";
 import { ArrowRight, RouteOff } from "lucide-react";
-import Link from "next/link";
 
 const NotFound = () => {
   return (

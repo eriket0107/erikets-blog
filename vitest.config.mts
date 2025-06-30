@@ -7,6 +7,12 @@ export default defineConfig({
   test: {
     environment: 'happy-dom',
     globals: true,
-    setupFiles: ['./test/setup.ts']
+    setupFiles: ['./test/setup.ts'],
+    server: {
+      deps: {
+        // https://github.com/vercel/next.js/issues/77200
+        inline: ['next-intl']
+      }
+    }
   },
 })
