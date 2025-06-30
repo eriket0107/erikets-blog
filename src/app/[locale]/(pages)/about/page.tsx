@@ -1,12 +1,20 @@
-import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: {
-    default: "About",
-    template: "%s | Coffe and Vanilla Code",
-  },
-  description: "Coffe and Vanilla Code",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "MetadataAbout" });
+
+  return {
+    title: {
+      default: t("title"),
+      template: "%s | Coffe and Vanilla Code",
+    },
+  };
+}
 
 const About = () => {
   return <>About</>;

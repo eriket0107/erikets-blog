@@ -11,5 +11,20 @@
     "title": "Language",
     "label": "Change language",
     "locale": "{locale, select, en {English 🇺🇸} br {Portuguese 🇧🇷} other {Unkown}}"
+  },
+  "MetadataHome": {
+    "title": "Home",
+    "locale": "en",
+    "namespace": "Metadata"
+  },
+  "MetadataBlog": {
+    "title": "Blog",
+    "locale": "en",
+    "namespace": "Metadata"
+  },
+  "MetadataAbout": {
+    "title": "About me",
+    "locale": "br",
+    "namespace": "Metadata"
   }
 }

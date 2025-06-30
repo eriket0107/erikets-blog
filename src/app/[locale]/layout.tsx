@@ -31,7 +31,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
-
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
