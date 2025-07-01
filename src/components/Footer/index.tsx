@@ -9,7 +9,7 @@ export const Footer = () => {
       as="footer"
       align="center"
       justify="between"
-      className="shadow-accent bottom-0 flex flex-row gap-10 border-t-1 p-3 shadow"
+      className="shadow-accent bg-background sticky bottom-0 flex h-[50px] flex-row gap-10 border-t-1 p-3 shadow"
       aria-label="Footer of screen"
       data-testid="footer"
     >
@@ -23,7 +23,7 @@ export const Footer = () => {
             key={link.href}
             isFooter
             target="_blank"
-            className="text-muted-foreground group hover:border-b-muted-foreground flex flex-row items-center gap-1 border-b-1 border-b-transparent text-sm"
+            className="text-muted-foreground hover:border-b-muted-foreground flex flex-row items-center gap-1 border-b-1 border-b-transparent text-sm"
           />
         ))}
       </Box>

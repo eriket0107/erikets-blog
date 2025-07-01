@@ -12,7 +12,7 @@ const ThemeButtonMenu = () => {
 
   return (
     <Button
-      className="flex flex-1 cursor-pointer flex-row items-center justify-between border-none text-base transition-all duration-100 ease-in-out focus:bg-transparent dark:bg-white"
+      className="bg-background flex flex-1 cursor-pointer flex-row items-center justify-between border-none text-base transition-all duration-100 ease-in-out focus:bg-transparent"
       variant="ghost"
       size="default-icon"
       onClick={handleThemeChange}
@@ -38,9 +38,7 @@ const ThemeButtonNav = () => {
         <Button
           onClick={handleThemeChange}
           className={cn(
-            isDark ? "bg-white" : "bg-accent-foreground",
-            isDark ? "border-accent-foreground" : "border-white",
-            "hidden cursor-pointer hover:scale-95 md:flex",
+            "bg-foreground hidden cursor-pointer hover:scale-95 md:flex",
           )}
           data-testid="theme-btn-nav"
         >

@@ -1,6 +1,5 @@
 import { Box } from "../Box";
 
-import { cn } from "@/utils";
 import { Navbar } from "../Navbar";
 import { BurgerMenu } from "../BurgerMenu";
 import { memo } from "react";
@@ -19,9 +18,9 @@ export const Header = memo(() => {
       as="header"
       justify="between"
       align="center"
-      className={cn(
-        "shadow-accent animate-fade-in flex flex-row border-b-1 p-4 shadow",
-      )}
+      className={
+        "shadow-accent animate-fade-in bg-background sticky top-0 z-1 flex max-h-[70px] flex-row border-b-1 p-4 shadow"
+      }
       aria-label="Header of screen"
       data-testid="header-box"
     >

@@ -133,6 +133,10 @@ body {
   }
 }
 
+.screen-layout {
+  min-height: calc(100dvh - 120px);
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -146,6 +150,35 @@ body {
 
 .animate-fade-in {
   animation: fade-in 0.6s ease-out forwards;
+}
+
+@keyframes waving {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(14deg);
+  }
+  30% {
+    transform: rotate(-8deg);
+  }
+  40% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  60% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.animate-waving {
+  animation: waving 2.5s infinite;
+  display: inline-block;
+  transform-origin: bottom;
 }
 
 

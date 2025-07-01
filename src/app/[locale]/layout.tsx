@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { ThemeScript } from "@/scripts/ThemeScript";
+import { Layout } from "@/components/Layout";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -37,14 +38,12 @@ export default async function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
-        className={`${roboto.className} flex min-h-dvh w-full flex-col antialiased`}
+        className={`${roboto.className} overflow-hiden flex w-full flex-col antialiased`}
       >
         <ThemeScript />
         <NextIntlClientProvider>
           <Header />
-
-          {children}
-
+          <Layout>{children}</Layout>
           <Footer />
         </NextIntlClientProvider>
       </body>
