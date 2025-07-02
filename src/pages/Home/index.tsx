@@ -5,9 +5,11 @@ import { Typography } from "@/components/Typography";
 import { PostCard } from "@/components/PostCard";
 import { getPosts } from "@/actions/posts";
 import { Suspense } from "react";
+import { getTranslations } from "next-intl/server";
 
 export const Home = async () => {
   const posts = await getPosts({ perPage: 2 });
+  const t = await getTranslations("HomePage");
 
   return (
     <Box
@@ -23,7 +25,7 @@ export const Home = async () => {
             id="intro-heading"
             className="text-accent-foreground max-w-3xl text-left"
           >
-            Hello there!{" "}
+            {t("greeting")}{" "}
             <span
               className="animate-waving z-0"
               role="img"
@@ -33,7 +35,7 @@ export const Home = async () => {
             </span>
           </Typography.H1>
           <Typography.P className="text-accent-foreground space-0 animate-fade-in-fast max-w-3xl p-0 text-xl">
-            I&apos;m{" "}
+            {t("iam")}
             <Link
               className="transition-all transition-discrete"
               href="/about"
@@ -42,22 +44,17 @@ export const Home = async () => {
               <span className="focus:outline-accent inline-block text-3xl font-bold hover:underline focus:underline focus:outline-2 focus:outline-offset-2">
                 Erik
               </span>
-              ,{" "}
             </Link>
-            a curious Software Developer and technology enthusiastic <br />
+            {t("introduction")} <br />
             <Typography.Small className="text-muted-foreground text-sm md:text-xs">
-              (and as you probably have noticed, also a coffee lover).
+              {t("curiosity")}
             </Typography.Small>
             <br />
-            Eager to share some experiences with my posts, in there you&apos;ll
-            find topics about programming, working experiences and whatever
-            comes up with life. <br /> I hope my thoughts can be useful for you
-            somehow!
+            {t("sharing_experience")} {t("hope")}
           </Typography.P>
 
           <Typography.Muted className="animate-fade-in-fast w-auto max-w-3xl">
-            Right now I&apos;m Fullstacking my career, however primarily I
-            started as Frontend
+            {t("current_focus")}
           </Typography.Muted>
         </Box>
         <Box
@@ -70,7 +67,7 @@ export const Home = async () => {
             id="latest-posts-heading"
             className="text-accent-foreground max-w-3xl text-left"
           >
-            Be my guest and take a look on my latest posts!
+            {t("take_a_look")}
           </Typography.H2>
           <Box
             direction="col"
