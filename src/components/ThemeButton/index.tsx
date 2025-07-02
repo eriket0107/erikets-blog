@@ -19,11 +19,7 @@ const ThemeButtonMenu = () => {
       data-testid="theme-btn-menu"
     >
       {isDark ? "Light" : "Dark"}
-      {isDark ? (
-        <Coffee suppressHydrationWarning color="white" />
-      ) : (
-        <Beer suppressHydrationWarning color="black" />
-      )}
+      {isDark ? <Coffee color="white" /> : <Beer color="black" />}
     </Button>
   );
 };

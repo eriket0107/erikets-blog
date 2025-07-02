@@ -6,3 +6,13 @@ export type PostType = {
   date: string;
   text: string;
 };
+
+export type Pagination<T> = {
+  first: number,
+  prev: boolean,
+  next: boolean,
+  last: number,
+  pages: number,
+  items: number,
+  data: T
+}

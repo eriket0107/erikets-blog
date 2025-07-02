@@ -30,7 +30,7 @@ export const Header = memo(() => {
 
       <Box justify="end" align="center" gap="4">
         <Navbar />
-        <Suspense>
+        <Suspense fallback={<></>}>
           <ThemeButton variant="nav" />
         </Suspense>
       </Box>
