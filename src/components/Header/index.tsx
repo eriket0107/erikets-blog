@@ -1,6 +1,6 @@
 import { Box } from "../Box";
 
-import { Navbar } from "../Navbar";
+import { Navbar } from "../NavBar";
 import { BurgerMenu } from "../BurgerMenu";
 import { memo } from "react";
 import { Suspense } from "react";
