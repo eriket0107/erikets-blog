@@ -4,6 +4,8 @@ import { Typography } from "@/components/Typography";
 // import { useTranslations } from "next-intl";
 
 import { getTranslations } from "next-intl/server";
+import postsMock from "../../../mocks/posts";
+import { PostCard } from "@/components/PostCard";
 
 export async function generateMetadata({
   params,
@@ -26,12 +28,12 @@ const Home = () => {
   // t("title")
   return (
     <Box gap="10" direction="col" align="center" justify="start">
-      <Box gap="10" direction="col" width="500px">
+      <Box gap="12" direction="col" width="500px">
         <Box direction="col">
           <Typography.H2 className="text-accent-foreground max-w-3xl text-left">
             Hello there! <span className="animate-waving z-0">👋</span>
           </Typography.H2>
-          <Typography.P className="text-accent-foreground space-0 max-w-3xl p-0 text-xl">
+          <Typography.P className="text-accent-foreground space-0 animate-fade-in-fast max-w-3xl p-0 text-xl">
             I&apos;m{" "}
             <Link className="transition-all transition-discrete" href="/about">
               <span className="animation-duration-initial inline-block text-3xl font-bold hover:underline">
@@ -46,15 +48,28 @@ const Home = () => {
             somehow!
           </Typography.P>
 
-          <Typography.Muted className="w-auto max-w-3xl">
+          <Typography.Muted className="animate-fade-in-fast w-auto max-w-3xl">
             Right now I&apos;m Fullstacking my career, however primarily I
             started as Frontend
           </Typography.Muted>
         </Box>
-        <Box direction="col">
-          <Typography.H3 className="text-accent-foreground max-w-3xl text-left">
-            Be my guest and take a look on my recent post!
-          </Typography.H3>
+        <Box
+          direction="col"
+          gap="4"
+          className="animate-fade-in-slow h-[475px] overflow-y-hidden"
+        >
+          <Typography.H2 className="text-accent-foreground max-w-3xl text-left">
+            Be my guest and take a look on my latests posts!
+          </Typography.H2>
+          <Box
+            direction="col"
+            gap="4"
+            className="[&::-webkit-scrollbar-track]:transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground snap-y snap-mandatory overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
+          >
+            {postsMock.map((post) => (
+              <PostCard post={post} key={post.id} />
+            ))}
+          </Box>
         </Box>
       </Box>
     </Box>
@@ -62,3 +77,6 @@ const Home = () => {
 };
 
 export default Home;
+
+// asdas da s
+//                   askdjnksadbkajsdb ahjdb kjasdb jakdbkjasbdk abdkbas testeas...
