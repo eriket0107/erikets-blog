@@ -4,7 +4,8 @@ export type PostType = {
   title: string;
   description: string;
   date: string;
-  text: string;
+  text?: string;
+  references?: string[]
 };
 
 export type Pagination<T> = {
