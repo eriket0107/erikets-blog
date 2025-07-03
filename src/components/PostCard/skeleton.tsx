@@ -1,7 +1,7 @@
 import { Skeleton } from "../ui/skeleton";
 import { Box } from "../Box";
 
-export const PostCardLoading = ({ length = 2 }: { length?: number }) => {
+export const PostCardSkeleton = ({ length = 2 }: { length?: number }) => {
   return (
     <>
       {Array.from({ length }, () => (
@@ -11,7 +11,7 @@ export const PostCardLoading = ({ length = 2 }: { length?: number }) => {
           width="full"
           height="full"
           justify="center"
-          className="m-0 snap-center md:mx-auto"
+          className="m-0 snap-center md:mx-auto md:w-[800px]"
           key={length}
         >
           <Box className="flex-col rounded-sm md:flex-row">

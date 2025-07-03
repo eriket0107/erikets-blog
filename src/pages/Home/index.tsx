@@ -5,7 +5,7 @@ import { Typography } from "@/components/Typography";
 import { getTranslations } from "next-intl/server";
 import { PostList } from "@/components/PostList";
 import { Suspense } from "react";
-import { PostCardLoading } from "@/components/PostCard/loadig";
+import { PostCardSkeleton } from "@/components/PostCard/skeleton";
 
 export const Home = async () => {
   const t = await getTranslations("HomePage");
@@ -68,7 +68,7 @@ export const Home = async () => {
           >
             {t("take_a_look")}
           </Typography.H2>
-          <Suspense fallback={<PostCardLoading />}>
+          <Suspense fallback={<PostCardSkeleton />}>
             <PostList />
           </Suspense>
         </Box>
