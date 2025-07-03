@@ -2,7 +2,6 @@ import { Box } from "../Box";
 
 import { Navbar } from "../NavBar";
 import { BurgerMenu } from "../BurgerMenu";
-import { memo } from "react";
 import { Suspense } from "react";
 
 import dynamic from "next/dynamic";
@@ -12,7 +11,7 @@ const ThemeButton = dynamic(() => import("../ThemeButton"), {
   ssr: true,
 });
 
-export const Header = memo(() => {
+export const Header = () => {
   return (
     <Box
       as="header"
@@ -38,6 +37,4 @@ export const Header = memo(() => {
       <BurgerMenu />
     </Box>
   );
-});
-
-Header.displayName = "Header";
+};

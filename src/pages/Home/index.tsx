@@ -2,13 +2,12 @@ import { Box } from "@/components/Box";
 import { Link } from "@/components/Link";
 import { Typography } from "@/components/Typography";
 
-import { PostCard } from "@/components/PostCard";
-import { getPosts } from "@/actions/posts";
-import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
+import { PostList } from "@/components/PostList";
+import { Suspense } from "react";
+import { PostCardLoading } from "@/components/PostCard/loadig";
 
 export const Home = async () => {
-  const posts = await getPosts({ perPage: 2 });
   const t = await getTranslations("HomePage");
 
   return (
@@ -69,25 +68,9 @@ export const Home = async () => {
           >
             {t("take_a_look")}
           </Typography.H2>
-          <Box
-            direction="col"
-            gap="4"
-            role="feed"
-            aria-label="Latest blog posts"
-            className="[&::-webkit-scrollbar-track]:transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground focus-within:outline-accent h-[420px] snap-y snap-mandatory overflow-y-auto pb-1 focus-within:outline-2 focus-within:outline-offset-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
-            tabIndex={0}
-          >
-            <Suspense fallback={<>Loading...</>}>
-              {posts.data.map((post, index) => (
-                <PostCard
-                  post={post}
-                  key={post.id}
-                  ariaPosinset={index + 1}
-                  ariaSetsize={posts.data.length}
-                />
-              ))}
-            </Suspense>
-          </Box>
+          <Suspense fallback={<PostCardLoading />}>
+            <PostList />
+          </Suspense>
         </Box>
       </Box>
     </Box>
