@@ -4,7 +4,7 @@ import { Box } from "../Box";
 export const PostCardSkeleton = ({ length = 2 }: { length?: number }) => {
   return (
     <>
-      {Array.from({ length }, () => (
+      {Array.from({ length }, (_, index) => (
         <Box
           as="article"
           gap="4"
@@ -12,10 +12,9 @@ export const PostCardSkeleton = ({ length = 2 }: { length?: number }) => {
           height="full"
           justify="center"
           className="m-0 snap-center md:mx-auto md:w-[800px]"
-          key={length}
+          key={index}
         >
           <Box className="flex-col rounded-sm md:flex-row">
-            {/* Image skeleton */}
             <Box
               height={"200px"}
               className="relative min-w-[300px] overflow-hidden rounded-t-sm md:w-[300px] md:rounded-l-sm md:rounded-r-none"
