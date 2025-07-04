@@ -36,7 +36,7 @@ describe("Theme Button Nav", () => {
 
     const themeButton = getByTestId("theme-btn-nav");
 
-    expect(themeButton).toHaveClass("bg-accent-foreground");
+    expect(themeButton).toHaveClass("bg-foreground");
   });
 
   it("shoud channge to light theme nav", () => {
@@ -47,7 +47,7 @@ describe("Theme Button Nav", () => {
     const { getByTestId } = render(<ThemeButton variant="nav" />);
 
     const themeButton = getByTestId("theme-btn-nav");
-    expect(themeButton).toHaveClass("bg-accent-foreground");
+    expect(themeButton).toHaveClass("bg-foreground");
   });
 });
 
@@ -82,7 +82,7 @@ describe("Theme Button Menu", () => {
     const { getByTestId } = render(<ThemeButton variant="menu" />);
 
     const themeButton = getByTestId("theme-btn-menu");
-    expect(themeButton).toHaveClass("dark:bg-white");
+    expect(themeButton).toHaveClass("bg-background");
   });
 
   it("should display the correct text if is light ", () => {

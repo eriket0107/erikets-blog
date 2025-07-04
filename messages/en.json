@@ -1,6 +1,14 @@
 {
   "HomePage": {
-    "title": "Hello world!"
+    "greeting": "Hello there!",
+    "iam": "I'm ",
+    "introduction": ", a curious Software Developer and technology enthusiast",
+    "curiosity": "(and as you probably have noticed, also a coffee lover).",
+    "sharing_experience": "Eager to share my experiences in my posts, in there you'll find topics about programming, working experiences and whatever comes up with life.",
+    "hope": "I hope my thoughts can be useful somehow.",
+    "current_focus": "Right now I'm Fullstacking my career, however primarily I started as Frontend.",
+    "take_a_look": "Be my guest and take a look on my latest posts!",
+    "empty_posts": "Ideas sector is working at momment,<br></br> come back soon! What about taking some time to explore the site?"
   },
   "Constants": {
     "home": "Home",

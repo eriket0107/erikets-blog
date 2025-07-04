@@ -1,6 +1,4 @@
-import { Layout } from "@/components/Layout";
-import { useTranslations } from "next-intl";
-
+import { Home as HomeTemplate } from "@/pages/Home";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
@@ -20,8 +18,7 @@ export async function generateMetadata({
 }
 
 const Home = () => {
-  const t = useTranslations("HomePage");
-  return <Layout>{t("title")}</Layout>;
+  return <HomeTemplate />;
 };
 
 export default Home;
