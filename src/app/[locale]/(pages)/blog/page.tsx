@@ -42,7 +42,7 @@ const Blog = async ({ searchParams }: { searchParams: { page?: string } }) => {
         id="intro-blog"
         className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
       >
-        Teste
+        Posts
       </Typography.H1>
 
       <Box

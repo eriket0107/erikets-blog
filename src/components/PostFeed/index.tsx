@@ -39,8 +39,9 @@ export const PostFeed = async ({
         pagination={pagination}
         className="text-muted-foreground flex md:hidden"
         aria-label="Number of pages"
+        data-testid="pagination"
       />
-      <Typography.Small className="text-xs md:hidden">
+      <Typography.Small className="text-xs md:hidden" data-testid={"from-to"}>
         {from} to {to} | {items}
       </Typography.Small>
 

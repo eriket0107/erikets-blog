@@ -42,8 +42,8 @@ const mockPosts: PostType[] = [
 
 const mockPagination = {
   first: 1,
-  prev: false,
-  next: false,
+  prev: 0,
+  next: 0,
   last: 1,
   pages: 1,
   items: 2,
@@ -62,7 +62,9 @@ const renderComponent = async () => {
 describe("PostList", () => {
   it("should render feed container", async () => {
     const { getPosts } = await import("@/actions/posts");
-    vi.mocked(getPosts).mockResolvedValue(mockPagination);
+    vi.mocked(getPosts).mockResolvedValue({
+      ...mockPagination,
+    });
 
     await renderComponent();
 
