@@ -18,7 +18,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: {
     default: "Home",
-    template: "%s | Coffe and Vanilla Code",
+    template: "%s | Coffe & Vanilla Code",
   },
   description: "Coffe and Vanilla Code",
   icons: {

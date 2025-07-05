@@ -4,7 +4,6 @@ import { PostFeed } from "./index";
 import { NextIntlClientProvider } from "next-intl";
 import messages from "../../../messages/en.json";
 
-// Mock next/navigation
 vi.mock("next/navigation", () => ({
   usePathname: () => "/",
   useRouter: () => ({
@@ -21,7 +20,6 @@ vi.mock("next/navigation", () => ({
   useSelectedLayoutSegment: () => ({ locale: "en" }),
 }));
 
-// Mock the getPosts action
 vi.mock("@/actions/posts", () => ({
   getPosts: vi.fn(),
 }));

@@ -11,7 +11,7 @@ export async function generateMetadata({
   return {
     title: {
       default: t("title"),
-      template: "%s | Coffe and Vanilla Code",
+      template: "%s | Coffe & Vanilla Code",
     },
   };
 }
