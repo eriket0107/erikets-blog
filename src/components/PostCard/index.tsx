@@ -9,11 +9,17 @@ interface IPostCard {
   post: PostType;
   ariaPosinset?: number;
   ariaSetsize?: number;
+  hasImage?: boolean;
 }
 
 const MAX_CHARACTERS_LENGTH = 110;
 
-export const PostCard = ({ post, ariaPosinset, ariaSetsize }: IPostCard) => {
+export const PostCard = ({
+  post,
+  ariaPosinset,
+  ariaSetsize,
+  hasImage = true,
+}: IPostCard) => {
   const { description, imgSrc, title, date, id } = post;
 
   const truncatedDescription = truncateString(
@@ -26,9 +32,7 @@ export const PostCard = ({ post, ariaPosinset, ariaSetsize }: IPostCard) => {
       as="article"
       direction="col"
       gap="4"
-      width="auto"
       height="auto"
-      justify="center"
       className="m-0 snap-center md:mx-auto"
       aria-posinset={ariaPosinset}
       aria-setsize={ariaSetsize}
@@ -39,17 +43,19 @@ export const PostCard = ({ post, ariaPosinset, ariaSetsize }: IPostCard) => {
         aria-label={`Read full post: ${title}`}
       >
         <Box className="flex-col rounded-sm md:flex-row">
-          <Box
-            height={"200px"}
-            className="relative min-w-[300px] overflow-hidden rounded-t-sm md:w-[300px] md:rounded-l-sm md:rounded-r-none"
-          >
-            <Image
-              fill
-              src={imgSrc}
-              alt={`Cover image for blog post: ${title}`}
-              className="object-cover transition-all transition-discrete md:group-hover:scale-115"
-            />
-          </Box>
+          {hasImage && (
+            <Box
+              height={"200px"}
+              className="relative min-w-[300px] overflow-hidden rounded-t-sm md:w-[300px] md:rounded-l-sm md:rounded-r-none"
+            >
+              <Image
+                fill
+                src={imgSrc}
+                alt={`Cover image for blog post: ${title}`}
+                className="object-cover transition-all transition-discrete md:group-hover:scale-115"
+              />
+            </Box>
+          )}
           <Box
             direction="col"
             className="mt-1 h-[200px] w-full items-center md:mt-0 md:max-w-[500px] md:items-start md:p-4"

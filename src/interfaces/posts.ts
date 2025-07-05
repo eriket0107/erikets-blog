@@ -10,8 +10,8 @@ export type PostType = {
 
 export type Pagination<T> = {
   first: number,
-  prev: boolean,
-  next: boolean,
+  prev: number | null,
+  next: number | null,
   last: number,
   pages: number,
   items: number,

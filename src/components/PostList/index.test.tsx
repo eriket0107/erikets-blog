@@ -51,7 +51,7 @@ const mockPagination = {
 };
 
 const renderComponent = async () => {
-  const ComponentWrapper = await PostList();
+  const ComponentWrapper = await PostList({});
   return render(
     <NextIntlClientProvider locale="en" messages={messages}>
       {ComponentWrapper}
@@ -73,7 +73,7 @@ describe("PostList", () => {
     const { getPosts } = await import("@/actions/posts");
     vi.mocked(getPosts).mockResolvedValue(mockPagination);
 
-    await PostList();
+    await PostList({});
 
     expect(getPosts).toHaveBeenCalledWith({ perPage: 2 });
   });

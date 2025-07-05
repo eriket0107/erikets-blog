@@ -1,7 +1,13 @@
 import { Skeleton } from "../ui/skeleton";
 import { Box } from "../Box";
 
-export const PostCardSkeleton = ({ length = 2 }: { length?: number }) => {
+export const PostCardSkeleton = ({
+  length = 2,
+  hasImage = true,
+}: {
+  length?: number;
+  hasImage?: boolean;
+}) => {
   return (
     <>
       {Array.from({ length }, (_, index) => (
@@ -11,20 +17,22 @@ export const PostCardSkeleton = ({ length = 2 }: { length?: number }) => {
           width="full"
           height="full"
           justify="center"
-          className="m-0 snap-center md:mx-auto md:w-[800px]"
+          className="m-0 snap-center md:w-[500px]"
           key={index}
         >
           <Box className="flex-col rounded-sm md:flex-row">
-            <Box
-              height={"200px"}
-              className="relative min-w-[300px] overflow-hidden rounded-t-sm md:w-[300px] md:rounded-l-sm md:rounded-r-none"
-            >
-              <Skeleton className="h-full w-full" />
-            </Box>
+            {hasImage && (
+              <Box
+                height={"200px"}
+                className="relative min-w-[300px] overflow-hidden rounded-t-sm md:w-[300px] md:rounded-l-sm md:rounded-r-none"
+              >
+                <Skeleton className="h-full w-full" />
+              </Box>
+            )}
 
             <Box
               direction="col"
-              className="mt-1 h-[200px] w-full items-center md:mt-0 md:max-w-[500px] md:items-start md:p-4"
+              className="mt-1 h-[200px] w-full md:mt-0 md:max-w-[500px] md:items-start md:p-4"
             >
               <Skeleton className="mb-4 h-8 w-3/4" />
 

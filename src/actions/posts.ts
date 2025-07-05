@@ -4,9 +4,9 @@ import { Pagination, PostType } from "@/interfaces/posts"
 import { api } from "@/api"
 
 
-export const getPosts = async ({ page = 1, perPage = 5 }: { page?: number, perPage?: number }) => {
+export const getPosts = async ({ currentPage = 1, perPage = 5 }: { currentPage?: number, perPage?: number }) => {
   try {
-    const data = await api<Pagination<PostType[]>>(`posts?_page=${page}&_per_page=${perPage}`, {
+    const data = await api<Pagination<PostType[]>>(`posts?_page=${currentPage}&_per_page=${perPage}`, {
       cache: 'no-cache',
       next: {
         tags: ['posts'],
