@@ -1,3 +1,4 @@
+import { Blog as BlogTemplate } from "@/pages/Blog";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
@@ -11,12 +12,15 @@ export async function generateMetadata({
   return {
     title: {
       default: t("title"),
-      template: "%s | Coffe and Vanilla Code",
+      template: "%s | Coffe & Vanilla Code",
     },
   };
 }
 
-const Blog = () => {
-  return <>Blog</>;
+const Blog = async ({ searchParams }: { searchParams?: { page?: string } }) => {
+  const resolvedSearchParams = await searchParams;
+  const currentPage = Number(resolvedSearchParams?.page) || 1;
+  return <BlogTemplate currentPage={currentPage} />;
 };
+
 export default Blog;

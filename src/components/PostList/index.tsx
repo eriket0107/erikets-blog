@@ -2,16 +2,17 @@ import { Box } from "../Box";
 import { getPosts } from "@/actions/posts";
 import { PostCard } from "../PostCard";
 import { Typography } from "../Typography";
-import { NotebookPen } from "lucide-react";
+import { NotebookText, Pencil } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-export const PostList = async () => {
-  const posts = await getPosts({ perPage: 2 });
+export const PostList = async ({ quantity = 2 }: { quantity?: number }) => {
+  const posts = await getPosts({ perPage: quantity });
   const hasPosts = !!posts.data.length;
   const t = await getTranslations("HomePage");
 
   return (
     <Box
+      as="section"
       direction="col"
       gap="4"
       role="feed"
@@ -26,11 +27,12 @@ export const PostList = async () => {
             key={post.id}
             ariaPosinset={index + 1}
             ariaSetsize={posts.data.length}
+            hasImage={false}
           />
         ))
       ) : (
         <Box
-          gap="10"
+          gap="6"
           align="center"
           height="auto"
           className="py-4 text-left"
@@ -42,7 +44,14 @@ export const PostList = async () => {
               br: () => <br />,
             })}
           </Typography.H3>
-          <NotebookPen className="text-muted-foreground" size={48} />
+          <div className="relative">
+            <Pencil
+              className="animate-waving text-muted-foreground absolute top-0 left-2.5 z-1"
+              size={30}
+              fill="grey"
+            />
+            <NotebookText className="text-muted-foreground z-[-1]" size={48} />
+          </div>
         </Box>
       )}
     </Box>

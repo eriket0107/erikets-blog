@@ -42,8 +42,8 @@ const mockPosts: PostType[] = [
 
 const mockPagination = {
   first: 1,
-  prev: false,
-  next: false,
+  prev: 0,
+  next: 0,
   last: 1,
   pages: 1,
   items: 2,
@@ -51,7 +51,7 @@ const mockPagination = {
 };
 
 const renderComponent = async () => {
-  const ComponentWrapper = await PostList();
+  const ComponentWrapper = await PostList({});
   return render(
     <NextIntlClientProvider locale="en" messages={messages}>
       {ComponentWrapper}
@@ -62,7 +62,9 @@ const renderComponent = async () => {
 describe("PostList", () => {
   it("should render feed container", async () => {
     const { getPosts } = await import("@/actions/posts");
-    vi.mocked(getPosts).mockResolvedValue(mockPagination);
+    vi.mocked(getPosts).mockResolvedValue({
+      ...mockPagination,
+    });
 
     await renderComponent();
 
@@ -73,7 +75,7 @@ describe("PostList", () => {
     const { getPosts } = await import("@/actions/posts");
     vi.mocked(getPosts).mockResolvedValue(mockPagination);
 
-    await PostList();
+    await PostList({});
 
     expect(getPosts).toHaveBeenCalledWith({ perPage: 2 });
   });
