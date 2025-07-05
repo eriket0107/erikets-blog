@@ -1,10 +1,12 @@
+export type LanguageType = "br" | "en"
+
 export type PostType = {
   id: string
   imgSrc: string;
-  title: string;
-  description: string;
+  title: { [K in LanguageType]: string };
+  description: { [K in LanguageType]: string };
   date: string;
-  text?: string;
+  text?: { [K in LanguageType]: string };
   references?: string[]
 };
 

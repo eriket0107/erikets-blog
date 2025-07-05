@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { Box } from "../Box";
 import { Typography } from "../Typography";
-import { PostType } from "@/interfaces/posts";
+import { LanguageType, PostType } from "@/interfaces/posts";
 import { Link } from "../Link";
 import { truncateString } from "@/utils";
+import { useLocale } from "next-intl";
 
 interface IPostCard {
   post: PostType;
@@ -21,11 +22,12 @@ export const PostCard = ({
   hasImage = true,
 }: IPostCard) => {
   const { description, imgSrc, title, date, id } = post;
-
+  const language = useLocale() as LanguageType;
   const truncatedDescription = truncateString(
-    description,
+    description[language],
     MAX_CHARACTERS_LENGTH,
   );
+
   const dateTime = new Date(date + "T00:00:00").toLocaleDateString("pt-BR");
   return (
     <Box
@@ -51,7 +53,7 @@ export const PostCard = ({
               <Image
                 fill
                 src={imgSrc}
-                alt={`Cover image for blog post: ${title}`}
+                alt={`Cover image for blog post: ${title[language]}`}
                 className="object-cover transition-all transition-discrete md:group-hover:scale-115"
               />
             </Box>
@@ -61,7 +63,7 @@ export const PostCard = ({
             className="mt-1 h-[180px] w-full items-center md:mt-0 md:max-w-[500px] md:items-start md:p-4"
           >
             <Typography.H3 className="mr-auto underline md:mr-0">
-              {title}
+              {title[language]}
             </Typography.H3>
 
             <Box direction="col" justify="between">
