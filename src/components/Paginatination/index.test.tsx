@@ -82,7 +82,10 @@ describe("Pagination", () => {
       "border-accent-foreground",
       "font-medium",
     );
-    expect(currentPageLink).toHaveAttribute("href", "?page=2");
+    expect(currentPageLink).toHaveAttribute(
+      "aria-label",
+      "Current page 2 of 10",
+    );
   });
 
   it("should display prev and next navigation with all links", () => {
@@ -93,7 +96,7 @@ describe("Pagination", () => {
 
     expect(prevPageLink).toHaveClass("text-muted-foreground");
     expect(nextPageLink).toHaveClass("text-muted-foreground");
-    expect(links).toHaveLength(7);
+    expect(links).toHaveLength(6);
   });
 
   it("should not display prev navigation on first page", () => {
@@ -105,7 +108,7 @@ describe("Pagination", () => {
       "text-foreground",
       "border-accent-foreground",
     );
-    expect(links).toHaveLength(4);
+    expect(links).toHaveLength(3);
   });
 
   it("should not display next navigation on last page", () => {
@@ -117,6 +120,6 @@ describe("Pagination", () => {
       "text-foreground",
       "border-accent-foreground",
     );
-    expect(links).toHaveLength(4);
+    expect(links).toHaveLength(3);
   });
 });

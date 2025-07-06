@@ -21,13 +21,15 @@ interface IPagination {
 }
 
 const classeNames = {
-  link: "text-md text-muted-foreground hover:border-accent-foreground border-b-1 border-transparent transition-all transition-discrete hover:scale-95 hover:opacity-85",
+  link: "text-md text-muted-foreground hover:border-accent-foreground border-b-1 border-transparent transition-all transition-discrete hover:scale-95 hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-accent-foreground focus:ring-offset-2",
   activeLink:
     "text-md text-foreground border-accent-foreground border-b-1 font-medium",
+  currentPage:
+    "text-md text-foreground border-accent-foreground border-b-1 font-medium cursor-default",
 };
 
 export const Pagination = ({ className, pagination }: IPagination) => {
-  const { first, next, prev, currentPage, last } = pagination;
+  const { first, next, prev, currentPage, last, totalPages } = pagination;
 
   return (
     <Box
@@ -38,43 +40,70 @@ export const Pagination = ({ className, pagination }: IPagination) => {
       aria-label="Pagination of posts"
       className={cn(className)}
     >
-      <Box align="center" justify="center" gap="4">
+      <Box align="center" justify="center" gap="4" role="list">
         {prev && (
           <>
-            <Link href={`?page=${first}`} className={classeNames.link} prefetch>
+            <Link
+              href={`?page=${first}`}
+              className={classeNames.link}
+              aria-label={`Go to first page, page ${first}`}
+            >
               <ChevronFirst size={16} />
             </Link>
-            <Link href={`?page=${prev}`} className={classeNames.link} prefetch>
+            <Link
+              href={`?page=${prev}`}
+              className={classeNames.link}
+              aria-label={`Go to previous page, page ${prev}`}
+            >
               <ChevronLeft size={16} />
+              <span className="sr-only">Previous</span>
             </Link>
           </>
         )}
 
         {prev && (
-          <Link href={`?page=${prev}`} className={classeNames.link} prefetch>
+          <Link
+            href={`?page=${prev}`}
+            className={classeNames.link}
+            aria-label={`Go to page ${prev}`}
+          >
             {prev}
           </Link>
         )}
-        <Link
-          href={`?page=${currentPage}`}
-          className={classeNames.activeLink}
-          aria-label={`Current page ${currentPage}`}
-          prefetch
+
+        <span
+          className={classeNames.currentPage}
+          aria-current="page"
+          aria-label={`Current page ${currentPage} of ${totalPages}`}
         >
           {currentPage}
-        </Link>
+        </span>
+
         {next && (
-          <Link href={`?page=${next}`} className={classeNames.link} prefetch>
+          <Link
+            href={`?page=${next}`}
+            className={classeNames.link}
+            aria-label={`Go to page ${next}`}
+          >
             {next}
           </Link>
         )}
 
         {next && (
           <>
-            <Link href={`?page=${next}`} className={classeNames.link} prefetch>
+            <Link
+              href={`?page=${next}`}
+              className={classeNames.link}
+              aria-label={`Go to next page, page ${next}`}
+            >
               <ChevronRight size={16} />
+              <span className="sr-only">Next</span>
             </Link>
-            <Link href={`?page=${last}`} className={classeNames.link} prefetch>
+            <Link
+              href={`?page=${last}`}
+              className={classeNames.link}
+              aria-label={`Go to last page, page ${last}`}
+            >
               <ChevronLast size={16} />
             </Link>
           </>

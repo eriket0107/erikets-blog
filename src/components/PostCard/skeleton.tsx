@@ -32,7 +32,7 @@ export const PostCardSkeleton = ({
 
             <Box
               direction="col"
-              className="mt-1 h-[200px] w-full md:mt-0 md:max-w-[500px] md:items-start md:p-4"
+              className="mt-1 h-[180px] w-full md:mt-0 md:max-w-[500px] md:items-start md:p-4"
             >
               <Skeleton className="mb-4 h-8 w-3/4" />
 

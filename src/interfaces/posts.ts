@@ -1,5 +1,10 @@
 export type LanguageType = "br" | "en"
 
+type ReferenceType = {
+  src: string
+  name: string
+}
+
 export type PostType = {
   id: string
   imgSrc: string;
@@ -7,15 +12,6 @@ export type PostType = {
   description: { [K in LanguageType]: string };
   date: string;
   text?: { [K in LanguageType]: string };
-  references?: string[]
+  references?: ReferenceType[]
+  tags?: string[]
 };
-
-export type Pagination<T> = {
-  first: number,
-  prev: number | null,
-  next: number | null,
-  last: number,
-  pages: number,
-  items: number,
-  data: T
-}

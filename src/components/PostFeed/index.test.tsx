@@ -24,22 +24,31 @@ vi.mock("@/actions/posts", () => ({
   getPosts: vi.fn(),
 }));
 
+vi.mock("next-intl/server", () => ({
+  getTranslations: vi.fn(() => (key: string) => {
+    const translations: Record<string, string> = {
+      pagination_number: "of",
+    };
+    return translations[key] || key;
+  }),
+}));
+
 const mockGetPosts = vi.mocked(await import("@/actions/posts")).getPosts;
 
 const mockData = {
   data: [
     {
       id: "1",
-      title: "Post 1",
+      title: { en: "Post 1", br: "Post 1" },
       imgSrc: "/img1.jpg",
-      description: "Desc 1",
+      description: { en: "Desc 1", br: "Desc 1" },
       date: "2024-01-01",
     },
     {
       id: "2",
-      title: "Post 2",
+      title: { en: "Post 2", br: "Post 2" },
       imgSrc: "/img2.jpg",
-      description: "Desc 2",
+      description: { en: "Desc 2", br: "Desc 2" },
       date: "2024-01-02",
     },
   ],
@@ -53,6 +62,7 @@ const mockData = {
 
 const renderComponent = async (currentPage: number = 1) => {
   const PostFeedComponent = await PostFeed({ currentPage });
+
   return render(
     <NextIntlClientProvider locale="en" messages={messages}>
       {PostFeedComponent}

@@ -37,22 +37,38 @@ vi.mock("next/navigation", () => ({
 
 const mockPost: PostType = {
   id: "test-post-1",
-  title: "Test Blog Post",
-  description:
-    "This is a test description for the blog post that should be displayed properly.",
+  title: {
+    en: "Test Blog Post",
+    br: "",
+  },
+  description: {
+    br: "",
+    en: "This is a test description for the blog post that should be displayed properly.",
+  },
   imgSrc: "/test-image.jpg",
   date: "2024-01-15",
-  text: "This is the full text content of the test blog post.",
+  text: {
+    en: "This is the full text content of the test blog post.",
+    br: "",
+  },
 };
 
 const mockLongPost: PostType = {
   id: "test-post-2",
-  title: "Test Blog Post with Long Description",
-  description:
-    "This is a very long test description for the blog post that should be truncated when it exceeds the maximum character length limit which is set to 110 characters in the component and this description definitely exceeds that limit.",
+  title: {
+    br: "",
+    en: "Test Blog Post with Long Description",
+  },
+  description: {
+    br: "",
+    en: "This is a very long test description for the blog post that should be truncated when it exceeds the maximum character length limit which is set to 110 characters in the component and this description definitely exceeds that limit.",
+  },
   imgSrc: "/test-image-long.jpg",
   date: "2024-02-20",
-  text: "This is the full text content of the test blog post with a long description.",
+  text: {
+    br: "",
+    en: "This is the full text content of the test blog post with a long description.",
+  },
 };
 
 const renderComponent = (postMock: PostType, additionalProps = {}) => {
@@ -68,7 +84,7 @@ describe("PostCard", () => {
       renderComponent(mockPost);
 
     expect(getByText("Test Blog Post")).toBeInTheDocument();
-    expect(getByText(mockPost.description)).toBeInTheDocument();
+    expect(getByText(mockPost.description["en"])).toBeInTheDocument();
     expect(
       getByAltText("Cover image for blog post: Test Blog Post"),
     ).toBeInTheDocument();
@@ -89,15 +105,15 @@ describe("PostCard", () => {
     const { getByText } = renderComponent(mockLongPost);
 
     const expectedTruncatedText =
-      mockLongPost.description.substring(0, 110) + "...";
+      mockLongPost.description["en"].substring(0, 110) + "...";
     expect(getByText(expectedTruncatedText)).toBeInTheDocument();
   });
 
   it("should not truncate short descriptions", () => {
     const { getByText } = renderComponent(mockPost);
 
-    expect(getByText(mockPost.description)).toBeInTheDocument();
-    expect(getByText(mockPost.description)).not.toHaveTextContent("...");
+    expect(getByText(mockPost.description["en"])).toBeInTheDocument();
+    expect(getByText(mockPost.description["en"])).not.toHaveTextContent("...");
   });
 
   it("should render correct link href", () => {

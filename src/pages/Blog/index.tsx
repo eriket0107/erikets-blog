@@ -28,7 +28,7 @@ export const Blog = ({ currentPage }: { currentPage: number }) => {
 
       <Box
         direction="col"
-        width="full"
+        width="auto"
         justify="none"
         align="center"
         className="animate-fade-in-slow overflow-y-scroll rounded-sm"

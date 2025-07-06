@@ -3,6 +3,7 @@ import { Box } from "../Box";
 import { PostCard } from "../PostCard";
 import { Pagination } from "../Paginatination";
 import { Typography } from "../Typography";
+import { getTranslations } from "next-intl/server";
 
 const POSTS_LENGTH = 4;
 
@@ -20,7 +21,7 @@ export const PostFeed = async ({
     last,
     items,
   } = await getPosts({ perPage: POSTS_LENGTH, currentPage });
-
+  const t = await getTranslations("PostFeed");
   const pagination = {
     prev,
     next,
@@ -42,7 +43,7 @@ export const PostFeed = async ({
         data-testid="pagination"
       />
       <Typography.Small className="text-xs md:hidden" data-testid={"from-to"}>
-        {from} to {to} | {items}
+        {from} {t("pagination_number")} {to} | {items}
       </Typography.Small>
 
       <Box
@@ -52,7 +53,7 @@ export const PostFeed = async ({
         role="feed"
         width="500px"
         aria-label="Blog posts with pagination"
-        className="[&::-webkit-scrollbar-track]:transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground focus-within:outline-accent snap-y snap-mandatory overflow-y-auto focus-within:outline-2 focus-within:outline-offset-2 md:h-[638px] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
+        className="snap-y overflow-y-auto focus-within:outline-offset-2 focus:border-none md:h-[630px] md:pb-5 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
         tabIndex={0}
       >
         {posts?.map((post, index) => (
@@ -64,10 +65,11 @@ export const PostFeed = async ({
             hasImage={false}
           />
         ))}
+        <div className="to-background/100 from-background/0 max- fixed bottom-13 hidden h-[50px] w-full bg-gradient-to-b md:block md:max-w-[500px]" />
       </Box>
       <Pagination pagination={pagination} className="hidden md:flex" />
       <Typography.Small className="text-muted-foreground hidden md:flex">
-        {from} to {to} | {items}
+        {from} {t("pagination_number")} {to} | {items}
       </Typography.Small>
     </Box>
   );

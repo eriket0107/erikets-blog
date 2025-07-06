@@ -30,6 +30,9 @@
     "locale": "br",
     "namespace": "Metadata"
   },
+  "PostFeed": {
+    "pagination_number": "de"
+  },
   "MetadataAbout": {
     "title": "Sobre mim",
     "locale": "br",

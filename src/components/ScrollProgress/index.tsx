@@ -15,10 +15,10 @@ export const ScrollProgress = () => {
       style={{
         scaleX,
         position: "fixed",
-        top: 0,
+        top: 70,
         left: 0,
         right: 0,
-        height: 10,
+        height: 7,
         originX: 0,
         zIndex: 2,
       }}
