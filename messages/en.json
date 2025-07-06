@@ -42,5 +42,8 @@
     "goBackBtn": "Go to Home page",
     "title": "Ops... Page Not Found"
   },
+  "BackButton": {
+    "text": "Go back"
+  },
   "ErrorPage": {}
 }

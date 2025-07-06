@@ -1,4 +1,5 @@
 import { getPostById } from "@/actions/posts";
+import { BackButton } from "@/components/BackButton";
 import { Box } from "@/components/Box";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Typography } from "@/components/Typography";
@@ -24,24 +25,35 @@ export const Post = async ({
         align="center"
         padding="4"
         width="600"
-        className="relative pb-8 md:mt-[5%]"
+        className="relative pb-8"
       >
-        <Typography.H2 className="max-w-[600px] text-center text-4xl text-wrap">
-          {post?.title[language]}
-        </Typography.H2>
-
-        <Ellipsis size={48} />
-
-        <Image
-          src={post.imgSrc}
-          width={600}
-          height={400}
-          alt={post.title[language]}
-          className="rounded-t-sm"
-          loading="lazy"
-        />
+        <Box>
+          <BackButton />
+        </Box>
         <Box
-          className="max-w-[600px] pt-4"
+          className="animate-fade-in-fast"
+          direction="col"
+          justify="center"
+          align="center"
+        >
+          <Typography.H2 className="max-w-[600px] text-center text-4xl text-wrap">
+            {post?.title[language]}
+          </Typography.H2>
+
+          <Ellipsis size={48} />
+
+          <Image
+            src={post.imgSrc}
+            width={600}
+            height={400}
+            alt={post.title[language]}
+            className="rounded-t-sm"
+            loading="lazy"
+          />
+        </Box>
+
+        <Box
+          className="animate-fade-in-slow max-w-[600px] pt-4"
           direction="col"
           gap="2"
           justify="center"

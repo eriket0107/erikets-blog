@@ -42,5 +42,8 @@
     "goBackBtn": "Voltar para Home",
     "title": "Ops... Página não encontrada"
   },
+  "BackButton": {
+    "text": "Voltar"
+  },
   "ErrorPage": {}
 }
