@@ -1,4 +1,4 @@
-import { Home as HomeLayout } from "@/layouts/Home";
+import { Home as HomeLayout } from "@/templates/Home";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({

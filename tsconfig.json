@@ -22,7 +22,7 @@
       "@/*": ["./src/*"],
       "@/hooks": ["./src/hooks/*"],
       "@/components": ["./src/components/*"],
-      "@/layouts": ["./src/layouts/*"]
+      "@/templates": ["./src/templates/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

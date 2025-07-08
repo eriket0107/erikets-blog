@@ -1,4 +1,4 @@
-import { Blog as BlogLayout } from "@/layouts/Blog";
+import { Blog as BlogLayout } from "@/templates/Blog";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({

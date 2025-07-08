@@ -1,5 +1,5 @@
 import { LanguageType } from "@/interfaces/posts";
-import { Post as PostLayout } from "@/layouts/Post";
+import { Post as PostLayout } from "@/templates/Post";
 
 const Post = async ({
   params,
