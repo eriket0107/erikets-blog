@@ -31,7 +31,7 @@ export const Post = async ({
           <BackButton />
         </Box>
         <Box direction="col" justify="center" align="center">
-          <Typography.H2 className="max-w-[600px] text-center text-4xl text-wrap">
+          <Typography.H2 className="max-w-[600px] pb-0 text-center text-4xl text-wrap">
             {post?.title[language]}
           </Typography.H2>
 
