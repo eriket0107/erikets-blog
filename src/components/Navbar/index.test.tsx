@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { Navbar } from ".";
+import { NavBar } from ".";
 
 import { NextIntlClientProvider } from "next-intl";
 import messages from "../../../messages/en.json";
@@ -24,7 +24,7 @@ vi.mock("next/navigation", () => ({
 const renderComponent = () => {
   render(
     <NextIntlClientProvider locale="en" messages={messages}>
-      <Navbar />
+      <NavBar />
     </NextIntlClientProvider>,
   );
 };

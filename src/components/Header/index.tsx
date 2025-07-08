@@ -1,6 +1,6 @@
 import { Box } from "../Box";
 
-import { Navbar } from "../NavBar";
+import { NavBar } from "../NavBar";
 import { BurgerMenu } from "../BurgerMenu";
 import { Suspense } from "react";
 
@@ -28,7 +28,7 @@ export const Header = () => {
       </Box>
 
       <Box justify="end" align="center" gap="4">
-        <Navbar />
+        <NavBar />
         <Suspense fallback={<></>}>
           <ThemeButton variant="nav" />
         </Suspense>
