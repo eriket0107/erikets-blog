@@ -9,7 +9,11 @@ import { redirect } from "next/navigation";
 //   return {};
 // }
 
-const Blog = async ({ searchParams }: { searchParams?: { page?: string } }) => {
+const Blog = async ({
+  searchParams,
+}: {
+  searchParams?: Promise<{ page?: string }>;
+}) => {
   const resolvedSearchParams = await searchParams;
   const currentPage = Number(resolvedSearchParams?.page) || 1;
 
