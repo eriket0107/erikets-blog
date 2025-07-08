@@ -13,5 +13,5 @@ export type PostType = {
   date: string;
   text?: { [K in LanguageType]: string };
   references?: ReferenceType[]
-  tags?: string[]
+  tags?: { [K in LanguageType]: string[] }
 };

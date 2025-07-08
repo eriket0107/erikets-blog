@@ -5,6 +5,7 @@ import { LanguageType, PostType } from "@/interfaces/posts";
 import { Link } from "../Link";
 import { truncateString } from "@/utils";
 import { useLocale } from "next-intl";
+import { Tag } from "../Tag";
 
 interface IPostCard {
   post: PostType;
@@ -21,7 +22,7 @@ export const PostCard = ({
   ariaSetsize,
   hasImage = true,
 }: IPostCard) => {
-  const { description, imgSrc, title, date, id } = post;
+  const { description, imgSrc, title, date, id, tags } = post;
   const language = useLocale() as LanguageType;
   const truncatedDescription = truncateString(
     description[language],
@@ -60,11 +61,16 @@ export const PostCard = ({
           )}
           <Box
             direction="col"
-            className="mt-1 h-[180px] w-full items-center md:mt-0 md:max-w-[500px] md:items-start md:p-4"
+            className="mt-1 h-[200px] w-full items-center md:mt-0 md:max-w-[500px] md:items-start md:p-4"
           >
             <Typography.H3 className="mr-auto underline md:mr-0">
               {title[language]}
             </Typography.H3>
+            <Box gap="2" height="auto">
+              {tags?.[language]?.map((tag) => (
+                <Tag key={tag} tag={tag} />
+              ))}
+            </Box>
 
             <Box direction="col" justify="between">
               <Typography.P className="w-[300px] overflow-hidden overflow-ellipsis md:w-full">
