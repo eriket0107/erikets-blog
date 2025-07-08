@@ -8,7 +8,7 @@ import { usePathname } from "@/hooks/usePathname";
 import { useTranslations } from "next-intl";
 import LocaleSwitcher from "../LocaleSwitcher";
 
-export const NavBar = () => {
+export const Navbar = () => {
   const pathname = usePathname();
   const t = useTranslations("Constants");
   const routesConfig = getRoutesConfig(t);
