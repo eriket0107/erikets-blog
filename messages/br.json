@@ -10,10 +10,13 @@
     "take_a_look": "Sinta-se à vontade para olhar meus últimos posts!",
     "empty_posts": "O setor de ideias está trabalhando no momento,<br></br> volte mais tarde! Que tal dar uma olhada no resto do site?"
   },
+  "BlogPage": {
+    "title": "Atualizações"
+  },
   "Constants": {
     "home": "Home",
     "blog": "Blog",
-    "about": "Sobre mim"
+    "about": "Sobre"
   },
   "LocaleSwitcher": {
     "title": "Idioma",
@@ -34,7 +37,7 @@
     "pagination_number": "de"
   },
   "MetadataAbout": {
-    "title": "Sobre mim",
+    "title": "Sobre",
     "locale": "br",
     "namespace": "Metadata"
   },
