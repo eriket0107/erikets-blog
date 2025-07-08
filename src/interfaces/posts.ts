@@ -1,11 +1,11 @@
 export type LanguageType = "br" | "en"
 
-type ReferenceType = {
+interface ReferenceType {
   src: string
   name: string
 }
 
-export type PostType = {
+export interface PostType {
   id: string
   imgSrc: string;
   title: { [K in LanguageType]: string };

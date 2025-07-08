@@ -120,7 +120,7 @@ describe("PostCard", () => {
     const { getByLabelText } = renderComponent(mockPost);
 
     const link = getByLabelText("Read full post: Test Blog Post");
-    expect(link).toHaveAttribute("href", "/en/blog/test-post-1");
+    expect(link).toHaveAttribute("href", "/en/post/test-post-1");
   });
 
   it("should format date correctly", () => {

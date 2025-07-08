@@ -15,6 +15,7 @@ interface IPostCard {
 }
 
 const MAX_CHARACTERS_LENGTH = 110;
+const MAX_TAG_LENGTH = 10;
 
 export const PostCard = ({
   post,
@@ -41,14 +42,14 @@ export const PostCard = ({
       aria-setsize={ariaSetsize}
     >
       <Link
-        href={`/blog/${id}`}
+        href={`/post/${id}`}
         className="group focus:outline-accent md:hover:shadow-accent-foreground block rounded-sm transition-all transition-discrete focus:outline-2 focus:outline-offset-2 md:hover:scale-99 md:hover:opacity-85 md:hover:shadow-md/20"
         aria-label={`Read full post: ${title[language]}`}
       >
         <Box className="flex-col rounded-sm md:flex-row">
           {hasImage && (
             <Box
-              height={"200px"}
+              height={"216px"}
               className="relative min-w-[300px] overflow-hidden rounded-t-sm md:w-[300px] md:rounded-l-sm md:rounded-r-none"
             >
               <Image
@@ -61,14 +62,15 @@ export const PostCard = ({
           )}
           <Box
             direction="col"
-            className="mt-1 h-[200px] w-full items-center md:mt-0 md:max-w-[500px] md:items-start md:p-4"
+            className="mt-1 h-[216px] w-full items-center md:mt-0 md:max-w-[500px] md:items-start md:p-4"
+            gap="2"
           >
             <Typography.H3 className="mr-auto underline md:mr-0">
               {title[language]}
             </Typography.H3>
             <Box gap="2" height="auto">
               {tags?.[language]?.map((tag) => (
-                <Tag key={tag} tag={tag} />
+                <Tag key={tag}>{truncateString(tag, MAX_TAG_LENGTH)}</Tag>
               ))}
             </Box>
 

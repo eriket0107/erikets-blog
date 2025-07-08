@@ -14,10 +14,12 @@ export const PostList = async ({ quantity = 2 }: { quantity?: number }) => {
     <Box
       as="section"
       direction="col"
-      gap="4"
       role="feed"
+      width="full"
       aria-label="Latest blog posts"
-      className="[&::-webkit-scrollbar-track]:transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground focus-within:outline-accent h-[420px] snap-y snap-mandatory overflow-y-auto pb-1 focus-within:outline-2 focus-within:outline-offset-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
+      height="auto"
+      gap="1"
+      className="[&::-webkit-scrollbar-track]:transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground focus-within:outline-accent snap-y snap-mandatory overflow-y-auto focus-within:outline-2 focus-within:outline-offset-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
       tabIndex={0}
     >
       {hasPosts ? (

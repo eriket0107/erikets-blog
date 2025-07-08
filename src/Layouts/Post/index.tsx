@@ -25,17 +25,12 @@ export const Post = async ({
         align="center"
         padding="4"
         width="600"
-        className="relative pb-8"
+        className="relative"
       >
         <Box>
           <BackButton />
         </Box>
-        <Box
-          className="animate-fade-in-fast"
-          direction="col"
-          justify="center"
-          align="center"
-        >
+        <Box direction="col" justify="center" align="center">
           <Typography.H2 className="max-w-[600px] text-center text-4xl text-wrap">
             {post?.title[language]}
           </Typography.H2>
@@ -53,7 +48,7 @@ export const Post = async ({
         </Box>
 
         <Box
-          className="animate-fade-in-slow max-w-[600px] pt-4"
+          className="max-w-[600px] pt-4"
           direction="col"
           gap="2"
           justify="center"
@@ -66,6 +61,7 @@ export const Post = async ({
           <Typography.P className="text-lg">
             {post?.text?.[language]}
           </Typography.P>
+          <hr className="my-4 h-0.5 w-full border-transparent bg-transparent" />
         </Box>
       </Box>
       <div className="to-background/100 from-background/0 fixed bottom-10 hidden h-[70px] w-full bg-gradient-to-b md:block md:max-w-[600px]" />

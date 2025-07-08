@@ -44,14 +44,14 @@ export const Pagination = ({ className, pagination }: IPagination) => {
         {prev && (
           <>
             <Link
-              href={`?page=${first}`}
+              href={`/blog/${first}`}
               className={classeNames.link}
               aria-label={`Go to first page, page ${first}`}
             >
               <ChevronFirst size={16} />
             </Link>
             <Link
-              href={`?page=${prev}`}
+              href={`/blog/${prev}`}
               className={classeNames.link}
               aria-label={`Go to previous page, page ${prev}`}
             >
@@ -63,7 +63,7 @@ export const Pagination = ({ className, pagination }: IPagination) => {
 
         {prev && (
           <Link
-            href={`?page=${prev}`}
+            href={`/blog/${prev}`}
             className={classeNames.link}
             aria-label={`Go to page ${prev}`}
           >
@@ -81,7 +81,7 @@ export const Pagination = ({ className, pagination }: IPagination) => {
 
         {next && (
           <Link
-            href={`?page=${next}`}
+            href={`/blog/${next}`}
             className={classeNames.link}
             aria-label={`Go to page ${next}`}
           >
@@ -92,7 +92,7 @@ export const Pagination = ({ className, pagination }: IPagination) => {
         {next && (
           <>
             <Link
-              href={`?page=${next}`}
+              href={`/blog/${next}`}
               className={classeNames.link}
               aria-label={`Go to next page, page ${next}`}
             >
@@ -100,7 +100,7 @@ export const Pagination = ({ className, pagination }: IPagination) => {
               <span className="sr-only">Next</span>
             </Link>
             <Link
-              href={`?page=${last}`}
+              href={`/blog/${last}`}
               className={classeNames.link}
               aria-label={`Go to last page, page ${last}`}
             >

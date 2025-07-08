@@ -28,7 +28,7 @@ export const Blog = ({ currentPage }: { currentPage: number }) => {
 
       <Box
         direction="col"
-        width="auto"
+        width="full"
         justify="none"
         align="center"
         className="animate-fade-in-slow overflow-y-scroll rounded-sm"
@@ -39,7 +39,6 @@ export const Blog = ({ currentPage }: { currentPage: number }) => {
             <>
               <PaginationSkeleton className="flex md:hidden" />
               <PostCardSkeleton length={POSTS_LENGTH} hasImage={false} />
-              <PaginationSkeleton className="hidden md:flex" />
             </>
           }
         >

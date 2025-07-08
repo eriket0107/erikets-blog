@@ -1,14 +1,12 @@
-import { cn, truncateString } from "@/utils";
+import { cn } from "@/utils";
+import { ReactNode } from "react";
 
 interface TagProps {
-  tag: string;
+  children: ReactNode;
   className?: string;
 }
 
-const TAG_LENGTH = 10;
-
-export const Tag = ({ tag, className }: TagProps) => {
-  const truncateTag = truncateString(tag, TAG_LENGTH);
+export const Tag = ({ children, className }: TagProps) => {
   return (
     <span
       className={cn(
@@ -16,7 +14,7 @@ export const Tag = ({ tag, className }: TagProps) => {
         className,
       )}
     >
-      {truncateTag}
+      {children}
     </span>
   );
 };

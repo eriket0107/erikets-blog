@@ -22,7 +22,7 @@ export const BackButton = ({ onBack }: BackButtonProps) => {
     <Button
       onClick={handleBackNavigation}
       variant="link"
-      className="cursor-pointer transition-all transition-discrete hover:scale-95 hover:opacity-85"
+      className="cursor-pointer !p-0 transition-all transition-discrete hover:scale-95 hover:opacity-85"
       aria-label="Go Back to previos page"
     >
       <ChevronLeft size={16} /> {t("text")}
