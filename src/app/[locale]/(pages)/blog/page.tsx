@@ -1,22 +1,20 @@
-import { getTranslations } from "next-intl/server";
+import { redirect } from "next/navigation";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "MetadataBlog" });
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: { locale: string };
+// }) {
+//   // Redirect to page 1 for metadata as well
+//   return {};
+// }
 
-  return {
-    title: {
-      default: t("title"),
-      template: "%s | Coffe and Vanilla Code",
-    },
-  };
-}
+const Blog = async ({ searchParams }: { searchParams?: { page?: string } }) => {
+  const resolvedSearchParams = await searchParams;
+  const currentPage = Number(resolvedSearchParams?.page) || 1;
 
-const Blog = () => {
-  return <>Blog</>;
+  // Redirect to new route structure
+  redirect(`/blog/${currentPage}`);
 };
+
 export default Blog;

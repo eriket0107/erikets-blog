@@ -11,7 +11,7 @@ vi.mock("@/actions/posts", () => ({
 
 vi.mock("../PostCard", () => ({
   PostCard: ({ post }: { post: PostType }) => (
-    <div data-testid="post-card">{post.title}</div>
+    <div data-testid="post-card">{post.title.en}</div>
   ),
 }));
 
@@ -24,26 +24,26 @@ vi.mock("next-intl/server", () => ({
 const mockPosts: PostType[] = [
   {
     id: "post-1",
-    title: "First Post",
-    description: "Description",
+    title: { en: "First Post", br: "Primeiro Post" },
+    description: { en: "Description", br: "Descrição" },
     imgSrc: "/image1.jpg",
     date: "2024-01-15",
-    text: "Content",
+    text: { en: "Content", br: "Conteúdo" },
   },
   {
     id: "post-2",
-    title: "Second Post",
-    description: "Description",
+    title: { en: "Second Post", br: "Segundo Post" },
+    description: { en: "Description", br: "Descrição" },
     imgSrc: "/image2.jpg",
     date: "2024-01-16",
-    text: "Content",
+    text: { en: "Content", br: "Conteúdo" },
   },
 ];
 
 const mockPagination = {
   first: 1,
-  prev: false,
-  next: false,
+  prev: 0,
+  next: 0,
   last: 1,
   pages: 1,
   items: 2,
@@ -51,7 +51,7 @@ const mockPagination = {
 };
 
 const renderComponent = async () => {
-  const ComponentWrapper = await PostList();
+  const ComponentWrapper = await PostList({});
   return render(
     <NextIntlClientProvider locale="en" messages={messages}>
       {ComponentWrapper}
@@ -62,7 +62,9 @@ const renderComponent = async () => {
 describe("PostList", () => {
   it("should render feed container", async () => {
     const { getPosts } = await import("@/actions/posts");
-    vi.mocked(getPosts).mockResolvedValue(mockPagination);
+    vi.mocked(getPosts).mockResolvedValue({
+      ...mockPagination,
+    });
 
     await renderComponent();
 
@@ -73,7 +75,7 @@ describe("PostList", () => {
     const { getPosts } = await import("@/actions/posts");
     vi.mocked(getPosts).mockResolvedValue(mockPagination);
 
-    await PostList();
+    await PostList({});
 
     expect(getPosts).toHaveBeenCalledWith({ perPage: 2 });
   });

@@ -52,7 +52,9 @@ export default function LocaleSwitcherSelect({
       )}
     >
       <Typography.P className="md:hidden">{title}</Typography.P>
-      {flags[defaultValue]}
+      <Typography.Small className="text-2xl">
+        {flags[defaultValue]}
+      </Typography.Small>
       <p className="sr-only">{label}</p>
       <select
         className="absolute inset-0 h-full w-full cursor-pointer appearance-none opacity-0"

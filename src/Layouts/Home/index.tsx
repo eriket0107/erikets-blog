@@ -64,11 +64,11 @@ export const Home = async () => {
         >
           <Typography.H2
             id="latest-posts-heading"
-            className="text-accent-foreground max-w-3xl text-left"
+            className="text-accent-foreground max-w-3xl pb-0 text-left"
           >
             {t("take_a_look")}
           </Typography.H2>
-          <Suspense fallback={<PostCardSkeleton />}>
+          <Suspense fallback={<PostCardSkeleton hasImage={false} />}>
             <PostList />
           </Suspense>
         </Box>

@@ -1,19 +1,17 @@
-export type PostType = {
+export type LanguageType = "br" | "en"
+
+interface ReferenceType {
+  src: string
+  name: string
+}
+
+export interface PostType {
   id: string
   imgSrc: string;
-  title: string;
-  description: string;
+  title: { [K in LanguageType]: string };
+  description: { [K in LanguageType]: string };
   date: string;
-  text?: string;
-  references?: string[]
+  text?: { [K in LanguageType]: string };
+  references?: ReferenceType[]
+  tags?: { [K in LanguageType]: string[] }
 };
-
-export type Pagination<T> = {
-  first: number,
-  prev: boolean,
-  next: boolean,
-  last: number,
-  pages: number,
-  items: number,
-  data: T
-}

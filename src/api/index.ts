@@ -14,6 +14,7 @@ export const api = async <T = unknown>(endpoint: string, options: RequestInit = 
       ...options,
       headers: {
         "Content-Type": "application/json",
+        "Accept-Language": "* ",
         ...options.headers,
       },
     })

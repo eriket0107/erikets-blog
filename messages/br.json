@@ -30,6 +30,9 @@
     "locale": "br",
     "namespace": "Metadata"
   },
+  "PostFeed": {
+    "pagination_number": "de"
+  },
   "MetadataAbout": {
     "title": "Sobre mim",
     "locale": "br",
@@ -38,6 +41,9 @@
   "NotFoundPage": {
     "goBackBtn": "Voltar para Home",
     "title": "Ops... Página não encontrada"
+  },
+  "BackButton": {
+    "text": "Voltar"
   },
   "ErrorPage": {}
 }

@@ -136,11 +136,18 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    @media (min-width: 768px) {
+      overscroll-behavior: none;
+    }
   }
 }
 
 .screen-layout {
   min-height: calc(100dvh - 120px);
+}
+
+.bg-blur {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.75) 100%);
 }
 
 @keyframes fade-in {

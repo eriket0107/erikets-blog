@@ -1,4 +1,4 @@
-import { Home as HomeTemplate } from "@/pages/Home";
+import { Home as HomeLayout } from "@/layouts/Home";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
@@ -12,13 +12,13 @@ export async function generateMetadata({
   return {
     title: {
       default: t("title"),
-      template: "%s | Coffe and Vanilla Code",
+      template: "%s | Coffe & Vanilla Code",
     },
   };
 }
 
 const Home = () => {
-  return <HomeTemplate />;
+  return <HomeLayout />;
 };
 
 export default Home;
