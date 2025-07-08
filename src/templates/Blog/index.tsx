@@ -3,11 +3,13 @@ import { PaginationSkeleton } from "@/components/Paginatination/skeleton";
 import { PostCardSkeleton } from "@/components/PostCard/skeleton";
 import { PostFeed } from "@/components/PostFeed";
 import { Typography } from "@/components/Typography";
+import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
 const POSTS_LENGTH = 3;
 
-export const Blog = ({ currentPage }: { currentPage: number }) => {
+export const Blog = async ({ currentPage }: { currentPage: number }) => {
+  const t = await getTranslations("BlogPage");
   return (
     <Box
       justify="center"
@@ -23,7 +25,7 @@ export const Blog = ({ currentPage }: { currentPage: number }) => {
         id="intro-blog"
         className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
       >
-        Posts
+        {t("title")}
       </Typography.H1>
 
       <Box
