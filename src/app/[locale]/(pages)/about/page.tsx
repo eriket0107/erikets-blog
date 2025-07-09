@@ -66,14 +66,12 @@ const About = () => {
           <Box direction="col" gap="6">
             <div>
               <Typography.P>
-                Our flagship product combines cutting-edge technology with sleek
-                design. Built with premium materials, it offers unparalleled
-                performance and reliability.
-              </Typography.P>
-              <Typography.P>
-                Key features include advanced processing capabilities, and an
-                intuitive user interface designed for both beginners and
-                experts.
+                +4 years of professional experience with Software Engineering,
+                Fullstack developer focused on Front-end using TypeScript,
+                React, and NextJS, developing web and mobile solutions. I work
+                on a project with thousands of daily accesses Multi | Multiplan
+                and also act on projects as a freelancer for companies Latop and
+                Neurogram.
               </Typography.P>
             </div>
 
