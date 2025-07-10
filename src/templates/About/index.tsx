@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { socialLinks } from "@/constants/Links";
 import { Download, Laptop, Milestone, Wrench } from "lucide-react";
+import ProfileImage from "@/assets/profile-erik.webp";
 
 export const About = () => (
   <Box justify="center" direction="col" align="center" padding="4">
@@ -21,13 +22,16 @@ export const About = () => (
       align="start"
       gap="8"
     >
-      <Box direction="col" gap="4" align="start" height="auto" justify="start">
+      <Box
+        direction="col"
+        gap="4"
+        align="start"
+        height="auto"
+        justify="start"
+        className="animate-fade-in-fast"
+      >
         <Box direction="row" justify="none" width="auto" align="center" gap="2">
-          <Avatar
-            alt="eriket0107"
-            imgSrc="https://github.com/eriket0107.png"
-            fallback="EO"
-          />
+          <Avatar alt="eriket0107" imgSrc={ProfileImage.src} fallback="EO" />
           <Typography.H3>Erik Oliveira</Typography.H3>
         </Box>
 
@@ -60,7 +64,11 @@ export const About = () => (
         </Box>
       </Box>
 
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion
+        type="single"
+        collapsible
+        className="animate-fade-in-slow w-full"
+      >
         <AccordionItem value="item-1">
           <AccordionTrigger
             className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
@@ -90,7 +98,7 @@ export const About = () => (
           >
             <div className="flex gap-2">
               <Wrench />
-              Stack
+              Toolset
             </div>
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4 text-balance">
