@@ -2,8 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
-import { cn } from "@/utils";
-import { Beer, Coffee } from "lucide-react";
+import { MoonStar, Sun } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { memo } from "react";
 
@@ -19,7 +18,15 @@ const ThemeButtonMenu = () => {
       data-testid="theme-btn-menu"
     >
       {isDark ? "Light" : "Dark"}
-      {isDark ? <Coffee color="white" /> : <Beer color="black" />}
+      <span
+        className={`theme-icon ${isDark ? "active-sun-spin" : "active-moon-wave"}`}
+      >
+        {isDark ? (
+          <Sun color="yellow" size={20} />
+        ) : (
+          <MoonStar color="black" size={20} />
+        )}
+      </span>
     </Button>
   );
 };
@@ -33,16 +40,17 @@ const ThemeButtonNav = () => {
       <TooltipTrigger asChild>
         <Button
           onClick={handleThemeChange}
-          className={cn(
-            "bg-foreground hidden cursor-pointer hover:scale-95 md:flex",
-          )}
+          className="relative hidden cursor-pointer !p-1 hover:scale-110 md:flex"
+          variant={"link"}
           data-testid="theme-btn-nav"
         >
-          {isDark ? (
-            <Coffee suppressHydrationWarning color="black" />
-          ) : (
-            <Beer suppressHydrationWarning color="white" />
-          )}
+          <span className={isDark ? "hover-sun-spin" : "hover-moon-wave"}>
+            {isDark ? (
+              <Sun color="yellow" size={24} />
+            ) : (
+              <MoonStar color="black" size={24} />
+            )}
+          </span>
         </Button>
       </TooltipTrigger>
     </Tooltip>

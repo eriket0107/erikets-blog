@@ -36,7 +36,7 @@ describe("Theme Button Nav", () => {
 
     const themeButton = getByTestId("theme-btn-nav");
 
-    expect(themeButton).toHaveClass("bg-foreground");
+    expect(themeButton).toHaveClass("cursor-pointer");
   });
 
   it("shoud channge to light theme nav", () => {
@@ -47,7 +47,7 @@ describe("Theme Button Nav", () => {
     const { getByTestId } = render(<ThemeButton variant="nav" />);
 
     const themeButton = getByTestId("theme-btn-nav");
-    expect(themeButton).toHaveClass("bg-foreground");
+    expect(themeButton).toHaveClass("cursor-pointer");
   });
 });
 

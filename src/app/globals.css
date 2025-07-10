@@ -204,6 +204,54 @@ body {
 
 
 
+@keyframes sun-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes moon-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform:  rotate(0deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.hover-sun-spin:hover, .hover-sun-spin:active {
+  animation: sun-spin 1s ease;
+}
+
+.hover-moon-wave:hover, .hover-moon-wave:active  {
+  animation: moon-wave 0.8s ease-in-out;
+}
+
+.active-sun-spin {
+  animation: sun-spin 1s ease;
+}
+
+.active-moon-wave {
+  animation: moon-wave 0.8s ease-in-out;
+}
+
+
+
 @keyframes waving {
   0% {
     transform: rotate(0deg);
@@ -232,5 +280,7 @@ body {
   display: inline-block;
   transform-origin: bottom;
 }
+
+
 
 
