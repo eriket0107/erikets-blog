@@ -19,12 +19,15 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Timeline } from "@/components/Timeline";
+import { getMilestones } from "@/actions/timeline";
 
 const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)
   .sort((a, b) => a.name.localeCompare(b.name));
 
-export const About = () => {
+export const About = async () => {
+  const milestones = await getMilestones();
   return (
     <Box
       as="main"
@@ -129,7 +132,7 @@ export const About = () => {
             >
               <div className="flex gap-2">
                 <MapPin aria-hidden="true" />
-                Where I'm right now
+                {`Where I'm right now`}
               </div>
             </AccordionTrigger>
             <AccordionContent
@@ -139,7 +142,7 @@ export const About = () => {
               aria-label="Current position and work"
             >
               <Typography.P>
-                Working at Multiplan, so far I've developed a parking lot
+                Working at Multiplan, so far I&apos;ve developed a parking lot
                 application that has more then +70k daily users accesses. Which
                 made the company led an innovation parking lot system throghout
                 the country. At the moment we count more than +1M license plates
@@ -148,6 +151,26 @@ export const About = () => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
+            <AccordionTrigger
+              className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
+              id="milestones"
+              aria-describedby="milestones-description"
+            >
+              <div className="flex gap-2">
+                <Milestone aria-hidden="true" />
+                Career
+              </div>
+            </AccordionTrigger>
+            <AccordionContent
+              className="flex flex-col gap-4 text-balance"
+              id="milestones-description"
+              role="region"
+              aria-label="Career milestones and achievements"
+            >
+              <Timeline milestones={milestones} />
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
             <AccordionTrigger
               className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
               id="stack"
@@ -186,26 +209,6 @@ export const About = () => {
                   </Tooltip>
                 ))}
               </div>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger
-              className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
-              id="milestones"
-              aria-describedby="milestones-description"
-            >
-              <div className="flex gap-2">
-                <Milestone aria-hidden="true" />
-                Career
-              </div>
-            </AccordionTrigger>
-            <AccordionContent
-              className="flex flex-col gap-4 text-balance"
-              id="milestones-description"
-              role="region"
-              aria-label="Career milestones and achievements"
-            >
-              <div className="animate-progress h-4 w-full bg-green-600" />
             </AccordionContent>
           </AccordionItem>
 
