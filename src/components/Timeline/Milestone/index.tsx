@@ -1,3 +1,5 @@
+"use client";
+
 import { MilestoneType } from "@/interfaces/milestones";
 import { useTimeline } from "./useMilestone";
 import { Typography } from "@/components/Typography";

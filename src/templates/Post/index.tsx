@@ -5,7 +5,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { Typography } from "@/components/Typography";
 import { LanguageType } from "@/interfaces/posts";
 import { Ellipsis } from "lucide-react";
-import Image from "next/image";
+// import Image from "next/image";
 
 export const Post = async ({
   id,
@@ -53,7 +53,7 @@ export const Post = async ({
 
             <Ellipsis size={48} role="presentation" aria-hidden="true" />
 
-            <Image
+            {/* <Image
               src={post.imgSrc}
               width={600}
               height={400}
@@ -61,7 +61,7 @@ export const Post = async ({
               className="rounded-t-sm"
               priority
               role="img"
-            />
+            /> */}
           </Box>
 
           <Box

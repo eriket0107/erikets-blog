@@ -1,14 +1,10 @@
-"use client";
-
-import { MilestoneType } from "@/interfaces/milestones";
 import { Box } from "../Box";
 import { Milestone } from "./Milestone";
+import { getMilestones } from "@/actions/timeline";
 
-interface TimelineProps {
-  milestones: MilestoneType[];
-}
+export const Timeline = async () => {
+  const milestones = await getMilestones();
 
-export const Timeline = ({ milestones }: TimelineProps) => {
   return (
     <Box className="relative flex flex-col items-start gap-4">
       <div className="animate-progress bg-foreground absolute top-0 left-2 h-full w-1.5 rounded-full" />

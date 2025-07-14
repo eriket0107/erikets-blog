@@ -18,7 +18,8 @@ export type StackKey =
   | "vite"
   | "git"
   | "rest"
-  | "python";
+  | "python"
+  | "mongo";
 
 export type IStack = {
   [K in StackKey]: {

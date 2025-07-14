@@ -24,7 +24,7 @@ const PostSkeleton = async () => {
 
         <Ellipsis size={48} />
 
-        <Skeleton className="h-[250px] w-full rounded-t-sm md:h-[400px] md:w-[600px]" />
+        {/* <Skeleton className="h-[250px] w-full rounded-t-sm md:h-[400px] md:w-[600px]" /> */}
       </Box>
 
       <Box

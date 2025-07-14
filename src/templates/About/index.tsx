@@ -20,14 +20,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Timeline } from "@/components/Timeline";
-import { getMilestones } from "@/actions/timeline";
 
 const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)
   .sort((a, b) => a.name.localeCompare(b.name));
 
 export const About = async () => {
-  const milestones = await getMilestones();
   return (
     <Box
       as="main"
@@ -37,7 +35,14 @@ export const About = async () => {
       padding="4"
       role="main"
       aria-label="About Erik Oliveira"
+      gap="10"
     >
+      <Typography.H1
+        id="intro-blog"
+        className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
+      >
+        Bio
+      </Typography.H1>
       <Box
         as="article"
         direction="col"
@@ -69,7 +74,9 @@ export const About = async () => {
               imgSrc={ProfileImage.src}
               fallback="EO"
             />
-            <Typography.H1 id="profile-heading">Erik Oliveira</Typography.H1>
+            <Typography.H2 id="profile-heading" className="text-4xl">
+              Erik Oliveira
+            </Typography.H2>
           </Box>
 
           <Box
@@ -96,7 +103,7 @@ export const About = async () => {
               aria-label="Social media links"
             >
               <Typography.P>
-                Você também pode me encontrar através das minhas redes sociais!
+                Feel free to reach out to me on my social media!
               </Typography.P>
               <Box
                 as="nav"
@@ -167,7 +174,7 @@ export const About = async () => {
               role="region"
               aria-label="Career milestones and achievements"
             >
-              <Timeline milestones={milestones} />
+              <Timeline />
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
@@ -220,8 +227,8 @@ export const About = async () => {
               aria-label="Download Erik's resume"
             >
               <Link
-                href="/assets/erik-oliveira-resume.pdf"
-                download="erik-oliveira-resume.pdf"
+                href="/assets/_EN-CV-ERIK-OLIVEIRA-vDD.pdf"
+                download="_EN-CV-ERIK-OLIVEIRA-vDD.pdf"
                 className="flex gap-2"
                 aria-label="Download Erik Oliveira's CV/Resume as PDF"
               >

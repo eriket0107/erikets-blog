@@ -16,6 +16,7 @@ import viteImg from "@/assets/tech/vite.webp";
 import gitImg from "@/assets/tech/git.webp";
 import restImg from "@/assets/tech/rest.webp";
 import pythonImg from "@/assets/tech/python.webp";
+import mongoDbImg from "@/assets/tech/mongodb.webp";
 
 export const Stack: IStack = {
   cypress: {
@@ -61,7 +62,7 @@ export const Stack: IStack = {
   express: {
     name: "Express",
     src: expressImg,
-    display: false,
+    display: true,
   },
   fastify: {
     name: "Fastify",
@@ -102,5 +103,10 @@ export const Stack: IStack = {
     name: "Python",
     src: pythonImg,
     display: false,
+  },
+  mongo: {
+    name: "MongoDB",
+    src: mongoDbImg,
+    display: true,
   },
 };
