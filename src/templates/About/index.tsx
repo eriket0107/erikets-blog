@@ -1,31 +1,20 @@
 import { Avatar } from "@/components/Avatar";
 import { Box } from "@/components/Box";
-import { Link } from "@/components/Link";
 import { NavLink } from "@/components/NavLink";
 import { Typography } from "@/components/Typography";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+
 import { socialLinks } from "@/constants/Links";
-import { Download, MapPin, Milestone, Wrench } from "lucide-react";
 import ProfileImage from "@/assets/profile-erik.webp";
-import { Stack } from "@/constants/Stack";
-import Image from "next/image";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Timeline } from "@/components/Timeline";
+import { AccordionAbout } from "@/components/AccordionAbout";
+import { useTranslations } from "next-intl";
+import { Link } from "@/components/Link";
 
-const DISPLAYED_STACK_ITEMS = Object.values(Stack)
-  .filter((value) => value.display)
-  .sort((a, b) => a.name.localeCompare(b.name));
+export const About = () => {
+  const t = useTranslations("AboutPage");
+  const currentAge =
+    new Date().getFullYear() - new Date("1998/07/01").getFullYear();
+  const startYear = new Date("2020/01/02").getFullYear();
 
-export const About = async () => {
   return (
     <Box
       as="main"
@@ -41,7 +30,7 @@ export const About = async () => {
         id="intro-blog"
         className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
       >
-        Bio
+        {t("bio")}
       </Typography.H1>
       <Box
         as="article"
@@ -85,16 +74,21 @@ export const About = async () => {
             gap="6"
             aria-label="Professional summary"
           >
-            <div>
-              <Typography.P>
-                +3 years of professional experience with Software Engineering,
-                Fullstack developer focused on Front-end using TypeScript,
-                React, and NextJS, developing web and mobile solutions. I work
-                on a project with thousands of daily accesses Multi | Multiplan
-                and also act on projects as a freelancer for companies Latop and
-                Neurogram.
-              </Typography.P>
-            </div>
+            <Typography.P>
+              {t.rich("greeting", {
+                age: currentAge,
+                startYear,
+                link: (chunks) => (
+                  <Link
+                    className="underline transition-all transition-discrete hover:scale-105"
+                    href={"https://www.meumulti.com.br/"}
+                    target="_blank"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </Typography.P>
 
             <Box
               as="section"
@@ -102,9 +96,7 @@ export const About = async () => {
               gap="1"
               aria-label="Social media links"
             >
-              <Typography.P>
-                Feel free to reach out to me on my social media!
-              </Typography.P>
+              <Typography.P>{t("social_invitation")}</Typography.P>
               <Box
                 as="nav"
                 gap="3"
@@ -122,122 +114,9 @@ export const About = async () => {
                 ))}
               </Box>
             </Box>
+            <AccordionAbout />
           </Box>
         </Box>
-
-        <Accordion
-          type="single"
-          collapsible
-          className="animate-fade-in-slow w-full"
-          aria-label="Professional information sections"
-        >
-          <AccordionItem value="item-1">
-            <AccordionTrigger
-              className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
-              id="career"
-              aria-describedby="career-description"
-            >
-              <div className="flex gap-2">
-                <MapPin aria-hidden="true" />
-                {`Where I'm right now`}
-              </div>
-            </AccordionTrigger>
-            <AccordionContent
-              className="flex flex-col gap-4 text-balance"
-              id="career-description"
-              role="region"
-              aria-label="Current position and work"
-            >
-              <Typography.P>
-                Working at Multiplan, so far I&apos;ve developed a parking lot
-                application that has more then +70k daily users accesses. Which
-                made the company led an innovation parking lot system throghout
-                the country. At the moment we count more than +1M license plates
-                registered in the system.
-              </Typography.P>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger
-              className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
-              id="milestones"
-              aria-describedby="milestones-description"
-            >
-              <div className="flex gap-2">
-                <Milestone aria-hidden="true" />
-                Career
-              </div>
-            </AccordionTrigger>
-            <AccordionContent
-              className="flex flex-col gap-4 text-balance"
-              id="milestones-description"
-              role="region"
-              aria-label="Career milestones and achievements"
-            >
-              <Timeline />
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger
-              className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
-              id="stack"
-              aria-describedby="stack-description"
-            >
-              <div className="flex gap-2">
-                <Wrench aria-hidden="true" />
-                Toolset
-              </div>
-            </AccordionTrigger>
-            <AccordionContent
-              className="flex flex-col gap-4 text-balance"
-              id="stack-description"
-              role="region"
-              aria-label="Technical skills and tools"
-            >
-              <div
-                className="flex flex-row gap-2"
-                role="list"
-                aria-label="Technologies and tools Erik uses"
-              >
-                {DISPLAYED_STACK_ITEMS.map((value) => (
-                  <Tooltip key={value.name}>
-                    <TooltipContent>{value.name}</TooltipContent>
-                    <TooltipTrigger>
-                      <Image
-                        className="hover:scale-95"
-                        src={value.src}
-                        width={25}
-                        height={25}
-                        alt={`${value.name} technology logo`}
-                        role="listitem"
-                        aria-label={`${value.name} - technology used by Erik`}
-                      />
-                    </TooltipTrigger>
-                  </Tooltip>
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-4">
-            <AccordionTrigger
-              className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
-              hasChevron={false}
-              id="resume"
-              aria-label="Download Erik's resume"
-            >
-              <Link
-                href="/assets/_EN-CV-ERIK-OLIVEIRA-vDD.pdf"
-                download="_EN-CV-ERIK-OLIVEIRA-vDD.pdf"
-                className="flex gap-2"
-                aria-label="Download Erik Oliveira's CV/Resume as PDF"
-              >
-                <Download aria-hidden="true" />
-                CV / Resume
-              </Link>
-            </AccordionTrigger>
-          </AccordionItem>
-        </Accordion>
       </Box>
     </Box>
   );

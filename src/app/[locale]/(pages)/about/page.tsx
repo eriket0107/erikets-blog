@@ -17,7 +17,7 @@ export async function generateMetadata({
   };
 }
 
-const About = () => {
+const About = async () => {
   return <AboutTemplate />;
 };
 

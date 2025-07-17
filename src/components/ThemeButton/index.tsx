@@ -38,20 +38,20 @@ const ThemeButtonNav = () => {
     <Tooltip delayDuration={300}>
       <TooltipContent>{isDark ? "Light" : "Dark"}</TooltipContent>
       <TooltipTrigger asChild>
-        <Button
-          onClick={handleThemeChange}
-          className="relative hidden cursor-pointer !p-1 hover:scale-110 md:flex"
-          variant={"link"}
-          data-testid="theme-btn-nav"
-        >
-          <span className={isDark ? "hover-sun-spin" : "hover-moon-wave"}>
+        <span className={isDark ? "hover-sun-spin" : "hover-moon-wave"}>
+          <Button
+            onClick={handleThemeChange}
+            className="relative hidden cursor-pointer !p-1 hover:scale-110 md:flex"
+            variant={"link"}
+            data-testid="theme-btn-nav"
+          >
             {isDark ? (
               <Sun color="yellow" size={24} />
             ) : (
               <MoonStar color="black" size={24} />
             )}
-          </span>
-        </Button>
+          </Button>
+        </span>
       </TooltipTrigger>
     </Tooltip>
   );
