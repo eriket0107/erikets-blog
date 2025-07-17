@@ -25,14 +25,18 @@ const mockMilestones: MilestoneType[] = [
   {
     id: 1,
     title: "First Milestone",
-    date: "2024-01-01",
+    startDate: "2024-01-01",
+    endDate: "2024-03-01",
     description: "First milestone description",
+    company: "Test Company",
   },
   {
     id: 2,
     title: "Second Milestone",
-    date: "2024-06-15",
+    startDate: "2024-06-15",
+    endDate: "2024-08-15",
     description: "Second milestone description",
+    company: "Another Company",
   },
 ];
 
@@ -66,10 +70,16 @@ describe("Timeline", () => {
   it("should render all milestones", async () => {
     render(await Timeline());
 
-    expect(screen.getByText("First Milestone")).toBeInTheDocument();
-    expect(screen.getByText("Second Milestone")).toBeInTheDocument();
-    expect(screen.getByText("2024-01-01")).toBeInTheDocument();
-    expect(screen.getByText("2024-06-15")).toBeInTheDocument();
+    // Test milestone titles with company names
+    expect(
+      screen.getByText(/First Milestone - Test Company/),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Second Milestone - Another Company/),
+    ).toBeInTheDocument();
+
+    expect(screen.getByText("1/2024 - 3/2024")).toBeInTheDocument();
+    expect(screen.getByText("6/2024 - 8/2024")).toBeInTheDocument();
   });
 
   it("should apply correct styling when milestone is not in view", async () => {

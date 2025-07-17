@@ -5,6 +5,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { MoonStar, Sun } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { memo } from "react";
+import { cn } from "@/utils";
 
 const ThemeButtonMenu = () => {
   const { handleThemeChange, isDark } = useTheme();
@@ -38,7 +39,7 @@ const ThemeButtonNav = () => {
     <Tooltip delayDuration={300}>
       <TooltipContent>{isDark ? "Light" : "Dark"}</TooltipContent>
       <TooltipTrigger asChild>
-        <span className={isDark ? "hover-sun-spin" : "hover-moon-wave"}>
+        <span className={cn(isDark ? "hover-sun-spin" : "hover-moon-wave")}>
           <Button
             onClick={handleThemeChange}
             className="relative hidden cursor-pointer !p-1 hover:scale-110 md:flex"

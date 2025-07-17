@@ -3,6 +3,7 @@
 import { MilestoneType } from "@/interfaces/milestones";
 import { useTimeline } from "./useMilestone";
 import { Typography } from "@/components/Typography";
+import { getMonthAndYear } from "@/utils/get-month-and-year";
 
 export const Milestone = ({
   milestone,
@@ -12,6 +13,7 @@ export const Milestone = ({
   isLast: boolean;
 }) => {
   const { inView, ref } = useTimeline();
+
   return (
     <div
       ref={ref}
@@ -34,11 +36,15 @@ export const Milestone = ({
         className={`hover:shadow-foreground w-full rounded-sm p-2 transition-all duration-300 hover:scale-99 hover:shadow-md/20 hover:shadow-xs ${inView ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
       >
         <Typography.Muted className="text-primary">
-          {milestone.date}
+          {getMonthAndYear(milestone.startDate)}
+          {milestone?.endDate && " - " + getMonthAndYear(milestone?.endDate)}
         </Typography.Muted>
         <Typography.H4 className="text-primary mt-1 text-lg font-bold">
-          {milestone.title}
+          {milestone.title} - {milestone?.company}
         </Typography.H4>
+        {/* <Typography.P className="text-primary text-md mt-1">
+          {milestone.description}
+        </Typography.P> */}
       </div>
     </div>
   );
