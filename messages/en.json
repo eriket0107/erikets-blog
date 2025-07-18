@@ -10,10 +10,18 @@
     "take_a_look": "Be my guest and take a look on my latest posts!",
     "empty_posts": "Ideas sector is working at momment,<br></br> come back soon! What about taking some time to explore the site?"
   },
+  "BlogPage": {
+    "title": "Updates"
+  },
+  "AboutPage": {
+    "bio": "Bio",
+    "greeting": "I'm {age} years old. I've started my path as QA Tester in {startYear} and then I've changed to Software Engineering. Currently working as Fullstack developer focused on Front-end developing web and mobile solutions. I work on a project with thousands of daily accesses <link>Multi | Multiplan</link>.",
+    "social_invitation": "Feel free to reach out to me on my social media!"
+  },
   "Constants": {
     "home": "Home",
     "blog": "Blog",
-    "about": "About me"
+    "about": "About"
   },
   "LocaleSwitcher": {
     "title": "Language",
@@ -34,7 +42,7 @@
     "pagination_number": "of"
   },
   "MetadataAbout": {
-    "title": "About me",
+    "title": "About",
     "locale": "br",
     "namespace": "Metadata"
   },

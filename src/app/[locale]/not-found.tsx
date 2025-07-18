@@ -21,7 +21,7 @@ const NotFoundPage = () => {
             <RouteOff size={32} className="text-accent-foreground" />
             404
           </Typography.H1>
-          <Typography.H2 className="text-accent-foreground">
+          <Typography.H2 className="text-accent-foreground text-center">
             {t("title")}
           </Typography.H2>
         </Box>

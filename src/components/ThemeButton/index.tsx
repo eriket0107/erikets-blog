@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
-import { cn } from "@/utils";
-import { Beer, Coffee } from "lucide-react";
+import { MoonStar, Sun } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { memo } from "react";
+import { cn } from "@/utils";
 
 const ThemeButtonMenu = () => {
   const { handleThemeChange, isDark } = useTheme();
@@ -19,7 +19,15 @@ const ThemeButtonMenu = () => {
       data-testid="theme-btn-menu"
     >
       {isDark ? "Light" : "Dark"}
-      {isDark ? <Coffee color="white" /> : <Beer color="black" />}
+      <span
+        className={`theme-icon ${isDark ? "active-sun-spin" : "active-moon-wave"}`}
+      >
+        {isDark ? (
+          <Sun color="yellow" size={20} />
+        ) : (
+          <MoonStar color="black" size={20} />
+        )}
+      </span>
     </Button>
   );
 };
@@ -31,19 +39,20 @@ const ThemeButtonNav = () => {
     <Tooltip delayDuration={300}>
       <TooltipContent>{isDark ? "Light" : "Dark"}</TooltipContent>
       <TooltipTrigger asChild>
-        <Button
-          onClick={handleThemeChange}
-          className={cn(
-            "bg-foreground hidden cursor-pointer hover:scale-95 md:flex",
-          )}
-          data-testid="theme-btn-nav"
-        >
-          {isDark ? (
-            <Coffee suppressHydrationWarning color="black" />
-          ) : (
-            <Beer suppressHydrationWarning color="white" />
-          )}
-        </Button>
+        <span className={cn(isDark ? "hover-sun-spin" : "hover-moon-wave")}>
+          <Button
+            onClick={handleThemeChange}
+            className="relative hidden cursor-pointer !p-1 hover:scale-110 md:flex"
+            variant={"link"}
+            data-testid="theme-btn-nav"
+          >
+            {isDark ? (
+              <Sun color="yellow" size={24} />
+            ) : (
+              <MoonStar color="black" size={24} />
+            )}
+          </Button>
+        </span>
       </TooltipTrigger>
     </Tooltip>
   );

@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { About as AboutTemplate } from "@/templates/About";
 
 export async function generateMetadata({
   params,
@@ -16,8 +17,8 @@ export async function generateMetadata({
   };
 }
 
-const About = () => {
-  return <>About</>;
+const About = async () => {
+  return <AboutTemplate />;
 };
 
 export default About;

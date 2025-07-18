@@ -204,6 +204,39 @@ body {
 
 
 
+@keyframes sun-spin {
+  from {
+    opacity: 0;
+    transform: rotate(0deg) translateY(10px);
+    
+  }
+  to {
+    opacity: 1;
+
+    transform: rotate(90deg) translateY(0);
+  }
+}
+
+@keyframes moon-wave {
+ from {
+    opacity: 0;
+    transform: rotate(-45deg) translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+.hover-sun-spin:hover, .hover-sun-spin:active {
+  animation: sun-spin 0.8s ease;
+}
+
+.hover-moon-wave:hover, .hover-moon-wave:active  {
+  animation: moon-wave 0.4s ease-in-out;
+}
+
+
 @keyframes waving {
   0% {
     transform: rotate(0deg);
@@ -234,3 +267,18 @@ body {
 }
 
 
+
+@keyframes progress {
+  0% { 
+    height: 0;
+  }
+  
+  100% {
+    height: 100%;
+  }
+}
+
+.animate-progress {
+  animation: progress 800ms ease-out forwards;
+
+}
