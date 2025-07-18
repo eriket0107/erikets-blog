@@ -18,6 +18,7 @@ export const api = async <T = unknown>(endpoint: string, options: RequestInit = 
         ...options.headers,
       },
     })
+    console.log(response)
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)

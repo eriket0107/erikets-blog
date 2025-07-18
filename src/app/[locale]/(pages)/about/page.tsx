@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { About as AboutTemplate } from "@/templates/About";
+import { LanguageType } from "@/interfaces/posts";
 
 export async function generateMetadata({
   params,
@@ -17,8 +18,10 @@ export async function generateMetadata({
   };
 }
 
-const About = async () => {
-  return <AboutTemplate />;
+const About = async ({ params }: { params: Promise<{ locale: string }> }) => {
+  const { locale } = await params;
+
+  return <AboutTemplate locale={locale as LanguageType} />;
 };
 
 export default About;

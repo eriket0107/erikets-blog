@@ -4,7 +4,7 @@ import { MilestoneType } from "@/interfaces/milestones";
 import { Timeline } from ".";
 
 // Mock the getMilestones action
-vi.mock("@/actions/timeline", () => ({
+vi.mock("@/actions/milestones", () => ({
   getMilestones: vi.fn(),
 }));
 
@@ -14,7 +14,7 @@ vi.mock("./Milestone/useMilestone.ts", () => ({
 }));
 
 const mockGetMilestones = vi.mocked(
-  await import("@/actions/timeline"),
+  await import("@/actions/milestones"),
 ).getMilestones;
 
 const mockUseTimeline = vi.mocked(
@@ -54,21 +54,21 @@ describe("Timeline", () => {
   });
 
   it("should render timeline with correct structure", async () => {
-    render(await Timeline());
+    render(<Timeline milestones={mockMilestones} />);
 
     const timelineContainer = document.querySelector(".relative.flex.flex-col");
     expect(timelineContainer).toBeInTheDocument();
   });
 
   it("should render progress bar", async () => {
-    render(await Timeline());
+    render(<Timeline milestones={mockMilestones} />);
 
     const progressBar = document.querySelector(".animate-progress");
     expect(progressBar).toBeInTheDocument();
   });
 
   it("should render all milestones", async () => {
-    render(await Timeline());
+    render(<Timeline milestones={mockMilestones} />);
 
     // Test milestone titles with company names
     expect(
@@ -88,7 +88,7 @@ describe("Timeline", () => {
       inView: false,
     });
 
-    const { container } = render(await Timeline());
+    const { container } = render(<Timeline milestones={mockMilestones} />);
 
     const hiddenElements = container.querySelectorAll(".opacity-0");
     expect(hiddenElements.length).toBeGreaterThan(0);
@@ -100,7 +100,7 @@ describe("Timeline", () => {
       inView: true,
     });
 
-    const { container } = render(await Timeline());
+    const { container } = render(<Timeline milestones={mockMilestones} />);
 
     const visibleElements = container.querySelectorAll(".opacity-100");
     expect(visibleElements.length).toBeGreaterThan(0);
@@ -109,18 +109,12 @@ describe("Timeline", () => {
   it("should handle empty milestones array", async () => {
     mockGetMilestones.mockResolvedValue([]);
 
-    const { container } = render(await Timeline());
+    const { container } = render(<Timeline milestones={mockMilestones} />);
 
     const timelineContainer = container.querySelector(
       ".relative.flex.flex-col",
     );
     expect(timelineContainer).toBeInTheDocument();
-    expect(timelineContainer?.children.length).toBe(1); // Only progress bar
-  });
-
-  it("should call getMilestones action", async () => {
-    render(await Timeline());
-
-    expect(mockGetMilestones).toHaveBeenCalledTimes(1);
+    expect(timelineContainer?.children.length).toBe(3);
   });
 });

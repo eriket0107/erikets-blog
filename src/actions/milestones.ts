@@ -7,9 +7,8 @@ import { MilestoneType } from "@/interfaces/milestones"
 export const getMilestones = async () => {
   try {
     const data = await api<MilestoneType[]>('milestones', {
-      cache: 'no-cache',
       next: {
-        tags: ['posts'],
+        tags: ['milestones'],
         revalidate: REVALIDATE.ONE_HOUR
       }
     })

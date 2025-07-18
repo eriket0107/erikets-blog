@@ -15,12 +15,24 @@ import {
 import { Stack } from "@/constants/Stack";
 import { Typography } from "../Typography";
 import { Suspense } from "react";
+import { getTranslations } from "next-intl/server";
+import { getMilestones } from "@/actions/milestones";
+import { getCareer } from "@/actions/career";
+import { LanguageType } from "@/interfaces/posts";
 
 const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)
   .sort((a, b) => a.name.localeCompare(b.name));
 
-export const AccordionAbout = () => {
+interface AccordionAboutProps {
+  language: LanguageType;
+}
+
+export const AccordionAbout = async ({ language }: AccordionAboutProps) => {
+  const t = await getTranslations("AboutPage");
+  const milestones = await getMilestones();
+  const career = await getCareer();
+
   return (
     <AccordionDefault
       type="single"
@@ -37,7 +49,7 @@ export const AccordionAbout = () => {
         >
           <div className="flex gap-2">
             <MapPin aria-hidden="true" />
-            {`Where I'm right now`}
+            {t("now")}
           </div>
         </AccordionTrigger>
         <AccordionContent
@@ -46,16 +58,7 @@ export const AccordionAbout = () => {
           role="region"
           aria-label="Current position and work"
         >
-          <Typography.P>
-            Working at Multiplan, so far I&apos;ve developed a parking lot
-            application that has more then +70k daily users accesses. Which made
-            the company led an innovation parking lot system throghout the
-            country. At the moment is counted more than +1M license plates
-            registered in the system. My recent achivement was the rollout of Ev
-            Charger station for electric cars, I was responsible for integrating
-            third party partners with our API, focused primaly on frontend but
-            also developed backend.
-          </Typography.P>
+          <Typography.P>{career?.text?.[language]}</Typography.P>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="career">
@@ -66,7 +69,7 @@ export const AccordionAbout = () => {
         >
           <div className="flex gap-2">
             <Milestone aria-hidden="true" />
-            Career
+            {t("career")}
           </div>
         </AccordionTrigger>
         <AccordionContent
@@ -76,7 +79,7 @@ export const AccordionAbout = () => {
           aria-label="Career milestones and achievements"
         >
           <Suspense>
-            <Timeline />
+            <Timeline milestones={milestones} />
           </Suspense>
         </AccordionContent>
       </AccordionItem>
@@ -88,7 +91,7 @@ export const AccordionAbout = () => {
         >
           <div className="flex gap-2">
             <Wrench aria-hidden="true" />
-            Toolset
+            {t("tools")}
           </div>
         </AccordionTrigger>
         <AccordionContent

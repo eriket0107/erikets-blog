@@ -8,8 +8,9 @@ import ProfileImage from "@/assets/profile-erik.webp";
 import { AccordionAbout } from "@/components/AccordionAbout";
 import { useTranslations } from "next-intl";
 import { Link } from "@/components/Link";
+import { LanguageType } from "@/interfaces/posts";
 
-export const About = () => {
+export const About = ({ locale }: { locale: LanguageType }) => {
   const t = useTranslations("AboutPage");
   const currentAge =
     new Date().getFullYear() - new Date("1998/07/01").getFullYear();
@@ -114,7 +115,7 @@ export const About = () => {
                 ))}
               </Box>
             </Box>
-            <AccordionAbout />
+            <AccordionAbout language={locale} />
           </Box>
         </Box>
       </Box>

@@ -16,7 +16,10 @@
   "AboutPage": {
     "bio": "Bio",
     "greeting": "Tenho {age} anos. Comecei minha jornada como QA Tester em {startYear} e então migrei para Engenharia de Software. Atualmente trabalho como desenvolvedor Fullstack focado em Front-end, desenvolvendo soluções web e mobile. Trabalho em um projeto com milhares de acessos diários, <link>Multi | Multiplan</link>.",
-    "social_invitation": "Fique à vontade para entrar em contato comigo nas minhas redes sociais!"
+    "social_invitation": "Fique à vontade para entrar em contato comigo nas minhas redes sociais!",
+    "now": "Atual momento",
+    "career": "Carreira",
+    "tools": "Ferramentas"
   },
   "Constants": {
     "home": "Home",
