@@ -1,12 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export const useHash = (): [string, (newHash: string) => void] => {
   const [hash, setHash] = useState<string>('');
 
   useEffect(() => {
-    // Set initial hash on mount
     setHash(window.location.hash);
 
     const hashChangeHandler = () => {
@@ -17,12 +16,12 @@ export const useHash = (): [string, (newHash: string) => void] => {
     return () => window.removeEventListener("hashchange", hashChangeHandler);
   }, []);
 
-  const updateHash = (newHash: string): void => {
+  const updateHash = useCallback((newHash: string): void => {
     const formattedHash = newHash.startsWith('#') ? newHash : `#${newHash}`;
     if (formattedHash !== hash) {
       window.location.hash = formattedHash;
     }
-  };
+  }, [hash]);
 
   return [hash, updateHash];
 };
