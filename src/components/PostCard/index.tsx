@@ -7,7 +7,7 @@ import { truncateString } from "@/utils";
 import { useLocale } from "next-intl";
 import { Tag } from "../Tag";
 
-interface IPostCard {
+interface PaginationProps {
   post: PostType;
   ariaPosinset?: number;
   ariaSetsize?: number;
@@ -22,7 +22,7 @@ export const PostCard = ({
   ariaPosinset,
   ariaSetsize,
   hasImage = true,
-}: IPostCard) => {
+}: PaginationProps) => {
   const { description, imgSrc, title, date, id, tags } = post;
   const language = useLocale() as LanguageType;
   const truncatedDescription = truncateString(

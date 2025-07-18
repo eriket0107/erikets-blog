@@ -3,7 +3,7 @@ import { cn } from "@/utils";
 import { AnchorHTMLAttributes, memo } from "react";
 import { Link } from "../Link";
 
-interface INavLink
+interface NavLinkProps
   extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
   link: ILink;
   className?: string;
@@ -18,7 +18,7 @@ export const NavLink = memo(
     isFooter = false,
     isSelected = false,
     ...rest
-  }: INavLink) => {
+  }: NavLinkProps) => {
     const { href, icon, label, title } = link;
 
     return (

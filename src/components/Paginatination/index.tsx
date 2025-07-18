@@ -8,7 +8,7 @@ import {
 import { cn } from "@/utils";
 import { Link } from "../Link";
 
-interface IPagination {
+interface PaginationProps {
   className?: string;
   pagination: {
     prev: number | null;
@@ -28,7 +28,7 @@ const classeNames = {
     "text-md text-foreground border-accent-foreground border-b-1 font-medium cursor-default",
 };
 
-export const Pagination = ({ className, pagination }: IPagination) => {
+export const Pagination = ({ className, pagination }: PaginationProps) => {
   const { first, next, prev, currentPage, last, totalPages } = pagination;
 
   return (
