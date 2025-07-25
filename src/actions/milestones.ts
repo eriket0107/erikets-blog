@@ -2,7 +2,7 @@
 
 import { api } from "@/api"
 import { REVALIDATE } from "@/constants/revalidate"
-import { MilestoneType } from "@/interfaces/milestones"
+import { MilestoneType } from "@/interfaces/milestone"
 
 export const getMilestones = async () => {
   try {

@@ -18,7 +18,7 @@ import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import { getMilestones } from "@/actions/milestones";
 import { getCareer } from "@/actions/career";
-import { LanguageType } from "@/interfaces/posts";
+import { LanguageType } from "@/interfaces/post";
 
 const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)

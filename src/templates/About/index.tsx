@@ -8,7 +8,7 @@ import ProfileImage from "@/assets/profile-erik.webp";
 import { AccordionAbout } from "@/components/AccordionAbout";
 import { useTranslations } from "next-intl";
 import { Link } from "@/components/Link";
-import { LanguageType } from "@/interfaces/posts";
+import { LanguageType } from "@/interfaces/post";
 
 export const About = ({ locale }: { locale: LanguageType }) => {
   const t = useTranslations("AboutPage");

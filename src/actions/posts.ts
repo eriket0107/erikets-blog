@@ -1,6 +1,6 @@
 'use server'
 import { REVALIDATE } from "@/constants/revalidate"
-import { PostType } from "@/interfaces/posts"
+import { PostType } from "@/interfaces/post"
 import { api } from "@/api"
 import { PaginationType } from "@/interfaces/pagination"
 

@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { About as AboutTemplate } from "@/templates/About";
-import { LanguageType } from "@/interfaces/posts";
+import { LanguageType } from "@/interfaces/post";
 
 export async function generateMetadata({
   params,

@@ -1,5 +1,5 @@
 import { getPostById } from "@/actions/posts";
-import { LanguageType } from "@/interfaces/posts";
+import { LanguageType } from "@/interfaces/post";
 import { Post as PostLayout } from "@/templates/Post";
 
 export async function generateMetadata({

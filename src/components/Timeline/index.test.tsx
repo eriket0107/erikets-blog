@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { MilestoneType } from "@/interfaces/milestones";
+import { MilestoneType } from "@/interfaces/milestone";
 import { Timeline } from ".";
 
 // Mock the getMilestones action

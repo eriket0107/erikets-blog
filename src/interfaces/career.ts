@@ -1,4 +1,4 @@
-import { LanguageType } from "./posts";
+import { LanguageType } from "./post";
 
 
 export interface CareerType {

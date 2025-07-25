@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render } from "@testing-library/react";
 import { PostCard } from ".";
-import { PostType } from "@/interfaces/posts";
+import { PostType } from "@/interfaces/post";
 import { NextIntlClientProvider } from "next-intl";
 import messages from "../../../messages/en.json";
 

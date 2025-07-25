@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Box } from "../Box";
 import { Typography } from "../Typography";
-import { LanguageType, PostType } from "@/interfaces/posts";
+import { LanguageType, PostType } from "@/interfaces/post";
 import { Link } from "../Link";
 import { truncateString } from "@/utils";
 import { useLocale } from "next-intl";

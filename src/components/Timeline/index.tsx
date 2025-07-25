@@ -1,4 +1,4 @@
-import { MilestoneType } from "@/interfaces/milestones";
+import { MilestoneType } from "@/interfaces/milestone";
 import { Box } from "../Box";
 import { Milestone } from "./Milestone";
 

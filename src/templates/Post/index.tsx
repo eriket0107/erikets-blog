@@ -3,7 +3,7 @@ import { BackButton } from "@/components/BackButton";
 import { Box } from "@/components/Box";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Typography } from "@/components/Typography";
-import { LanguageType } from "@/interfaces/posts";
+import { LanguageType } from "@/interfaces/post";
 import { Ellipsis } from "lucide-react";
 // import Image from "next/image";
 
