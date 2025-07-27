@@ -13,10 +13,6 @@ vi.mock("./Milestone/useMilestone.ts", () => ({
   useTimeline: vi.fn(),
 }));
 
-const mockGetMilestones = vi.mocked(
-  await import("@/actions/milestones"),
-).getMilestones;
-
 const mockUseTimeline = vi.mocked(
   await import("./Milestone/useMilestone"),
 ).useTimeline;
@@ -42,7 +38,6 @@ const mockMilestones: MilestoneType[] = [
 
 describe("Timeline", () => {
   beforeEach(() => {
-    mockGetMilestones.mockResolvedValue(mockMilestones);
     mockUseTimeline.mockReturnValue({
       ref: { current: null },
       inView: false,
@@ -107,8 +102,6 @@ describe("Timeline", () => {
   });
 
   it("should handle empty milestones array", async () => {
-    mockGetMilestones.mockResolvedValue([]);
-
     const { container } = render(<Timeline milestones={mockMilestones} />);
 
     const timelineContainer = container.querySelector(

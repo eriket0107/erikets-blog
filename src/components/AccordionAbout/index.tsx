@@ -16,22 +16,15 @@ import { Stack } from "@/constants/Stack";
 import { Typography } from "../Typography";
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
-import { getMilestones } from "@/actions/milestones";
-import { getCareer } from "@/actions/career";
-import { LanguageType } from "@/interfaces/post";
+
+import { milestones } from "@/constants/milestones";
 
 const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)
   .sort((a, b) => a.name.localeCompare(b.name));
 
-interface AccordionAboutProps {
-  language: LanguageType;
-}
-
-export const AccordionAbout = async ({ language }: AccordionAboutProps) => {
+export const AccordionAbout = async () => {
   const t = await getTranslations("AboutPage");
-  const milestones = await getMilestones();
-  const career = await getCareer();
 
   return (
     <AccordionDefault
@@ -58,7 +51,7 @@ export const AccordionAbout = async ({ language }: AccordionAboutProps) => {
           role="region"
           aria-label="Current position and work"
         >
-          <Typography.P>{career?.text?.[language]}</Typography.P>
+          <Typography.P>{t("experience")}</Typography.P>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="career">

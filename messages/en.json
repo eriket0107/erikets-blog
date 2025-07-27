@@ -19,7 +19,8 @@
     "social_invitation": "Feel free to reach out to me on my social media!",
     "now": "My current moment",
     "career": "Career",
-    "tools": "Toolset"
+    "tools": "Toolset",
+    "experience": "At Multiplan, I developed a parking lot application that now handles over 70,000 daily active users. This project spearheaded the company's innovation in parking systems countrywide, and the system currently manages over 1 million registered license plates. More recently, I led the rollout of EV charging stations. For this initiative, I was responsible for integrating third-party partner systems with our API, handling both frontend and backend development with a primary focus on the user interface."
   },
   "Constants": {
     "home": "Home",
