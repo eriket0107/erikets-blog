@@ -29,6 +29,7 @@ const mockPosts: PostType[] = [
     imgSrc: "/image1.jpg",
     date: "2024-01-15",
     text: { en: "Content", br: "Conteúdo" },
+    isPublished: true,
   },
   {
     id: "post-2",
@@ -37,6 +38,7 @@ const mockPosts: PostType[] = [
     imgSrc: "/image2.jpg",
     date: "2024-01-16",
     text: { en: "Content", br: "Conteúdo" },
+    isPublished: true,
   },
 ];
 

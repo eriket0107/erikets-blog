@@ -69,7 +69,7 @@ export const PostCard = ({
               {title[language]}
             </Typography.H3>
             <Box gap="2" height="auto">
-              {tags?.[language]?.map((tag) => (
+              {tags?.map((tag) => (
                 <Tag key={tag}>{truncateString(tag, MAX_TAG_LENGTH)}</Tag>
               ))}
             </Box>

@@ -51,6 +51,7 @@ const mockPost: PostType = {
     en: "This is the full text content of the test blog post.",
     br: "",
   },
+  tags: ["react", "typescript"],
   isPublished: true,
 };
 
@@ -70,6 +71,7 @@ const mockLongPost: PostType = {
     br: "",
     en: "This is the full text content of the test blog post with a long description.",
   },
+  tags: ["javascript", "testing"],
   isPublished: true,
 };
 
@@ -155,5 +157,12 @@ describe("PostCard", () => {
     const imageContainer = container.querySelector('[class*="min-w-[300px]"]');
     expect(imageContainer).toBeInTheDocument();
     expect(imageContainer).toHaveClass("md:w-[300px]");
+  });
+
+  it("should render tags when present", () => {
+    const { getByText } = renderComponent(mockPost);
+
+    expect(getByText("react")).toBeInTheDocument();
+    expect(getByText("typescript")).toBeInTheDocument();
   });
 });

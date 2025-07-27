@@ -9,7 +9,7 @@ export const getPosts = async ({ currentPage = 1, perPage = 5 }: { currentPage?:
   try {
     const data = await api<PaginationType<PostType[]>>(`posts?_page=${currentPage}&_per_page=${perPage}&isPublished=true`, {
       next: {
-        tags: ['posts'],
+        tags: ['posts', `${currentPage}`],
         revalidate: REVALIDATE.ONE_HOUR
       }
     })
