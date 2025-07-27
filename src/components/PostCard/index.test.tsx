@@ -51,6 +51,7 @@ const mockPost: PostType = {
     en: "This is the full text content of the test blog post.",
     br: "",
   },
+  isPublished: true,
 };
 
 const mockLongPost: PostType = {
@@ -69,6 +70,7 @@ const mockLongPost: PostType = {
     br: "",
     en: "This is the full text content of the test blog post with a long description.",
   },
+  isPublished: true,
 };
 
 const renderComponent = (postMock: PostType, additionalProps = {}) => {
