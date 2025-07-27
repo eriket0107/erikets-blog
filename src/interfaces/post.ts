@@ -14,4 +14,5 @@ export interface PostType {
   text?: { [K in LanguageType]: string };
   references?: ReferenceType[]
   tags?: { [K in LanguageType]: string[] }
+  isPublished: boolean;
 };
