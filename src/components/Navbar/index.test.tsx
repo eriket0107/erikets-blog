@@ -72,4 +72,31 @@ describe("Navbar component", () => {
     const aboutLink = screen.getByText(/About/);
     expect(aboutLink).toBeInTheDocument();
   });
+
+  it("should render semantic navigation structure", () => {
+    const navbar = screen.getByTestId("navbar");
+    const navList = navbar.querySelector("ul");
+    const navItems = navbar.querySelectorAll("li");
+
+    expect(navList).toBeInTheDocument();
+    expect(navItems).toHaveLength(3); // home, blog, about
+  });
+
+  it("should have proper ARIA attributes", () => {
+    const navbar = screen.getByTestId("navbar");
+    const homeLink = screen.getByLabelText(/Navigate to Home page/);
+
+    expect(navbar).toHaveAttribute("aria-label", "Main navigation");
+    expect(homeLink).toHaveAttribute("aria-current", "page"); // Since pathname is "/"
+  });
+
+  it("should have links with proper semantic attributes", () => {
+    const homeLink = screen.getByRole("link", { name: /Home/ });
+    const blogLink = screen.getByRole("link", { name: /Blog/ });
+    const aboutLink = screen.getByRole("link", { name: /About/ });
+
+    expect(homeLink).toHaveAttribute("href", "/en");
+    expect(blogLink).toHaveAttribute("href", "/en/blog");
+    expect(aboutLink).toHaveAttribute("href", "/en/about");
+  });
 });

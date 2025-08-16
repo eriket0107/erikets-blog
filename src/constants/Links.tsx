@@ -8,9 +8,9 @@ import {
   // Settings2,
 } from "lucide-react";
 
-const homeIcon = <Home size={16} className="text-primary" />;
-const blogIcon = <BookUser size={16} className="text-primary" />;
-const aboutIcon = <User size={16} className="text-primary" />;
+const homeIcon = <Home size={16} className="text-current" />;
+const blogIcon = <BookUser size={16} className="text-current" />;
+const aboutIcon = <User size={16} className="text-current" />;
 const githubIcon = <Github className="h-[20px] w-[20px]" />;
 const linkedinIcon = <Linkedin className="h-[20px] w-[20px]" />;
 

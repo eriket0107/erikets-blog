@@ -64,7 +64,10 @@ export const About = ({ locale }: { locale: LanguageType }) => {
               imgSrc={ProfileImage.src}
               fallback="EO"
             />
-            <Typography.H2 id="profile-heading" className="text-4xl">
+            <Typography.H2
+              id="profile-heading"
+              className="text-gradient text-4xl"
+            >
               Erik Oliveira
             </Typography.H2>
           </Box>

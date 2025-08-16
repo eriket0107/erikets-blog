@@ -282,3 +282,22 @@ body {
   animation: progress 800ms ease-out forwards;
 
 }
+
+.text-gradient {
+  background-image: linear-gradient(to right, #3b82f6, #039bb6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.border-gradient {
+  background-image: linear-gradient(to right, #3b82f6, #039bb6);
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  background-color: transparent;
+}
+
+.hover\:border-bottom-gradient:hover {
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to right, #3b82f6, #039bb6) 1;
+}

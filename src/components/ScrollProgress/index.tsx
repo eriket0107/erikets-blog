@@ -22,7 +22,7 @@ export const ScrollProgress = () => {
         originX: 0,
         zIndex: 2,
       }}
-      className="bg-accent-foreground"
+      className="bg-gradient-to-r from-blue-500 to-cyan-500"
     />
   );
 };

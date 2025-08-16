@@ -47,7 +47,7 @@ export default function LocaleSwitcherSelect({
   return (
     <label
       className={cn(
-        "text-foreground hover:border-foreground relative flex cursor-pointer items-center gap-10 border-b-1 border-transparent",
+        "text-foreground hover:border-bottom-gradient relative flex cursor-pointer items-center gap-10 border-b-1 border-transparent",
         isPending && "transition-opacity [&:disabled]:opacity-30",
       )}
     >

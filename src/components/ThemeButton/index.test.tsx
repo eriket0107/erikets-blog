@@ -82,7 +82,7 @@ describe("Theme Button Menu", () => {
     const { getByTestId } = render(<ThemeButton variant="menu" />);
 
     const themeButton = getByTestId("theme-btn-menu");
-    expect(themeButton).toHaveClass("bg-background");
+    expect(themeButton).not.toHaveClass("bg-background");
   });
 
   it("should display the correct text if is light ", () => {

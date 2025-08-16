@@ -7,9 +7,7 @@ import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { Logo } from "@/components/Logo";
 
-const ThemeButton = dynamic(() => import("@/components/ThemeButton"), {
-  ssr: true,
-});
+const ThemeButton = dynamic(() => import("@/components/ThemeButton"));
 
 export const Header = () => {
   return (

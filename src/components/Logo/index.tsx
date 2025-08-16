@@ -13,7 +13,7 @@ export const Logo = () => {
   return (
     <Link
       href="/"
-      className={` ${robotoMono.className} md:hover:border-accent-foreground border-b-1 border-transparent transition-all hover:scale-99 hover:opacity-80`}
+      className={`hover:border-bottom-gradient ${robotoMono.className} border-b-1 border-transparent transition-all hover:scale-99`}
     >
       <Typography.H2 className={`hidden flex-1 pb-0 md:block`}>
         coffee & vanilla code ☕️

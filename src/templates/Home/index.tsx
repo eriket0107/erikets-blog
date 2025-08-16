@@ -40,7 +40,7 @@ export const Home = async () => {
               href="/about"
               aria-label="Learn more about Erik on the about page"
             >
-              <span className="focus:outline-accent inline-block text-3xl font-bold hover:underline focus:underline focus:outline-2 focus:outline-offset-2">
+              <span className="text-gradient focus:outline-accent inline-block text-3xl font-bold hover:underline focus:underline focus:outline-2 focus:outline-offset-2">
                 Erik
               </span>
             </Link>

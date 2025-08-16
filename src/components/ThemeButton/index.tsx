@@ -5,30 +5,41 @@ import { useTheme } from "@/hooks/useTheme";
 import { MoonStar, Sun } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { memo } from "react";
-import { cn } from "@/utils";
+import { motion, AnimatePresence } from "motion/react";
 
 const ThemeButtonMenu = () => {
   const { handleThemeChange, isDark } = useTheme();
 
   return (
-    <Button
-      className="bg-background flex flex-1 cursor-pointer flex-row items-center justify-between border-none text-base transition-all duration-100 ease-in-out focus:bg-transparent"
-      variant="ghost"
-      size="default-icon"
-      onClick={handleThemeChange}
-      data-testid="theme-btn-menu"
-    >
-      {isDark ? "Light" : "Dark"}
-      <span
-        className={`theme-icon ${isDark ? "active-sun-spin" : "active-moon-wave"}`}
+    <motion.div whileTap={{ scale: 0.95 }} transition={{ duration: 0.1 }}>
+      <Button
+        className="!flex flex-1 cursor-pointer flex-row items-center justify-between gap-21 border-none text-base transition-all duration-100 ease-in-out focus:bg-transparent"
+        variant="ghost"
+        size="default-icon"
+        onClick={handleThemeChange}
+        data-testid="theme-btn-menu"
       >
-        {isDark ? (
-          <Sun color="yellow" size={20} />
-        ) : (
-          <MoonStar color="black" size={20} />
-        )}
-      </span>
-    </Button>
+        {isDark ? "Light" : "Dark"}
+        <div className="relative overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={isDark ? "sun" : "moon"}
+              initial={{ y: 20, opacity: 0, rotate: -180 }}
+              animate={{ y: 0, opacity: 1, rotate: 0 }}
+              exit={{ y: -20, opacity: 0, rotate: 180 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              className="block"
+            >
+              {isDark ? (
+                <Sun color="yellow" size={20} />
+              ) : (
+                <MoonStar color="black" size={20} />
+              )}
+            </motion.span>
+          </AnimatePresence>
+        </div>
+      </Button>
+    </motion.div>
   );
 };
 
@@ -39,20 +50,37 @@ const ThemeButtonNav = () => {
     <Tooltip delayDuration={300}>
       <TooltipContent>{isDark ? "Light" : "Dark"}</TooltipContent>
       <TooltipTrigger asChild>
-        <span className={cn(isDark ? "hover-sun-spin" : "hover-moon-wave")}>
+        <motion.div
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.1 }}
+        >
           <Button
             onClick={handleThemeChange}
-            className="relative hidden cursor-pointer !p-1 hover:scale-110 md:flex"
+            className="relative hidden cursor-pointer !p-1 md:flex"
             variant={"link"}
             data-testid="theme-btn-nav"
           >
-            {isDark ? (
-              <Sun color="yellow" size={24} />
-            ) : (
-              <MoonStar color="black" size={24} />
-            )}
+            <div className="relative overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={isDark ? "sun" : "moon"}
+                  initial={{ scale: 0, rotate: -180, opacity: 0 }}
+                  animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                  exit={{ scale: 0, rotate: 180, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="block"
+                >
+                  {isDark ? (
+                    <Sun color="yellow" size={24} />
+                  ) : (
+                    <MoonStar color="black" size={24} />
+                  )}
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </Button>
-        </span>
+        </motion.div>
       </TooltipTrigger>
     </Tooltip>
   );
