@@ -21,12 +21,12 @@ export const Blog = async ({ currentPage }: { currentPage: number }) => {
       height="full"
       className="overflow-hidden"
     >
-      <Typography.H1
+      <Typography.H2
         id="intro-blog"
-        className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
+        className="animate-fade-in-fast text-accent-foreground max-w-3xl pb-0 text-left"
       >
         {t("title")}
-      </Typography.H1>
+      </Typography.H2>
 
       <Box
         direction="col"

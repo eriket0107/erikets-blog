@@ -1,8 +1,22 @@
 "use client";
 import { useScroll, useSpring, motion } from "motion/react";
+import { useEffect, useRef } from "react";
 
 export const ScrollProgress = () => {
-  const { scrollYProgress } = useScroll();
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    // Find the scrollable container (the Layout component)
+    const scrollContainer = document.querySelector(".screen-layout");
+    if (scrollContainer) {
+      ref.current = scrollContainer as HTMLElement;
+    }
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    container: ref,
+  });
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -15,7 +29,7 @@ export const ScrollProgress = () => {
       style={{
         scaleX,
         position: "fixed",
-        top: 70,
+        top: 95,
         left: 0,
         right: 0,
         height: 7,

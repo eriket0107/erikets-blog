@@ -27,12 +27,12 @@ export const About = () => {
       aria-label="About Erik Oliveira"
       gap="10"
     >
-      <Typography.H1
+      {/* <Typography.H1
         id="intro-blog"
         className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
       >
         {t("bio")}
-      </Typography.H1>
+      </Typography.H1> */}
       <Box
         as="article"
         direction="col"
@@ -82,11 +82,11 @@ export const About = () => {
               {t.rich("greeting", {
                 age: () => <AnimatedNumber value={currentAge} />,
                 startYear: () => (
-                  <AnimatedNumber timer="2s" value={startYear} />
+                  <AnimatedNumber timer="0.75s" value={startYear} />
                 ),
                 link: (chunks) => (
                   <Link
-                    className="hover:border-gradient underline transition-all transition-discrete hover:scale-105"
+                    className="hover:border-gradient border-b-1 border-transparent transition-all transition-discrete hover:scale-105"
                     href={"https://www.meumulti.com.br/"}
                     target="_blank"
                   >

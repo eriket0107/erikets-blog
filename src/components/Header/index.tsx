@@ -16,21 +16,20 @@ export const Header = () => {
       justify="between"
       align="center"
       className={
-        "shadow-accent animate-fade-in sticky top-0 z-1 flex max-h-[70px] flex-row border-b-1 p-4 shadow backdrop-blur-3xl"
+        "shadow-accent animate-fade-in z-1 flex flex-row overflow-hidden border-b-1 bg-transparent p-6 shadow backdrop-blur-3xl"
       }
       aria-label="Header of screen"
       data-testid="header-box"
+      height="100px"
     >
-      <Box>
-        <Logo />
-      </Box>
+      <Logo />
 
-      <Box justify="end" align="center" gap="4">
+      <div className="flex items-center justify-end gap-4">
         <Navbar />
         <Suspense fallback={<></>}>
           <ThemeButton variant="nav" />
         </Suspense>
-      </Box>
+      </div>
 
       <BurgerMenu />
     </Box>

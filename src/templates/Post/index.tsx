@@ -1,7 +1,6 @@
 import { getPostById } from "@/actions/posts";
 import { BackButton } from "@/components/BackButton";
 import { Box } from "@/components/Box";
-import { ScrollProgress } from "@/components/ScrollProgress";
 import { Typography } from "@/components/Typography";
 import { LanguageType } from "@/interfaces/post";
 import { Ellipsis } from "lucide-react";
@@ -18,7 +17,6 @@ export const Post = async ({
 
   return (
     <>
-      <ScrollProgress />
       <Box
         as="main"
         justify="center"
@@ -29,6 +27,7 @@ export const Post = async ({
         className="relative"
         role="main"
         aria-label="Blog post content"
+        height="100%"
       >
         <Box as="nav" aria-label="Post navigation">
           <BackButton />

@@ -143,7 +143,9 @@ body {
 }
 
 .screen-layout {
-  min-height: calc(100dvh - 120px);
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
 }
 
 .bg-blur {

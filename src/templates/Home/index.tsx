@@ -19,7 +19,12 @@ export const Home = async () => {
       className="p-4"
     >
       <Box gap="12" direction="col" width="500px">
-        <Box as="section" direction="col" aria-labelledby="intro-heading">
+        <Box
+          height="auto"
+          as="section"
+          direction="col"
+          aria-labelledby="intro-heading"
+        >
           <Typography.H1
             id="intro-heading"
             className="text-accent-foreground max-w-3xl text-left"
