@@ -8,9 +8,9 @@ import ProfileImage from "@/assets/profile-erik.webp";
 import { AccordionAbout } from "@/components/AccordionAbout";
 import { useTranslations } from "next-intl";
 import { Link } from "@/components/Link";
-import { LanguageType } from "@/interfaces/post";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
 
-export const About = ({ locale }: { locale: LanguageType }) => {
+export const About = () => {
   const t = useTranslations("AboutPage");
   const currentAge =
     new Date().getFullYear() - new Date("1998/07/01").getFullYear();
@@ -80,11 +80,13 @@ export const About = ({ locale }: { locale: LanguageType }) => {
           >
             <Typography.P>
               {t.rich("greeting", {
-                age: currentAge,
-                startYear,
+                age: () => <AnimatedNumber value={currentAge} />,
+                startYear: () => (
+                  <AnimatedNumber timer="2s" value={startYear} />
+                ),
                 link: (chunks) => (
                   <Link
-                    className="underline transition-all transition-discrete hover:scale-105"
+                    className="hover:border-gradient underline transition-all transition-discrete hover:scale-105"
                     href={"https://www.meumulti.com.br/"}
                     target="_blank"
                   >
@@ -118,7 +120,7 @@ export const About = ({ locale }: { locale: LanguageType }) => {
                 ))}
               </Box>
             </Box>
-            <AccordionAbout language={locale} />
+            <AccordionAbout />
           </Box>
         </Box>
       </Box>

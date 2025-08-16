@@ -15,7 +15,7 @@
   },
   "AboutPage": {
     "bio": "Bio",
-    "greeting": "I'm {age} years old. I've started my path as QA Tester in {startYear} and then I've changed to Software Engineering. Currently working as Fullstack developer focused on Front-end developing web and mobile solutions. I work on a project with thousands of daily accesses <link>Multi | Multiplan</link>.",
+    "greeting": "I'm <age>{age}</age> years old. I've started my path as QA Tester in <startYear>{startYear}</startYear> and then I've changed to Software Engineering. Currently working as Fullstack developer focused on Front-end developing web and mobile solutions. I work on a project with thousands of daily accesses <link>Multi | Multiplan</link>.",
     "social_invitation": "Feel free to reach out to me on my social media!",
     "now": "My current moment",
     "career": "Career",
