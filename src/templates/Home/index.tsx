@@ -74,7 +74,7 @@ export const Home = async () => {
             {t("take_a_look")}
           </Typography.H2>
           <Suspense fallback={<PostCardSkeleton hasImage={false} />}>
-            <PostList quantity={1} />
+            <PostList quantity={2} />
           </Suspense>
         </Box>
       </Box>

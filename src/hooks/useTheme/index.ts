@@ -1,5 +1,6 @@
 'use client'
 
+import { themeKeyCookie } from "@/constants/cookies";
 import { useEffect } from "react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
@@ -34,6 +35,7 @@ export const useTheme = () => {
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);
     document.documentElement.style.colorScheme = theme;
+    document.cookie = `${themeKeyCookie}=${theme}`
   }, [theme]);
 
   const handleThemeChange = () => {

@@ -19,7 +19,7 @@ export const PostList = async ({ quantity = 2 }: { quantity?: number }) => {
       aria-label="Latest blog posts"
       height="auto"
       gap="1"
-      className="[&::-webkit-scrollbar-track]:transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground focus-within:outline-accent snap-y snap-mandatory overflow-y-auto focus-within:outline-2 focus-within:outline-offset-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
+      className="[&::-webkit-scrollbar-track]:transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground focus-within:outline-accent snap-y snap-mandatory overflow-y-auto pt-2 pl-2 focus-within:outline-2 focus-within:outline-offset-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
       tabIndex={0}
     >
       {hasPosts ? (

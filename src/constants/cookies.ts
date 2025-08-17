@@ -1,0 +1,1 @@
+export const themeKeyCookie = "erikets-blog-theme"
