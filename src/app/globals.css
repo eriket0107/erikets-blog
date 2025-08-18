@@ -303,3 +303,9 @@ body {
   border-bottom: 1px solid;
   border-image: linear-gradient(to right, #3b82f6, #039bb6) 1;
 }
+
+.header {
+  &::-webkit-scrollbar {
+  display: block;
+  }
+}

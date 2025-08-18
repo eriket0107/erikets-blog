@@ -17,18 +17,7 @@ export const Post = async ({
 
   return (
     <>
-      <Box
-        as="main"
-        justify="center"
-        direction="col"
-        align="center"
-        padding="4"
-        width="600"
-        className="relative"
-        role="main"
-        aria-label="Blog post content"
-        height="100%"
-      >
+      <div className="flex h-auto w-[600px] flex-col items-center justify-start gap-4 p-4 pt-30 md:pt-24">
         <Box as="nav" aria-label="Post navigation">
           <BackButton />
         </Box>
@@ -44,7 +33,7 @@ export const Post = async ({
           <Box as="header" direction="col" justify="center" align="center">
             <Typography.H1
               id="post-title"
-              className="max-w-[600px] pb-0 text-center text-4xl text-wrap"
+              className="w-full pb-0 text-center text-4xl text-wrap md:max-w-[600px]"
               tabIndex={-1}
             >
               {post?.title[language]}
@@ -103,7 +92,7 @@ export const Post = async ({
             />
           </Box>
         </Box>
-      </Box>
+      </div>
 
       <div
         className="to-background/100 from-background/0 fixed bottom-10 hidden h-[70px] w-full bg-gradient-to-b md:block md:max-w-[600px]"

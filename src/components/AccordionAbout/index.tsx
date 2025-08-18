@@ -65,7 +65,7 @@ export const AccordionAbout = async () => {
           </div>
         </AccordionTrigger>
         <AccordionContent
-          className="flex flex-col gap-4 text-balance"
+          className="flex h-full flex-col gap-4 overflow-y-scroll text-balance"
           id="milestones-description"
           role="region"
           aria-label="Career milestones and achievements"

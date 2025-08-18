@@ -13,7 +13,7 @@ export const PostFeed = ({ posts }: { posts: PostType[] }) => {
       width="500px"
       align="center"
       aria-label="Blog posts with pagination"
-      className="snap-y p-4 focus-within:outline-offset-2 focus:border-none md:p-0 md:pb-6"
+      className="max-h-[700px] snap-y p-4 focus-within:outline-offset-2 focus:border-none md:p-0"
       tabIndex={0}
     >
       {posts?.map((post, index) => (

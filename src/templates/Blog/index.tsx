@@ -1,5 +1,4 @@
 import { getPosts } from "@/actions/posts";
-import { Box } from "@/components/Box";
 import { Pagination } from "@/components/Paginatination";
 import { PaginationSkeleton } from "@/components/Paginatination/skeleton";
 import { PostCardSkeleton } from "@/components/PostCard/skeleton";
@@ -34,17 +33,10 @@ export const Blog = async ({ currentPage }: { currentPage: number }) => {
   const to = Math.min(currentPage * POSTS_LENGTH, items);
 
   return (
-    <Box
-      gap="2"
-      direction="col"
-      align="center"
-      justify="start"
-      height="none"
-      className="p-4 pt-30 md:pt-24"
-    >
+    <div className="flex h-auto flex-col items-center justify-start gap-4 p-4 pt-30 md:w-[600px] md:pt-24">
       <Typography.H2
         id="intro-blog"
-        className="animate-fade-in-fast text-accent-foreground max-w-3xl p-4 text-left"
+        className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
       >
         {t("title")}
       </Typography.H2>
@@ -71,6 +63,6 @@ export const Blog = async ({ currentPage }: { currentPage: number }) => {
       >
         <PostFeed posts={posts} />
       </Suspense>
-    </Box>
+    </div>
   );
 };

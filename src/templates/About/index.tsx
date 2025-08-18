@@ -17,23 +17,15 @@ export const About = () => {
   const startYear = new Date("2020/01/02").getFullYear();
 
   return (
-    <Box
-      as="main"
-      justify="center"
-      direction="col"
-      align="center"
-      role="main"
-      aria-label="About Erik Oliveira"
-      gap="10"
-      className="p-4 pt-30 md:pt-24"
-    >
+    <div className="flex h-auto flex-col items-center justify-start gap-4 p-4 pt-30 md:w-[600px] md:pt-24">
       <Box
         as="article"
         direction="col"
-        className="w-[320px] md:w-[600px]"
+        className="h-full w-[320px] md:w-[600px]"
         justify="start"
         align="start"
         gap="8"
+        aria-label="About Erik Oliveira"
       >
         <Box
           as="section"
@@ -119,6 +111,6 @@ export const About = () => {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </div>
   );
 };

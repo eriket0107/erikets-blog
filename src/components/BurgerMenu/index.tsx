@@ -21,7 +21,7 @@ import LocaleSwitcher from "../LocaleSwitcher";
 const classes = {
   link: "flex flex-row items-center text-base transition-all duration-100 ease-in-out",
   dropdownMenuItem: "flex w-full cursor-pointer justify-between text-base",
-  selected: "bg-accent rounded-sm",
+  selected: "border-b-1 rounded-sm",
 };
 
 export const BurgerMenu = memo(() => {

@@ -14,7 +14,7 @@ export const PostList = async ({ quantity = 2 }: { quantity?: number }) => {
     <section
       role="feed"
       aria-label="Latest blog posts"
-      className="&::-webkit-scrollbar-track]:transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground focus-within:outline-accent flex w-full snap-y snap-mandatory flex-col gap-6 overflow-y-auto p-2 focus-within:outline-2 focus-within:outline-offset-2 md:gap-1 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
+      className="&::-webkit-scrollbar-track]:transparent [&::-webkit-scrollbar-thumb]:bg-muted-foreground focus-within:outline-accent flex h-full w-full snap-y snap-mandatory flex-col gap-6 overflow-y-auto p-2 focus-within:outline-2 focus-within:outline-offset-2 md:gap-1 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-md"
       tabIndex={0}
     >
       {hasPosts ? (

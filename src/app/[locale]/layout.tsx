@@ -8,6 +8,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { ThemeScript } from "@/scripts/ThemeScript";
 import { Layout } from "@/components/Layout";
+import { BottomShadow } from "@/components/BottomShadow";
+
 import NextTopLoader from "nextjs-toploader";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -42,7 +44,7 @@ export default async function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
-        className={`${roboto.className} overflow-hiden relative flex h-screen w-full flex-col antialiased`}
+        className={`${roboto.className} overflow-x-hiden relative flex h-screen w-full flex-col overflow-y-scroll antialiased`}
       >
         <NextTopLoader
           color="#3b82f6"
@@ -60,8 +62,9 @@ export default async function RootLayout({
           <Layout>
             <Header />
             {children}
+            <BottomShadow />
+            <Footer />
           </Layout>
-          <Footer />
         </NextIntlClientProvider>
         <SpeedInsights />
         <Analytics />
