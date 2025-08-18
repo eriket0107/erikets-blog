@@ -3,6 +3,7 @@ import { describe, it, expect, vi } from "vitest";
 import { PostFeed } from "./index";
 import { NextIntlClientProvider } from "next-intl";
 import messages from "../../../messages/en.json";
+import { PostType } from "@/interfaces/post";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/",
@@ -20,89 +21,50 @@ vi.mock("next/navigation", () => ({
   useSelectedLayoutSegment: () => ({ locale: "en" }),
 }));
 
-vi.mock("@/actions/posts", () => ({
-  getPosts: vi.fn(),
-}));
+const mockPosts: PostType[] = [
+  {
+    id: "1",
+    title: { en: "Post 1", br: "Post 1" },
+    imgSrc: "/img1.jpg",
+    description: { en: "Desc 1", br: "Desc 1" },
+    date: "2024-01-01",
+    isPublished: true,
+  },
+  {
+    id: "2",
+    title: { en: "Post 2", br: "Post 2" },
+    imgSrc: "/img2.jpg",
+    description: { en: "Desc 2", br: "Desc 2" },
+    date: "2024-01-02",
+    isPublished: true,
+  },
+];
 
-vi.mock("next-intl/server", () => ({
-  getTranslations: vi.fn(() => (key: string) => {
-    const translations: Record<string, string> = {
-      pagination_number: "of",
-    };
-    return translations[key] || key;
-  }),
-}));
-
-const mockGetPosts = vi.mocked(await import("@/actions/posts")).getPosts;
-
-const mockData = {
-  data: [
-    {
-      id: "1",
-      title: { en: "Post 1", br: "Post 1" },
-      imgSrc: "/img1.jpg",
-      description: { en: "Desc 1", br: "Desc 1" },
-      date: "2024-01-01",
-    },
-    {
-      id: "2",
-      title: { en: "Post 2", br: "Post 2" },
-      imgSrc: "/img2.jpg",
-      description: { en: "Desc 2", br: "Desc 2" },
-      date: "2024-01-02",
-    },
-  ],
-  next: 2,
-  pages: 3,
-  prev: null,
-  first: 1,
-  last: 3,
-  items: 10,
-};
-
-const renderComponent = async (currentPage: number = 1) => {
-  const PostFeedComponent = await PostFeed({ currentPage });
-
+const renderComponent = (posts: PostType[]) => {
   return render(
     <NextIntlClientProvider locale="en" messages={messages}>
-      {PostFeedComponent}
+      <PostFeed posts={posts} />
     </NextIntlClientProvider>,
   );
 };
 
 describe("PostFeed", () => {
-  it("renders posts and pagination", async () => {
-    mockGetPosts.mockResolvedValue(mockData);
-    await renderComponent(1);
-
+  it("renders posts", () => {
+    renderComponent(mockPosts);
     expect(screen.getByRole("feed")).toBeInTheDocument();
+    const postCards = screen.getAllByRole("article");
+    expect(postCards).toHaveLength(mockPosts.length);
   });
 
-  it("displays post count correctly", async () => {
-    mockGetPosts.mockResolvedValue(mockData);
-    await renderComponent(1);
-
-    expect(screen.getByTestId("from-to")).toBeInTheDocument();
-  });
-
-  it("calls getPosts with correct parameters", async () => {
-    mockGetPosts.mockResolvedValue(mockData);
-    await renderComponent(2);
-
-    expect(mockGetPosts).toHaveBeenCalledWith({ perPage: 4, currentPage: 2 });
-  });
-
-  it("handles empty posts", async () => {
-    const emptyData = { ...mockData, data: [], items: 0 };
-    mockGetPosts.mockResolvedValue(emptyData);
-    await renderComponent(1);
-
+  it("handles empty posts", () => {
+    renderComponent([]);
     expect(screen.getByRole("feed")).toBeInTheDocument();
+    const postCards = screen.queryAllByRole("article");
+    expect(postCards).toHaveLength(0);
   });
 
-  it("has correct accessibility attributes", async () => {
-    mockGetPosts.mockResolvedValue(mockData);
-    await renderComponent(1);
+  it("has correct accessibility attributes", () => {
+    renderComponent(mockPosts);
 
     const feedElement = screen.getByRole("feed");
     expect(feedElement).toHaveAttribute(

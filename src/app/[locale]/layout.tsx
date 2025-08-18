@@ -57,9 +57,10 @@ export default async function RootLayout({
         />
         <ThemeScript />
         <NextIntlClientProvider>
-          <Header />
-
-          <Layout>{children}</Layout>
+          <Layout>
+            <Header />
+            {children}
+          </Layout>
           <Footer />
         </NextIntlClientProvider>
         <SpeedInsights />

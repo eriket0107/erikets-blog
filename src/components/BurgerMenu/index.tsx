@@ -35,14 +35,15 @@ export const BurgerMenu = memo(() => {
         <Button
           data-testid="burger-menu"
           variant="default"
-          className={cn(
-            "bg-accent-foreground flex cursor-pointer gap-4 md:hidden",
-          )}
+          className={cn("flex cursor-pointer gap-4 md:hidden")}
         >
           <Menu />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="flex min-w-0 md:hidden">
+      <DropdownMenuContent
+        align="end"
+        className="bg-background z-[100] flex min-w-0 md:hidden"
+      >
         <DropdownMenuGroup data-testid="burger-menu-container">
           {routesConfig.map(({ href, icon, title }) => (
             <Link

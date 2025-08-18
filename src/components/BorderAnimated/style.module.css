@@ -12,6 +12,7 @@
   z-index: 10000;
   /* overflow-y: hidden; */
   border-radius: 0.25rem;
+  z-index: 1;
 }
 
 .card::after , .card::before{

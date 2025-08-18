@@ -11,7 +11,8 @@
     "empty_posts": "Ideas sector is working at momment,<br></br> come back soon! What about taking some time to explore the site?"
   },
   "BlogPage": {
-    "title": "Updates"
+    "title": "Updates",
+    "pagination_number": "of"
   },
   "AboutPage": {
     "bio": "Bio",
@@ -20,7 +21,7 @@
     "now": "My current moment",
     "career": "Career",
     "tools": "Toolset",
-    "experience": "At Multiplan, I developed a parking lot application that now handles over 70,000 daily active users. This project spearheaded the company's innovation in parking systems countrywide, and the system currently manages over 1 million registered license plates. More recently, I led the rollout of EV charging stations. For this initiative, I was responsible for integrating third-party partner systems with our API, handling both frontend and backend development with a primary focus on the user interface."
+    "experience": "At Multiplan, I developed a parking lot application xthat now handles over 70,000 daily active users. This project spearheaded the company's innovation in parking systems countrywide, and the system currently manages over 1 million registered license plates. More recently, I led the rollout of EV charging stations. For this initiative, I was responsible for integrating third-party partner systems with our API, handling both frontend and backend development with a primary focus on the user interface."
   },
   "Constants": {
     "home": "Home",
@@ -41,9 +42,6 @@
     "title": "Blog",
     "locale": "en",
     "namespace": "Metadata"
-  },
-  "PostFeed": {
-    "pagination_number": "of"
   },
   "MetadataAbout": {
     "title": "About",

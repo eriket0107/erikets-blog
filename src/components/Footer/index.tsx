@@ -9,7 +9,7 @@ export const Footer = () => {
       as="footer"
       align="center"
       justify="between"
-      className="shadow-accent bg-background sticky bottom-0 flex h-[50px] flex-row gap-10 border-t-1 p-3 shadow"
+      className="shadow-accent bg-background z-50 flex h-[50px] flex-row gap-10 border-t-1 p-3 shadow"
       aria-label="Footer of screen"
       data-testid="footer"
     >

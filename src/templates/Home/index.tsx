@@ -17,7 +17,7 @@ export const Home = async () => {
       direction="col"
       align="center"
       justify="start"
-      className="p-4"
+      className="p-4 pt-30 md:pt-24"
     >
       <Box gap="12" direction="col" width="500px">
         <Box
@@ -40,7 +40,7 @@ export const Home = async () => {
                 👋
               </span>
             </Typography.H1>
-            <Typography.P className="text-accent-foreground space-0 animate-fade-in-fast max-w-3xl p-0 text-xl">
+            <Typography.P className="text-accent-foreground space-0 animate-fade-in-fast text-md max-w-3xl p-0">
               {t("iam")}
               <Link
                 className="transition-all transition-discrete"
@@ -67,8 +67,8 @@ export const Home = async () => {
         <Box
           as="section"
           direction="col"
-          gap="4"
-          className="bg-background animate-fade-in-slow overflow-y-hidden rounded-sm"
+          gap="2"
+          className="bg-background animate-fade-in-slow rounded-sm p-2"
         >
           <Typography.H2
             id="latest-posts-heading"

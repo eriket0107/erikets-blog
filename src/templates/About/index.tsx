@@ -22,17 +22,11 @@ export const About = () => {
       justify="center"
       direction="col"
       align="center"
-      padding="4"
       role="main"
       aria-label="About Erik Oliveira"
       gap="10"
+      className="p-4 pt-30 md:pt-24"
     >
-      {/* <Typography.H1
-        id="intro-blog"
-        className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
-      >
-        {t("bio")}
-      </Typography.H1> */}
       <Box
         as="article"
         direction="col"
@@ -76,6 +70,7 @@ export const About = () => {
             as="section"
             direction="col"
             gap="6"
+            className="h-full"
             aria-label="Professional summary"
           >
             <Typography.P>

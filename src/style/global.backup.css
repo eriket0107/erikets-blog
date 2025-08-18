@@ -63,7 +63,7 @@ body {
   --font-roboto: var(--font-roboto);
   --font-roboto-mono: var(--font-roboto-mono);
   --radius: 0.625rem;
-  --background: oklch(98.4% 0.003 247.858); /* slate-50 */
+  --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -97,7 +97,7 @@ body {
 }
 
 .dark {
-  --background: oklch(21% 0.034 264.665); /* gray-900 */
+  --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);

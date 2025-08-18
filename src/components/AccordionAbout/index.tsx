@@ -32,7 +32,6 @@ export const AccordionAbout = async () => {
       collapsible
       className="animate-fade-in-slow w-full"
       aria-label="Professional information sections"
-      defaultValue="now"
     >
       <AccordionItem value="now">
         <AccordionTrigger

@@ -38,7 +38,6 @@ export const Pagination = ({ className, pagination }: PaginationProps) => {
       align="center"
       justify="center"
       aria-label="Pagination of posts"
-      height="auto"
       className={cn(className)}
     >
       <Box align="center" justify="center" gap="4" role="list">

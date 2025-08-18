@@ -11,7 +11,8 @@
     "empty_posts": "O setor de ideias está trabalhando no momento,<br></br> volte mais tarde! Que tal dar uma olhada no resto do site?"
   },
   "BlogPage": {
-    "title": "Atualizações"
+    "title": "Atualizações",
+    "pagination_number": "de"
   },
   "AboutPage": {
     "bio": "Bio",
@@ -41,9 +42,6 @@
     "title": "Blog",
     "locale": "br",
     "namespace": "Metadata"
-  },
-  "PostFeed": {
-    "pagination_number": "de"
   },
   "MetadataAbout": {
     "title": "Sobre",
