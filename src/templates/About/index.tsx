@@ -9,6 +9,7 @@ import { AccordionAbout } from "@/components/AccordionAbout";
 import { useTranslations } from "next-intl";
 import { Link } from "@/components/Link";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { PageWrapper } from "@/components/PageWrapper";
 
 export const About = () => {
   const t = useTranslations("AboutPage");
@@ -17,7 +18,7 @@ export const About = () => {
   const startYear = new Date("2020/01/02").getFullYear();
 
   return (
-    <div className="flex h-auto flex-col items-center justify-start gap-4 p-4 pt-30 md:w-[600px] md:pt-24">
+    <PageWrapper>
       <Box
         as="article"
         direction="col"
@@ -111,6 +112,6 @@ export const About = () => {
           </Box>
         </Box>
       </Box>
-    </div>
+    </PageWrapper>
   );
 };

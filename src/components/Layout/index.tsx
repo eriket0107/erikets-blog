@@ -5,7 +5,6 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <Box
       as="main"
-      role="main"
       display="flex"
       direction="col"
       align="center"

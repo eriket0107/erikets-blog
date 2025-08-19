@@ -1,4 +1,5 @@
 import { getPosts } from "@/actions/posts";
+import { PageWrapper } from "@/components/PageWrapper";
 import { Pagination } from "@/components/Paginatination";
 import { PaginationSkeleton } from "@/components/Paginatination/skeleton";
 import { PostCardSkeleton } from "@/components/PostCard/skeleton";
@@ -33,7 +34,7 @@ export const Blog = async ({ currentPage }: { currentPage: number }) => {
   const to = Math.min(currentPage * POSTS_LENGTH, items);
 
   return (
-    <div className="flex h-auto flex-col items-center justify-start gap-4 p-4 pt-30 md:w-[600px] md:pt-24">
+    <PageWrapper>
       <Typography.H2
         id="intro-blog"
         className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
@@ -63,6 +64,6 @@ export const Blog = async ({ currentPage }: { currentPage: number }) => {
       >
         <PostFeed posts={posts} />
       </Suspense>
-    </div>
+    </PageWrapper>
   );
 };

@@ -7,12 +7,13 @@ import { PostList } from "@/components/PostList";
 import { Suspense } from "react";
 import { PostCardSkeleton } from "@/components/PostCard/skeleton";
 import { BorderAnimated } from "@/components/BorderAnimated";
+import { PageWrapper } from "@/components/PageWrapper";
 
 export const Home = async () => {
   const t = await getTranslations("HomePage");
 
   return (
-    <div className="flex h-auto flex-col items-center justify-start gap-4 p-4 pt-30 md:w-[600px] md:pt-24">
+    <PageWrapper>
       <Box
         height="auto"
         as="section"
@@ -73,6 +74,6 @@ export const Home = async () => {
           <PostList quantity={2} />
         </Suspense>
       </Box>
-    </div>
+    </PageWrapper>
   );
 };
