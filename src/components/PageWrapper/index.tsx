@@ -10,7 +10,7 @@ export const PageWrapper = ({ children, className }: PageWrapperProps) => {
   return (
     <div
       className={cn(
-        "flex h-auto flex-col items-center justify-start gap-4 p-4 pt-30 md:w-[600px] md:pt-24",
+        "mx-auto mb-auto flex h-auto w-full flex-col items-center justify-start gap-4 p-4 pt-30 md:pt-24",
         className,
       )}
     >

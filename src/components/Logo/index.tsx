@@ -15,7 +15,7 @@ export const Logo = () => {
       href="/"
       className={`${robotoMono.className} transition-all hover:scale-99`}
     >
-      <Typography.H2 className={`hidden flex-1 pb-0 md:block`}>
+      <Typography.H2 className={`text-primary hidden flex-1 pb-0 md:block`}>
         coffee & vanilla code ☕️
       </Typography.H2>
       <Typography.H3

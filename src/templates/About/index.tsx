@@ -66,7 +66,7 @@ export const About = () => {
             className="h-full"
             aria-label="Professional summary"
           >
-            <Typography.P>
+            <Typography.P className="text-primary">
               {t.rich("greeting", {
                 age: () => <AnimatedNumber value={currentAge} />,
                 startYear: () => (
@@ -74,7 +74,7 @@ export const About = () => {
                 ),
                 link: (chunks) => (
                   <Link
-                    className="hover:border-gradient border-b-1 border-transparent transition-all transition-discrete hover:scale-105"
+                    className="thover:border-gradient border-b-1 border-transparent transition-all transition-discrete hover:scale-105"
                     href={"https://www.meumulti.com.br/"}
                     target="_blank"
                   >
@@ -90,7 +90,9 @@ export const About = () => {
               gap="1"
               aria-label="Social media links"
             >
-              <Typography.P>{t("social_invitation")}</Typography.P>
+              <Typography.P className="text-primary">
+                {t("social_invitation")}
+              </Typography.P>
               <Box
                 as="nav"
                 gap="3"

@@ -14,6 +14,8 @@ import NextTopLoader from "nextjs-toploader";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { cookies } from "next/headers";
+import { themeKeyCookie } from "@/constants/cookies";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -38,8 +40,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const theme =
+    ((await cookies()).get(themeKeyCookie)?.value as
+      | "light"
+      | "dark"
+      | undefined) || "dark";
+
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} data-theme={theme} suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>

@@ -31,15 +31,20 @@ export const Post = async ({
         aria-labelledby="post-title"
       >
         <Box as="header" direction="col" justify="center" align="center">
-          <Typography.H1
+          <Typography.H2
             id="post-title"
-            className="w-full pb-0 text-center text-4xl text-wrap md:max-w-[600px]"
+            className="text-primary w-full pb-0 text-center text-4xl text-wrap md:max-w-[600px]"
             tabIndex={-1}
           >
             {post?.title[language]}
-          </Typography.H1>
+          </Typography.H2>
 
-          <Ellipsis size={48} role="presentation" aria-hidden="true" />
+          <Ellipsis
+            size={48}
+            role="presentation"
+            aria-hidden="true"
+            className="text-primary"
+          />
 
           {/* <Image
               src={post.imgSrc}
@@ -70,7 +75,7 @@ export const Post = async ({
           </Typography.Muted>
 
           <Typography.P
-            className="text-base"
+            className="text-primary text-base"
             role="text"
             aria-label="Post description"
           >
@@ -78,7 +83,7 @@ export const Post = async ({
           </Typography.P>
 
           <Typography.P
-            className="text-lg"
+            className="text-primary text-lg"
             role="text"
             aria-label="Post content"
           >

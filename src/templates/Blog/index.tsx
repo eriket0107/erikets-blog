@@ -42,25 +42,24 @@ export const Blog = async ({ currentPage }: { currentPage: number }) => {
         {t("title")}
       </Typography.H2>
 
-      <div className="bg-background sticky top-20 z-60 flex w-full flex-col items-center p-1">
-        <Pagination
-          pagination={pagination}
-          className="text-muted-foreground"
-          aria-label="Number of pages"
-          data-testid="pagination"
-        />
-        <Typography.Small className="text-xs" data-testid={"from-to"}>
-          {from} {t("pagination_number")} {to} | {items}
-        </Typography.Small>
-      </div>
+      <Suspense
+        fallback={<PaginationSkeleton className="animate-fade-in-slow flex" />}
+      >
+        <div className="justifiy-center bg-background sticky top-20 z-60 flex w-full flex-col items-center p-1">
+          <Pagination
+            pagination={pagination}
+            className="text-muted-foreground"
+            aria-label="Number of pages"
+            data-testid="pagination"
+          />
+          <Typography.Small className="text-xs" data-testid={"from-to"}>
+            {from} {t("pagination_number")} {to} | {items}
+          </Typography.Small>
+        </div>
+      </Suspense>
 
       <Suspense
-        fallback={
-          <>
-            <PaginationSkeleton className="flex md:hidden" />
-            <PostCardSkeleton length={POSTS_LENGTH} hasImage={false} />
-          </>
-        }
+        fallback={<PostCardSkeleton length={POSTS_LENGTH} hasImage={false} />}
       >
         <PostFeed posts={posts} />
       </Suspense>

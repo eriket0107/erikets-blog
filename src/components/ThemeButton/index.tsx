@@ -48,7 +48,9 @@ const ThemeButtonNav = () => {
 
   return (
     <Tooltip delayDuration={300}>
-      <TooltipContent>{isDark ? "Light" : "Dark"}</TooltipContent>
+      <TooltipContent className="text-primary z-[100]">
+        {isDark ? "Light" : "Dark"}
+      </TooltipContent>
       <TooltipTrigger asChild>
         <motion.div
           whileTap={{ scale: 0.9 }}

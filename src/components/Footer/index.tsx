@@ -9,7 +9,7 @@ export const Footer = () => {
       as="footer"
       align="center"
       justify="between"
-      className="bg-background z-50 mt-auto flex h-[50px] flex-row gap-10 p-3 px-6 md:sticky"
+      className="bg-background z-50 flex h-[50px] flex-row gap-10 p-3 px-6 md:sticky"
       aria-label="Footer of screen"
       data-testid="footer"
     >

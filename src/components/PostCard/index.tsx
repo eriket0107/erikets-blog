@@ -65,7 +65,7 @@ export const PostCard = ({
             className="mt-1 h-[216px] w-full items-center md:mt-0 md:max-w-[500px] md:items-start md:p-4"
             gap="2"
           >
-            <Typography.H3 className="mr-auto underline md:mr-0">
+            <Typography.H3 className="text-primary mr-auto underline md:mr-0">
               {title[language]}
             </Typography.H3>
             <Box gap="2" height="auto">
@@ -75,7 +75,7 @@ export const PostCard = ({
             </Box>
 
             <Box direction="col" justify="between">
-              <Typography.P className="w-[300px] overflow-hidden overflow-ellipsis md:w-full">
+              <Typography.P className="text-primary w-[300px] overflow-hidden overflow-ellipsis md:w-full">
                 {truncatedDescription}
               </Typography.P>
               <time dateTime={date} className="text-muted-foreground underline">
