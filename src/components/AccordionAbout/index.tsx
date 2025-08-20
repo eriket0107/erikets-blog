@@ -23,8 +23,16 @@ const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)
   .sort((a, b) => a.name.localeCompare(b.name));
 
+const SORTED_MILESTONES = [...milestones].sort((a, b) => {
+  const dateA = a.endDate || "";
+  const dateB = b.endDate || "";
+  if (dateB > dateA) return 1;
+  else return -1;
+});
+
 export const AccordionAbout = async () => {
   const t = await getTranslations("AboutPage");
+  console.log(milestones);
 
   return (
     <AccordionDefault
@@ -71,7 +79,7 @@ export const AccordionAbout = async () => {
           aria-label="Career milestones and achievements"
         >
           <Suspense>
-            <Timeline milestones={milestones} />
+            <Timeline milestones={SORTED_MILESTONES} />
           </Suspense>
         </AccordionContent>
       </AccordionItem>
