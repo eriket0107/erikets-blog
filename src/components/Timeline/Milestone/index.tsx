@@ -35,11 +35,11 @@ export const Milestone = ({
       <div
         className={`hover:shadow-foreground w-full border-t border-gray-200 p-2 transition-all duration-300 hover:scale-99 hover:rounded-sm hover:shadow-md/20 hover:shadow-xs ${inView ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"}`}
       >
-        <Typography.Muted className="text-primary">
+        <Typography.Muted>
           {getMonthAndYear(milestone.startDate)}
           {milestone?.endDate && " - " + getMonthAndYear(milestone?.endDate)}
         </Typography.Muted>
-        <Typography.H4 className="text-primary mt-1 text-lg font-bold">
+        <Typography.H4 className="mt-1 text-lg font-bold">
           {milestone.title} - {milestone?.company}
         </Typography.H4>
         {/* <Typography.P className="text-primary text-md mt-1">

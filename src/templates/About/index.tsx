@@ -74,7 +74,7 @@ export const About = () => {
                 ),
                 link: (chunks) => (
                   <Link
-                    className="thover:border-gradient border-b-1 border-transparent transition-all transition-discrete hover:scale-105"
+                    className="text-gradient border-b-1 transition-all transition-discrete hover:scale-105"
                     href={"https://www.meumulti.com.br/"}
                     target="_blank"
                   >
