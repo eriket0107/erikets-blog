@@ -156,7 +156,9 @@ describe("PostCard", () => {
 
     const imageContainer = container.querySelector('[class*="min-w-[300px]"]');
     expect(imageContainer).toBeInTheDocument();
-    expect(imageContainer).toHaveClass("md:w-[300px]");
+    expect(imageContainer).toHaveClass(
+      "relative min-w-[300px] overflow-hidden rounded-t-sm md:w-full md:rounded-l-sm md:rounded-r-none",
+    );
   });
 
   it("should render tags when present", () => {

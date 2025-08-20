@@ -12,7 +12,7 @@ describe("PageWrapper component", () => {
     );
     const mainElement = container.firstChild;
     expect(mainElement).toHaveClass(
-      "mx-auto mb-auto flex h-auto flex-col items-center justify-start gap-4 p-4 pt-30 w-full md:pt-24",
+      "mb-auto flex h-auto w-full flex-col items-center justify-start gap-4 p-4 pt-32 md:mx-auto md:w-[700px] md:pt-24",
     );
   });
 

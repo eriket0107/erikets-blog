@@ -16,6 +16,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cookies } from "next/headers";
 import { themeKeyCookie } from "@/constants/cookies";
+import { cn } from "@/utils";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -52,7 +53,9 @@ export default async function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body
-        className={`${roboto.className} overflow-x-hiden relative flex h-screen w-full flex-col overflow-y-scroll antialiased`}
+        className={cn(
+          `${roboto.className} overflow-x-hiden relative flex h-screen w-full flex-col overflow-y-scroll antialiased`,
+        )}
       >
         <NextTopLoader
           color="#3b82f6"

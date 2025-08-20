@@ -5,7 +5,7 @@ import { PageWrapper } from "@/components/PageWrapper";
 import { Typography } from "@/components/Typography";
 import { LanguageType } from "@/interfaces/post";
 import { Ellipsis } from "lucide-react";
-// import Image from "next/image";
+import Image from "next/image";
 
 export const Post = async ({
   id,
@@ -22,18 +22,15 @@ export const Post = async ({
         <BackButton />
       </Box>
 
-      <Box
-        as="article"
-        direction="col"
-        justify="center"
-        align="center"
+      <article
         role="article"
         aria-labelledby="post-title"
+        className="align-center flex flex-col justify-center"
       >
         <Box as="header" direction="col" justify="center" align="center">
           <Typography.H2
             id="post-title"
-            className="text-primary w-full pb-0 text-center text-4xl text-wrap md:max-w-[600px]"
+            className="text-primary w-full pb-0 text-center text-4xl text-wrap md:max-w-[700px]"
             tabIndex={-1}
           >
             {post?.title[language]}
@@ -46,20 +43,20 @@ export const Post = async ({
             className="text-primary"
           />
 
-          {/* <Image
-              src={post.imgSrc}
-              width={600}
-              height={400}
-              alt={post.title[language]}
-              className="rounded-t-sm"
-              priority
-              role="img"
-            /> */}
+          <Image
+            src={post.imgSrc}
+            width={700}
+            height={400}
+            alt={`Image of post ${post.title[language]}`}
+            className="rounded-t-sm"
+            loading="lazy"
+            role="img"
+          />
         </Box>
 
         <Box
           as="section"
-          className="max-w-[600px] pt-4"
+          className="pt-4"
           direction="col"
           gap="2"
           justify="center"
@@ -96,7 +93,7 @@ export const Post = async ({
             aria-hidden="true"
           />
         </Box>
-      </Box>
+      </article>
     </PageWrapper>
   );
 };

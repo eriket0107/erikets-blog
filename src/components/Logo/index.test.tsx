@@ -34,27 +34,21 @@ describe("Logo", () => {
   });
 
   it("should render the desktop title (hidden on mobile)", () => {
-    const desktopTitle = screen.getByRole("heading", {
-      name: /coffee & vanilla code ☕️/i,
-      level: 2,
-    });
+    const desktopTitle = screen.getByTestId("desktop-title");
     expect(desktopTitle).toBeInTheDocument();
     expect(desktopTitle).toHaveTextContent("coffee & vanilla code ☕️");
     expect(desktopTitle).toHaveClass("hidden", "md:block", "pb-0");
   });
 
   it("should render the mobile title (visible on mobile)", () => {
-    const mobileTitle = screen.getByRole("heading", {
-      name: /coffee & vanilla code ☕️/i,
-      level: 3,
-    });
+    const mobileTitle = screen.getByTestId("mobile-title");
     expect(mobileTitle).toBeInTheDocument();
     expect(mobileTitle).toHaveTextContent("coffee & vanilla code ☕️");
     expect(mobileTitle).toHaveClass("sm:block", "md:hidden", "pb-0");
   });
 
   it("should render the mobile title with line break", () => {
-    const mobileTitle = screen.getByRole("heading", { level: 3 });
+    const mobileTitle = screen.getByTestId("mobile-title");
     const lineBreak = mobileTitle.querySelector("br");
     expect(lineBreak).toBeInTheDocument();
   });

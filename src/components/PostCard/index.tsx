@@ -50,7 +50,7 @@ export const PostCard = ({
           {hasImage && (
             <Box
               height={"216px"}
-              className="relative min-w-[300px] overflow-hidden rounded-t-sm md:w-[300px] md:rounded-l-sm md:rounded-r-none"
+              className="relative min-w-[300px] overflow-hidden rounded-t-sm md:w-full md:rounded-l-sm md:rounded-r-none"
             >
               <Image
                 fill
@@ -62,7 +62,7 @@ export const PostCard = ({
           )}
           <Box
             direction="col"
-            className="mt-1 h-[216px] w-full items-center md:mt-0 md:max-w-[500px] md:items-start md:p-4"
+            className="mt-1 h-[216px] w-full items-center md:mt-0 md:max-w-[700px] md:items-start md:p-4"
             gap="2"
           >
             <Typography.H3 className="text-primary mr-auto underline md:mr-0">

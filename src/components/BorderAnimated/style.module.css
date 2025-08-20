@@ -15,7 +15,7 @@
   z-index: 1;
 }
 
-.card::after , .card::before{
+.card::after, .card::before{
   content: "";
   position: absolute;
   width: calc(100% + 4px);

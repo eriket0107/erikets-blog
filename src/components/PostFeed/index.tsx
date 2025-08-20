@@ -10,10 +10,9 @@ export const PostFeed = ({ posts }: { posts: PostType[] }) => {
       direction="col"
       gap="4"
       role="feed"
-      width="500px"
       align="center"
       aria-label="Blog posts with pagination"
-      className="max-h-[700px] snap-y p-4 focus-within:outline-offset-2 focus:border-none md:p-0"
+      className="max-h-[700px] snap-y p-4 focus-within:outline-offset-2 focus:border-none md:w-[700px] md:p-0"
       tabIndex={0}
     >
       {posts?.map((post, index) => (
