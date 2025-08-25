@@ -7,13 +7,7 @@ import { LanguageType } from "@/interfaces/post";
 import { Ellipsis } from "lucide-react";
 import Image from "next/image";
 
-export const Post = async ({
-  id,
-  language,
-}: {
-  id: string;
-  language: LanguageType;
-}) => {
+export const Post = async ({ id }: { id: string; language: LanguageType }) => {
   const post = await getPostById(id);
 
   return (
@@ -33,7 +27,7 @@ export const Post = async ({
             className="text-primary w-full pb-0 text-center text-4xl text-wrap md:max-w-[700px]"
             tabIndex={-1}
           >
-            {post?.title[language]}
+            {post?.title}
           </Typography.H2>
 
           <Ellipsis
@@ -47,7 +41,7 @@ export const Post = async ({
             src={post.imgSrc}
             width={700}
             height={400}
-            alt={`Image of post ${post.title[language]}`}
+            alt={`Image of post ${post.title}`}
             className="rounded-t-sm"
             loading="lazy"
             role="img"
@@ -76,7 +70,7 @@ export const Post = async ({
             role="text"
             aria-label="Post description"
           >
-            {post?.description[language]}
+            {post?.description}
           </Typography.P>
 
           <Typography.P
@@ -84,7 +78,7 @@ export const Post = async ({
             role="text"
             aria-label="Post content"
           >
-            {post?.text?.[language]}
+            {post?.text}
           </Typography.P>
 
           <div

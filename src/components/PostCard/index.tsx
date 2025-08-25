@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { Box } from "../Box";
 import { Typography } from "../Typography";
-import { LanguageType, PostType } from "@/interfaces/post";
+import { PostType } from "@/interfaces/post";
 import { Link } from "../Link";
 import { truncateString } from "@/utils";
-import { useLocale } from "next-intl";
 import { Tag } from "../Tag";
 
 interface PaginationProps {
@@ -24,9 +23,8 @@ export const PostCard = ({
   hasImage = true,
 }: PaginationProps) => {
   const { description, imgSrc, title, date, id, tags } = post;
-  const language = useLocale() as LanguageType;
   const truncatedDescription = truncateString(
-    description[language],
+    description,
     MAX_CHARACTERS_LENGTH,
   );
 
@@ -44,7 +42,7 @@ export const PostCard = ({
       <Link
         href={`/post/${id}`}
         className="group focus:outline-accent md:hover:shadow-accent-foreground block rounded-sm transition-all transition-discrete focus:outline-2 focus:outline-offset-2 md:hover:scale-99 md:hover:opacity-85 md:hover:shadow-md/20"
-        aria-label={`Read full post: ${title[language]}`}
+        aria-label={`Read full post: ${title}`}
       >
         <Box className="flex-col rounded-sm md:flex-row">
           {hasImage && (
@@ -55,7 +53,7 @@ export const PostCard = ({
               <Image
                 fill
                 src={imgSrc}
-                alt={`Cover image for blog post: ${title[language]}`}
+                alt={`Cover image for blog post: ${title}`}
                 className="object-cover transition-all transition-discrete md:group-hover:scale-115"
               />
             </Box>
@@ -66,7 +64,7 @@ export const PostCard = ({
             gap="2"
           >
             <Typography.H3 className="text-primary mr-auto underline md:mr-0">
-              {title[language]}
+              {title}
             </Typography.H3>
             <Box gap="2" height="auto">
               {tags?.map((tag) => (
