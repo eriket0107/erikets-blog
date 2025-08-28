@@ -1,16 +1,11 @@
 import { Box } from "@/components/Box";
+import { PageWrapper } from "@/components/PageWrapper";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Ellipsis } from "lucide-react";
 
 const PostSkeleton = async () => {
   return (
-    <Box
-      justify="center"
-      direction="col"
-      align="center"
-      padding="4"
-      className="relative w-full max-w-[600px] pb-8"
-    >
+    <PageWrapper>
       <Box>
         <Skeleton className="mb-2 h-6 w-20" />
       </Box>
@@ -24,7 +19,7 @@ const PostSkeleton = async () => {
 
         <Ellipsis size={48} />
 
-        {/* <Skeleton className="h-[250px] w-full rounded-t-sm md:h-[400px] md:w-[600px]" /> */}
+        <Skeleton className="h-[250px] w-full rounded-t-sm md:h-[400px] md:w-[600px]" />
       </Box>
 
       <Box
@@ -40,7 +35,7 @@ const PostSkeleton = async () => {
         <Skeleton className="mb-3 h-5 w-full md:mb-4 md:h-6" />
         <Skeleton className="h-5 w-4/5 md:h-6 md:w-3/4" />
       </Box>
-    </Box>
+    </PageWrapper>
   );
 };
 
