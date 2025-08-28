@@ -8,7 +8,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       display="flex"
       direction="col"
       align="center"
-      className="text-primary dark:text-primary-foreground screen-layout relative h-screen overflow-y-scroll"
+      className="text-primary dark:text-primary-foreground screen-layout relative h-dvh overflow-y-scroll"
     >
       {children}
     </Box>

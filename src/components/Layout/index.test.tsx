@@ -11,7 +11,7 @@ describe("Layout component", () => {
     );
     const mainElement = container.firstChild;
     expect(mainElement).toHaveClass(
-      "text-primary dark:text-primary-foreground screen-layout relative h-screen overflow-y-scroll",
+      "text-primary dark:text-primary-foreground screen-layout relative h-dvh overflow-y-scroll",
     );
   });
 
