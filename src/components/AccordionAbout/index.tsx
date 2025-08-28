@@ -32,7 +32,6 @@ const SORTED_MILESTONES = [...milestones].sort((a, b) => {
 
 export const AccordionAbout = async () => {
   const t = await getTranslations("AboutPage");
-  console.log(milestones);
 
   return (
     <AccordionDefault

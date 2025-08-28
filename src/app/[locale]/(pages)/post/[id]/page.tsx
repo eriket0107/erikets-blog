@@ -7,12 +7,12 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: string; locale: LanguageType }>;
 }) {
-  const { locale, id } = await params;
-  const post = await getPostById(id);
+  const { id } = await params;
+  const { data: post } = await getPostById(id);
 
   return {
     title: {
-      default: post?.title?.[locale],
+      default: post?.title,
       template: "%s | Coffe & Vanilla Code",
     },
   };

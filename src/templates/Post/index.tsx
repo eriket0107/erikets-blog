@@ -5,7 +5,10 @@ import { PageWrapper } from "@/components/PageWrapper";
 import { Typography } from "@/components/Typography";
 import { LanguageType } from "@/interfaces/post";
 import { Ellipsis } from "lucide-react";
-import Image from "next/image";
+import { getPostData } from "@/lib/posts";
+import { MDXContent } from "@/components/MDXContent";
+import ArticleImage from "@/components/ArticleImage";
+import { Tag } from "@/components/Tag";
 
 export const Post = async ({
   id,
@@ -14,8 +17,8 @@ export const Post = async ({
   id: string;
   language: LanguageType;
 }) => {
-  const post = await getPostById(id);
-
+  const { data: post } = await getPostById(id);
+  const postData = getPostData(id, language);
   return (
     <PageWrapper>
       <Box as="nav" aria-label="Post navigation">
@@ -33,7 +36,7 @@ export const Post = async ({
             className="text-primary w-full pb-0 text-center text-4xl text-wrap md:max-w-[700px]"
             tabIndex={-1}
           >
-            {post?.title[language]}
+            {post?.title}
           </Typography.H2>
 
           <Ellipsis
@@ -43,15 +46,14 @@ export const Post = async ({
             className="text-primary"
           />
 
-          <Image
-            src={post.imgSrc}
-            width={700}
-            height={400}
-            alt={`Image of post ${post.title[language]}`}
-            className="rounded-t-sm"
-            loading="lazy"
-            role="img"
-          />
+          {post.imgSrc && (
+            <ArticleImage
+              src={post?.imgSrc}
+              alt={`Image of post ${post.title}`}
+              className="rounded-t-sm"
+              loading="lazy"
+            />
+          )}
         </Box>
 
         <Box
@@ -76,22 +78,22 @@ export const Post = async ({
             role="text"
             aria-label="Post description"
           >
-            {post?.description[language]}
+            {post?.description}
           </Typography.P>
-
-          <Typography.P
-            className="text-primary text-lg"
-            role="text"
-            aria-label="Post content"
-          >
-            {post?.text?.[language]}
-          </Typography.P>
-
+          <Box gap="2" height="auto">
+            {post.tags?.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </Box>
           <div
             className="bg-border my-4 h-px w-full"
             role="separator"
             aria-hidden="true"
           />
+
+          <div className="w-full max-w-4xl">
+            <MDXContent content={postData.content || ""} />
+          </div>
         </Box>
       </article>
     </PageWrapper>

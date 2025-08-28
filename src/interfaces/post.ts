@@ -8,10 +8,11 @@ interface ReferenceType {
 export interface PostType {
   id: string
   imgSrc: string;
-  title: { [K in LanguageType]: string };
-  description: { [K in LanguageType]: string };
+  title: string;
+  description: string;
   date: string;
-  text?: { [K in LanguageType]: string };
+  text?: string;
+  content?: string;
   references?: ReferenceType[]
   tags?: string[]
   isPublished: boolean;

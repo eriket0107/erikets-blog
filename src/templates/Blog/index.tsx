@@ -45,14 +45,17 @@ export const Blog = async ({ currentPage }: { currentPage: number }) => {
       <Suspense
         fallback={<PaginationSkeleton className="animate-fade-in-slow flex" />}
       >
-        <div className="justifiy-center bg-background sticky top-20 z-60 flex w-full flex-col items-center p-1">
+        <div className="justifiy-center bg-background sticky top-20 z-60 flex w-full flex-col items-center gap-2 p-1">
           <Pagination
             pagination={pagination}
             className="text-muted-foreground"
             aria-label="Number of pages"
             data-testid="pagination"
           />
-          <Typography.Small className="text-xs" data-testid={"from-to"}>
+          <Typography.Small
+            className="text-muted-foreground text-xs"
+            data-testid={"from-to"}
+          >
             {from} {t("pagination_number")} {to} | {items}
           </Typography.Small>
         </div>
