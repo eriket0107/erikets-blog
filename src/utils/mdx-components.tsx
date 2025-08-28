@@ -2,12 +2,12 @@ import { Typography } from "@/components/Typography";
 import { ReactNode } from "react";
 
 import CodeSnippet from "@/components/CodeSnippet";
-import { Link } from "./components/Link";
-import { Button } from "./components/ui/button";
-import ArticleImage from "./components/ArticleImage";
-import YoutubeEmbed from "./components/YoutubeEmbed";
+import { Link } from "../components/Link";
+import { Button } from "../components/ui/button";
+import ArticleImage from "../components/ArticleImage";
+import YoutubeEmbed from "../components/YoutubeEmbed";
 
-const components = {
+const COMPONENT_MAP = {
   h1: ({ children }: { children: ReactNode }) => (
     <Typography.H1 className="text-primary mt-8 mb-6 text-3xl font-bold">
       {children}
@@ -77,6 +77,4 @@ const components = {
   YoutubeEmbed,
 };
 
-export function useMDXComponents() {
-  return components;
-}
+export default COMPONENT_MAP;
