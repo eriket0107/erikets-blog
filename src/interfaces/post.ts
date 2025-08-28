@@ -12,6 +12,7 @@ export interface PostType {
   description: string;
   date: string;
   text?: string;
+  content?: string;
   references?: ReferenceType[]
   tags?: string[]
   isPublished: boolean;

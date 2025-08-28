@@ -222,14 +222,21 @@ describe('getPostData', () => {
     vi.resetAllMocks()
   })
 
-  it('should read and return file content for given id and default locale', () => {
+  it('should read and return parsed post data for given id and default locale', () => {
     const mockContent = `---
-title: 'Test Post'xe
+title: 'Test Post'
 date: '2024-01-01'
 ---
 # Test content`
 
     mockFs.readFileSync.mockReturnValue(mockContent)
+    mockMatter.mockReturnValue({
+      data: {
+        title: 'Test Post',
+        date: '2024-01-01'
+      },
+      content: '# Test content'
+    } as any)
 
     const result = getPostData('test-post')
 
@@ -237,10 +244,14 @@ date: '2024-01-01'
       `${path.join(process.cwd(), 'posts/ready/en')}/test-post.md`,
       'utf-8'
     )
-    expect(result).toBe(mockContent)
+    expect(result).toEqual({
+      title: 'Test Post',
+      date: '2024-01-01',
+      content: '# Test content'
+    })
   })
 
-  it('should read and return file content for given id and specific locale', () => {
+  it('should read and return parsed post data for given id and specific locale', () => {
     const mockContent = `---
 title: 'Post em Português'
 date: '2024-01-01'
@@ -248,6 +259,13 @@ date: '2024-01-01'
 # Conteúdo do post`
 
     mockFs.readFileSync.mockReturnValue(mockContent)
+    mockMatter.mockReturnValue({
+      data: {
+        title: 'Post em Português',
+        date: '2024-01-01'
+      },
+      content: '# Conteúdo do post'
+    } as any)
 
     const result = getPostData('post-brasileiro', 'br')
 
@@ -255,7 +273,11 @@ date: '2024-01-01'
       `${path.join(process.cwd(), 'posts/ready/br')}/post-brasileiro.md`,
       'utf-8'
     )
-    expect(result).toBe(mockContent)
+    expect(result).toEqual({
+      title: 'Post em Português',
+      date: '2024-01-01',
+      content: '# Conteúdo do post'
+    })
   })
 
   it('should handle file reading errors', () => {
@@ -272,8 +294,19 @@ date: '2024-01-01'
   })
 
   it('should work with posts that have complex filenames', () => {
-    const mockContent = 'Complex post content'
+    const mockContent = `---
+title: 'Complex Post'
+date: '2024-01-01'
+---
+Complex post content`
     mockFs.readFileSync.mockReturnValue(mockContent)
+    mockMatter.mockReturnValue({
+      data: {
+        title: 'Complex Post',
+        date: '2024-01-01'
+      },
+      content: 'Complex post content'
+    } as any)
 
     const result = getPostData('my-complex-post-name-with-dashes')
 
@@ -281,10 +314,14 @@ date: '2024-01-01'
       `${path.join(process.cwd(), 'posts/ready/en')}/my-complex-post-name-with-dashes.md`,
       'utf-8'
     )
-    expect(result).toBe(mockContent)
+    expect(result).toEqual({
+      title: 'Complex Post',
+      date: '2024-01-01',
+      content: 'Complex post content'
+    })
   })
 
-  it('should return raw file content without parsing frontmatter', () => {
+  it('should return parsed frontmatter and content', () => {
     const rawContent = `---
 title: 'Raw Post'
 date: '2024-01-01'
@@ -296,11 +333,24 @@ This is the actual markdown content.
 Some content here.`
 
     mockFs.readFileSync.mockReturnValue(rawContent)
+    mockMatter.mockReturnValue({
+      data: {
+        title: 'Raw Post',
+        date: '2024-01-01',
+        tags: ['raw', 'test']
+      },
+      content: 'This is the actual markdown content.\n\n## Section 1\nSome content here.'
+    } as any)
 
     const result = getPostData('raw-post')
 
-    expect(result).toBe(rawContent)
-    // Verify it doesn't call matter() like getPostsData does
-    expect(mockMatter).not.toHaveBeenCalled()
+    expect(result).toEqual({
+      title: 'Raw Post',
+      date: '2024-01-01',
+      tags: ['raw', 'test'],
+      content: 'This is the actual markdown content.\n\n## Section 1\nSome content here.'
+    })
+    // Verify it calls matter() to parse frontmatter
+    expect(mockMatter).toHaveBeenCalledWith(rawContent)
   })
 })

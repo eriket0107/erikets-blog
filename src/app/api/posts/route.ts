@@ -1,5 +1,5 @@
 import { LanguageType } from "@/interfaces/post";
-import { getPostData, getPostsData } from "@/lib/posts";
+import { getPostsData } from "@/lib/posts";
 import { cookies } from "next/headers";
 import { NextResponse, type NextRequest } from "next/server";
 
@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
 
     const next = hasNext ? page + 1 : null
     const prev = hasPrev ? page - 1 : null
-    console.log(getPostData('modern-css-beyond-flexbox-grid', locale))
+
     return NextResponse.json({
       data: paginatedPosts,
       next,

@@ -36,5 +36,10 @@ export const getPostData = (id: string, locale: LanguageType = 'en') => {
     , 'utf-8'
   )
 
-  return fileName
+  const matterResult = matter(fileName)
+
+  return {
+    ...matterResult.data,
+    content: matterResult.content,
+  }
 }

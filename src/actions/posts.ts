@@ -24,10 +24,10 @@ export const getPosts = async ({ currentPage = 1, perPage = 5 }: { currentPage?:
 
 export const getPostById = async (id: string) => {
   try {
-    const data = await api<PostType>(`posts/${id}`, {
+    const data = await api<{ data: PostType }>(`posts/${id}`, {
       next: {
         tags: ['post', id],
-        // revalidate: REVALIDATE.ONE_HOUR
+        revalidate: REVALIDATE.ONE_HOUR
       }
     })
 
