@@ -46,12 +46,14 @@ export const Post = async ({
             className="text-primary"
           />
 
-          <ArticleImage
-            src={post.imgSrc}
-            alt={`Image of post ${post.title}`}
-            className="rounded-t-sm"
-            loading="lazy"
-          />
+          {post.imgSrc && (
+            <ArticleImage
+              src={post?.imgSrc}
+              alt={`Image of post ${post.title}`}
+              className="rounded-t-sm"
+              loading="lazy"
+            />
+          )}
         </Box>
 
         <Box
