@@ -8,6 +8,7 @@ import { Suspense } from "react";
 import { PostCardSkeleton } from "@/components/PostCard/skeleton";
 import { BorderAnimated } from "@/components/BorderAnimated";
 import { PageWrapper } from "@/components/PageWrapper";
+import { Emojis } from "@/constants/emojis";
 
 export const Home = async () => {
   const t = await getTranslations("HomePage");
@@ -19,7 +20,7 @@ export const Home = async () => {
         as="section"
         direction="col"
         aria-labelledby="intro-heading"
-        className="max-w-[700px]"
+        className="mb-10 max-w-[700px]"
       >
         <BorderAnimated>
           <Typography.H1
@@ -28,11 +29,11 @@ export const Home = async () => {
           >
             {t("greeting")}{" "}
             <span
-              className="animate-waving z-0"
+              className="animate-waving z-0 inline-block text-3xl"
               role="img"
               aria-label="waving hand"
             >
-              👋
+              <Emojis.WavingHand />
             </span>
           </Typography.H1>
           <Typography.P className="text-accent-foreground space-0 animate-fade-in-fast text-md max-w-3xl p-0">

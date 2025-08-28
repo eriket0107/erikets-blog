@@ -55,6 +55,16 @@ html {
   }
 }
 
+/* Hide scrollbar for all elements */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 body {
   font-family: var(--font-roboto), var(--font-roboto-mono), Arial, Helvetica, sans-serif;
 }

@@ -41,7 +41,7 @@ export const PostCard = ({
     >
       <Link
         href={`/post/${id}`}
-        className="group focus:outline-accent md:hover:shadow-accent-foreground block rounded-sm transition-all transition-discrete focus:outline-2 focus:outline-offset-2 md:hover:scale-99 md:hover:opacity-85 md:hover:shadow-md/20"
+        className="group focus:outline-accent md:hover:shadow-accent-foreground block rounded-sm transition-all transition-discrete focus:outline-2 focus:outline-offset-2 md:hover:scale-99 md:hover:opacity-85 md:hover:shadow-md/5"
         aria-label={`Read full post: ${title}`}
       >
         <Box className="flex-col rounded-sm md:flex-row">
@@ -60,10 +60,10 @@ export const PostCard = ({
           )}
           <Box
             direction="col"
-            className="mt-1 h-[216px] w-full items-center md:mt-0 md:max-w-[700px] md:items-start md:p-4"
+            className="group mt-1 h-[216px] w-full items-center transition-all md:mt-0 md:max-w-[700px] md:items-start md:p-4"
             gap="2"
           >
-            <Typography.H3 className="text-primary mr-auto underline md:mr-0">
+            <Typography.H3 className="text-primary mr-auto group-hover:underline md:mr-0">
               {title}
             </Typography.H3>
             <Box gap="2" height="auto">

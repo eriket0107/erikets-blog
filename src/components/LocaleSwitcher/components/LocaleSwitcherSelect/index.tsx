@@ -1,27 +1,25 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { Locale } from "next-intl";
-import { ChangeEvent, ReactNode, useTransition } from "react";
+import { ReactNode, useTransition } from "react";
 import { useRouter } from "@/hooks/useRouter";
 import { usePathname } from "@/hooks/usePathname";
 import { cn } from "@/utils";
 import { Typography } from "@/components/Typography";
+import { Emojis } from "@/constants/emojis";
 
 type Props = {
-  children: ReactNode;
   defaultValue: "en" | "br";
   label: string;
   title: ReactNode;
 };
 
 const flags = {
-  br: "🇧🇷",
-  en: "🇺🇸",
+  br: <Emojis.BrazilFlag height={30} width={30} />,
+  en: <Emojis.UnitedStatesFlag height={30} width={30} />,
 };
 
 export default function LocaleSwitcherSelect({
-  children,
   defaultValue,
   label,
   title,
@@ -31,8 +29,8 @@ export default function LocaleSwitcherSelect({
   const pathname = usePathname();
   const params = useParams();
 
-  function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value as Locale;
+  const handleFlagClick = () => {
+    const nextLocale = defaultValue === "en" ? "br" : "en";
     startTransition(() => {
       router.replace(
         // @ts-expect-error -- TypeScript will validate that only known `params`
@@ -42,28 +40,23 @@ export default function LocaleSwitcherSelect({
         { locale: nextLocale },
       );
     });
-  }
+  };
 
   return (
     <label
       className={cn(
-        "text-foreground hover:border-bottom-gradient relative flex cursor-pointer items-center gap-10 border-b-1 border-transparent",
+        "text-foreground hover:border-bottom-gradient relative flex w-full cursor-pointer items-center justify-between gap-10 border-b-1 border-transparent",
         isPending && "transition-opacity [&:disabled]:opacity-30",
       )}
     >
       <Typography.P className="md:hidden">{title}</Typography.P>
-      <Typography.Small className="text-2xl">
+      <Typography.Small
+        className="cursor-pointer text-2xl"
+        onClick={handleFlagClick}
+      >
         {flags[defaultValue]}
       </Typography.Small>
       <p className="sr-only">{label}</p>
-      <select
-        className="absolute inset-0 h-full w-full cursor-pointer appearance-none opacity-0"
-        defaultValue={defaultValue}
-        disabled={isPending}
-        onChange={onSelectChange}
-      >
-        {children}
-      </select>
     </label>
   );
 }

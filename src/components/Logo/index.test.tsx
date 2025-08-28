@@ -29,22 +29,22 @@ describe("Logo", () => {
   it("should have font roboto mono", () => {
     const link = screen.getByRole("link");
     expect(link).toBeInTheDocument();
-    expect(link).toHaveTextContent("coffee & vanilla code ☕️");
+    expect(link).toHaveTextContent("coffee & vanilla code");
     expect(link).toHaveClass("font-roboto-mono");
   });
 
   it("should render the desktop title (hidden on mobile)", () => {
     const desktopTitle = screen.getByTestId("desktop-title");
     expect(desktopTitle).toBeInTheDocument();
-    expect(desktopTitle).toHaveTextContent("coffee & vanilla code ☕️");
-    expect(desktopTitle).toHaveClass("hidden", "md:block", "pb-0");
+    expect(desktopTitle).toHaveTextContent("coffee & vanilla code");
+    expect(desktopTitle).toHaveClass("hidden", "md:flex", "pb-0");
   });
 
   it("should render the mobile title (visible on mobile)", () => {
     const mobileTitle = screen.getByTestId("mobile-title");
     expect(mobileTitle).toBeInTheDocument();
-    expect(mobileTitle).toHaveTextContent("coffee & vanilla code ☕️");
-    expect(mobileTitle).toHaveClass("sm:block", "md:hidden", "pb-0");
+    expect(mobileTitle).toHaveTextContent("coffee & vanilla code");
+    expect(mobileTitle).toHaveClass("flex", "md:hidden", "pb-0");
   });
 
   it("should render the mobile title with line break", () => {
@@ -54,7 +54,7 @@ describe("Logo", () => {
   });
 
   it("should render the coffee emoji in both titles", () => {
-    const titles = screen.getAllByText(/coffee & vanilla code ☕️/);
-    expect(titles).toHaveLength(2);
+    const coffeeEmojis = screen.getAllByTestId("coffee-cup-emoji");
+    expect(coffeeEmojis).toHaveLength(2);
   });
 });

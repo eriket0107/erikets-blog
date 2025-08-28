@@ -27,11 +27,11 @@ export const Navbar = memo(() => {
     <Box
       as="nav"
       width="auto"
-      className="hidden items-center gap-1 font-medium md:flex"
+      className="hidden items-center gap-5 font-medium md:flex"
       data-testid="navbar"
       aria-label="Main navigation"
     >
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center gap-5">
         {routesConfig.map((link: ILink) => {
           const selected = isSelected(link.href);
           const isHovered = hoveredItem === link.href;
