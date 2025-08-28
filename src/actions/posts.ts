@@ -7,7 +7,7 @@ import { PaginationType } from "@/interfaces/pagination"
 
 export const getPosts = async ({ currentPage = 1, perPage = 5 }: { currentPage?: number, perPage?: number }) => {
   try {
-    const data = await api<PaginationType<PostType[]>>(`/posts?_page=${currentPage}&_per_page=${perPage}`, {
+    const data = await api<PaginationType<PostType[]>>(`/api/posts?_page=${currentPage}&_per_page=${perPage}`, {
       next: {
         tags: ['posts', `${currentPage}`],
         revalidate: REVALIDATE.ONE_HOUR
@@ -24,7 +24,7 @@ export const getPosts = async ({ currentPage = 1, perPage = 5 }: { currentPage?:
 
 export const getPostById = async (id: string) => {
   try {
-    const data = await api<{ data: PostType }>(`posts/${id}`, {
+    const data = await api<{ data: PostType }>(`/api/posts/${id}`, {
       next: {
         tags: ['post', id],
         revalidate: REVALIDATE.ONE_HOUR
