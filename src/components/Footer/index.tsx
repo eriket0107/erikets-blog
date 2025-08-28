@@ -2,6 +2,7 @@ import { Box } from "../Box";
 import { Typography } from "../Typography";
 import { NavLink } from "../NavLink";
 import { socialLinks } from "@/constants/Links";
+import { Emojis } from "@/constants/emojis";
 
 export const Footer = () => {
   return (
@@ -14,7 +15,7 @@ export const Footer = () => {
       data-testid="footer"
     >
       <Typography.Small className="text-muted-foreground w-[450px] md:w-full">
-        by: Erik Oliveira ⓒ - 🇧🇷 - {new Date().getFullYear()}
+        by: Erik Oliveira ⓒ - <Emojis.BrazilFlag /> - {new Date().getFullYear()}
       </Typography.Small>
       <Box as="span" justify="end" className="w-auto" gap="5">
         {socialLinks.map((link) => (

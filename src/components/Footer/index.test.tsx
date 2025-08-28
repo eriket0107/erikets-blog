@@ -29,10 +29,10 @@ describe("Footer", () => {
 
   it("should render copyright text with current year", () => {
     const currentYear = new Date().getFullYear();
-    const copyrightText = screen.getByText(
-      new RegExp(`by: Erik Oliveira ⓒ - 🇧🇷 - ${currentYear}`),
-    );
-    expect(copyrightText).toBeInTheDocument();
+    expect(screen.getByText(/by: Erik Oliveira ⓒ -/)).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(currentYear.toString())),
+    ).toBeInTheDocument();
   });
 
   it("should render all social links", () => {
@@ -68,10 +68,7 @@ describe("Footer", () => {
   });
 
   it("should have correct styling classes for copyright text", () => {
-    const currentYear = new Date().getFullYear();
-    const copyrightText = screen.getByText(
-      new RegExp(`by: Erik Oliveira ⓒ - 🇧🇷 - ${currentYear}`),
-    );
+    const copyrightText = screen.getByText(/by: Erik Oliveira ⓒ -/);
 
     expect(copyrightText).toHaveClass(
       "text-muted-foreground",
@@ -95,7 +92,7 @@ describe("Footer", () => {
 
   it("should contain author information", () => {
     expect(screen.getByText(/Erik Oliveira/)).toBeInTheDocument();
-    expect(screen.getByText(/🇧🇷/)).toBeInTheDocument();
+    expect(screen.getByTestId("brazil-flag-emoji")).toBeInTheDocument();
   });
 
   it("should update year automatically", () => {
