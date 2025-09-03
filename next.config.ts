@@ -14,15 +14,6 @@ const nextConfig: NextConfig = {
     ],
   },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  async redirects() {
-    return [
-      {
-        source: '/:locale/blog',
-        destination: '/:locale/blog/1',
-        permanent: false,
-      },
-    ];
-  },
 };
 
 const withNextIntl = createNextIntlPlugin();

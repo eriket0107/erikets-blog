@@ -3,7 +3,7 @@ import { ElementType, HTMLAttributes } from "react";
 
 interface BoxProps extends HTMLAttributes<HTMLElement> {
   as?: ElementType;
-  children?: React.ReactNode;
+  children: React.ReactNode;
   className?: string;
   display?: "flex" | "grid";
   direction?: "row" | "col" | "row-reverse" | "col-reverse";

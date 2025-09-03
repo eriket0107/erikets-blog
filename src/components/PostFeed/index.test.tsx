@@ -21,12 +21,6 @@ vi.mock("next/navigation", () => ({
   useSelectedLayoutSegment: () => ({ locale: "en" }),
 }));
 
-vi.mock("next/headers", () => ({
-  cookies: vi.fn(() => ({
-    get: vi.fn(() => ({ value: "false" })),
-  })),
-}));
-
 const mockPosts: PostType[] = [
   {
     id: "1",
@@ -46,32 +40,31 @@ const mockPosts: PostType[] = [
   },
 ];
 
-const renderComponent = async (posts: PostType[]) => {
-  const Component = await PostFeed({ posts });
+const renderComponent = (posts: PostType[]) => {
   return render(
     <NextIntlClientProvider locale="en" messages={messages}>
-      {Component}
+      <PostFeed posts={posts} />
     </NextIntlClientProvider>,
   );
 };
 
 describe("PostFeed", () => {
-  it("should render posts", async () => {
-    await renderComponent(mockPosts);
+  it("renders posts", () => {
+    renderComponent(mockPosts);
     expect(screen.getByRole("feed")).toBeInTheDocument();
     const postCards = screen.getAllByRole("article");
     expect(postCards).toHaveLength(mockPosts.length);
   });
 
-  it("should handle empty posts", async () => {
-    await renderComponent([]);
+  it("handles empty posts", () => {
+    renderComponent([]);
     expect(screen.getByRole("feed")).toBeInTheDocument();
     const postCards = screen.queryAllByRole("article");
     expect(postCards).toHaveLength(0);
   });
 
-  it("should have correct accessibility attributes", async () => {
-    await renderComponent(mockPosts);
+  it("has correct accessibility attributes", () => {
+    renderComponent(mockPosts);
 
     const feedElement = screen.getByRole("feed");
     expect(feedElement).toHaveAttribute(
@@ -79,18 +72,5 @@ describe("PostFeed", () => {
       "Blog posts with pagination",
     );
     expect(feedElement).toHaveAttribute("tabIndex", "0");
-  });
-
-  it("should apply pagination styles when pagination is enabled", async () => {
-    const { cookies } = await import("next/headers");
-    const mockCookies = cookies as ReturnType<typeof vi.fn>;
-    mockCookies.mockReturnValue({
-      get: vi.fn(() => ({ value: "true" })),
-    });
-
-    await renderComponent(mockPosts);
-
-    const feedElement = screen.getByRole("feed");
-    expect(feedElement).toHaveClass("md:max-h-[700px]");
   });
 });
