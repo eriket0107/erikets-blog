@@ -5,9 +5,16 @@ import { api } from "@/api"
 import { PaginationType } from "@/interfaces/pagination"
 
 
-export const getPosts = async ({ currentPage = 1, perPage = 5 }: { currentPage?: number, perPage?: number }) => {
+export const getPosts = async ({ currentPage = 1, perPage = 5, isPaginated = true }: { currentPage?: number, perPage?: number, isPaginated?: boolean }) => {
+
   try {
-    const data = await api<PaginationType<PostType[]>>(`/api/posts?_page=${currentPage}&_per_page=${perPage}`, {
+    const handlePagination = () => {
+      if (isPaginated) return `?_page=${currentPage}&_per_page=${perPage}`
+      return ''
+    }
+
+
+    const data = await api<PaginationType<PostType[]>>(`/api/posts${handlePagination()}`, {
       next: {
         tags: ['posts', `${currentPage}`],
         revalidate: REVALIDATE.ONE_HOUR

@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     const startIndex = (page - 1) * perPage
     const endIndex = startIndex + perPage
 
-    const paginatedPosts = allPostsData.slice(startIndex, endIndex)
+    const paginatedPosts = allPostsData.slice(startIndex, endIndex) || []
 
     const totalItems = allPostsData.length
     const totalPages = Math.ceil(totalItems / perPage)

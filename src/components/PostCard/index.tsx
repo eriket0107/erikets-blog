@@ -60,7 +60,7 @@ export const PostCard = ({
           )}
           <Box
             direction="col"
-            className="group mt-1 h-[216px] w-full items-center transition-all md:mt-0 md:max-w-[700px] md:items-start md:p-4"
+            className="group mt-1 w-full items-center transition-all md:mt-0 md:h-[170px] md:max-w-[700px] md:items-start md:p-2"
             gap="2"
           >
             <Typography.H3 className="text-primary mr-auto group-hover:underline md:mr-0">
@@ -72,7 +72,7 @@ export const PostCard = ({
               ))}
             </Box>
 
-            <Box direction="col" justify="between">
+            <Box direction="col" justify="none">
               <Typography.P className="text-primary w-[300px] overflow-hidden overflow-ellipsis md:w-full">
                 {truncatedDescription}
               </Typography.P>
