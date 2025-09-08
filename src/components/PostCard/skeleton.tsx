@@ -15,7 +15,7 @@ export const PostCardSkeleton = ({
           as="article"
           height="216px"
           justify="center"
-          className="animate-fade-in-fast m-0 w-full snap-center md:w-[500px]"
+          className="animate-fade-in-fast m-0 w-full snap-center md:w-[700px]"
           key={index}
         >
           <Box className="flex-col rounded-sm md:flex-row">
@@ -30,7 +30,7 @@ export const PostCardSkeleton = ({
 
             <Box
               direction="col"
-              className="mt-1 h-[216px] w-full md:mt-0 md:max-w-[500px] md:items-start md:p-4"
+              className="mt-1 h-[216px] w-full md:mt-0 md:max-w-[700px] md:items-start md:p-4"
               gap="2"
             >
               <Skeleton className="h-4 w-3/4" />
