@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
       {
         source: '/:locale/blog',
         destination: '/:locale/blog/1',
-        permanent: false,
+        permanent: true,
       },
     ];
   },
