@@ -11,7 +11,7 @@ vi.mock("@/actions/posts", () => ({
 
 vi.mock("../PostCard", () => ({
   PostCard: ({ post }: { post: PostType }) => (
-    <div data-testid="post-card">{post.title.en}</div>
+    <div data-testid="post-card">{post.title}</div>
   ),
 }));
 
@@ -24,20 +24,20 @@ vi.mock("next-intl/server", () => ({
 const mockPosts: PostType[] = [
   {
     id: "post-1",
-    title: { en: "First Post", br: "Primeiro Post" },
-    description: { en: "Description", br: "Descrição" },
+    title: "First Post",
+    description: "Description",
     imgSrc: "/image1.jpg",
     date: "2024-01-15",
-    text: { en: "Content", br: "Conteúdo" },
+    text: "Content",
     isPublished: true,
   },
   {
     id: "post-2",
-    title: { en: "Second Post", br: "Segundo Post" },
-    description: { en: "Description", br: "Descrição" },
+    title: "Second Post",
+    description: "Description",
     imgSrc: "/image2.jpg",
     date: "2024-01-16",
-    text: { en: "Content", br: "Conteúdo" },
+    text: "Content",
     isPublished: true,
   },
 ];
