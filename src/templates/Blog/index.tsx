@@ -1,4 +1,4 @@
-import { getPosts } from "@/actions/posts";
+import { getBlogPosts } from "@/actions/posts";
 import { PageWrapper } from "@/components/PageWrapper";
 import { Pagination } from "@/components/Paginatination";
 import { PaginationSkeleton } from "@/components/Paginatination/skeleton";
@@ -18,7 +18,7 @@ export const Blog = async ({ currentPage }: { currentPage: number }) => {
     first,
     last,
     items,
-  } = await getPosts({ perPage: POSTS_LENGTH, currentPage });
+  } = await getBlogPosts({ perPage: POSTS_LENGTH, currentPage });
   const t = await getTranslations("BlogPage");
 
   const pagination = {

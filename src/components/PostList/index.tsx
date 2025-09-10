@@ -1,12 +1,13 @@
 import { Box } from "../Box";
-import { getPosts } from "@/actions/posts";
+import { getHomePosts } from "@/actions/posts";
 import { PostCard } from "../PostCard";
 import { Typography } from "../Typography";
 import { NotebookText, Pencil } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-export const PostList = async ({ quantity = 2 }: { quantity?: number }) => {
-  const posts = await getPosts({ perPage: quantity });
+export const PostList = async () => {
+  const posts = await getHomePosts();
+
   const hasPosts = !!posts.data.length;
   const t = await getTranslations("HomePage");
 
