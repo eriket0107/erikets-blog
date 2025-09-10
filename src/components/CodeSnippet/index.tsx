@@ -1,6 +1,4 @@
 import { Code } from "bright";
-import { Copy } from "lucide-react";
-import { Button } from "../ui/button";
 import { ReactNode } from "react";
 
 interface CodeSnippetProps {
@@ -11,14 +9,11 @@ interface CodeSnippetProps {
 
 const CodeSnippet = ({ children, lang = "js", ...props }: CodeSnippetProps) => {
   return (
-    <div className="relative">
-      <Button className="absolute top-4 right-4">
-        <Copy />
-      </Button>
+    <div className="">
       <Code
         theme="dracula"
         lang={lang}
-        className="code-block w-3/4 border border-slate-700 text-sm md:w-auto"
+        className="code-block mborder max-w-full overflow-x-auto border-slate-700 text-sm sm:w-[300px]"
         {...props}
       >
         {children}

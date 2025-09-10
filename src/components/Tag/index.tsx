@@ -10,7 +10,7 @@ export const Tag = ({ children, className }: TagProps) => {
   return (
     <span
       className={cn(
-        "text-primary bg-accent w-auto rounded-md p-1 text-center text-xs font-semibold",
+        "text-primary w-auto rounded-md border-1 bg-slate-100 p-1 text-center text-xs font-semibold dark:dark:bg-gray-800",
         className,
       )}
     >

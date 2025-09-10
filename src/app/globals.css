@@ -146,9 +146,9 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    @media (min-width: 768px) {
+    /* @media (min-width: 768px) {
       overscroll-behavior: none;
-    }
+    } */
   }
 }
 

@@ -25,14 +25,14 @@ const COMPONENT_MAP = {
     </Typography.H3>
   ),
   p: ({ children }: { children: ReactNode }) => (
-    <Typography.P className="text-primary mb-4 w-auto text-base leading-7 text-wrap">
+    <Typography.P className="text-primary mb-4 w-auto text-base leading-7 text-wrap [button_&]:mt-0 [button_&]:mb-0">
       {children}
     </Typography.P>
   ),
   a: ({ href, children }: { href?: string; children: ReactNode }) => (
     <a
       href={href}
-      className="text-blue-600 underline transition-colors hover:text-blue-800"
+      className="text-blue-600 transition-all hover:text-blue-800 hover:underline"
       target="_blank"
       rel="noopener noreferrer"
     >

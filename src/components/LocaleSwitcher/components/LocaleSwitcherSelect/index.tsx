@@ -51,7 +51,7 @@ export default function LocaleSwitcherSelect({
     >
       <Typography.P className="md:hidden">{title}</Typography.P>
       <Typography.Small
-        className="cursor-pointer text-2xl"
+        className="cursor-pointer text-2xl transition-all hover:scale-110"
         onClick={handleFlagClick}
       >
         {flags[defaultValue]}
