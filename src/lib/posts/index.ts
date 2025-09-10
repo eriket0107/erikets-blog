@@ -3,7 +3,10 @@ import path from "node:path";
 import matter from 'gray-matter';
 import { LanguageType, PostType } from '@/interfaces/post';
 
-const postsDirectory = (locale?: LanguageType) => path.join(process.cwd(), `posts/ready/${locale}`)
+
+const postsEnv = process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? 'ready' : 'mock';
+
+const postsDirectory = (locale?: LanguageType) => path.join(process.cwd(), `posts/${postsEnv}/${locale}`)
 
 export const getPostsData = (locale: LanguageType = 'en') => {
   const fileNames = fs.readdirSync(postsDirectory(locale))

@@ -13,6 +13,7 @@ vi.mock('gray-matter')
 const mockFs = vi.mocked(fs)
 const mockMatter = vi.mocked(matter)
 
+
 // Extended type for post with content
 type PostWithContent = PostType & { content: string }
 
@@ -32,7 +33,7 @@ describe('getPostsData', () => {
 
     expect(result).toEqual([])
     expect(mockFs.readdirSync).toHaveBeenCalledWith(
-      path.join(process.cwd(), 'posts/ready/en')
+      path.join(process.cwd(), 'posts/mock/en')
     )
   })
 
@@ -145,7 +146,7 @@ description: 'Test description 2'
     getPostsData('br')
 
     expect(mockFs.readdirSync).toHaveBeenCalledWith(
-      path.join(process.cwd(), 'posts/ready/br')
+      path.join(process.cwd(), 'posts/mock/br')
     )
   })
 
@@ -180,6 +181,7 @@ description: 'Test description 2'
 
     expect((result[0] as PostWithContent).content).toBe('# This is the actual content')
   })
+
 
   it('should handle posts with all PostType properties', () => {
     const mockFileNames = ['complete-post.md']
@@ -241,7 +243,7 @@ date: '2024-01-01'
     const result = getPostData('test-post')
 
     expect(mockFs.readFileSync).toHaveBeenCalledWith(
-      `${path.join(process.cwd(), 'posts/ready/en')}/test-post.md`,
+      `${path.join(process.cwd(), 'posts/mock/en')}/test-post.md`,
       'utf-8'
     )
     expect(result).toEqual({
@@ -270,7 +272,7 @@ date: '2024-01-01'
     const result = getPostData('post-brasileiro', 'br')
 
     expect(mockFs.readFileSync).toHaveBeenCalledWith(
-      `${path.join(process.cwd(), 'posts/ready/br')}/post-brasileiro.md`,
+      `${path.join(process.cwd(), 'posts/mock/br')}/post-brasileiro.md`,
       'utf-8'
     )
     expect(result).toEqual({
@@ -288,7 +290,7 @@ date: '2024-01-01'
 
     expect(() => getPostData('non-existent-post')).toThrow('File not found')
     expect(mockFs.readFileSync).toHaveBeenCalledWith(
-      `${path.join(process.cwd(), 'posts/ready/en')}/non-existent-post.md`,
+      `${path.join(process.cwd(), 'posts/mock/en')}/non-existent-post.md`,
       'utf-8'
     )
   })
@@ -311,7 +313,7 @@ Complex post content`
     const result = getPostData('my-complex-post-name-with-dashes')
 
     expect(mockFs.readFileSync).toHaveBeenCalledWith(
-      `${path.join(process.cwd(), 'posts/ready/en')}/my-complex-post-name-with-dashes.md`,
+      `${path.join(process.cwd(), 'posts/mock/en')}/my-complex-post-name-with-dashes.md`,
       'utf-8'
     )
     expect(result).toEqual({

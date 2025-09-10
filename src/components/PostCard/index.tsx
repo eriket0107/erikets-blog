@@ -60,7 +60,7 @@ export const PostCard = ({
           )}
           <Box
             direction="col"
-            className="group mt-1 h-[216px] w-full items-center transition-all md:mt-0 md:max-w-[700px] md:items-start md:p-4"
+            className="group mt-1 h-[216px] w-full items-center transition-all md:mt-0 md:max-w-[700px] md:min-w-[700px] md:items-start md:p-4"
             gap="2"
           >
             <Typography.H3 className="text-primary mr-auto group-hover:underline md:mr-0">

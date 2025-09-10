@@ -1,13 +1,24 @@
 import { Code } from "bright";
+import { ReactNode } from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const CodeSnippet = (props: any) => {
+interface CodeSnippetProps {
+  children?: ReactNode;
+  lang?: string;
+  [key: string]: unknown;
+}
+
+const CodeSnippet = ({ children, lang = "js", ...props }: CodeSnippetProps) => {
   return (
-    <Code
-      theme="material-palenight"
-      className="code-block border border-slate-700 text-xl"
-      {...props}
-    />
+    <div className="">
+      <Code
+        theme="dracula"
+        lang={lang}
+        className="code-block mborder max-w-full overflow-x-auto border-slate-700 text-sm sm:w-[300px]"
+        {...props}
+      >
+        {children}
+      </Code>
+    </div>
   );
 };
 
