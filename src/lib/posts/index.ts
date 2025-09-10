@@ -9,12 +9,24 @@ const postsEnv = process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? 'ready' : '
 const postsDirectory = (locale?: LanguageType) => path.join(process.cwd(), `posts/${postsEnv}/${locale}`)
 
 export const getPostsData = (locale: LanguageType = 'en') => {
-  const fileNames = fs.readdirSync(postsDirectory(locale))
+  const directory = postsDirectory(locale)
+
+  if (!fs.existsSync(directory)) {
+    console.warn(`Posts directory does not exist: ${directory}`)
+    return []
+  }
+
+  const fileNames = fs.readdirSync(directory)
+
+  if (fileNames.length === 0) {
+    console.warn(`Posts directory is empty: ${directory}`)
+    return []
+  }
 
   const allPostsData = fileNames.map(fileName => {
     const id = fileName.replace(/\.md$/, '')
 
-    const fullPath = path.join(postsDirectory(locale), fileName)
+    const fullPath = path.join(directory, fileName)
     const content = fs.readFileSync(fullPath, 'utf-8')
 
     const matterResult = matter(content)
@@ -35,9 +47,19 @@ export const getPostsData = (locale: LanguageType = 'en') => {
 }
 
 export const getPostData = (id: string, locale: LanguageType = 'en') => {
-  const fileName = fs.readFileSync(`${postsDirectory(locale)}/${id}.md`
-    , 'utf-8'
-  )
+  const directory = postsDirectory(locale)
+  const filePath = path.join(directory, `${id}.md`)
+
+  // Check if directory and file exist
+  if (!fs.existsSync(directory)) {
+    throw new Error(`Posts directory does not exist: ${directory}`)
+  }
+
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`Post file does not exist: ${filePath}`)
+  }
+
+  const fileName = fs.readFileSync(filePath, 'utf-8')
 
   const matterResult = matter(fileName)
 

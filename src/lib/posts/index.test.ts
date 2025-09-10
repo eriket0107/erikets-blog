@@ -20,18 +20,36 @@ type PostWithContent = PostType & { content: string }
 describe('getPostsData', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    // Default to directory existing
+    mockFs.existsSync.mockReturnValue(true)
   })
 
   afterEach(() => {
     vi.resetAllMocks()
   })
 
+  it('should return an empty array when directory does not exist', () => {
+    mockFs.existsSync.mockReturnValue(false)
+
+    const result = getPostsData('en')
+
+    expect(result).toEqual([])
+    expect(mockFs.existsSync).toHaveBeenCalledWith(
+      path.join(process.cwd(), 'posts/mock/en')
+    )
+    expect(mockFs.readdirSync).not.toHaveBeenCalled()
+  })
+
   it('should return an empty array when no posts exist', () => {
+    mockFs.existsSync.mockReturnValue(true)
     mockFs.readdirSync.mockReturnValue([])
 
     const result = getPostsData('en')
 
     expect(result).toEqual([])
+    expect(mockFs.existsSync).toHaveBeenCalledWith(
+      path.join(process.cwd(), 'posts/mock/en')
+    )
     expect(mockFs.readdirSync).toHaveBeenCalledWith(
       path.join(process.cwd(), 'posts/mock/en')
     )
@@ -218,10 +236,36 @@ description: 'Test description 2'
 describe('getPostData', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    mockFs.existsSync.mockReturnValue(true)
   })
 
   afterEach(() => {
     vi.resetAllMocks()
+  })
+
+  it('should throw error when directory does not exist', () => {
+    mockFs.existsSync.mockReturnValue(false)
+
+    expect(() => getPostData('test-post')).toThrow('Posts directory does not exist')
+    expect(mockFs.existsSync).toHaveBeenCalledWith(
+      path.join(process.cwd(), 'posts/mock/en')
+    )
+    expect(mockFs.readFileSync).not.toHaveBeenCalled()
+  })
+
+  it('should throw error when file does not exist', () => {
+    mockFs.existsSync
+      .mockReturnValueOnce(true) // directory exists
+      .mockReturnValueOnce(false) // file doesn't exist
+
+    expect(() => getPostData('test-post')).toThrow('Post file does not exist')
+    expect(mockFs.existsSync).toHaveBeenCalledWith(
+      path.join(process.cwd(), 'posts/mock/en')
+    )
+    expect(mockFs.existsSync).toHaveBeenCalledWith(
+      path.join(process.cwd(), 'posts/mock/en', 'test-post.md')
+    )
+    expect(mockFs.readFileSync).not.toHaveBeenCalled()
   })
 
   it('should read and return parsed post data for given id and default locale', () => {
@@ -231,6 +275,9 @@ date: '2024-01-01'
 ---
 # Test content`
 
+    mockFs.existsSync
+      .mockReturnValueOnce(true) // directory exists
+      .mockReturnValueOnce(true) // file exists
     mockFs.readFileSync.mockReturnValue(mockContent)
     mockMatter.mockReturnValue({
       data: {
@@ -243,7 +290,7 @@ date: '2024-01-01'
     const result = getPostData('test-post')
 
     expect(mockFs.readFileSync).toHaveBeenCalledWith(
-      `${path.join(process.cwd(), 'posts/mock/en')}/test-post.md`,
+      path.join(process.cwd(), 'posts/mock/en', 'test-post.md'),
       'utf-8'
     )
     expect(result).toEqual({
@@ -260,6 +307,9 @@ date: '2024-01-01'
 ---
 # Conteúdo do post`
 
+    mockFs.existsSync
+      .mockReturnValueOnce(true) // directory exists
+      .mockReturnValueOnce(true) // file exists
     mockFs.readFileSync.mockReturnValue(mockContent)
     mockMatter.mockReturnValue({
       data: {
@@ -272,7 +322,7 @@ date: '2024-01-01'
     const result = getPostData('post-brasileiro', 'br')
 
     expect(mockFs.readFileSync).toHaveBeenCalledWith(
-      `${path.join(process.cwd(), 'posts/mock/br')}/post-brasileiro.md`,
+      path.join(process.cwd(), 'posts/mock/br', 'post-brasileiro.md'),
       'utf-8'
     )
     expect(result).toEqual({
@@ -284,13 +334,16 @@ date: '2024-01-01'
 
   it('should handle file reading errors', () => {
     const error = new Error('File not found')
+    mockFs.existsSync
+      .mockReturnValueOnce(true) // directory exists
+      .mockReturnValueOnce(true) // file exists
     mockFs.readFileSync.mockImplementation(() => {
       throw error
     })
 
     expect(() => getPostData('non-existent-post')).toThrow('File not found')
     expect(mockFs.readFileSync).toHaveBeenCalledWith(
-      `${path.join(process.cwd(), 'posts/mock/en')}/non-existent-post.md`,
+      path.join(process.cwd(), 'posts/mock/en', 'non-existent-post.md'),
       'utf-8'
     )
   })
@@ -301,6 +354,9 @@ title: 'Complex Post'
 date: '2024-01-01'
 ---
 Complex post content`
+    mockFs.existsSync
+      .mockReturnValueOnce(true) // directory exists
+      .mockReturnValueOnce(true) // file exists
     mockFs.readFileSync.mockReturnValue(mockContent)
     mockMatter.mockReturnValue({
       data: {
@@ -313,7 +369,7 @@ Complex post content`
     const result = getPostData('my-complex-post-name-with-dashes')
 
     expect(mockFs.readFileSync).toHaveBeenCalledWith(
-      `${path.join(process.cwd(), 'posts/mock/en')}/my-complex-post-name-with-dashes.md`,
+      path.join(process.cwd(), 'posts/mock/en', 'my-complex-post-name-with-dashes.md'),
       'utf-8'
     )
     expect(result).toEqual({
@@ -334,6 +390,9 @@ This is the actual markdown content.
 ## Section 1
 Some content here.`
 
+    mockFs.existsSync
+      .mockReturnValueOnce(true) // directory exists
+      .mockReturnValueOnce(true) // file exists
     mockFs.readFileSync.mockReturnValue(rawContent)
     mockMatter.mockReturnValue({
       data: {

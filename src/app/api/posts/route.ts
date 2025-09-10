@@ -6,7 +6,6 @@ import { NextResponse, type NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
-
     const locale = ((await cookies()).get('NEXT_LOCALE')?.value || 'en') as LanguageType
 
     const allPostsData = getPostsData(locale);
@@ -21,7 +20,7 @@ export async function GET(request: NextRequest) {
     const paginatedPosts = allPostsData.slice(startIndex, endIndex)
 
     const totalItems = allPostsData.length
-    const totalPages = Math.ceil(totalItems / perPage)
+    const totalPages = Math.ceil(totalItems / perPage) || 0
 
     const hasNext = page < totalPages
     const hasPrev = page > 1
@@ -42,6 +41,6 @@ export async function GET(request: NextRequest) {
     }, { status: 200 });
   } catch (error) {
     console.log((error as Error).message)
-    return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+    return NextResponse.json({ error: 'Posts not found' }, { status: 404 });
   }
 }
