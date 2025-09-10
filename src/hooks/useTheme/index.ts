@@ -39,6 +39,15 @@ export const useTheme = () => {
   }, [theme]);
 
   const handleThemeChange = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(newTheme);
+    document.documentElement.style.colorScheme = newTheme;
+    document.documentElement.setAttribute('data-theme', newTheme);
+
+    document.cookie = `${themeKeyCookie}=${newTheme}`;
+
     toggleTheme();
   };
 

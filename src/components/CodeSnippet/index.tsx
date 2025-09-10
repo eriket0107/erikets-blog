@@ -1,13 +1,29 @@
 import { Code } from "bright";
+import { Copy } from "lucide-react";
+import { Button } from "../ui/button";
+import { ReactNode } from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const CodeSnippet = (props: any) => {
+interface CodeSnippetProps {
+  children?: ReactNode;
+  lang?: string;
+  [key: string]: unknown;
+}
+
+const CodeSnippet = ({ children, lang = "js", ...props }: CodeSnippetProps) => {
   return (
-    <Code
-      theme="material-palenight"
-      className="code-block border border-slate-700 text-xl"
-      {...props}
-    />
+    <div className="relative">
+      <Button className="absolute top-4 right-4">
+        <Copy />
+      </Button>
+      <Code
+        theme="dracula"
+        lang={lang}
+        className="code-block w-3/4 border border-slate-700 text-sm md:w-auto"
+        {...props}
+      >
+        {children}
+      </Code>
+    </div>
   );
 };
 
