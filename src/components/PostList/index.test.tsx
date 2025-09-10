@@ -6,12 +6,12 @@ import { NextIntlClientProvider } from "next-intl";
 import messages from "../../../messages/en.json";
 
 vi.mock("@/actions/posts", () => ({
-  getHomePosts: vi.fn(),
+  getPosts: vi.fn(),
 }));
 
 vi.mock("../PostCard", () => ({
   PostCard: ({ post }: { post: PostType }) => (
-    <div data-testid="post-card">{post.title}</div>
+    <div data-testid="post-card">{post.title.en}</div>
   ),
 }));
 
@@ -24,20 +24,20 @@ vi.mock("next-intl/server", () => ({
 const mockPosts: PostType[] = [
   {
     id: "post-1",
-    title: "First Post",
-    description: "Description",
+    title: { en: "First Post", br: "Primeiro Post" },
+    description: { en: "Description", br: "Descrição" },
     imgSrc: "/image1.jpg",
     date: "2024-01-15",
-    text: "Content",
+    text: { en: "Content", br: "Conteúdo" },
     isPublished: true,
   },
   {
     id: "post-2",
-    title: "Second Post",
-    description: "Description",
+    title: { en: "Second Post", br: "Segundo Post" },
+    description: { en: "Description", br: "Descrição" },
     imgSrc: "/image2.jpg",
     date: "2024-01-16",
-    text: "Content",
+    text: { en: "Content", br: "Conteúdo" },
     isPublished: true,
   },
 ];
@@ -53,7 +53,7 @@ const mockPagination = {
 };
 
 const renderComponent = async () => {
-  const ComponentWrapper = await PostList();
+  const ComponentWrapper = await PostList({});
   return render(
     <NextIntlClientProvider locale="en" messages={messages}>
       {ComponentWrapper}
@@ -63,8 +63,8 @@ const renderComponent = async () => {
 
 describe("PostList", () => {
   it("should render feed container", async () => {
-    const { getHomePosts } = await import("@/actions/posts");
-    vi.mocked(getHomePosts).mockResolvedValue({
+    const { getPosts } = await import("@/actions/posts");
+    vi.mocked(getPosts).mockResolvedValue({
       ...mockPagination,
     });
 
@@ -73,18 +73,18 @@ describe("PostList", () => {
     expect(screen.getByRole("feed")).toBeInTheDocument();
   });
 
-  it("should call getHomePosts", async () => {
-    const { getHomePosts } = await import("@/actions/posts");
-    vi.mocked(getHomePosts).mockResolvedValue(mockPagination);
+  it("should call getPosts with perPage: 2", async () => {
+    const { getPosts } = await import("@/actions/posts");
+    vi.mocked(getPosts).mockResolvedValue(mockPagination);
 
-    await PostList();
+    await PostList({});
 
-    expect(getHomePosts).toHaveBeenCalled();
+    expect(getPosts).toHaveBeenCalledWith({ perPage: 2 });
   });
 
   it("should render correct number of PostCard components", async () => {
-    const { getHomePosts } = await import("@/actions/posts");
-    vi.mocked(getHomePosts).mockResolvedValue(mockPagination);
+    const { getPosts } = await import("@/actions/posts");
+    vi.mocked(getPosts).mockResolvedValue(mockPagination);
 
     await renderComponent();
 
@@ -92,8 +92,8 @@ describe("PostList", () => {
   });
 
   it("should render empty state when no posts", async () => {
-    const { getHomePosts } = await import("@/actions/posts");
-    vi.mocked(getHomePosts).mockResolvedValue({ ...mockPagination, data: [] });
+    const { getPosts } = await import("@/actions/posts");
+    vi.mocked(getPosts).mockResolvedValue({ ...mockPagination, data: [] });
 
     await renderComponent();
 

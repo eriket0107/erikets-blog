@@ -51,8 +51,7 @@ export const Post = async ({
               src={post?.imgSrc}
               alt={`Image of post ${post.title}`}
               className="rounded-t-sm"
-              loading="eager"
-              priority
+              loading="lazy"
             />
           )}
         </Box>
