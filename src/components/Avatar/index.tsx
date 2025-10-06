@@ -13,7 +13,7 @@ interface AvatarProps {
 export const Avatar = ({ imgSrc, alt, fallback }: AvatarProps) => {
   return (
     <AvatarDefault>
-      <AvatarImage loading="lazy" src={imgSrc} alt={alt} />
+      <AvatarImage loading="eager" src={imgSrc} alt={alt} />
       <AvatarFallback>{fallback}</AvatarFallback>
     </AvatarDefault>
   );

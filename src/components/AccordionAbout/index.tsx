@@ -18,6 +18,7 @@ import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 
 import { milestones } from "@/constants/milestones";
+import { AnimatedNumber } from "../AnimatedNumber";
 
 const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)
@@ -57,7 +58,26 @@ export const AccordionAbout = async () => {
           role="region"
           aria-label="Current position and work"
         >
-          <Typography.P>{t("experience")}</Typography.P>
+          <Typography.P>
+            {t.rich("experience", {
+              dau: () => (
+                <Tooltip>
+                  <TooltipContent>70k</TooltipContent>
+                  <TooltipTrigger>
+                    <AnimatedNumber value={70000} />
+                  </TooltipTrigger>
+                </Tooltip>
+              ),
+              lpr: () => (
+                <Tooltip>
+                  <TooltipContent>1m</TooltipContent>
+                  <TooltipTrigger>
+                    <AnimatedNumber value={1_000_000} />
+                  </TooltipTrigger>
+                </Tooltip>
+              ),
+            })}
+          </Typography.P>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="career">

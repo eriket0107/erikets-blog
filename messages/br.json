@@ -21,7 +21,7 @@
     "now": "Momento atual",
     "career": "Carreira",
     "tools": "Ferramentas",
-    "experience": "Na Multiplan, desenvolvi uma aplicação de estacionamento que hoje tem mais de 70 mil acessos diários de usuários. Isso levou a empresa a inovar os sistemas de estacionamento em todo o país. Atualmente, há mais de 1 milhão de placas registradas no sistema. Minha conquista recente foi a implementação de estações de recarga para carros elétricos - fui responsável por integrar parceiros terceirizados com nossa API, com foco principal no frontend, mas também desenvolvendo o backend."
+    "experience": "Na Multiplan, desenvolvi uma aplicação de estacionamento que hoje tem mais de <dau></dau> acessos diários de usuários. Isso levou a empresa a inovar os sistemas de estacionamento em todo o país. Atualmente, há mais de <lpr></lpr> de placas registradas no sistema. Minha conquista recente foi a implementação de estações de recarga para carros elétricos - fui responsável por integrar parceiros terceirizados com nossa API, com foco principal no frontend, mas também desenvolvendo o backend."
   },
   "Constants": {
     "home": "Home",

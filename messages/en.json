@@ -21,7 +21,7 @@
     "now": "My current moment",
     "career": "Career",
     "tools": "Toolset",
-    "experience": "At Multiplan, I developed a parking lot application xthat now handles over 70,000 daily active users. This project spearheaded the company's innovation in parking systems countrywide, and the system currently manages over 1 million registered license plates. More recently, I led the rollout of EV charging stations. For this initiative, I was responsible for integrating third-party partner systems with our API, handling both frontend and backend development with a primary focus on the user interface."
+    "experience": "At Multiplan, I developed a parking lot application xthat now handles over <dau></dau> daily active users. This project spearheaded the company's innovation in parking systems countrywide, and the system currently manages over <lpr></lpr> registered license plates. More recently, I led the rollout of EV charging stations. For this initiative, I was responsible for integrating third-party partner systems with our API, handling both frontend and backend development with a primary focus on the user interface."
   },
   "Constants": {
     "home": "Home",
