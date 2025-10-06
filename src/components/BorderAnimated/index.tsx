@@ -11,7 +11,7 @@ export const BorderAnimated = ({
 }) => {
   return (
     <div className={style.card}>
-      <div className={cn("bg-background p-2", className)}>{children}</div>
+      <div className={cn("p-2", className)}>{children}</div>
     </div>
   );
 };

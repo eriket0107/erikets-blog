@@ -55,16 +55,16 @@ export const Home = async () => {
             {t("sharing_experience")} {t("hope")}
           </Typography.P>
 
-          <Typography.Muted className="animate-fade-in-fast w-auto max-w-3xl">
+          {/* <Typography.Muted className="animate-fade-in-fast w-auto max-w-3xl">
             {t("current_focus")}
-          </Typography.Muted>
+          </Typography.Muted> */}
         </BorderAnimated>
       </Box>
       <Box
         as="section"
         direction="col"
         gap="2"
-        className="bg-background animate-fade-in-slow max-w-[700px] rounded-sm p-2"
+        className="animate-fade-in-slow max-w-[700px] rounded-sm p-2"
       >
         <Typography.H2
           id="latest-posts-heading"

@@ -48,7 +48,7 @@ export const Blog = async ({ currentPage }: { currentPage: number }) => {
             <PaginationSkeleton className="animate-fade-in-slow flex" />
           }
         >
-          <div className="justifiy-center bg-background sticky top-20 z-60 flex w-full flex-col items-center gap-2 p-1">
+          <div className="justifiy-center sticky top-20 z-60 flex w-full flex-col items-center gap-2 p-1">
             <Pagination
               pagination={pagination}
               className="text-muted-foreground"
