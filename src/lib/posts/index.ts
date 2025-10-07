@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { LanguageType, PostType } from '@/interfaces/post';
 
 
-const postsEnv = process.env.NEXT_PUBLIC_NODE_ENV === 'production' ? 'ready' : 'mock';
+const postsEnv = process.env.NODE_ENV === 'production' ? 'ready' : 'mock';
 
 const postsDirectory = (locale?: LanguageType) => path.join(process.cwd(), `posts/${postsEnv}/${locale}`)
 

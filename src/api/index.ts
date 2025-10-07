@@ -1,11 +1,11 @@
 import { delayFunction } from "@/utils"
 
-const apiUrl = process.env.NEXT_PUBLIC_NODE_ENV === 'test'
+const apiUrl = process.env.NODE_ENV === 'test'
   ? process.env.NEXT_PUBLIC_API_MOCK
   : process.env.NEXT_PUBLIC_API
 
 export const api = async <T = unknown>(endpoint: string, options: RequestInit = {}): Promise<T> => {
-  if (process.env.NEXT_PUBLIC_NODE_ENV === 'test') {
+  if (process.env.NODE_ENV === 'test') {
     await delayFunction(1000)
   }
 
