@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Timeline } from "@/components/Timeline";
-import { Download, MapPin, Milestone, Wrench } from "lucide-react";
+import { ExternalLink, MapPin, Milestone, Wrench } from "lucide-react";
 import {
   Accordion as AccordionDefault,
   AccordionContent,
@@ -152,13 +152,13 @@ export const AccordionAbout = async () => {
           aria-label="Download Erik's resume"
         >
           <a
-            href="/assets/_EN-CV-ERIK-OLIVEIRA-vDD.pdf"
-            download
+            href="/erik_oliveira_resume.pdf"
+            target="_blank"
             className="flex gap-2"
             aria-label="Download Erik Oliveira's CV/Resume as PDF"
           >
-            <Download aria-hidden="true" />
-            CV / Resume
+            <ExternalLink aria-hidden="true" />
+            Resume
           </a>
         </AccordionTrigger>
       </AccordionItem>
