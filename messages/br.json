@@ -12,7 +12,10 @@
   },
   "BlogPage": {
     "title": "Atualizações",
-    "pagination_number": "de"
+    "pagination_number": "de",
+    "results_found": "resultados encontrados para",
+    "total_posts": "posts no total",
+    "search_placeholder": "Pesquisar posts por título, descrição ou tags..."
   },
   "AboutPage": {
     "bio": "Bio",

@@ -12,7 +12,10 @@
   },
   "BlogPage": {
     "title": "Updates",
-    "pagination_number": "of"
+    "pagination_number": "of",
+    "results_found": "results found for",
+    "total_posts": "total posts",
+    "search_placeholder": "Search posts by title, description, or tags..."
   },
   "AboutPage": {
     "bio": "Bio",

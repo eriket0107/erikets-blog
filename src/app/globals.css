@@ -3,7 +3,6 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-
 [color-scheme="dark"] {
   --background: #0a0a0a;
   --foreground: #ededed;
@@ -47,6 +46,18 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --animate-shine: shine var(--duration) infinite linear;
+  @keyframes shine {
+  0% {
+    background-position: 0% 0%;
+    }
+  50% {
+    background-position: 100% 100%;
+    }
+  to {
+    background-position: 0% 0%;
+    }
+  }
 }
 
 html {
@@ -147,7 +158,7 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-  
+
   .dark body {
     background: linear-gradient(45deg, rgba(16, 24, 40, 1), 90%, rgba(21, 75, 150, 1) 110%)
    }
@@ -178,7 +189,6 @@ body {
   animation: fade-in 0.5s ease-out forwards;
 }
 
-
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -192,11 +202,9 @@ body {
   }
 }
 
-
 .animate-fade-in-fast {
   animation: fade-in-up 0.6s ease forwards;
 }
-
 
 @keyframes fade-in-slow {
   from {
@@ -215,13 +223,11 @@ body {
   animation: fade-in-slow 1s ease forwards;
 }
 
-
-
 @keyframes sun-spin {
   from {
     opacity: 0;
     transform: rotate(0deg) translateY(10px);
-    
+
   }
   to {
     opacity: 1;
@@ -248,7 +254,6 @@ body {
 .hover-moon-wave:hover, .hover-moon-wave:active  {
   animation: moon-wave 0.4s ease-in-out;
 }
-
 
 @keyframes waving {
   0% {
@@ -279,13 +284,11 @@ body {
   transform-origin: bottom;
 }
 
-
-
 @keyframes progress {
   0% { 
     height: 0;
   }
-  
+
   100% {
     height: 100%;
   }
@@ -319,4 +322,17 @@ body {
   &::-webkit-scrollbar {
   display: block;
   }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-shine {
+  animation: shine var(--duration, 14000ms) linear infinite;
 }

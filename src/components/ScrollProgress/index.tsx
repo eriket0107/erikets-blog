@@ -29,14 +29,14 @@ export const ScrollProgress = () => {
       style={{
         scaleX,
         position: "fixed",
-        top: 95,
+        top: 0,
         left: 0,
         right: 0,
         height: 7,
         originX: 0,
-        zIndex: 2,
+        zIndex: 1000,
       }}
-      className="bg-gradient-to-r from-blue-500 to-cyan-500"
+      className="bg-linear-to-r from-blue-500 to-cyan-500"
     />
   );
 };

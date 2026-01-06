@@ -1,4 +1,4 @@
-import { Blog as BlogLayout } from "@/templates/Blog";
+import { BlogPage } from "@/templates/Blog";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
@@ -17,10 +17,15 @@ export async function generateMetadata({
   };
 }
 
-const Blog = async ({ params }: { params?: Promise<{ page?: string }> }) => {
-  const resolvedSearchParams = await params;
-  const currentPage = Number(resolvedSearchParams?.page) || 1;
-  return <BlogLayout currentPage={currentPage} />;
+const Blog = async ({
+  searchParams,
+}: {
+  searchParams?: Promise<{ q?: string }>;
+}) => {
+  const resolvedSearchParams = await searchParams;
+  const initialQuery = resolvedSearchParams?.q || '';
+
+  return <BlogPage initialQuery={initialQuery} />;
 };
 
 export default Blog;

@@ -1,75 +1,36 @@
-import { getPosts } from "@/actions/posts";
+import { getAllPosts } from "@/actions/posts";
 import { PageWrapper } from "@/components/PageWrapper";
-import { Pagination } from "@/components/Paginatination";
-import { PaginationSkeleton } from "@/components/Paginatination/skeleton";
-import { PostCardSkeleton } from "@/components/PostCard/skeleton";
-import { PostFeed } from "@/components/PostFeed";
 import { Typography } from "@/components/Typography";
 import { getTranslations } from "next-intl/server";
-import { Suspense } from "react";
+import { VirtualizedPostFeed } from "@/components/VirtualizedPostFeed";
+import { SearchInput } from "@/components/SearchInput";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
-const POSTS_LENGTH = 3;
-export const Blog = async ({ currentPage }: { currentPage: number }) => {
-  const {
-    data: posts,
-    next,
-    pages: totalPages,
-    prev,
-    first,
-    last,
-    items,
-  } = await getPosts({ perPage: POSTS_LENGTH, currentPage });
+export const BlogPage = async ({ initialQuery = '' }: { initialQuery?: string }) => {
+  const posts = await getAllPosts({ searchQuery: initialQuery });
   const t = await getTranslations("BlogPage");
-
-  const pagination = {
-    prev,
-    next,
-    first,
-    last,
-    totalPages: totalPages || 1,
-    currentPage,
-  };
-
-  const from = (currentPage - 1) * POSTS_LENGTH + 1;
-  const to = Math.min(currentPage * POSTS_LENGTH, items);
 
   return (
     <PageWrapper>
+      <ScrollProgress />
       <Typography.H2
         id="intro-blog"
-        className="animate-fade-in-fast text-accent-foreground max-w-3xl text-left"
+        className="animate-fade-in-fast text-accent-foreground max-w-175 text-left pt-10"
       >
-        {t("title")}
+        {t('title')}
       </Typography.H2>
 
-      <div className="animate-fade-in-slow">
-        <Suspense
-          fallback={
-            <PaginationSkeleton className="animate-fade-in-slow flex" />
-          }
-        >
-          <div className="justifiy-center sticky top-20 z-60 flex w-full flex-col items-center gap-2 p-1">
-            <Pagination
-              pagination={pagination}
-              className="text-muted-foreground"
-              aria-label="Number of pages"
-              data-testid="pagination"
-            />
-            <Typography.Small
-              className="text-muted-foreground text-xs"
-              data-testid={"from-to"}
-            >
-              {from} {t("pagination_number")} {to} | {items}
-            </Typography.Small>
-          </div>
-        </Suspense>
+      <SearchInput
+        placeholder={t('search_placeholder')}
+      />
 
-        <Suspense
-          fallback={<PostCardSkeleton length={POSTS_LENGTH} hasImage={false} />}
-        >
-          <PostFeed posts={posts} />
-        </Suspense>
-      </div>
+      {initialQuery && (
+        <Typography.Small className="text-muted-foreground text-center mb-4">
+          {posts.data.length} {posts.data.length === 1 ? 'result found' : 'results found'} for "{initialQuery}"
+        </Typography.Small>
+      )}
+
+      <VirtualizedPostFeed posts={posts.data} />
     </PageWrapper>
   );
 };

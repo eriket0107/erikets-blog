@@ -42,7 +42,7 @@ export const getRoutesConfig = (t: (key: routesConfigKeyType) => string) =>
     //   title: "Setup",
     //   label: "Navigate to Setup page",
     // },
-  ] as const;
+  ] satisfies ILink[];
 
 export const socialLinks: ILink[] = [
   {
@@ -55,4 +55,4 @@ export const socialLinks: ILink[] = [
     title: "LinkedIn",
     href: "https://www.linkedin.com/in/oliveira-erik/",
   },
-] as const;
+] satisfies ILink[];

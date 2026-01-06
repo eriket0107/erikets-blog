@@ -19,15 +19,6 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  async redirects() {
-    return [
-      {
-        source: '/:locale/blog',
-        destination: '/:locale/blog/1',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 const withNextIntl = createNextIntlPlugin();

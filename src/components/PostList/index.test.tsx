@@ -6,7 +6,7 @@ import { NextIntlClientProvider } from "next-intl";
 import messages from "../../../messages/en.json";
 
 vi.mock("@/actions/posts", () => ({
-  getPosts: vi.fn(),
+  getAllPosts: vi.fn(),
 }));
 
 vi.mock("../PostCard", () => ({
@@ -42,16 +42,6 @@ const mockPosts: PostType[] = [
   },
 ];
 
-const mockPagination = {
-  first: 1,
-  prev: 0,
-  next: 0,
-  last: 1,
-  pages: 1,
-  items: 2,
-  data: mockPosts,
-};
-
 const renderComponent = async () => {
   const ComponentWrapper = await PostList({});
   return render(
@@ -63,9 +53,10 @@ const renderComponent = async () => {
 
 describe("PostList", () => {
   it("should render feed container", async () => {
-    const { getPosts } = await import("@/actions/posts");
-    vi.mocked(getPosts).mockResolvedValue({
-      ...mockPagination,
+    const { getAllPosts } = await import("@/actions/posts");
+    vi.mocked(getAllPosts).mockResolvedValue({
+      data: mockPosts,
+      items: mockPosts.length,
     });
 
     await renderComponent();
@@ -73,18 +64,24 @@ describe("PostList", () => {
     expect(screen.getByRole("feed")).toBeInTheDocument();
   });
 
-  it("should call getPosts with perPage: 2", async () => {
-    const { getPosts } = await import("@/actions/posts");
-    vi.mocked(getPosts).mockResolvedValue(mockPagination);
+  it("should call getAllPosts", async () => {
+    const { getAllPosts } = await import("@/actions/posts");
+    vi.mocked(getAllPosts).mockResolvedValue({
+      data: mockPosts,
+      items: mockPosts.length,
+    });
 
     await PostList({});
 
-    expect(getPosts).toHaveBeenCalledWith({ perPage: 2 });
+    expect(getAllPosts).toHaveBeenCalled();
   });
 
   it("should render correct number of PostCard components", async () => {
-    const { getPosts } = await import("@/actions/posts");
-    vi.mocked(getPosts).mockResolvedValue(mockPagination);
+    const { getAllPosts } = await import("@/actions/posts");
+    vi.mocked(getAllPosts).mockResolvedValue({
+      data: mockPosts,
+      items: mockPosts.length,
+    });
 
     await renderComponent();
 
@@ -92,8 +89,11 @@ describe("PostList", () => {
   });
 
   it("should render empty state when no posts", async () => {
-    const { getPosts } = await import("@/actions/posts");
-    vi.mocked(getPosts).mockResolvedValue({ ...mockPagination, data: [] });
+    const { getAllPosts } = await import("@/actions/posts");
+    vi.mocked(getAllPosts).mockResolvedValue({
+      data: [],
+      items: 0,
+    });
 
     await renderComponent();
 
