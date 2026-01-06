@@ -5,20 +5,21 @@ import { SparklesCore } from "../ui/sparkles"
 import { Activity } from "react"
 import { ZapIcon, ZapOffIcon } from "lucide-react"
 import { cn } from "@/utils"
+import { Button } from "../ui/button"
 
 export const ToggleSparkles = () => {
   const { isSparklesEnabled, toggleSparkles } = useSparkles()
 
   return (
-    <button
+    <Button
+      variant="ghost"
       onClick={toggleSparkles}
-      className={cn("transition-colors p-2")}
       aria-label={isSparklesEnabled ? 'Disable sparkles' : 'Enable sparkles'}
       title={isSparklesEnabled ? 'Disable sparkles' : 'Enable sparkles'}
     >
       <ZapIcon color="#3b82f6" fill="#3b82f6" className={cn(!isSparklesEnabled && "hidden")} />
       <ZapOffIcon color="#3b82f6" fill="#3b82f6" className={cn(isSparklesEnabled && "hidden")} />
-    </button>
+    </Button>
   )
 }
 

@@ -5,14 +5,13 @@ import { Typography } from "@/components/Typography";
 import { getTranslations } from "next-intl/server";
 import { PageWrapper } from "@/components/PageWrapper";
 import { Emojis } from "@/constants/emojis";
-import { SparklesCore } from "@/components/ui/sparkles";
 import { Sparkles, ToggleSparkles } from "@/components/Sparkles";
 
 export const Home = async () => {
   const t = await getTranslations("HomePage");
 
   return (
-    <PageWrapper className="flex justify-center items-center m-auto! relative h-screen! w-screen!">
+    <PageWrapper className=" flex justify-center items-center m-auto! relative h-screen! w-screen!">
       <Sparkles />
       <Box
         height="auto"
@@ -22,10 +21,10 @@ export const Home = async () => {
         className="mb-10 max-w-175 pt-10 animate-fade-in-fast"
       >
 
-        <div className="flex flex-row items-center gap-4">
+        <div className="flex flex-row items-center gap-4 justify-center mb-6 w-full">
           <Typography.H1
             id="intro-heading"
-            className="text-accent-foreground max-w-3xl text-left text-5xl"
+            className="text-accent-foreground max-w-3xl text-center text-5xl"
           >
             {t("greeting")}
           </Typography.H1>
@@ -57,11 +56,11 @@ export const Home = async () => {
             <Typography.Small className="text-muted-foreground text-md md:text-xl">
               {t("curiosity")}
             </Typography.Small>
-            <ToggleSparkles />
           </div>
         </div>
 
       </Box>
+      <div className="absolute right-0 bottom-0">  <ToggleSparkles /></div>
     </PageWrapper>
   );
 };
