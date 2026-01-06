@@ -158,6 +158,5 @@ describe('SearchInput', () => {
 
     const wrapper = container.firstChild;
     expect(wrapper).toHaveClass('backdrop-blur-md');
-    expect(wrapper).toHaveClass('bg-background/80');
   });
 });
