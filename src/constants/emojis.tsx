@@ -51,7 +51,7 @@ export const Emojis = {
     "United States flag",
     24,
   ),
-} as const;
+} satisfies Record<string, FC<EmojiProps>>;
 
 export type EmojiKey = keyof typeof Emojis;
 
@@ -64,6 +64,6 @@ export const EmojiSizes = {
   lg: 32,
   xl: 40,
   "2xl": 48,
-} as const;
+} satisfies Record<string, number>;
 
 export type EmojiSize = keyof typeof EmojiSizes;
