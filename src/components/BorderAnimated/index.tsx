@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { cn } from "@/utils";
-import { ShineBorder } from "../ui/shine-border";
 import { BorderBeam } from "../ui/border-beam";
 
 export const BorderAnimated = ({
