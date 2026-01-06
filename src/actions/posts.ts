@@ -1,20 +1,19 @@
 'use server'
-import { REVALIDATE } from "@/constants/revalidate"
-import { PostType } from "@/interfaces/post"
-import { api } from "@/api"
-import { PaginationType } from "@/interfaces/pagination"
+import { getPostsData, getPostData } from "@/lib/posts"
+import { AllPostsResponse } from "@/interfaces/post-response"
+import { cookies } from "next/headers"
+import { LanguageType, PostType } from "@/interfaces/post"
 
 
-export const getPosts = async ({ currentPage = 1, perPage = 5 }: { currentPage?: number, perPage?: number }) => {
+export const getAllPosts = async (): Promise<AllPostsResponse> => {
   try {
-    const data = await api<PaginationType<PostType[]>>(`/api/posts?_page=${currentPage}&_per_page=${perPage}`, {
-      next: {
-        tags: ['posts', `${currentPage}`],
-        revalidate: REVALIDATE.TEN_MINUTES
-      }
-    })
+    const locale = ((await cookies()).get('NEXT_LOCALE')?.value || 'en') as LanguageType
+    const data = getPostsData(locale)
 
-    return data
+    return {
+      data,
+      items: data.length,
+    }
   } catch (e) {
     console.log(e)
     throw new Error((e as Error).message)
@@ -24,14 +23,12 @@ export const getPosts = async ({ currentPage = 1, perPage = 5 }: { currentPage?:
 
 export const getPostById = async (id: string) => {
   try {
-    const data = await api<{ data: PostType }>(`/api/posts/${id}`, {
-      next: {
-        tags: ['post', id],
-        revalidate: REVALIDATE.TEN_MINUTES
-      }
-    })
+    const locale = ((await cookies()).get('NEXT_LOCALE')?.value || 'en') as LanguageType
+    const data = getPostData(id, locale) as PostType
 
-    return data
+    return {
+      data
+    }
   } catch (e) {
     console.log(e)
     throw new Error((e as Error).message)

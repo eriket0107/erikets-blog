@@ -1,13 +1,14 @@
 import { Box } from "../Box";
-import { getPosts } from "@/actions/posts";
+import { getAllPosts } from "@/actions/posts";
 import { PostCard } from "../PostCard";
 import { Typography } from "../Typography";
 import { NotebookText, Pencil } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 export const PostList = async ({ quantity = 2 }: { quantity?: number }) => {
-  const posts = await getPosts({ perPage: quantity });
-  const hasPosts = !!posts.data.length;
+  const { data: allPosts } = await getAllPosts();
+  const posts = allPosts?.slice(0, quantity) ?? [];
+  const hasPosts = !!posts.length;
   const t = await getTranslations("HomePage");
 
   return (
@@ -18,12 +19,12 @@ export const PostList = async ({ quantity = 2 }: { quantity?: number }) => {
       tabIndex={0}
     >
       {hasPosts ? (
-        posts.data.map((post, index) => (
+        posts.map((post, index) => (
           <PostCard
             post={post}
             key={post.id}
             ariaPosinset={index + 1}
-            ariaSetsize={posts.data.length}
+            ariaSetsize={posts.length}
             hasImage={false}
           />
         ))
