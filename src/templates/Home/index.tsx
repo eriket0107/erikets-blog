@@ -5,14 +5,13 @@ import { Typography } from "@/components/Typography";
 import { getTranslations } from "next-intl/server";
 import { PageWrapper } from "@/components/PageWrapper";
 import { Emojis } from "@/constants/emojis";
-import { Sparkles, ToggleSparkles } from "@/components/Sparkles";
+
 
 export const Home = async () => {
   const t = await getTranslations("HomePage");
 
   return (
     <PageWrapper className=" flex justify-center items-center m-auto! relative h-screen! w-screen!">
-      <Sparkles />
       <Box
         height="auto"
         as="section"
@@ -39,7 +38,7 @@ export const Home = async () => {
 
 
         <div className="animate-fade-in-slow">
-          <Typography.P className="text-accent-foreground space-0 text-2xl max-w-3xl p-0">
+          <Typography.P className="text-accent-foreground text-center space-0 text-2xl max-w-3xl p-0">
             {t("iam")}
             <Link
               className="transition-all transition-discrete "
@@ -52,15 +51,15 @@ export const Home = async () => {
             </Link>
             {t("introduction")} <br />
           </Typography.P>
-          <div className="flex flex-row items-center gap-4">
-            <Typography.Small className="text-muted-foreground text-md md:text-xl">
+          <div className="flex flex-row items-center justify-center gap-4 w-full">
+            <Typography.Small className="text-muted-foreground text-center md:text-xl text-lg">
               {t("curiosity")}
             </Typography.Small>
           </div>
         </div>
 
       </Box>
-      <div className="absolute right-0 bottom-0">  <ToggleSparkles /></div>
+
     </PageWrapper>
   );
 };

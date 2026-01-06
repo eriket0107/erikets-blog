@@ -2,10 +2,13 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware";
 
+
 interface SparklesStore {
   isSparklesEnabled: boolean;
   setSparkles: (state: boolean) => void;
   toggleSparkles: () => void;
+  particleDensity: number;
+  setParticleDensity: (density: number) => void;
 }
 
 const useSparklesStore = create<SparklesStore>()(
@@ -17,19 +20,23 @@ const useSparklesStore = create<SparklesStore>()(
         const currentState = get().isSparklesEnabled;
         set({ isSparklesEnabled: !currentState });
       },
+      particleDensity: 100,
+      setParticleDensity: (density: number) => set({ particleDensity: density }),
     }),
     {
-      name: '@coffeAndVanillaCode:sparkles',
+      name: '@coffeeAndVanillaCode:sparkles',
     }
   )
 );
 
 export const useSparkles = () => {
-  const { isSparklesEnabled, setSparkles, toggleSparkles } = useSparklesStore();
+  const { isSparklesEnabled, setSparkles, toggleSparkles, particleDensity, setParticleDensity } = useSparklesStore();
 
   return {
     isSparklesEnabled,
     setSparkles,
     toggleSparkles,
+    particleDensity,
+    setParticleDensity,
   };
 }
