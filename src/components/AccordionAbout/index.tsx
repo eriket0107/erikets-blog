@@ -38,7 +38,7 @@ export const AccordionAbout = async () => {
     <AccordionDefault
       type="single"
       collapsible
-      className="animate-fade-in-slow text-primary w-full"
+      className="animate-fade-in-slow text-primary w-full px-4"
       aria-label="Professional information sections"
     >
       <AccordionItem value="now">

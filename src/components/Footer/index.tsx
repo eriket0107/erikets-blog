@@ -10,7 +10,7 @@ export const Footer = () => {
       as="footer"
       align="center"
       justify="between"
-      className="z-50 sticky bottom-0 mx-auto flex h-[50px] max-w-[700px] flex-row gap-10 bg-background/80 backdrop-blur-md p-3 px-6 border-t border-border/50"
+      className="z-50 sticky bottom-0 mx-auto flex h-[50px]  flex-row gap-10 bg-background/80 backdrop-blur-md p-3 px-6 border-t border-border/50"
       aria-label="Footer of screen"
       data-testid="footer"
     >

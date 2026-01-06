@@ -1,4 +1,3 @@
-import { Avatar } from "@/components/Avatar";
 import { Box } from "@/components/Box";
 import { NavLink } from "@/components/NavLink";
 import { Typography } from "@/components/Typography";
@@ -10,55 +9,60 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/components/Link";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { PageWrapper } from "@/components/PageWrapper";
+import { BorderAnimated } from "@/components/BorderAnimated";
+import { Avatar } from "@/components/Avatar";
 
 export const About = () => {
   const t = useTranslations("AboutPage");
-  const currentAge =
-    new Date().getFullYear() - new Date("1998/07/01").getFullYear();
+  const now = new Date();
+  const birthDate = new Date("1998/07/01");
+  const currentAge = now.getFullYear() - birthDate.getFullYear() -
+    (now.getMonth() < birthDate.getMonth() ||
+      (now.getMonth() === birthDate.getMonth() && now.getDate() < birthDate.getDate()) ? 1 : 0);
   const startYear = new Date("2020/01/02").getFullYear();
 
   return (
     <PageWrapper>
       <Box
-        as="article"
-        direction="col"
-        className="h-full w-[320px] md:w-150 pt-10"
+        as="header"
+        direction="row"
         justify="start"
-        align="start"
+        width="full"
+        align="center"
         gap="8"
-        aria-label="About Erik Oliveira"
-      >
-        <Box
-          as="section"
-          direction="col"
-          gap="4"
-          align="start"
-          height="auto"
-          justify="start"
-          className="animate-fade-in-fast"
-          aria-labelledby="profile-heading"
-        >
-          <Box
-            as="header"
-            direction="row"
-            justify="none"
-            width="auto"
-            align="center"
-            gap="2"
-          >
-            <Avatar
-              alt="Erik Oliveira's profile picture"
-              imgSrc={ProfileImage.src}
-              fallback="EO"
-            />
-            <Typography.H2
-              id="profile-heading"
-              className="text-gradient text-4xl"
-            >
-              Erik Oliveira
-            </Typography.H2>
-          </Box>
+        height="none"
+        className="pt-10 pl-4 animate-fade-in-fast"
 
+      >
+        <Avatar.Rectangular
+          alt="Erik Oliveira's profile picture"
+          imgSrc={ProfileImage.src}
+          fallback="EO"
+        />
+        <Typography.H2
+          id="profile-heading"
+          className="text-gradient text-5xl"
+        >
+          Erik Oliveira
+        </Typography.H2>
+      </Box>
+      <BorderAnimated>
+
+        <Typography.P className="text-accent-foreground space-0 animate-fade-in-slow text-lg max-w-3xl p-0">
+          {t("introduction")} <br />
+
+          {t("sharing_experience")} {t("hope")}
+        </Typography.P>
+
+        <Box
+          as="article"
+          direction="col"
+          className="h-full w-[320px] md:w-150 pt-10 animate-fade-in-slow"
+          justify="start"
+          align="start"
+          gap="8"
+          aria-label="About Erik Oliveira"
+        >
           <Box
             as="section"
             direction="col"
@@ -110,10 +114,13 @@ export const About = () => {
                 ))}
               </Box>
             </Box>
-            <AccordionAbout />
+
           </Box>
         </Box>
-      </Box>
+
+      </BorderAnimated>
+      <AccordionAbout />
+
     </PageWrapper>
   );
 };

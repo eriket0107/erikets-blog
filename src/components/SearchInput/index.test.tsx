@@ -78,7 +78,8 @@ describe('SearchInput', () => {
     const { container } = render(<SearchInput />);
     const wrapper = container.firstChild;
     expect(wrapper).toHaveClass('sticky');
-    expect(wrapper).toHaveClass('top-20');
+    expect(wrapper).toHaveClass('md:top-20');
+    expect(wrapper).toHaveClass('top-30');
     expect(wrapper).toHaveClass('z-40');
   });
 

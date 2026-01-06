@@ -1,9 +1,9 @@
 'use client';
 
 import { Search, X } from 'lucide-react';
-import { cn } from '@/utils';
+import { cn, debounce } from '@/utils';
 import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from '@/hooks/useRouter';
 interface SearchInputProps {
   className?: string;
@@ -14,18 +14,22 @@ export const SearchInput = ({
   className,
   placeholder = 'Search posts by title, description, or tags...',
 }: SearchInputProps) => {
+  const ref = useRef<HTMLInputElement>(null);
   const searchParams = useSearchParams()
   const [value, setValue] = useState(searchParams.get('q') || '')
   const router = useRouter()
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
+    debounce(() => ref.current?.blur(), 1000)();
   };
 
   const handleOnClear = () => {
     const params = new URLSearchParams(searchParams.toString());
     params.delete('q');
     setValue('');
+    ref.current?.blur();
+    router.push(`?${params.toString()}`);
   }
 
   const handleSetParam = (key: string, value: string) => {
@@ -41,7 +45,7 @@ export const SearchInput = ({
   return (
     <div
       className={cn(
-        'sticky top-20 z-40 w-full pt-4 pb-2 animate-fade-in-slow',
+        'sticky md:top-20 top-30 z-40 w-full pt-4 pb-2 animate-fade-in-slow',
         className
       )}
     >
@@ -55,6 +59,7 @@ export const SearchInput = ({
         />
 
         <input
+          ref={ref}
           type="search"
           value={value}
           onChange={handleOnChange}
