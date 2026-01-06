@@ -21,7 +21,7 @@ export const VirtualizedPostFeed = ({
   const parentRef = useRef<HTMLDivElement>(null);
 
   const virtualizer = useVirtualizer({
-    count: posts?.length ?? 0,
+    count: posts.length,
     getScrollElement: () => parentRef.current,
     estimateSize: () => estimateSize,
     overscan: 5,

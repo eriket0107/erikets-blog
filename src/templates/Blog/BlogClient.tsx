@@ -38,20 +38,18 @@ export const Blog = ({ posts, initialQuery = '' }: BlogProps) => {
       <div className="animate-fade-in-slow">
         {searchQuery && (
           <Typography.Small className="text-muted-foreground text-center mb-4">
-            {filteredPosts?.length ?? 0} {t('results_found')} &quot;{searchQuery}&quot;
+            {filteredPosts.length} {t('results_found')} &quot;{searchQuery}&quot;
           </Typography.Small>
         )}
 
         <Typography.Small className="text-muted-foreground text-center mt-4 mb-8">
-          {filteredPosts?.length ?? 0} {t('total_posts')}
+          {filteredPosts.length} {t('total_posts')}
         </Typography.Small>
 
         <VirtualizedPostFeed
           posts={filteredPosts}
           className="h-[calc(100vh-280px)] w-full"
         />
-
-
       </div>
     </div>
   );

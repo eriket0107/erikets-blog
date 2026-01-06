@@ -44,3 +44,5 @@ next-env.d.ts
 # mocks 
 posts/mocks/*
 
+# PR Summary Template
+PR_SUMMARY.md
