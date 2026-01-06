@@ -21,7 +21,7 @@ const mockPosts: PostType[] = [
     title: 'Test Post 1',
     description: 'Description 1',
     tags: ['react', 'typescript'],
-    date: '2024-01-01',
+    date: '2024-01-15',
     content: 'Content 1',
     imgSrc: '/image1.jpg',
     isPublished: true,
@@ -31,7 +31,7 @@ const mockPosts: PostType[] = [
     title: 'Test Post 2',
     description: 'Description 2',
     tags: ['nextjs', 'testing'],
-    date: '2024-01-02',
+    date: '2024-02-10',
     content: 'Content 2',
     imgSrc: '/image2.jpg',
     isPublished: true,
@@ -39,6 +39,9 @@ const mockPosts: PostType[] = [
 ];
 
 const messages = {
+  HomePage: {
+    empty_posts: 'Ideas sector is working at moment, come back soon! What about taking some time to explore the site?'
+  },
   PostCard: {
     read_time: 'Read time',
     min: 'min',
@@ -68,17 +71,8 @@ describe('VirtualizedPostFeed', () => {
   });
 
   it('should show empty state when no posts', () => {
-    const emptyMessages = {
-      HomePage: {
-        empty_posts: 'Ideas sector is working at momment, come back soon! What about taking some time to explore the site?'
-      },
-      PostCard: {
-        read_time: 'Read time',
-        min: 'min',
-      },
-    };
     render(
-      <NextIntlClientProvider locale="en" messages={emptyMessages}>
+      <NextIntlClientProvider locale="en" messages={messages}>
         <VirtualizedPostFeed posts={[]} />
       </NextIntlClientProvider>
     );
@@ -108,5 +102,14 @@ describe('VirtualizedPostFeed', () => {
 
     const feed = screen.getByRole('feed', { name: /blog posts/i });
     expect(feed).toHaveClass('overflow-auto');
+  });
+
+  it('should use virtualizer for rendering posts', () => {
+    renderWithIntl(<VirtualizedPostFeed posts={mockPosts} />);
+
+    // Check that the virtualized container has the correct style
+    const virtualContainer = screen.getByRole('feed').firstElementChild;
+    expect(virtualContainer).toHaveStyle('height: 500px');
+    expect(virtualContainer).toHaveStyle('position: relative');
   });
 });

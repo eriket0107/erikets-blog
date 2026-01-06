@@ -1,5 +1,6 @@
 import { cn } from "@/utils";
 import { ReactNode } from "react";
+import { Sparkles } from "../Sparkles";
 
 interface PageWrapperProps {
   className?: string | string[];
@@ -14,6 +15,7 @@ export const PageWrapper = ({ children, className }: PageWrapperProps) => {
         className,
       )}
     >
+      <Sparkles />
       {children}
     </div>
   );
