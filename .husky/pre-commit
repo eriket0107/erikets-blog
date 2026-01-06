@@ -1,2 +1,2 @@
-yarn test
-yarn lint -- --fix
+pnpm test
+pnpm lint:ci
