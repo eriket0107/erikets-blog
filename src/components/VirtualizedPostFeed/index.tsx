@@ -9,7 +9,6 @@ import { Box } from '../Box';
 import { Typography } from '../Typography';
 import { NotebookText, Pencil } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { ScrollProgress } from '../ScrollProgress';
 
 interface VirtualizedPostFeedProps {
   posts: PostType[];

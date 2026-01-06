@@ -3,7 +3,6 @@ import { PageWrapper } from "@/components/PageWrapper";
 import { Typography } from "@/components/Typography";
 import { getTranslations } from "next-intl/server";
 import { VirtualizedPostFeed } from "@/components/VirtualizedPostFeed";
-import { Link } from "@/i18n/navigation";
 import { SearchInput } from "@/components/SearchInput";
 import { ScrollProgress } from "@/components/ScrollProgress";
 
