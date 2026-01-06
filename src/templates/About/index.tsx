@@ -22,7 +22,7 @@ export const About = () => {
       <Box
         as="article"
         direction="col"
-        className="h-full w-[320px] md:w-[600px]"
+        className="h-full w-[320px] md:w-150 pt-10"
         justify="start"
         align="start"
         gap="8"

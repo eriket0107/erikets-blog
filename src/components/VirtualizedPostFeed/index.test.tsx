@@ -68,9 +68,21 @@ describe('VirtualizedPostFeed', () => {
   });
 
   it('should show empty state when no posts', () => {
-    renderWithIntl(<VirtualizedPostFeed posts={[]} />);
-
-    expect(screen.getByText(/no posts found/i)).toBeInTheDocument();
+    const emptyMessages = {
+      HomePage: {
+        empty_posts: 'Ideas sector is working at momment, come back soon! What about taking some time to explore the site?'
+      },
+      PostCard: {
+        read_time: 'Read time',
+        min: 'min',
+      },
+    };
+    render(
+      <NextIntlClientProvider locale="en" messages={emptyMessages}>
+        <VirtualizedPostFeed posts={[]} />
+      </NextIntlClientProvider>
+    );
+    expect(screen.getByText(/ideas sector is working/i)).toBeInTheDocument();
     expect(
       screen.getByRole('feed', { name: /no blog posts found/i })
     ).toBeInTheDocument();

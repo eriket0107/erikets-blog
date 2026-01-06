@@ -1,5 +1,26 @@
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
+
+
+
+vi.mock('next/navigation', () => ({
+  useSearchParams: () => new URLSearchParams(''),
+  usePathname: () => '/',
+  useRouter: () => ({
+    back: vi.fn(),
+    forward: vi.fn(),
+    refresh: vi.fn(),
+    push: vi.fn(),
+    prefetch: vi.fn(),
+    replace: vi.fn(),
+  }),
+  permanentRedirect: vi.fn(),
+  redirect: vi.fn(),
+  useParams: () => ({ locale: 'en' }),
+  useSelectedLayoutSegment: () => ({ locale: 'en' }),
+}));
+
 import { SearchInput } from './index';
 
 describe('SearchInput', () => {
@@ -31,18 +52,22 @@ describe('SearchInput', () => {
 
   it('should call onChange when typing', () => {
     const handleChange = vi.fn();
-
-    render(
-      <SearchInput
-        value=""
-        onChange={handleChange}
-        onClear={vi.fn()}
-      />
-    );
-
+    function Wrapper() {
+      const [value, setValue] = React.useState('');
+      return (
+        <SearchInput
+          value={value}
+          onChange={v => {
+            setValue(v);
+            handleChange(v);
+          }}
+          onClear={vi.fn()}
+        />
+      );
+    }
+    render(<Wrapper />);
     const input = screen.getByRole('searchbox');
     fireEvent.change(input, { target: { value: 'test' } });
-
     expect(handleChange).toHaveBeenCalledTimes(1);
     expect(handleChange).toHaveBeenLastCalledWith('test');
   });

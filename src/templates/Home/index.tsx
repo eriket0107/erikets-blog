@@ -20,7 +20,7 @@ export const Home = async () => {
         as="section"
         direction="col"
         aria-labelledby="intro-heading"
-        className="mb-10 max-w-[700px]"
+        className="mb-10 max-w-175 pt-10"
       >
         <BorderAnimated>
           <Typography.H1
@@ -64,7 +64,7 @@ export const Home = async () => {
         as="section"
         direction="col"
         gap="2"
-        className="animate-fade-in-slow max-w-[700px] rounded-sm p-2"
+        className="animate-fade-in-slow max-w-175 rounded-sm p-2"
       >
         <Typography.H2
           id="latest-posts-heading"
