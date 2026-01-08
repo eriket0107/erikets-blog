@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
 import { MoonStar, Sun } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import { memo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 const ThemeButtonMenu = () => {
@@ -59,7 +58,7 @@ const ThemeButtonNav = () => {
         >
           <Button
             onClick={handleThemeChange}
-            className="relative hidden cursor-pointer !p-1 md:flex"
+            className="relative cursor-pointer !p-1 md:flex"
             variant={"link"}
             data-testid="theme-btn-nav"
           >
@@ -88,19 +87,12 @@ const ThemeButtonNav = () => {
   );
 };
 
-interface ThemeButtonProps {
-  variant?: "nav" | "menu";
+
+const ThemeButton = {
+  Nav: ThemeButtonNav,
+  Menu: ThemeButtonMenu,
+  displayName: "ThemeButton"
 }
 
-const ThemeButton = memo(({ variant = "nav" }: ThemeButtonProps) => {
-  switch (variant) {
-    case "menu":
-      return <ThemeButtonMenu />;
-    case "nav":
-    default:
-      return <ThemeButtonNav />;
-  }
-});
 
-ThemeButton.displayName = "ThemeButton";
 export default ThemeButton;

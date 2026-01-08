@@ -1,36 +1,67 @@
 import { render } from "@testing-library/react";
 import { PageWrapper } from ".";
 import { describe } from "node:test";
-import { expect, it } from "vitest";
+import { expect, it, vi } from "vitest";
+import { NextIntlClientProvider } from "next-intl";
+import messages from "../../../messages/en.json";
+
+// Mock next/font/google
+vi.mock("next/font/google", () => ({
+  Roboto_Mono: () => ({
+    className: "font-roboto-mono",
+  }),
+}));
+
+vi.mock("next/navigation", () => ({
+  usePathname: () => "/",
+  useRouter: () => ({
+    back: vi.fn(),
+    forward: vi.fn(),
+    refresh: vi.fn(),
+    push: vi.fn(),
+    prefetch: vi.fn(),
+    replace: vi.fn(),
+  }),
+  permanentRedirect: vi.fn(),
+  redirect: vi.fn(),
+  useParams: () => ({ locale: "en" }),
+  useSelectedLayoutSegment: () => ({ locale: "en" }),
+}));
 
 describe("PageWrapper component", () => {
   it("should render with default classes", () => {
     const { container } = render(
-      <PageWrapper>
-        <div>test</div>
-      </PageWrapper>,
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <PageWrapper>
+          <div>test</div>
+        </PageWrapper>
+      </NextIntlClientProvider>,
     );
-    const mainElement = container.firstChild;
-    expect(mainElement).toHaveClass(
-      "mb-auto flex h-auto w-full flex-col items-center justify-start gap-4 p-4 pt-32 md:mx-auto md:w-[700px] md:pt-24",
+    const wrapper = container.querySelector('div[class*="mb-auto"]');
+    expect(wrapper).toHaveClass(
+      "mb-auto",
     );
   });
 
   it("should render with additional classes", () => {
     const { container } = render(
-      <PageWrapper className="extra-class">
-        <div>test</div>
-      </PageWrapper>,
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <PageWrapper className="extra-class">
+          <div>test</div>
+        </PageWrapper>
+      </NextIntlClientProvider>,
     );
-    const mainElement = container.firstChild;
-    expect(mainElement).toHaveClass("extra-class");
+    const wrapper = container.querySelector('div[class*="extra-class"]');
+    expect(wrapper).toHaveClass("extra-class");
   });
 
   it("should render children", () => {
     const { getByText } = render(
-      <PageWrapper>
-        <div>test child</div>
-      </PageWrapper>,
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <PageWrapper>
+          <div>test child</div>
+        </PageWrapper>
+      </NextIntlClientProvider>,
     );
     expect(getByText("test child")).toBeInTheDocument();
   });

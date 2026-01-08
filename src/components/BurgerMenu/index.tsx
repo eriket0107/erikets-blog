@@ -65,7 +65,7 @@ export const BurgerMenu = memo(() => {
             className={classes.dropdownMenuItem}
             onSelect={(e) => e.preventDefault()}
           >
-            <ThemeButton variant="menu" />
+            <ThemeButton.Menu />
           </DropdownMenuItem>
           <DropdownMenuItem
             className={classes.dropdownMenuItem}

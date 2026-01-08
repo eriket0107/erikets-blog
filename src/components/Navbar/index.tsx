@@ -4,7 +4,6 @@ import { getRoutesConfig } from "@/constants/Links";
 import { Box } from "../Box";
 import { usePathname } from "@/hooks/usePathname";
 import { useTranslations } from "next-intl";
-import LocaleSwitcher from "../LocaleSwitcher";
 import { memo, useCallback, useState } from "react";
 import { getBasePath } from "@/utils";
 import { motion } from "motion/react";
@@ -12,7 +11,7 @@ import { Link } from "../Link";
 import { cn } from "@/utils";
 import { ILink } from "@/interfaces/link";
 
-export const Navbar = memo(() => {
+export const Navbar = memo(({ children, className }: { children?: React.ReactNode; className?: string }) => {
   const pathname = usePathname();
   const t = useTranslations("Constants");
   const routesConfig = getRoutesConfig(t);
@@ -27,8 +26,9 @@ export const Navbar = memo(() => {
     <Box
       as="nav"
       width="auto"
-      className="hidden items-center gap-5 font-medium md:flex"
+      className={cn("hidden items-center gap-5 font-medium md:flex", className)}
       data-testid="navbar"
+      height="none"
       aria-label="Main navigation"
     >
       <ul className="flex items-center gap-5">
@@ -87,7 +87,7 @@ export const Navbar = memo(() => {
           );
         })}
       </ul>
-      <LocaleSwitcher />
+      {children}
     </Box>
   );
 });
