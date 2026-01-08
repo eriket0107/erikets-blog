@@ -15,7 +15,7 @@ export const Footer = () => {
       aria-label="Footer of screen"
       data-testid="footer"
     >
-      <div className="absolute right-0 bottom-13">  <ToggleSparkles /></div>
+      <div className="absolute right-4 bottom-13">  <ToggleSparkles /></div>
       <Typography.Small className="text-muted-foreground w-[450px] md:w-full">
         by: Erik Oliveira ⓒ - <Emojis.BrazilFlag /> - {new Date().getFullYear()}
       </Typography.Small>
