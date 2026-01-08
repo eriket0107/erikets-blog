@@ -77,7 +77,7 @@ export const About = () => {
             <span className="flex flex-row gap-6 flex-wrap">
               {socialLinks.map((social) => (
                 <NavLink
-                  className="hover:border-b-accent-foreground border-1 border-transparent"
+                  className="z-10 hover:border-b-accent-foreground border-1 border-transparent"
                   key={social.title}
                   link={social}
                   aria-label={`Visit Erik's ${social.title} profile`}
