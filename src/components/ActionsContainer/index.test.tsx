@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render } from "@testing-library/react";
-import { ActionsButton } from ".";
+import { ActionsContainer } from ".";
 import { NextIntlClientProvider } from "next-intl";
 import messages from "../../../messages/en.json";
 
@@ -44,11 +44,11 @@ vi.mock("../../hooks/useTheme", () => ({
   }),
 }));
 
-describe("ActionsButton", () => {
-  it("should render ActionsButton component", () => {
+describe("ActionsContainer", () => {
+  it("should render ActionsContainer component", () => {
     const { container } = render(
       <NextIntlClientProvider locale="en" messages={messages}>
-        <ActionsButton />
+        <ActionsContainer />
       </NextIntlClientProvider>
     );
     expect(container).toBeInTheDocument();
@@ -57,7 +57,7 @@ describe("ActionsButton", () => {
   it("should render container with flex gap-5", () => {
     const { container } = render(
       <NextIntlClientProvider locale="en" messages={messages}>
-        <ActionsButton />
+        <ActionsContainer />
       </NextIntlClientProvider>
     );
     const flexContainer = container.querySelector(".flex.gap-5");
@@ -67,7 +67,7 @@ describe("ActionsButton", () => {
   it("should render all action buttons", () => {
     const { container } = render(
       <NextIntlClientProvider locale="en" messages={messages}>
-        <ActionsButton />
+        <ActionsContainer />
       </NextIntlClientProvider>
     );
     const buttons = container.querySelectorAll("button");

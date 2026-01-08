@@ -19,19 +19,23 @@ export default function ArticleImage({
   ...props
 }: ArticleImageProps) {
   return (
-    <figure className="not-prose relative mx-auto my-8 flex flex-col items-center justify-center gap-2 text-center md:w-[90%]">
+    <>
       <Image
         src={src}
-        fill
+        width={1920}
+        height={1080}
         alt={alt}
-        className={cn("!relative", className)}
+        className={cn("aspect-video w-full h-auto object-cover", className)}
         {...props}
       />
-      {caption && (
-        <figcaption className="text-muted-foreground not-prose text-xs md:text-sm">
-          {caption}
-        </figcaption>
-      )}
-    </figure>
+      <figure className="not-prose relative mx-auto my-8 flex flex-col items-center justify-center gap-2 text-center md:w-[90%]">
+
+        {caption && (
+          <figcaption className="text-muted-foreground not-prose text-xs md:text-sm">
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+    </>
   );
 }

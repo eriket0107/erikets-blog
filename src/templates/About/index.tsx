@@ -23,12 +23,11 @@ export const About = () => {
   return (
     <PageWrapper>
       <Box
-        as="header"
+        as="section"
         width="full"
         height="auto"
         className="pt-10 pl-4 animate-fade-in-slow"
         gap="4"
-
       >
         <Image
           alt="Erik Oliveira's profile picture"
@@ -39,37 +38,33 @@ export const About = () => {
         />
 
         <div className="flex flex-col ">
-          <div className="relative">
-            <div className="overflow-hidden ">
-              <Typography.H2
-                id="profile-heading"
-                className="text-gradient text-4xl md:text-6xl mt-2"
-              >
-                Erik Oliveira, <AnimatedNumber value={currentAge} className="md:text-5xl text-3xl" />
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Emojis.Coffee className="ml-4" />
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    {t("curiosity")}
-                  </TooltipContent>
-                </Tooltip>
-              </Typography.H2>
-            </div>
-          </div>
+          <Typography.H2
+            id="profile-heading"
+            className="text-gradient text-4xl md:text-6xl mt-2"
+          >
+            Erik Oliveira, <AnimatedNumber value={currentAge} className="md:text-5xl text-3xl" />
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Emojis.Coffee className="ml-4" />
+              </TooltipTrigger>
+              <TooltipContent>
+                {t("curiosity")}
+              </TooltipContent>
+            </Tooltip>
+          </Typography.H2>
 
           <div>
             <Typography.H4 className="text-accent-foreground text-3xl">
               {t("role")}
             </Typography.H4>
-            <Typography.P spacingTop={false} className="text-accent-foreground space-0 text-xl max-w-full p-0">
+            <Typography.P spacingTop={false} className="text-accent-foreground space-0 text-xl p-0">
               {t("introduction")}
             </Typography.P>
-            <Typography.P className="text-accent-foreground space-0 text-xl max-w-full p-0">
+            <Typography.P className="text-accent-foreground  text-xl max-w-full">
               {t("sharing_experience")}
 
             </Typography.P>
-            <Typography.P className="text-accent-foreground space-0 text-xl max-w-full p-0">
+            <Typography.P className="text-accent-foreground  text-xl max-w-full">
               {t("personal_space")}
             </Typography.P>
           </div>
@@ -92,37 +87,7 @@ export const About = () => {
           </div>
         </div>
       </Box>
-
-
-
-
-
-
-      {/* <Typography.P className="text-primary">
-        {t.rich("greeting", {
-          age: () => <AnimatedNumber value={currentAge} />,
-          startYear: () => (
-            <AnimatedNumber timer="0.75s" value={startYear} />
-          ),
-          link: (chunks) => (
-            <Link
-              className="text-gradient border-b-1 transition-all transition-discrete hover:scale-105"
-              href={"https://www.meumulti.com.br/"}
-              target="_blank"
-            >
-              {chunks}
-            </Link>
-          ),
-        })}
-      </Typography.P> */}
-
-
-
-
-
-
       <AccordionAbout />
-
     </PageWrapper>
   );
 };

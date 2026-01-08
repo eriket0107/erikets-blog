@@ -7,7 +7,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { ThemeScript } from "@/scripts/ThemeScript";
 import { Layout } from "@/components/Layout";
-import { BottomShadow } from "@/components/BottomShadow";
 
 import NextTopLoader from "nextjs-toploader";
 
@@ -71,7 +70,6 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <Layout>
             {children}
-            <BottomShadow />
           </Layout>
         </NextIntlClientProvider>
         <SpeedInsights />

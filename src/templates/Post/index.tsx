@@ -19,17 +19,17 @@ export const Post = async ({
 }) => {
   const { data: post } = await getPostById(id);
   const postData = getPostData(id, language);
+
   return (
     <PageWrapper>
-      <Box as="nav" aria-label="Post navigation">
-        <BackButton />
-      </Box>
-
       <article
         role="article"
         aria-labelledby="post-title"
         className="align-center flex flex-col justify-center"
       >
+        <Box as="nav" aria-label="Post navigation">
+          <BackButton />
+        </Box>
         <Box as="header" direction="col" justify="center" align="center">
           <Typography.H2
             id="post-title"

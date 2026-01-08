@@ -79,8 +79,7 @@ describe("Navbar component", () => {
     const navItems = navbar.querySelectorAll("li");
 
     expect(navList).toBeInTheDocument();
-    // expect(navItems).toHaveLength(3); // home, blog, about
-    expect(navItems).toHaveLength(2); // home, about
+    expect(navItems).toHaveLength(3); // home, blog, about
   });
 
   it("should have proper ARIA attributes", () => {
