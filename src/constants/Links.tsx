@@ -1,6 +1,6 @@
 import { ILink } from "@/interfaces/link";
 import {
-  // BookUser,
+  BookUser,
   Home,
   User,
   Github,
@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 const homeIcon = <Home size={16} className="text-current" />;
-// const blogIcon = <BookUser size={16} className="text-current" />;
+const blogIcon = <BookUser size={16} className="text-current" />;
 const aboutIcon = <User size={16} className="text-current" />;
 const githubIcon = <Github className="h-[20px] w-[20px]" />;
 const linkedinIcon = <Linkedin className="h-[20px] w-[20px]" />;
@@ -30,12 +30,12 @@ export const getRoutesConfig = (t: (key: routesConfigKeyType) => string) =>
       title: t("about"),
       label: "Navigate to About page",
     },
-    // {
-    //   href: "/blog",
-    //   icon: blogIcon,
-    //   title: t("blog"),
-    //   label: "Navigate to Blog page",
-    // },
+    {
+      href: "/blog",
+      icon: blogIcon,
+      title: t("blog"),
+      label: "Navigate to Blog page",
+    },
 
     // {
     //   href: "/setup",

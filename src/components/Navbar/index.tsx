@@ -11,6 +11,8 @@ import { Link } from "../Link";
 import { cn } from "@/utils";
 import { ILink } from "@/interfaces/link";
 
+const PROD_ENV = process.env.NODE_ENV === "production";
+
 export const Navbar = memo(({ children, className }: { children?: React.ReactNode; className?: string }) => {
   const pathname = usePathname();
   const t = useTranslations("Constants");
@@ -36,6 +38,9 @@ export const Navbar = memo(({ children, className }: { children?: React.ReactNod
           const selected = isSelected(link.href);
           const isHovered = hoveredItem === link.href;
 
+          if (link.href === '/blog' && PROD_ENV) {
+            return null;
+          }
           return (
             (
               <motion.li

@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import { Sparkles } from "../Sparkles";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
+import { BottomShadow } from "../BottomShadow";
 
 interface PageWrapperProps {
   className?: string | string[];
@@ -16,14 +17,20 @@ export const PageWrapper = ({ children, className, hasHeader = true, hasFooter =
     {hasHeader && <Header />}
     <div
       className={cn(
-        "mb-auto flex h-auto w-full flex-col items-center justify-start gap-4 p-4 pt-32 md:mx-auto md:w-[1000px] md:pt-24",
-        className,
-      )}
+        "mb-auto h-dvh flex w-full flex-col items-center justify-start gap-4 p-4 pt-32 md:mx-auto md:w-240 md:pt-24",
+        className,)}
     >
       <Sparkles />
       {children}
     </div>
-    {hasFooter && <Footer />}
+
+    {hasFooter &&
+
+      <>
+        <BottomShadow />
+        <Footer />
+      </>
+    }
   </>
   );
 };

@@ -36,7 +36,6 @@ export const BlogPage = async ({ initialQuery = '' }: { initialQuery?: string })
           {posts.data.length} {posts.data.length === 1 ? 'result found' : 'results found'} | "{initialQuery}"
         </Typography.Small>
       </Activity>
-
       <VirtualizedPostFeed posts={posts.data} />
     </PageWrapper>
   );
