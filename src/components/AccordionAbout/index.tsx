@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/accordion";
 import { Stack } from "@/constants/Stack";
 import { Typography } from "../Typography";
-import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 
 import { milestones } from "@/constants/milestones";
@@ -97,9 +96,7 @@ export const AccordionAbout = async () => {
           role="region"
           aria-label="Career milestones and achievements"
         >
-          <Suspense>
-            <Timeline milestones={SORTED_MILESTONES} />
-          </Suspense>
+          <Timeline milestones={SORTED_MILESTONES} />
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="toolset">

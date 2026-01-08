@@ -6,6 +6,7 @@ import { useRouter } from "@/hooks/useRouter";
 import { usePathname } from "@/hooks/usePathname";
 import { cn } from "@/utils";
 import { Typography } from "@/components/Typography";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Emojis } from "@/constants/emojis";
 
 type Props = {
@@ -45,17 +46,23 @@ export default function LocaleSwitcherSelect({
   return (
     <label
       className={cn(
-        "text-foreground relative flex w-full cursor-pointer items-center justify-between gap-10 border-b-1 border-transparent",
+        "text-foreground min-w-4 min-h-4 w-fit relative flex  cursor-pointer items-center justify-between gap-10 border-b border-transparent",
         isPending && "transition-opacity [&:disabled]:opacity-30",
       )}
     >
-      <Typography.P className="md:hidden">{title}</Typography.P>
-      <Typography.Small
-        className="cursor-pointer text-2xl transition-all hover:scale-110"
-        onClick={handleFlagClick}
-      >
-        {flags[defaultValue]}
-      </Typography.Small>
+      <Typography.P className="hidden cursor-help text-md">{title}</Typography.P>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Typography.Small
+            className="cursor-pointer text-2xl transition-all hover:scale-110"
+            onClick={handleFlagClick}
+          >
+            {flags[defaultValue]}
+          </Typography.Small>
+        </TooltipTrigger>
+        <TooltipContent>{title}</TooltipContent>
+      </Tooltip>
+
       <p className="sr-only">{label}</p>
     </label>
   );

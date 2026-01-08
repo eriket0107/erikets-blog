@@ -1,8 +1,7 @@
+import "../globals.css";
+
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "../globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
@@ -71,10 +70,8 @@ export default async function RootLayout({
         <ThemeScript />
         <NextIntlClientProvider>
           <Layout>
-            <Header />
             {children}
             <BottomShadow />
-            <Footer />
           </Layout>
         </NextIntlClientProvider>
         <SpeedInsights />

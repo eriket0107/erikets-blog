@@ -1,65 +1,32 @@
-import { Box } from "@/components/Box";
-import { Link } from "@/components/Link";
-import { Typography } from "@/components/Typography";
 
-import { getTranslations } from "next-intl/server";
+import { Box } from "@/components/Box";
+
 import { PageWrapper } from "@/components/PageWrapper";
-import { Emojis } from "@/constants/emojis";
+import { Location } from "@/components/Location";
+import { Navbar } from "@/components/Navbar";
+import { Logo } from "@/components/Logo";
+import { ActionsButton } from "@/components/ActionsButton";
 
 
 export const Home = async () => {
-  const t = await getTranslations("HomePage");
-
   return (
-    <PageWrapper className=" flex justify-center items-center m-auto! relative h-screen! w-screen!">
+    <PageWrapper hasHeader={false} hasFooter={false} className=" flex justify-center items-center m-auto! relative h-dvh! w-screen!">
       <Box
         height="auto"
         as="section"
         direction="col"
         aria-labelledby="intro-heading"
-        className="mb-10 max-w-175 pt-10 animate-fade-in-fast"
+        className="max-w-175 animate-fade-in-fast"
+        align="center"
+        gap="8"
       >
-
-        <div className="flex flex-row items-center gap-4 justify-center mb-6 w-full">
-          <Typography.H1
-            id="intro-heading"
-            className="text-accent-foreground max-w-3xl text-center text-5xl"
-          >
-            {t("greeting")}
-          </Typography.H1>
-          <span
-            className="animate-waving z-0 inline-block text-5xl mb-2"
-            role="img"
-            aria-label="waving hand"
-          >
-            <Emojis.WavingHand />
-          </span>
+        <Logo />
+        <div className="flex flex-col items-center gap-6 animate-fade-in-slow mx-auto w-full ">
+          <Navbar className="flex flex-col" />
+          <Location />
+          <ActionsButton />
         </div>
-
-
-        <div className="animate-fade-in-slow">
-          <Typography.P className="text-accent-foreground text-center space-0 text-2xl max-w-3xl p-0">
-            {t("iam")}
-            <Link
-              className="transition-all transition-discrete "
-              href="/about"
-              aria-label="Learn more about Erik on the about page"
-            >
-              <span className="text-gradient focus:outline-accent hover:-translate-y-0.5 transition-all inline-block text-3xl font-bold hover:underline focus:underline focus:outline-2 focus:outline-offset-2">
-                Erik
-              </span>
-            </Link>
-            {t("introduction")} <br />
-          </Typography.P>
-          <div className="flex flex-row items-center justify-center gap-4 w-full">
-            <Typography.Small className="text-muted-foreground text-center md:text-xl text-lg">
-              {t("curiosity")}
-            </Typography.Small>
-          </div>
-        </div>
-
       </Box>
-
     </PageWrapper>
   );
 };

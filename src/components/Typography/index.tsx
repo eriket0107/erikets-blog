@@ -62,14 +62,16 @@ const TypographyH4 = ({ children, className, ...rest }: TypographyProps) => {
   );
 };
 
-const TypographyP = ({ children, className, ...rest }: TypographyProps) => {
+const TypographyP = ({ children, className, spacingTop = true, ...rest }: TypographyProps & { spacingTop?: boolean }) => {
   return (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      className={cn("leading-7",
+        spacingTop && '[&:not(:first-child)]:mt-6',
+        className)}
       {...rest}
     >
       {children}
-    </p>
+    </p >
   );
 };
 
