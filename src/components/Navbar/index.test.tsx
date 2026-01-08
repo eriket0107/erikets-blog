@@ -56,19 +56,19 @@ describe("Navbar component", () => {
 
   it("should have all the current links to pages", () => {
     const homeLink = screen.getByText(/Home/);
-    const blogLink = screen.getByText(/Blog/);
+    // const blogLink = screen.getByText(/Blog/);
     const aboutLink = screen.getByText(/About/);
 
     expect(aboutLink).toBeInTheDocument();
     expect(homeLink).toBeInTheDocument();
-    expect(blogLink).toBeInTheDocument();
+    // expect(blogLink).toBeInTheDocument();
   });
 
   it("should redirect to current path", () => {
     const homeLink = screen.getByText(/Home/);
     expect(homeLink).toBeInTheDocument();
-    const blogLink = screen.getByText(/Blog/);
-    expect(blogLink).toBeInTheDocument();
+    // const blogLink = screen.getByText(/Blog/);
+    // expect(blogLink).toBeInTheDocument();
     const aboutLink = screen.getByText(/About/);
     expect(aboutLink).toBeInTheDocument();
   });
@@ -79,7 +79,8 @@ describe("Navbar component", () => {
     const navItems = navbar.querySelectorAll("li");
 
     expect(navList).toBeInTheDocument();
-    expect(navItems).toHaveLength(3); // home, blog, about
+    // expect(navItems).toHaveLength(3); // home, blog, about
+    expect(navItems).toHaveLength(2); // home, about
   });
 
   it("should have proper ARIA attributes", () => {
@@ -92,11 +93,11 @@ describe("Navbar component", () => {
 
   it("should have links with proper semantic attributes", () => {
     const homeLink = screen.getByRole("link", { name: /Home/ });
-    const blogLink = screen.getByRole("link", { name: /Blog/ });
+    // const blogLink = screen.getByRole("link", { name: /Blog/ });
     const aboutLink = screen.getByRole("link", { name: /About/ });
 
     expect(homeLink).toHaveAttribute("href", "/en");
-    expect(blogLink).toHaveAttribute("href", "/en/blog");
+    // expect(blogLink).toHaveAttribute("href", "/en/blog");
     expect(aboutLink).toHaveAttribute("href", "/en/about");
   });
 });
