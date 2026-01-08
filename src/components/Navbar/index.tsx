@@ -37,54 +37,55 @@ export const Navbar = memo(({ children, className }: { children?: React.ReactNod
           const isHovered = hoveredItem === link.href;
 
           return (
-            <motion.li
-              key={link.href}
-              className="relative list-none"
-              initial={false}
-              animate={{
-                backgroundColor: isHovered
-                  ? "hsl(var(--muted))"
-                  : "transparent",
-              }}
-              whileHover={{
-                backgroundColor: isHovered
-                  ? "hsl(var(--muted))"
-                  : "hsl(var(--muted) / 0.5)",
-              }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={() => setHoveredItem(link.href)}
-              onMouseLeave={() => setHoveredItem(null)}
-            >
-              <Link
-                href={link.href}
-                className={cn(
-                  "text-primary relative flex flex-row items-center gap-2 rounded-md px-1 py-0.5 text-base font-normal transition-all duration-200 ease-in-out",
-                )}
-                prefetch
-                aria-label={link.label}
-                aria-current={selected ? "page" : undefined}
+            (
+              <motion.li
+                key={link.href}
+                className="relative list-none"
+                initial={false}
+                animate={{
+                  backgroundColor: isHovered
+                    ? "hsl(var(--muted))"
+                    : "transparent",
+                }}
+                whileHover={{
+                  backgroundColor: isHovered
+                    ? "hsl(var(--muted))"
+                    : "hsl(var(--muted) / 0.5)",
+                }}
+                transition={{ duration: 0.2 }}
+                onMouseEnter={() => setHoveredItem(link.href)}
+                onMouseLeave={() => setHoveredItem(null)}
               >
-                <span className={cn(selected && "text-blue-500")}>
-                  {link.icon}
-                </span>
-                <span className={cn(selected && "text-blue-500")}>
-                  {link.title}
-                </span>
-              </Link>
-              {(isHovered || selected) && (
-                <motion.span
-                  className="absolute right-0 bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500"
-                  layoutId="navbar-underline"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                  role="presentation"
-                  aria-hidden="true"
-                />
-              )}
-            </motion.li>
-          );
+                <Link
+                  href={link.href}
+                  className={cn(
+                    "text-primary relative flex flex-row items-center gap-2 rounded-md px-1 py-0.5 text-base font-normal transition-all duration-200 ease-in-out",
+                  )}
+                  prefetch
+                  aria-label={link.label}
+                  aria-current={selected ? "page" : undefined}
+                >
+                  <span className={cn(selected && "text-blue-500")}>
+                    {link.icon}
+                  </span>
+                  <span className={cn(selected && "text-blue-500")}>
+                    {link.title}
+                  </span>
+                </Link>
+                {(isHovered || selected) && (
+                  <motion.span
+                    className="absolute right-0 bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500"
+                    layoutId="navbar-underline"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    role="presentation"
+                    aria-hidden="true"
+                  />
+                )}
+              </motion.li>
+            ))
         })}
       </ul>
       {children}

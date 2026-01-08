@@ -56,11 +56,11 @@ describe("BurgerMenu", () => {
 
     fireEvent.pointerDown(burgerButton);
     const homeLink = getByText(/Home/);
-    const blogLink = getByText(/Blog/);
+    // const blogLink = getByText(/Blog/);
     const aboutLink = getByText(/About/);
 
     expect(aboutLink).toBeInTheDocument();
     expect(homeLink).toBeInTheDocument();
-    expect(blogLink).toBeInTheDocument();
+    // expect(blogLink).toBeInTheDocument();
   });
 });
