@@ -9,6 +9,7 @@ import { cn } from "@/utils"
 import { Button } from "../ui/button"
 
 import { useState, useRef } from "react"
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
 
 const ParticleDensityBar = ({ value, setValue }: { value: number; setValue: (v: number) => void }) => (
   <div className="z-50 bg-white dark:bg-neutral-900 rounded shadow-lg px-4 py-2 flex items-center gap-2 border border-neutral-200 dark:border-neutral-800" style={{ minWidth: 100 }}>
@@ -31,7 +32,7 @@ export const ToggleSparkles = () => {
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null)
 
   const handleMouseEnter = () => {
-    hoverTimeout.current = setTimeout(() => setHovered(true), 1000)
+    hoverTimeout.current = setTimeout(() => setHovered(true), 2000)
   }
   const handleMouseLeave = () => {
     if (hoverTimeout.current) clearTimeout(hoverTimeout.current)
@@ -44,15 +45,23 @@ export const ToggleSparkles = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Button
-        variant="ghost"
-        onClick={toggleSparkles}
-        aria-label={isSparklesEnabled ? 'Disable sparkles' : 'Enable sparkles'}
-        title={isSparklesEnabled ? 'Disable sparkles' : 'Enable sparkles'}
-      >
-        <ZapIcon color="#3b82f6" fill="#3b82f6" className={cn(!isSparklesEnabled && "hidden")} />
-        <ZapOffIcon color="#3b82f6" fill="#3b82f6" className={cn(isSparklesEnabled && "hidden")} />
-      </Button>
+      <Tooltip>
+        <TooltipContent>
+          Sparks
+        </TooltipContent>
+        <TooltipTrigger asChild>
+          <Button
+            variant="ghost"
+            onClick={toggleSparkles}
+            aria-label={isSparklesEnabled ? 'Disable sparkles' : 'Enable sparkles'}
+            title={isSparklesEnabled ? 'Disable sparkles' : 'Enable sparkles'}
+            className="p-0!"
+          >
+            <ZapIcon color="#3b82f6" fill="#3b82f6" className={cn(!isSparklesEnabled && "hidden")} />
+            <ZapOffIcon color="#3b82f6" fill="#3b82f6" className={cn(isSparklesEnabled && "hidden")} />
+          </Button>
+        </TooltipTrigger>
+      </Tooltip>
       <Activity mode={hovered ? 'visible' : 'hidden'}>
         <div className="absolute right-0 -top-10 mt-2">
           <ParticleDensityBar value={particleDensity} setValue={setParticleDensity} />

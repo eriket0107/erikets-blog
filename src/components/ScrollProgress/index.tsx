@@ -6,7 +6,6 @@ export const ScrollProgress = () => {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // Find the scrollable container (the Layout component)
     const scrollContainer = document.querySelector(".screen-layout");
     if (scrollContainer) {
       ref.current = scrollContainer as HTMLElement;

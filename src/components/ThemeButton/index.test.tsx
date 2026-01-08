@@ -21,7 +21,7 @@ describe("Theme Button Nav", () => {
   });
 
   it("should be able to click theme nav", async () => {
-    const { findByTestId } = render(<ThemeButton variant="nav" />);
+    const { findByTestId } = render(<ThemeButton.Nav />);
 
     const themeButton = await findByTestId("theme-btn-nav");
     expect(themeButton.tagName).toBe("BUTTON");
@@ -32,7 +32,7 @@ describe("Theme Button Nav", () => {
   });
 
   it("should render with dark theme nav", () => {
-    const { getByTestId } = render(<ThemeButton variant="nav" />);
+    const { getByTestId } = render(<ThemeButton.Nav />);
 
     const themeButton = getByTestId("theme-btn-nav");
 
@@ -44,7 +44,7 @@ describe("Theme Button Nav", () => {
       theme = "light";
     }
 
-    const { getByTestId } = render(<ThemeButton variant="nav" />);
+    const { getByTestId } = render(<ThemeButton.Nav />);
 
     const themeButton = getByTestId("theme-btn-nav");
     expect(themeButton).toHaveClass("cursor-pointer");
@@ -57,7 +57,7 @@ describe("Theme Button Menu", () => {
   });
 
   it("should be able to click theme menu", async () => {
-    const { findByTestId } = render(<ThemeButton variant="menu" />);
+    const { findByTestId } = render(<ThemeButton.Menu />);
 
     const themeButton = await findByTestId("theme-btn-menu");
     expect(themeButton.tagName).toBe("BUTTON");
@@ -68,7 +68,7 @@ describe("Theme Button Menu", () => {
   });
 
   it("should render with dark theme menu", () => {
-    const { getByTestId } = render(<ThemeButton variant="menu" />);
+    const { getByTestId } = render(<ThemeButton.Menu />);
 
     const themeButton = getByTestId("theme-btn-menu");
     expect(themeButton).toBeInTheDocument();
@@ -79,14 +79,14 @@ describe("Theme Button Menu", () => {
       theme = "light";
     }
 
-    const { getByTestId } = render(<ThemeButton variant="menu" />);
+    const { getByTestId } = render(<ThemeButton.Menu />);
 
     const themeButton = getByTestId("theme-btn-menu");
     expect(themeButton).not.toHaveClass("bg-background");
   });
 
   it("should display the correct text if is light ", () => {
-    const { getByTestId } = render(<ThemeButton variant="menu" />);
+    const { getByTestId } = render(<ThemeButton.Menu />);
 
     const themeButton = getByTestId("theme-btn-menu");
     expect(themeButton).toHaveTextContent("Dark");
@@ -96,7 +96,7 @@ describe("Theme Button Menu", () => {
     if (!isDark) {
       isDark = true;
     }
-    const { getByTestId } = render(<ThemeButton variant="menu" />);
+    const { getByTestId } = render(<ThemeButton.Menu />);
     const themeButton = getByTestId("theme-btn-menu");
 
     expect(themeButton).toHaveTextContent("Light");
