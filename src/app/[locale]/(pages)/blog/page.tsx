@@ -25,7 +25,9 @@ const Blog = async ({
   const resolvedSearchParams = await searchParams;
   const initialQuery = resolvedSearchParams?.q || '';
 
-  return <BlogPage initialQuery={initialQuery} />;
+  return (
+    <BlogPage initialQuery={initialQuery} />
+  )
 };
 
 export default Blog;
