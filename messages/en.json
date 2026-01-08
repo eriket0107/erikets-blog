@@ -1,14 +1,6 @@
 {
-  "HomePage": {
-    "greeting": "Hello there!",
-    "iam": "I'm ",
-    "introduction": ", a Software Engineer and technology enthusiast",
-    "curiosity": "(as you probably gonna notice, a coffee lover).",
-    "sharing_experience": "Eager to share my experiences in my posts, in there you'll find topics about programming, working experiences and whatever comes up with life.",
-    "hope": "I hope my thoughts can be useful somehow.",
-    "current_focus": "Right now I'm Fullstacking my career, however primarily I started as Frontend.",
-    "take_a_look": "Be my guest and take a look on my latest posts!",
-    "empty_posts": "Ideas sector is working at moment,<br></br> come back soon! What about taking some time to explore the site?"
+  "LocationComponent": {
+    "brazil": "Brasil"
   },
   "BlogPage": {
     "title": "Updates",
@@ -18,11 +10,11 @@
     "search_placeholder": "Search posts by title, description, or tags..."
   },
   "AboutPage": {
-    "welcome": "Hello there!",
-    "introduction": "A curious Software Engineer and technology enthusiast",
+    "role": "Software Engineer.",
+    "introduction": "Focused on building robust, scalable systems through technical curiosity.",
     "curiosity": "(and as you probably have noticed, also a coffee lover).",
-    "sharing_experience": "Eager to share my experiences in my posts, in there you'll find topics about programming, working experiences and whatever comes up with life.",
-    "hope": "I hope my thoughts can be useful somehow.",
+    "sharing_experience": "Tech, engineering challenges, and the developer's routine. I write about code, career, and life between commits. Covering hobbies and whatever else sparks my curiosity.",
+    "personal_space": "This is my own corner of the web. You're more than welcome to jump in with ideas or start a conversation; any exchange that proves useful is always welcome.",
     "current_focus": "Right now I'm Fullstacking my career, however primarily I started as Frontend.",
     "take_a_look": "Be my guest and take a look on my latest posts!",
     "empty_posts": "Ideas sector is working at moment,<br></br> come back soon! What about taking some time to explore the site?",

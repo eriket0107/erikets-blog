@@ -1,14 +1,6 @@
 {
-  "HomePage": {
-    "greeting": "Opa!",
-    "iam": "Eu sou ",
-    "introduction": ", Engenheiro de Software e amante de tecnologia",
-    "curiosity": "(e como você vai perceber, um viciado em café).",
-    "sharing_experience": "Ansioso para compartilhar algumas experiências através dos meus posts, neles você encontrará tópicos sobre programação, experiências de trabalho e o que mais a vida  mostrar.",
-    "hope": "Espero que minhas ideias possam ser úteis de alguma forma.",
-    "current_focus": "No momento, estou Fullstackzando a minha carreira, mas eu comecei como Frontend.",
-    "take_a_look": "Sinta-se à vontade para olhar meus últimos posts!",
-    "empty_posts": "O setor de ideias está trabalhando no momento,<br></br> volte mais tarde! Que tal dar uma olhada no resto do site?"
+  "LocationComponent": {
+    "brazil": "Brasil"
   },
   "BlogPage": {
     "title": "Atualizações",
@@ -18,11 +10,11 @@
     "search_placeholder": "Pesquisar posts por título, descrição ou tags..."
   },
   "AboutPage": {
-    "welcome": "Opa!",
-    "introduction": "Um Engenheiro de Software curioso e amante de tecnologia",
+    "role": "Engenheiro de Software.",
+    "introduction": "Focado em transformar curiosidade técnica em sistemas robustos e soluções escaláveis.",
     "curiosity": "(e como você pode perceber, também um viciado em café).",
-    "sharing_experience": "Ansioso para compartilhar algumas experiências através dos meus posts, neles você encontrará tópicos sobre programação, experiências de trabalho e o que mais a vida  mostrar.",
-    "hope": "Espero que minhas ideias possam ser úteis de alguma forma.",
+    "sharing_experience": "Tecnologia, desafios técnicos e o dia a dia da área. Escrevo sobre código, carreira e a vida entre um commit e outro. Incluindo meus hobbies e qualquer assunto que desperte minha curiosidade.",
+    "personal_space": "Este é o meu espaço. Fique à vontade para trazer ideias e conversas; fico feliz se algo aqui se provar útil para você ou se pudermos construir algo novo juntos.",
     "current_focus": "No momento, estou Fullstackzando a minha carreira, mas eu comecei como Frontend.",
     "take_a_look": "Sinta-se à vontade para olhar meus últimos posts!",
     "empty_posts": "O setor de ideias está trabalhando no momento,<br></br> volte mais tarde! Que tal dar uma olhada no resto do site?",
