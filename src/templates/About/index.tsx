@@ -21,12 +21,12 @@ export const About = () => {
       (now.getMonth() === birthDate.getMonth() && now.getDate() < birthDate.getDate()) ? 1 : 0);
 
   return (
-    <PageWrapper>
+    <PageWrapper hasFooter={false}>
       <Box
         as="section"
         width="full"
         height="auto"
-        className="pt-10 pl-4 animate-fade-in-slow"
+        className="pt-10 pl-4animate-fade-in-slow" // <-- Added pb-24 for footer space
         gap="4"
       >
         <Image

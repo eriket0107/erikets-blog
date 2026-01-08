@@ -17,7 +17,7 @@ export const PageWrapper = ({ children, className, hasHeader = true, hasFooter =
     {hasHeader && <Header />}
     <div
       className={cn(
-        "mb-auto h-dvh flex w-full flex-col items-center justify-start gap-4 p-4 pt-32 md:mx-auto md:w-240 md:pt-24",
+        "mb-auto min-h-dvh flex w-full flex-col items-center justify-start gap-4 p-4 pt-32 md:mx-auto md:w-240 md:pt-24",
         className,)}
     >
       <Sparkles />
