@@ -1,6 +1,5 @@
 
 import { PageWrapper } from "@/components/PageWrapper";
-import { Location } from "@/components/Location";
 import { Navbar } from "@/components/Navbar";
 import { Logo } from "@/components/Logo";
 import { ActionsContainer } from "@/components/ActionsContainer";
@@ -16,7 +15,6 @@ export const Home = async () => {
         <span className="bg-background/50 shadow-lg backdrop-blur-md rounded-full px-6 py-2">
           <Navbar className="flex flex-col" />
         </span>
-        <Location />
         <ActionsContainer />
       </div>
     </PageWrapper >

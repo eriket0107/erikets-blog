@@ -11,6 +11,7 @@ import { PageWrapper } from "@/components/PageWrapper";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Emojis } from "@/constants/emojis";
 import Image from "next/image";
+import { Location } from "@/components/Location";
 
 export const About = () => {
   const t = useTranslations("AboutPage");
@@ -26,18 +27,17 @@ export const About = () => {
         as="section"
         width="full"
         height="auto"
-        className="pt-10 pl-4animate-fade-in-slow" // <-- Added pb-24 for footer space
+        className="z-10 pt-10 pl-4 animate-fade-in-slow"
         gap="4"
       >
-        <Image
-          alt="Erik Oliveira's profile picture"
-          src={ProfileImage.src}
-          className="hidden md:block mb-2 rounded-md mr-8 float-left border-2 border-accent-foreground"
-          width={330}
-          height={300}
-        />
-
-        <div className="flex flex-col ">
+        <div>
+          <Image
+            alt="Erik Oliveira's profile picture"
+            src={ProfileImage.src}
+            className="float-left hidden md:block mb-2 rounded-md mr-8 border-2 border-accent-foreground"
+            width={330}
+            height={300}
+          />
           <Typography.H2
             id="profile-heading"
             className="text-gradient text-4xl md:text-6xl mt-2"
@@ -52,11 +52,13 @@ export const About = () => {
               </TooltipContent>
             </Tooltip>
           </Typography.H2>
-
           <div>
-            <Typography.H4 className="text-accent-foreground text-3xl">
-              {t("role")}
-            </Typography.H4>
+            <div>
+              <Typography.H4 className="text-accent-foreground text-3xl">
+                {t("role")}
+              </Typography.H4>
+              <Location />
+            </div>
             <Typography.P spacingTop={false} className="text-accent-foreground space-0 text-xl p-0">
               {t("introduction")}
             </Typography.P>
