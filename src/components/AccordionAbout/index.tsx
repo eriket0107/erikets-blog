@@ -102,12 +102,12 @@ export const AccordionAbout = async () => {
       <AccordionItem value="toolset">
         <AccordionTrigger
           className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
-          id="toolset"
+          id="technologies"
           aria-describedby="toolset-description"
         >
           <div className="flex gap-2">
             <Wrench aria-hidden="true" />
-            {t("tools")}
+            {t("technologies")}
           </div>
         </AccordionTrigger>
         <AccordionContent

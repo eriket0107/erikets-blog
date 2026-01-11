@@ -23,7 +23,7 @@
     "social_invitation": "Fique à vontade para entrar em contato comigo nas minhas redes sociais!",
     "now": "Momento atual",
     "career": "Carreira",
-    "tools": "Ferramentas",
+    "technologies": "Tecnologias",
     "experience": "Na Multiplan, desenvolvi uma aplicação de estacionamento que hoje tem mais de <dau></dau> acessos diários de usuários. Isso levou a empresa a inovar os sistemas de estacionamento em todo o país. Atualmente, há mais de <lpr></lpr> de placas registradas no sistema. Minha conquista recente foi a implementação de estações de recarga para carros elétricos - fui responsável por integrar parceiros terceirizados com nossa API, fazendo as implementações necessárias tanto no frontend quanto no backend."
   },
   "Constants": {
