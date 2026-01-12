@@ -1,5 +1,3 @@
-'use client';
-
 import Image from "next/image";
 import {
   Tooltip,
@@ -18,8 +16,7 @@ import { Stack } from "@/constants/Stack";
 
 
 import { milestones } from "@/constants/milestones";
-import { useRef } from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)
@@ -32,9 +29,8 @@ const SORTED_MILESTONES = [...milestones].sort((a, b) => {
   else return -1;
 });
 
-export const AccordionAbout = () => {
-  const t = useTranslations("AboutPage");
-  const ref = useRef<HTMLDivElement>(null);
+export const AccordionAbout = async () => {
+  const t = await getTranslations("AboutPage");
 
   return (
     <AccordionDefault
@@ -42,11 +38,6 @@ export const AccordionAbout = () => {
       collapsible
       className="animate-fade-in-slow text-primary w-full px-4"
       aria-label="Professional information sections"
-      onValueChange={(value) => {
-        if (value && ref.current && value === 'career') {
-          ref.current.scrollTo({ behavior: 'smooth', top: 0 });
-        }
-      }}
     >
       <AccordionItem value="career" >
         <AccordionTrigger
@@ -60,7 +51,6 @@ export const AccordionAbout = () => {
           </div>
         </AccordionTrigger>
         <AccordionContent
-          ref={ref}
           className="flex h-full flex-col gap-4 overflow-y-scroll text-balance"
           id="milestones-description"
           role="region"
