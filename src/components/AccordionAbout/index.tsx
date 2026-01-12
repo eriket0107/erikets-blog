@@ -5,7 +5,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Timeline } from "@/components/Timeline";
-import { ExternalLink, MapPin, Milestone, Wrench } from "lucide-react";
+import { ExternalLink, Milestone, Wrench } from "lucide-react";
 import {
   Accordion as AccordionDefault,
   AccordionContent,
@@ -13,11 +13,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Stack } from "@/constants/Stack";
-import { Typography } from "../Typography";
-import { getTranslations } from "next-intl/server";
+
 
 import { milestones } from "@/constants/milestones";
-import { AnimatedNumber } from "../AnimatedNumber";
+import { getTranslations } from "next-intl/server";
 
 const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)
@@ -40,53 +39,14 @@ export const AccordionAbout = async () => {
       className="animate-fade-in-slow text-primary w-full px-4"
       aria-label="Professional information sections"
     >
-      <AccordionItem value="now">
+      <AccordionItem value="career" >
         <AccordionTrigger
-          className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
-          id="career"
-          aria-describedby="career-description"
-        >
-          <div className="flex gap-2">
-            <MapPin aria-hidden="true" />
-            {t("now")}
-          </div>
-        </AccordionTrigger>
-        <AccordionContent
-          className="flex flex-col gap-4 text-balance"
-          id="career-description"
-          role="region"
-          aria-label="Current position and work"
-        >
-          <Typography.P>
-            {t.rich("experience", {
-              dau: () => (
-                <Tooltip>
-                  <TooltipContent>70k</TooltipContent>
-                  <TooltipTrigger>
-                    <AnimatedNumber value={70000} />
-                  </TooltipTrigger>
-                </Tooltip>
-              ),
-              lpr: () => (
-                <Tooltip>
-                  <TooltipContent>1m</TooltipContent>
-                  <TooltipTrigger>
-                    <AnimatedNumber value={1_000_000} />
-                  </TooltipTrigger>
-                </Tooltip>
-              ),
-            })}
-          </Typography.P>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="career">
-        <AccordionTrigger
-          className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
+          className="transform-all cursor-pointer text-2xl transition-discrete hover:scale-98"
           id="milestones"
           aria-describedby="milestones-description"
         >
           <div className="flex gap-2">
-            <Milestone aria-hidden="true" />
+            <Milestone aria-hidden="true" size={30} />
             {t("career")}
           </div>
         </AccordionTrigger>
@@ -101,12 +61,12 @@ export const AccordionAbout = async () => {
       </AccordionItem>
       <AccordionItem value="toolset">
         <AccordionTrigger
-          className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
+          className="transform-all cursor-pointer text-2xl transition-discrete hover:scale-98"
           id="technologies"
           aria-describedby="toolset-description"
         >
           <div className="flex gap-2">
-            <Wrench aria-hidden="true" />
+            <Wrench aria-hidden="true" size={30} />
             {t("technologies")}
           </div>
         </AccordionTrigger>
@@ -123,13 +83,13 @@ export const AccordionAbout = async () => {
           >
             {DISPLAYED_STACK_ITEMS.map((value) => (
               <Tooltip key={value.name}>
-                <TooltipContent>{value.name}</TooltipContent>
+                <TooltipContent className="text-lg">{value.name}</TooltipContent>
                 <TooltipTrigger>
                   <Image
                     className="hover:scale-95"
                     src={value.src}
-                    width={25}
-                    height={25}
+                    width={40}
+                    height={40}
                     alt={`${value.name} technology logo`}
                     role="listitem"
                     aria-label={`${value.name} - technology used by Erik`}
@@ -143,7 +103,7 @@ export const AccordionAbout = async () => {
 
       <AccordionItem value="resume">
         <AccordionTrigger
-          className="transform-all cursor-pointer text-xl transition-discrete hover:scale-98"
+          className="transform-all cursor-pointer text-2xl transition-discrete hover:scale-98"
           hasChevron={false}
           id="resume"
           aria-label="Download Erik's resume"
@@ -154,7 +114,7 @@ export const AccordionAbout = async () => {
             className="flex gap-2"
             aria-label="Download Erik Oliveira's CV/Resume as PDF"
           >
-            <ExternalLink aria-hidden="true" />
+            <ExternalLink aria-hidden="true" size={30} />
             Resume
           </a>
         </AccordionTrigger>

@@ -38,7 +38,7 @@ export const milestones: MilestoneType[] = [
     "title": "Frontend Engineer",
     "company": "Latop/PepsiCo as Freelancer",
     "startDate": "2024-06-01",
-    "endDate": new Date().toString(),
+    "endDate": "2025-11-01",
     "description": "Successfully deployed the application to the public. The project is now live!"
   },
   {
