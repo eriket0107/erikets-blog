@@ -28,7 +28,7 @@ export const About = async () => {
         as="section"
         width="full"
         height="auto"
-        className="z-10 pt-10 pl-4 animate-fade-in-slow"
+        className="z-10 pt-10 px-4 animate-fade-in-slow"
         gap="4"
       >
         <div>
@@ -41,7 +41,7 @@ export const About = async () => {
           />
           <Typography.H2
             id="profile-heading"
-            className="text-gradient text-4xl md:text-6xl mt-2"
+            className="text-gradient text-4xl md:text-6xl"
           >
             Erik Oliveira, <AnimatedNumber value={currentAge} className="md:text-5xl text-3xl" />
             <Tooltip>
