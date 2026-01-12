@@ -11,20 +11,14 @@
   },
   "AboutPage": {
     "role": "Software Engineer.",
-    "introduction": "Focused on building robust, scalable systems through technical curiosity.",
+    "introduction": "<years></years>+ years of professional experience building high-scale systems for major players like Multiplan and PepsiCo.",
     "curiosity": "(and as you probably have noticed, also a coffee lover).",
-    "sharing_experience": "Tech, engineering challenges, and the developer's routine. I write about code, career, and life between commits. Covering hobbies and whatever else sparks my curiosity.",
+    "professional_summary": "Expert in the JavaScript/TypeScript ecosystem with a strong focus on infrastructure optimization and performance. Proven ability to lead end-to-end product development, from initial MVPs to production environments serving 100k+ daily active users and millions of records.",
     "personal_space": "This is my own corner of the web. You're more than welcome to jump in with ideas or start a conversation; any exchange that proves useful is always welcome.",
-    "current_focus": "Right now I'm Fullstacking my career, however primarily I started as Frontend.",
-    "take_a_look": "Be my guest and take a look on my latest posts!",
-    "empty_posts": "Ideas sector is working at moment,<br></br> come back soon! What about taking some time to explore the site?",
-    "bio": "Bio",
-    "greeting": "I'm <age>{age}</age> years old. I've started my path as QA Tester in <startYear>{startYear}</startYear> and then I've changed to Software Engineering. Currently working as Fullstack developer developing web and mobile solutions. I work on a project with thousands of daily accesses <link>Multi | Multiplan</link>.",
     "social_invitation": "Feel free to reach out to me on my social media!",
     "now": "My current moment",
     "career": "Career",
-    "technologies": "Technologies",
-    "experience": "At Multiplan, I developed a parking lot application xthat now handles over <dau></dau> daily active users. This project spearheaded the company's innovation in parking systems countrywide, and the system currently manages over <lpr></lpr> registered license plates. More recently, I led the rollout of EV charging stations. For this initiative, I was responsible for integrating third-party partner systems with our API, handling both frontend and backend development."
+    "technologies": "Technologies"
   },
   "Constants": {
     "home": "Home",

@@ -5,21 +5,22 @@ import { Typography } from "@/components/Typography";
 import { socialLinks } from "@/constants/Links";
 import ProfileImage from "@/assets/profile-erik.webp";
 import { AccordionAbout } from "@/components/AccordionAbout";
-import { useTranslations } from "next-intl";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { PageWrapper } from "@/components/PageWrapper";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Emojis } from "@/constants/emojis";
 import Image from "next/image";
 import { Location } from "@/components/Location";
+import { getTranslations } from "next-intl/server";
 
-export const About = () => {
-  const t = useTranslations("AboutPage");
+export const About = async () => {
+  const t = await getTranslations("AboutPage");
   const now = new Date();
   const birthDate = new Date("1998/07/01");
   const currentAge = now.getFullYear() - birthDate.getFullYear() -
     (now.getMonth() < birthDate.getMonth() ||
       (now.getMonth() === birthDate.getMonth() && now.getDate() < birthDate.getDate()) ? 1 : 0);
+  const curretYear = now.getFullYear();
 
   return (
     <PageWrapper hasFooter={false}>
@@ -59,15 +60,15 @@ export const About = () => {
               </Typography.H4>
               <Location />
             </div>
-            <Typography.P spacingTop={false} className="text-accent-foreground space-0 text-xl p-0">
-              {t("introduction")}
+            <Typography.P spacingTop={false} className="text-accent-foreground space-0 text-lg p-0">
+              {t.rich("introduction", {
+                br: () => <br />,
+                years: () => <strong>{curretYear - 2022}</strong>,
+              })}
             </Typography.P>
-            <Typography.P className="text-accent-foreground  text-xl max-w-full">
-              {t("sharing_experience")}
+            <Typography.P className="text-accent-foreground  text-lg max-w-full">
+              {t("professional_summary")}
 
-            </Typography.P>
-            <Typography.P className="text-accent-foreground  text-xl max-w-full">
-              {t("personal_space")}
             </Typography.P>
           </div>
 
@@ -79,7 +80,7 @@ export const About = () => {
             <span className="flex flex-row gap-6 flex-wrap">
               {socialLinks.map((social) => (
                 <NavLink
-                  className="z-10 hover:border-b-accent-foreground border-1 border-transparent"
+                  className="z-10 hover:border-b-accent-foreground border border-transparent"
                   key={social.title}
                   link={social}
                   aria-label={`Visit Erik's ${social.title} profile`}

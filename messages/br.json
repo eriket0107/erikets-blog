@@ -11,20 +11,14 @@
   },
   "AboutPage": {
     "role": "Engenheiro de Software.",
-    "introduction": "Focado em transformar curiosidade técnica em sistemas robustos e soluções escaláveis.",
+    "introduction": "<years></years>+ anos de experiência na construção de sistemas de alta escala para grandes players como Multiplan e PepsiCo.",
     "curiosity": "(e como você pode perceber, também um viciado em café).",
-    "sharing_experience": "Tecnologia, desafios técnicos e o dia a dia da área. Escrevo sobre código, carreira e a vida entre um commit e outro. Incluindo meus hobbies e qualquer assunto que desperte minha curiosidade.",
+    "professional_summary": "Especialista no ecossistema JavaScript/TypeScript com foco em otimização de performance e eficiência de infraestrutura. Experiência comprovada liderando o ciclo completo de produtos, de MVPs a ambientes de produção com 100k+ usuários diários e milhões de registros.",
     "personal_space": "Este é o meu espaço. Fique à vontade para trazer ideias e conversas; fico feliz se algo aqui se provar útil para você ou se pudermos construir algo novo juntos.",
-    "current_focus": "No momento, estou Fullstackzando a minha carreira, mas eu comecei como Frontend.",
-    "take_a_look": "Sinta-se à vontade para olhar meus últimos posts!",
-    "empty_posts": "O setor de ideias está trabalhando no momento,<br></br> volte mais tarde! Que tal dar uma olhada no resto do site?",
-    "bio": "Bio",
-    "greeting": "Tenho <age>{age}</age> anos. Comecei minha jornada como QA Tester em <startYear>{startYear}</startYear> e então migrei para Engenharia de Software. Atualmente trabalho como desenvolvedor Fullstack, desenvolvendo soluções web e mobile. Trabalho em um projeto com milhares de acessos diários, <link>Multi | Multiplan</link>.",
     "social_invitation": "Fique à vontade para entrar em contato comigo nas minhas redes sociais!",
     "now": "Momento atual",
     "career": "Carreira",
-    "technologies": "Tecnologias",
-    "experience": "Na Multiplan, desenvolvi uma aplicação de estacionamento que hoje tem mais de <dau></dau> acessos diários de usuários. Isso levou a empresa a inovar os sistemas de estacionamento em todo o país. Atualmente, há mais de <lpr></lpr> de placas registradas no sistema. Minha conquista recente foi a implementação de estações de recarga para carros elétricos - fui responsável por integrar parceiros terceirizados com nossa API, fazendo as implementações necessárias tanto no frontend quanto no backend."
+    "technologies": "Tecnologias"
   },
   "Constants": {
     "home": "Home",
