@@ -24,14 +24,22 @@ export const About = async () => {
 
   return (
     <PageWrapper hasFooter={false}>
+
       <Box
         as="section"
         width="full"
         height="auto"
-        className="z-10 pt-10 px-4 animate-fade-in-slow"
+        className="md:pt-10 pt-14 z-10 px-4 animate-fade-in-slow"
         gap="4"
       >
         <div>
+          <Image
+            alt="Erik Oliveira's profile picture"
+            src={ProfileImage.src}
+            className=" float-left md:hidden block  rounded-md mr-8 border-2 border-accent-foreground"
+            width={115}
+            height={200}
+          />
           <Image
             alt="Erik Oliveira's profile picture"
             src={ProfileImage.src}
@@ -43,7 +51,7 @@ export const About = async () => {
             id="profile-heading"
             className="text-gradient text-4xl md:text-6xl"
           >
-            Erik Oliveira, <AnimatedNumber value={currentAge} className="md:text-5xl text-3xl" />
+            Erik Oliveira, <AnimatedNumber value={currentAge} className=" md:text-5xl text-3xl" />
             <Tooltip>
               <TooltipTrigger asChild>
                 <Emojis.Coffee className="ml-4" />
@@ -53,9 +61,10 @@ export const About = async () => {
               </TooltipContent>
             </Tooltip>
           </Typography.H2>
+
           <div>
             <div>
-              <Typography.H4 className="text-accent-foreground text-3xl">
+              <Typography.H4 className="text-accent-foreground md:text-3xl text-xl">
                 {t("role")}
               </Typography.H4>
               <Location />
@@ -89,6 +98,7 @@ export const About = async () => {
             </span >
           </div>
         </div>
+
       </Box>
       <AccordionAbout />
     </PageWrapper>

@@ -25,7 +25,6 @@ export const PageWrapper = ({ children, className, hasHeader = true, hasFooter =
     </div>
 
     {hasFooter &&
-
       <>
         <BottomShadow />
         <Footer />
