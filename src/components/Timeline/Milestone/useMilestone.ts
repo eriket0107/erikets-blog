@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useOutsideClick } from "@/hooks/useOutsideClick";
+import { useEffect, useId, useRef, useState } from "react";
 
 export const useTimeline = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
+  const refModal = useRef<HTMLDivElement | null>(null);
   const [inView, setInView] = useState(false);
+  const [active, setActive] = useState<boolean>(false);
+  const id = useId();
 
   useEffect(() => {
     const element = ref.current;
@@ -10,13 +14,10 @@ export const useTimeline = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.unobserve(entry.target);
-        } else {
-          setInView(false);
         }
       },
       {
-        threshold: 0.5,
+        threshold: 0.1,
       },
     );
 
@@ -30,8 +31,36 @@ export const useTimeline = () => {
     };
   }, []);
 
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setActive(false);
+      }
+    }
+
+    if (active) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active]);
+
+  const toggleActive = () => {
+    setActive(prev => !prev);
+  };
+
+  useOutsideClick(refModal, () => setActive(false));
+
   return {
     ref,
-    inView
-  }
+    refModal,
+    inView,
+    active,
+    toggleActive,
+    setActive,
+    id,
+  };
 }

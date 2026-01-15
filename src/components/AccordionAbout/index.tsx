@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import {
   Tooltip,
@@ -15,30 +16,23 @@ import {
 import { Stack } from "@/constants/Stack";
 
 
-import { milestones } from "@/constants/milestones";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
+
 
 const DISPLAYED_STACK_ITEMS = Object.values(Stack)
   .filter((value) => value.display)
   .sort((a, b) => a.name.localeCompare(b.name));
 
-const SORTED_MILESTONES = [...milestones].sort((a, b) => {
-  const dateA = a.endDate || "";
-  const dateB = b.endDate || "";
-  if (dateB > dateA) return 1;
-  else return -1;
-});
 
-export const AccordionAbout = async () => {
-  const t = await getTranslations("AboutPage");
+export const AccordionAbout = () => {
+  const t = useTranslations("AboutPage");
 
   return (
     <AccordionDefault
       type="single"
       collapsible
       className="animate-fade-in-slow text-primary w-full px-4"
-      aria-label="Professional information sections"
-    >
+      aria-label="Professional information sections"   >
       <AccordionItem value="career" >
         <AccordionTrigger
           className="transform-all cursor-pointer text-2xl transition-discrete hover:scale-98"
@@ -56,7 +50,7 @@ export const AccordionAbout = async () => {
           role="region"
           aria-label="Career milestones and achievements"
         >
-          <Timeline milestones={SORTED_MILESTONES} />
+          <Timeline />
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="toolset">

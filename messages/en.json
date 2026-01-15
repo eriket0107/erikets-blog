@@ -49,6 +49,33 @@
     "goBackBtn": "Go to Home page",
     "title": "Ops... Page Not Found"
   },
+  "Milestones": {
+    "multiplan": {
+      "title": "Software Engineer",
+      "company": "Multiplan Empreendimentos S.A, RJ",
+      "item1": "Implemented an end-to-end MVP for an automated parking lot system utilizing License Plate Recognition, leveraging Node.js and React.",
+      "item2": "Led frontend development for a high-traffic smart parking system (100k+ daily users, 2M+ plates).",
+      "item3": "Optimized performance by refactoring caching with React Apollo Client (70% fewer API requests, faster UX).",
+      "item4": "Integrated 4+ payment providers for seamless entry, exit, and payment.",
+      "item5": "Decreased critical errors by 20% and cut costs by increasing test coverage and implementing analytics (MixPanel, BugSnag).",
+      "item6": "Refactored EV Chargers communication from WebSockets to GraphQL Polling, resolving sync bugs and increasing user retention by 23%.",
+      "item7": "Architected a daily cron job for vehicle tier migration using Node.js and GraphQL, ensuring scalable, fault-tolerant execution."
+    },
+    "pepsico": {
+      "title": "Software Engineer (Contractor)",
+      "company": "Latop / PepsiCo",
+      "item1": "Architected and maintained a critical freight logistics platform for PepsiCo using Next.js and TypeScript, focusing on security and efficiency.",
+      "item2": "Reduced redundant API calls by 20% and infrastructure costs by 15% via React Query caching and monitoring.",
+      "item3": "Engineered a 10-minute periodic sync for truck monitoring, ensuring dashboard accuracy and optimized network overhead."
+    },
+    "neurogram": {
+      "title": "Software Engineer (Contractor)",
+      "company": "Neurogram",
+      "item1": "Developed high-performance dynamic landing pages in React, focused on product-driven UX and conversion optimization.",
+      "item2": "Automated delivery cycles with CI/CD pipelines (GitHub Actions, Firebase), increasing deployment frequency and scalability.",
+      "item3": "Integrated medical diagnostic algorithms into an EEG exam platform, enabling complex neurological data processing for clinical support."
+    }
+  },
   "BackButton": {
     "text": "Go back"
   },

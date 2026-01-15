@@ -49,6 +49,33 @@
     "goBackBtn": "Voltar para Home",
     "title": "Ops... Página não encontrada"
   },
+  "Milestones": {
+    "multiplan": {
+      "title": "Engenheiro de Software",
+      "company": "Multiplan Empreendimentos S.A, RJ",
+      "item1": "Implementei um MVP completo para um sistema automatizado de estacionamento com Reconhecimento de Placas, utilizando Node.js e React.",
+      "item2": "Liderei o desenvolvimento frontend de um sistema de estacionamento inteligente de alto tráfego (100k+ usuários diários, 2M+ placas).",
+      "item3": "Otimizei a performance refatorando o cache com React Apollo Client (70% menos requisições à API, UX mais rápida).",
+      "item4": "Integrei 4+ provedores de pagamento para entrada, saída e pagamento sem atritos.",
+      "item5": "Reduzi erros críticos em 20% e cortei custos aumentando a cobertura de testes e implementando analytics (MixPanel, BugSnag).",
+      "item6": "Refatorei a comunicação dos Carregadores EV de WebSockets para GraphQL Polling, resolvendo bugs de sincronização e aumentando a retenção de usuários em 23%.",
+      "item7": "Arquitetei um cron job diário para migração de categorias de veículos usando Node.js e GraphQL, garantindo execução escalável e tolerante a falhas."
+    },
+    "pepsico": {
+      "title": "Engenheiro de Software (Contratado)",
+      "company": "Latop / PepsiCo",
+      "item1": "Arquitetei e mantive uma plataforma crítica de logística de cargas para a PepsiCo usando Next.js e TypeScript, com foco em segurança e eficiência.",
+      "item2": "Reduzi chamadas redundantes à API em 20% e custos de infraestrutura em 15% via cache do React Query e monitoramento.",
+      "item3": "Desenvolvi uma sincronização periódica de 10 minutos para monitoramento de caminhões, garantindo precisão no dashboard e otimizando overhead de rede."
+    },
+    "neurogram": {
+      "title": "Engenheiro de Software (Contratado)",
+      "company": "Neurogram",
+      "item1": "Desenvolvi landing pages dinâmicas de alta performance em React, focadas em UX orientada a produto e otimização de conversão.",
+      "item2": "Automatizei ciclos de entrega com pipelines CI/CD (GitHub Actions, Firebase), aumentando a frequência de deploy e escalabilidade.",
+      "item3": "Integrei algoritmos de diagnóstico médico em uma plataforma de exames EEG, possibilitando processamento complexo de dados neurológicos para suporte clínico."
+    }
+  },
   "BackButton": {
     "text": "Voltar"
   },
