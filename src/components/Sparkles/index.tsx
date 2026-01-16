@@ -46,7 +46,7 @@ export const ToggleSparkles = () => {
       onMouseLeave={handleMouseLeave}
     >
       <Tooltip>
-        <TooltipContent>
+        <TooltipContent className="z-100">
           Sparks
         </TooltipContent>
         <TooltipTrigger asChild>
@@ -55,7 +55,7 @@ export const ToggleSparkles = () => {
             onClick={toggleSparkles}
             aria-label={isSparklesEnabled ? 'Disable sparkles' : 'Enable sparkles'}
             title={isSparklesEnabled ? 'Disable sparkles' : 'Enable sparkles'}
-            className="p-0!"
+            className="p-0! hover:bg-transparent! cursor-pointer"
           >
             <ZapIcon color="#3b82f6" fill="#3b82f6" className={cn(!isSparklesEnabled && "hidden")} />
             <ZapOffIcon color="#3b82f6" fill="#3b82f6" className={cn(isSparklesEnabled && "hidden")} />

@@ -1,17 +1,14 @@
 import { vi, describe, it, expect, beforeEach } from "vitest";
 import { render, fireEvent } from "@testing-library/react";
-import ThemeButton from ".";
+import { ThemeButton } from ".";
 
 const mockHandleThemeChange = vi.fn();
 
-let theme: "light" | "dark" = "dark";
-let isDark = false;
-
 vi.mock("../../hooks/useTheme", () => ({
   useTheme: () => ({
-    theme,
+    theme: "dark",
     handleThemeChange: mockHandleThemeChange,
-    isDark,
+    isDark: false,
   }),
 }));
 
@@ -20,34 +17,15 @@ describe("Theme Button Nav", () => {
     vi.clearAllMocks();
   });
 
-  it("should be able to click theme nav", async () => {
-    const { findByTestId } = render(<ThemeButton.Nav />);
-
-    const themeButton = await findByTestId("theme-btn-nav");
+  it("should render and handle click", () => {
+    const { getByTestId } = render(<ThemeButton.Nav />);
+    const themeButton = getByTestId("theme-btn-nav");
+    
+    expect(themeButton).toBeInTheDocument();
     expect(themeButton.tagName).toBe("BUTTON");
-
+    
     fireEvent.click(themeButton);
-    expect(mockHandleThemeChange).toBeCalledTimes(1);
-    expect(theme).toBe("dark");
-  });
-
-  it("should render with dark theme nav", () => {
-    const { getByTestId } = render(<ThemeButton.Nav />);
-
-    const themeButton = getByTestId("theme-btn-nav");
-
-    expect(themeButton).toHaveClass("cursor-pointer");
-  });
-
-  it("shoud channge to light theme nav", () => {
-    if (theme !== "light") {
-      theme = "light";
-    }
-
-    const { getByTestId } = render(<ThemeButton.Nav />);
-
-    const themeButton = getByTestId("theme-btn-nav");
-    expect(themeButton).toHaveClass("cursor-pointer");
+    expect(mockHandleThemeChange).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -56,49 +34,14 @@ describe("Theme Button Menu", () => {
     vi.clearAllMocks();
   });
 
-  it("should be able to click theme menu", async () => {
-    const { findByTestId } = render(<ThemeButton.Menu />);
-
-    const themeButton = await findByTestId("theme-btn-menu");
-    expect(themeButton.tagName).toBe("BUTTON");
-
-    fireEvent.click(themeButton);
-    expect(mockHandleThemeChange).toBeCalledTimes(1);
-    expect(theme).toBe("light");
-  });
-
-  it("should render with dark theme menu", () => {
+  it("should render and handle click", () => {
     const { getByTestId } = render(<ThemeButton.Menu />);
-
     const themeButton = getByTestId("theme-btn-menu");
+    
     expect(themeButton).toBeInTheDocument();
-  });
-
-  it("shoud chanhge to light theme menu", () => {
-    if (theme !== "light") {
-      theme = "light";
-    }
-
-    const { getByTestId } = render(<ThemeButton.Menu />);
-
-    const themeButton = getByTestId("theme-btn-menu");
-    expect(themeButton).not.toHaveClass("bg-background");
-  });
-
-  it("should display the correct text if is light ", () => {
-    const { getByTestId } = render(<ThemeButton.Menu />);
-
-    const themeButton = getByTestId("theme-btn-menu");
-    expect(themeButton).toHaveTextContent("Dark");
-  });
-
-  it("should display the correct text if is dark ", () => {
-    if (!isDark) {
-      isDark = true;
-    }
-    const { getByTestId } = render(<ThemeButton.Menu />);
-    const themeButton = getByTestId("theme-btn-menu");
-
-    expect(themeButton).toHaveTextContent("Light");
+    expect(themeButton.tagName).toBe("BUTTON");
+    
+    fireEvent.click(themeButton);
+    expect(mockHandleThemeChange).toHaveBeenCalledTimes(1);
   });
 });

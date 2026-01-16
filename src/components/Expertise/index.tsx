@@ -8,6 +8,8 @@ const listClass = "list-disc pl-4 space-y-1 over"
 export const Expertise = (): MilestoneType[] => {
   const t = useTranslations("Milestones");
 
+  const highlightClass = "text-[var(--expertise-highlight)] bg-transparent font-bold px-[2px] rounded";
+
   return [
     {
       id: 1,
@@ -17,13 +19,13 @@ export const Expertise = (): MilestoneType[] => {
       endDate: new Date().toISOString(),
       description: (
         <ul className={cn(listClass)} >
-          <li>{t("multiplan.item1")}</li>
-          <li>{t("multiplan.item2")}</li>
-          <li>{t("multiplan.item3")}</li>
-          <li>{t("multiplan.item4")}</li>
-          <li>{t("multiplan.item5")}</li>
-          <li>{t("multiplan.item6")}</li>
-          <li>{t("multiplan.item7")}</li>
+          <li>{t.rich("multiplan.item1", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("multiplan.item2", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("multiplan.item3", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("multiplan.item4", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("multiplan.item5", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("multiplan.item6", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("multiplan.item7", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
         </ul>
       )
     },
@@ -35,9 +37,9 @@ export const Expertise = (): MilestoneType[] => {
       endDate: "2025-09-30",
       description: (
         <ul className={listClass} >
-          <li>{t("pepsico.item1")}</li>
-          <li>{t("pepsico.item2")}</li>
-          <li>{t("pepsico.item3")}</li>
+          <li>{t.rich("pepsico.item1", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("pepsico.item2", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("pepsico.item3", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
         </ul>
       )
     },
@@ -49,9 +51,9 @@ export const Expertise = (): MilestoneType[] => {
       endDate: "2024-09-30",
       description: (
         <ul className={listClass} >
-          <li>{t("neurogram.item1")}</li>
-          <li>{t("neurogram.item2")}</li>
-          <li>{t("neurogram.item3")}</li>
+          <li>{t.rich("neurogram.item1", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("neurogram.item2", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("neurogram.item3", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
         </ul>
       )
     }

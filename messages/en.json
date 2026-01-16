@@ -53,27 +53,27 @@
     "multiplan": {
       "title": "Software Engineer",
       "company": "Multiplan Empreendimentos S.A, RJ",
-      "item1": "Implemented an end-to-end MVP for an automated parking lot system utilizing License Plate Recognition, leveraging Node.js and React.",
-      "item2": "Led frontend development for a high-traffic smart parking system (100k+ daily users, 2M+ plates).",
-      "item3": "Optimized performance by refactoring caching with React Apollo Client (70% fewer API requests, faster UX).",
-      "item4": "Integrated 4+ payment providers for seamless entry, exit, and payment.",
-      "item5": "Decreased critical errors by 20% and cut costs by increasing test coverage and implementing analytics (MixPanel, BugSnag).",
-      "item6": "Refactored EV Chargers communication from WebSockets to GraphQL Polling, resolving sync bugs and increasing user retention by 23%.",
-      "item7": "Architected a daily cron job for vehicle tier migration using Node.js and GraphQL, ensuring scalable, fault-tolerant execution."
+      "item1": "Implemented an end-to-end <strong>MVP</strong> for an automated parking lot system utilizing <strong>License Plate Recognition</strong>, leveraging <strong>Node.js</strong> and <strong>React</strong>.",
+      "item2": "Led <strong>frontend development</strong> for a <strong>high-traffic smart parking system</strong> (<strong>100k+ daily users</strong>, <strong>2M+ plates</strong>).",
+      "item3": "Optimized <strong>performance</strong> by refactoring <strong>caching</strong> with <strong>React Apollo Client</strong> (<strong>70% fewer API requests</strong>, faster UX).",
+      "item4": "Integrated <strong>4+ payment providers</strong> for seamless entry, exit, and payment.",
+      "item5": "Decreased <strong>critical errors</strong> by <strong>20%</strong> and cut costs by increasing <strong>test coverage</strong> and implementing <strong>analytics</strong> (<strong>MixPanel</strong>, <strong>BugSnag</strong>).",
+      "item6": "Refactored <strong>EV Chargers communication</strong> from <strong>WebSockets</strong> to <strong>GraphQL Polling</strong>, resolving sync bugs and increasing <strong>user retention</strong> by <strong>23%</strong>.",
+      "item7": "Architected a daily <strong>cron job</strong> for <strong>vehicle tier migration</strong> using <strong>Node.js</strong> and <strong>GraphQL</strong>, ensuring <strong>scalable</strong>, <strong>fault-tolerant execution</strong>."
     },
     "pepsico": {
       "title": "Software Engineer (Contractor)",
       "company": "Latop / PepsiCo",
-      "item1": "Architected and maintained a critical freight logistics platform for PepsiCo using Next.js and TypeScript, focusing on security and efficiency.",
-      "item2": "Reduced redundant API calls by 20% and infrastructure costs by 15% via React Query caching and monitoring.",
-      "item3": "Engineered a 10-minute periodic sync for truck monitoring, ensuring dashboard accuracy and optimized network overhead."
+      "item1": "Architected and maintained a <strong>critical freight logistics platform</strong> for <strong>PepsiCo</strong> using <strong>Next.js</strong> and <strong>TypeScript</strong>, focusing on <strong>security</strong> and <strong>efficiency</strong>.",
+      "item2": "Reduced <strong>redundant API calls</strong> by <strong>20%</strong> and <strong>infrastructure costs</strong> by <strong>15%</strong> via <strong>React Query caching</strong> and monitoring.",
+      "item3": "Engineered a <strong>10-minute periodic sync</strong> for <strong>truck monitoring</strong>, ensuring <strong>dashboard accuracy</strong> and optimized <strong>network overhead</strong>."
     },
     "neurogram": {
       "title": "Software Engineer (Contractor)",
       "company": "Neurogram",
-      "item1": "Developed high-performance dynamic landing pages in React, focused on product-driven UX and conversion optimization.",
-      "item2": "Automated delivery cycles with CI/CD pipelines (GitHub Actions, Firebase), increasing deployment frequency and scalability.",
-      "item3": "Integrated medical diagnostic algorithms into an EEG exam platform, enabling complex neurological data processing for clinical support."
+      "item1": "Developed <strong>high-performance dynamic landing pages</strong> in <strong>React</strong>, focused on <strong>product-driven UX</strong> and <strong>conversion optimization</strong>.",
+      "item2": "Automated <strong>delivery cycles</strong> with <strong>CI/CD pipelines</strong> (<strong>GitHub Actions</strong>, <strong>Firebase</strong>), increasing <strong>deployment frequency</strong> and <strong>scalability</strong>.",
+      "item3": "Integrated <strong>medical diagnostic algorithms</strong> into an <strong>EEG exam platform</strong>, enabling <strong>complex neurological data processing</strong> for <strong>clinical support</strong>."
     }
   },
   "BackButton": {

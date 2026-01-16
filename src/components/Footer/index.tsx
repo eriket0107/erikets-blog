@@ -3,7 +3,6 @@ import { Typography } from "../Typography";
 import { NavLink } from "../NavLink";
 import { socialLinks } from "@/constants/Links";
 import { Emojis } from "@/constants/emojis";
-import { ToggleSparkles } from "../Sparkles";
 
 export const Footer = () => {
   return (
@@ -15,7 +14,6 @@ export const Footer = () => {
       aria-label="Footer of screen"
       data-testid="footer"
     >
-      <div className="absolute right-4 bottom-13">  <ToggleSparkles /></div>
       <Typography.Small className="text-muted-foreground w-[450px] md:w-full">
         by: Erik Oliveira ⓒ - <Emojis.BrazilFlag /> - {new Date().getFullYear()}
       </Typography.Small>

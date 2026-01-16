@@ -36,7 +36,7 @@ export const Logo = memo(() => {
           coffee & vanilla code <Emojis.Coffee />
         </Typography.H1>
         <Typography.H1
-          className={`text-primary flex min-w-2xs flex-1 gap-4 pb-0 text-left md:hidden md:w-full`}
+          className={`text-primary text-3xl flex min-w-2xs flex-1 gap-4 pb-0 text-left md:hidden md:w-full`}
           data-testid="mobile-title"
         >
           coffee & <br /> vanilla code

@@ -60,7 +60,7 @@ export default function LocaleSwitcherSelect({
             {flags[defaultValue]}
           </Typography.Small>
         </TooltipTrigger>
-        <TooltipContent>{title}</TooltipContent>
+        <TooltipContent className="z-100">{title}</TooltipContent>
       </Tooltip>
 
       <p className="sr-only">{label}</p>
