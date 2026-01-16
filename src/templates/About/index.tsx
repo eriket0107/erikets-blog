@@ -24,7 +24,6 @@ export const About = async () => {
 
   return (
     <PageWrapper hasFooter={false}>
-
       <Box
         as="section"
         width="full"

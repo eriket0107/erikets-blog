@@ -20,7 +20,8 @@ import LocaleSwitcher from "../LocaleSwitcher";
 
 const classes = {
   link: "flex flex-row items-center text-base transition-all duration-100 ease-in-out",
-  dropdownMenuItem: "flex w-full cursor-pointer justify-between text-base focus:bg-transparent",
+  dropdownMenuItem:
+    "flex w-full cursor-pointer justify-between text-base focus:bg-transparent",
   selected: "border-b-1 rounded-sm",
 };
 
@@ -49,8 +50,7 @@ export const BurgerMenu = memo(() => {
       >
         <DropdownMenuGroup data-testid="burger-menu-container">
           {routesConfig.map(({ href, icon, title }) => {
-
-            if (href === '/blog' && PROD_ENV) {
+            if (href === "/blog" && PROD_ENV) {
               return null;
             }
             return (
@@ -67,7 +67,7 @@ export const BurgerMenu = memo(() => {
                   {icon}
                 </DropdownMenuItem>
               </Link>
-            )
+            );
           })}
 
           <DropdownMenuItem
@@ -79,9 +79,8 @@ export const BurgerMenu = memo(() => {
           <DropdownMenuItem
             className={cn(classes.dropdownMenuItem)}
             onSelect={(e) => e.preventDefault()}
-
           >
-            {tlang('title')}
+            {tlang("title")}
             <LocaleSwitcher />
           </DropdownMenuItem>
         </DropdownMenuGroup>

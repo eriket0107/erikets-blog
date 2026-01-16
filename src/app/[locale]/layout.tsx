@@ -32,18 +32,19 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    images: [{
-      url: '/coffee.png',
-      width: 512,
-      height: 512,
-      alt: "Website OG Image",
-    }],
-
+    images: [
+      {
+        url: "/coffee.png",
+        width: 512,
+        height: 512,
+        alt: "Website OG Image",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     images: ["/coffee.png"],
-  }
+  },
 };
 
 export default async function RootLayout({
@@ -59,8 +60,15 @@ export default async function RootLayout({
       | undefined) || "dark";
 
   return (
-    <html lang={locale} data-theme={theme} suppressHydrationWarning>
+    <html
+      lang={locale}
+      data-theme={theme}
+      className={theme}
+      style={{ colorScheme: theme }}
+      suppressHydrationWarning
+    >
       <head>
+        <ThemeScript />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:image" content="/coffee.png" />
       </head>
@@ -80,11 +88,8 @@ export default async function RootLayout({
           zIndex={1000}
           showAtBottom={false}
         />
-        <ThemeScript />
         <NextIntlClientProvider>
-          <Layout>
-            {children}
-          </Layout>
+          <Layout>{children}</Layout>
         </NextIntlClientProvider>
         <SpeedInsights />
         <Analytics />

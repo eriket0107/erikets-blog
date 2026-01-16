@@ -1,4 +1,4 @@
-"use server"
+"use server";
 
 import { langKeyCookie } from "@/constants/cookies";
 import { cookies } from "next/headers";

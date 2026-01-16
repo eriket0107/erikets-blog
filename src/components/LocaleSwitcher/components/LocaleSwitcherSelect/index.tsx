@@ -6,7 +6,11 @@ import { useRouter } from "@/hooks/useRouter";
 import { usePathname } from "@/hooks/usePathname";
 import { cn } from "@/utils";
 import { Typography } from "@/components/Typography";
-import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 import { Emojis } from "@/constants/emojis";
 
 type Props = {
@@ -16,8 +20,8 @@ type Props = {
 };
 
 const flags = {
-  br: <Emojis.BrazilFlag height={30} width={30} />,
-  en: <Emojis.UnitedStatesFlag height={30} width={30} />,
+  en: <Emojis.BrazilFlag height={30} width={30} />,
+  br: <Emojis.UnitedStatesFlag height={30} width={30} />,
 };
 
 export default function LocaleSwitcherSelect({
@@ -46,11 +50,13 @@ export default function LocaleSwitcherSelect({
   return (
     <label
       className={cn(
-        "text-foreground min-w-4 min-h-4 w-fit relative flex  cursor-pointer items-center justify-between gap-10 border-b border-transparent",
+        "text-foreground relative flex min-h-4 w-fit min-w-4 cursor-pointer items-center justify-between gap-10 border-b border-transparent",
         isPending && "transition-opacity [&:disabled]:opacity-30",
       )}
     >
-      <Typography.P className="hidden cursor-help text-md">{title}</Typography.P>
+      <Typography.P className="text-md hidden cursor-help">
+        {title}
+      </Typography.P>
       <Tooltip>
         <TooltipTrigger asChild>
           <Typography.Small

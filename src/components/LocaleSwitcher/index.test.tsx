@@ -37,6 +37,11 @@ vi.mock("@/hooks/usePathname", () => ({
   usePathname: () => "/some-path",
 }));
 
+vi.mock("next/navigation", () => ({
+  ...vi.importActual("next/navigation"),
+  useParams: () => null,
+}));
+
 const renderComponent = (locale: "en" | "br") => {
   return render(
     <NextIntlClientProvider locale={locale} messages={messages}>
@@ -50,27 +55,27 @@ describe("LocaleSwitcher", () => {
     renderComponent("en");
 
     expect(screen.getByText("Change language")).toBeInTheDocument();
-    expect(screen.getByTestId("us-flag")).toBeInTheDocument();
+    expect(screen.getByTestId("br-flag")).toBeInTheDocument();
   });
 
   it("should display the correct flag for the current locale", () => {
     const { rerender } = renderComponent("en");
-    expect(screen.getByTestId("us-flag")).toBeInTheDocument();
-    expect(screen.queryByTestId("br-flag")).not.toBeInTheDocument();
+    expect(screen.getByTestId("br-flag")).toBeInTheDocument();
+    expect(screen.queryByTestId("us-flag")).not.toBeInTheDocument();
 
     rerender(
       <NextIntlClientProvider locale="br" messages={messages}>
         <LocaleSwitcher />
       </NextIntlClientProvider>,
     );
-    expect(screen.getByTestId("br-flag")).toBeInTheDocument();
-    expect(screen.queryByTestId("us-flag")).not.toBeInTheDocument();
+    expect(screen.getByTestId("us-flag")).toBeInTheDocument();
+    expect(screen.queryByTestId("br-flag")).not.toBeInTheDocument();
   });
 
   it("should call router.replace with the new locale when flag is clicked", () => {
     renderComponent("en");
 
-    const flag = screen.getByTestId("us-flag");
+    const flag = screen.getByTestId("br-flag");
     fireEvent.click(flag);
 
     expect(useRouter).toHaveBeenCalledWith(
@@ -83,8 +88,8 @@ describe("LocaleSwitcher", () => {
     const { rerender } = renderComponent("en");
 
     // Click US flag should switch to BR
-    const usFlag = screen.getByTestId("us-flag");
-    fireEvent.click(usFlag);
+    const brFlag = screen.getByTestId("br-flag");
+    fireEvent.click(brFlag);
 
     expect(useRouter).toHaveBeenCalledWith(
       { pathname: "/some-path", params: null },
@@ -99,8 +104,8 @@ describe("LocaleSwitcher", () => {
       </NextIntlClientProvider>,
     );
 
-    const brFlag = screen.getByTestId("br-flag");
-    fireEvent.click(brFlag);
+    const usFlag = screen.getByTestId("us-flag");
+    fireEvent.click(usFlag);
 
     expect(useRouter).toHaveBeenCalledWith(
       { pathname: "/some-path", params: null },

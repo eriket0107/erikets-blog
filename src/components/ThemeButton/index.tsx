@@ -87,12 +87,8 @@ const ThemeButtonNav = () => {
   );
 };
 
-
 export const ThemeButton = {
   Nav: ThemeButtonNav,
   Menu: ThemeButtonMenu,
-  displayName: "ThemeButton"
-}
-
-
-
+  displayName: "ThemeButton",
+};
