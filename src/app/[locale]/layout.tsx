@@ -31,6 +31,14 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  openGraph: {
+    images: {
+      url: '../favicon.ico',
+      width: 512,
+      height: 512,
+      alt: "Website OG Image",
+    }
+  }
 };
 
 export default async function RootLayout({
