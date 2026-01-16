@@ -47,7 +47,7 @@ const ThemeButtonNav = () => {
 
   return (
     <Tooltip delayDuration={300}>
-      <TooltipContent className="text-primary z-[100]">
+      <TooltipContent className="text-primary z-100">
         {isDark ? "Light" : "Dark"}
       </TooltipContent>
       <TooltipTrigger asChild>
@@ -88,11 +88,11 @@ const ThemeButtonNav = () => {
 };
 
 
-const ThemeButton = {
+export const ThemeButton = {
   Nav: ThemeButtonNav,
   Menu: ThemeButtonMenu,
   displayName: "ThemeButton"
 }
 
 
-export default ThemeButton;
+

@@ -29,7 +29,7 @@ export const About = async () => {
         as="section"
         width="full"
         height="auto"
-        className="md:pt-10 pt-14 z-10 px-4 animate-fade-in-slow"
+        className="md:pt-10 pt-4 z-10 px-4 animate-fade-in-slow"
         gap="4"
       >
         <div>

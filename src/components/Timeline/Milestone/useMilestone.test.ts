@@ -53,7 +53,7 @@ describe("useTimeline", () => {
 
     expect(mockIntersectionObserver).toHaveBeenCalledWith(
       expect.any(Function),
-      { threshold: 0.1 },
+      { threshold: 0.1, rootMargin: "-1px", },
     );
   });
 

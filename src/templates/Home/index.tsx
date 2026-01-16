@@ -2,7 +2,7 @@
 import { PageWrapper } from "@/components/PageWrapper";
 import { Navbar } from "@/components/Navbar";
 import { Logo } from "@/components/Logo";
-import { ActionsContainer } from "@/components/ActionsContainer";
+import { QuickConfigFull } from "@/components/QuickConfigButton";
 
 
 export const Home = async () => {
@@ -15,7 +15,7 @@ export const Home = async () => {
         <span className="bg-background/50 shadow-lg backdrop-blur-md rounded-full px-6 py-2">
           <Navbar className="flex flex-col" />
         </span>
-        <ActionsContainer />
+        <QuickConfigFull />
       </div>
     </PageWrapper >
   );
