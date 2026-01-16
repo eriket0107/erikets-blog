@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: [{
-      url: '../favicon.ico',
+      url: 'src/assets/coffee.png',
       width: 512,
       height: 512,
       alt: "Website OG Image",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["../favicon.ico"],
+    images: ["src/assets/coffee.png"],
   }
 };
 
@@ -62,7 +62,7 @@ export default async function RootLayout({
     <html lang={locale} data-theme={theme} suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:image" content="../favicon.ico" />
+        <meta property="og:image" content="src/assets/coffee.png" />
       </head>
       <body
         className={cn(
