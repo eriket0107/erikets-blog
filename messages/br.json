@@ -62,14 +62,14 @@
       "item7": "Arquitetei um <strong>cron job diário</strong> para <strong>migração de categorias de veículos</strong> usando <strong>Node.js</strong> e <strong>GraphQL</strong>, garantindo <strong>execução escalável</strong> e <strong>tolerante a falhas</strong>."
     },
     "pepsico": {
-      "title": "Engenheiro de Software (Contratado)",
+      "title": "Engenheiro de Software (Freelancer)",
       "company": "Latop / PepsiCo",
       "item1": "Arquitetei e mantive uma <strong>plataforma crítica de logística de cargas</strong> para a <strong>PepsiCo</strong> usando <strong>Next.js</strong> e <strong>TypeScript</strong>, com foco em <strong>segurança</strong> e <strong>eficiência</strong>.",
       "item2": "Reduzi <strong>chamadas redundantes à API</strong> em <strong>20%</strong> e <strong>custos de infraestrutura</strong> em <strong>15%</strong> via <strong>cache do React Query</strong> e monitoramento.",
       "item3": "Desenvolvi uma <strong>sincronização periódica de 10 minutos</strong> para <strong>monitoramento de caminhões</strong>, garantindo <strong>precisão no dashboard</strong> e otimizando <strong>overhead de rede</strong>."
     },
     "neurogram": {
-      "title": "Engenheiro de Software (Contratado)",
+      "title": "Engenheiro de Software (Freelancer)",
       "company": "Neurogram",
       "item1": "Desenvolvi <strong>landing pages dinâmicas de alta performance</strong> em <strong>React</strong>, focadas em <strong>UX orientada a produto</strong> e <strong>otimização de conversão</strong>.",
       "item2": "Automatizei <strong>ciclos de entrega</strong> com <strong>pipelines CI/CD</strong> (<strong>GitHub Actions</strong>, <strong>Firebase</strong>), aumentando a <strong>frequência de deploy</strong> e <strong>escalabilidade</strong>.",
