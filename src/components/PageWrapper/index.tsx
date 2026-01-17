@@ -12,24 +12,31 @@ interface PageWrapperProps {
   hasFooter?: boolean;
 }
 
-export const PageWrapper = ({ children, className, hasHeader = true, hasFooter = true }: PageWrapperProps) => {
-  return (<>
-    {hasHeader && <Header />}
-    <div
-      className={cn(
-        "mb-auto min-h-dvh flex w-full flex-col items-center justify-start gap-4 p-4 pt-32 md:mx-auto md:w-240 md:pt-24",
-        className,)}
-    >
-      <Sparkles />
-      {children}
-    </div>
+export const PageWrapper = ({
+  children,
+  className,
+  hasHeader = true,
+  hasFooter = true,
+}: PageWrapperProps) => {
+  return (
+    <>
+      {hasHeader && <Header />}
+      <div
+        className={cn(
+          "mb-auto flex min-h-dvh w-full flex-col items-center justify-start gap-4 p-4 pt-32 md:mx-auto md:w-240 md:pt-24",
+          className,
+        )}
+      >
+        <Sparkles />
+        {children}
+      </div>
 
-    {hasFooter &&
-      <>
-        <BottomShadow />
-        <Footer />
-      </>
-    }
-  </>
+      {hasFooter && (
+        <>
+          <BottomShadow />
+          <Footer />
+        </>
+      )}
+    </>
   );
 };

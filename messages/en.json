@@ -20,6 +20,15 @@
     "career": "Career",
     "technologies": "Technologies"
   },
+  "stack": {
+    "category": {
+      "Programming Languages": "Programming Languages",
+      "Frameworks": "Frameworks",
+      "Databases": "Databases",
+      "Tools": "Tools",
+      "AI Tooling": "AI Tooling"
+    }
+  },
   "Constants": {
     "home": "Home",
     "blog": "Blog",

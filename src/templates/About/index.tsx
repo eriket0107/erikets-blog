@@ -4,10 +4,14 @@ import { Typography } from "@/components/Typography";
 
 import { socialLinks } from "@/constants/Links";
 import ProfileImage from "@/assets/profile-erik.webp";
-import { AccordionAbout } from "@/components/AccordionAbout";
+import { AboutAccordion } from "@/components/AboutAccordion";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { PageWrapper } from "@/components/PageWrapper";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Emojis } from "@/constants/emojis";
 import Image from "next/image";
 import { Location } from "@/components/Location";
@@ -17,9 +21,14 @@ export const About = async () => {
   const t = await getTranslations("AboutPage");
   const now = new Date();
   const birthDate = new Date("1998/07/01");
-  const currentAge = now.getFullYear() - birthDate.getFullYear() -
+  const currentAge =
+    now.getFullYear() -
+    birthDate.getFullYear() -
     (now.getMonth() < birthDate.getMonth() ||
-      (now.getMonth() === birthDate.getMonth() && now.getDate() < birthDate.getDate()) ? 1 : 0);
+      (now.getMonth() === birthDate.getMonth() &&
+        now.getDate() < birthDate.getDate())
+      ? 1
+      : 0);
   const curretYear = now.getFullYear();
 
   return (
@@ -28,21 +37,21 @@ export const About = async () => {
         as="section"
         width="full"
         height="auto"
-        className="md:pt-10 pt-4 z-10 px-4 animate-fade-in-slow"
+        className="animate-fade-in-slow z-10 px-4 pt-4 md:pt-10"
         gap="4"
       >
         <div>
           <Image
             alt="Erik Oliveira's profile picture"
             src={ProfileImage.src}
-            className=" float-left md:hidden block  rounded-md mr-8 border-2 border-accent-foreground"
+            className="border-accent-foreground float-left mr-8 block rounded-md border-2 md:hidden"
             width={115}
             height={200}
           />
           <Image
             alt="Erik Oliveira's profile picture"
             src={ProfileImage.src}
-            className="float-left hidden md:block mb-2 rounded-md mr-8 border-2 border-accent-foreground"
+            className="border-accent-foreground float-left mr-8 mb-2 hidden rounded-md border-2 md:block"
             width={330}
             height={300}
           />
@@ -50,56 +59,59 @@ export const About = async () => {
             id="profile-heading"
             className="text-gradient text-4xl md:text-6xl"
           >
-            Erik Oliveira, <AnimatedNumber value={currentAge} className=" md:text-5xl text-3xl" />
+            Erik Oliveira,{" "}
+            <AnimatedNumber
+              value={currentAge}
+              className="text-3xl md:text-5xl"
+            />
             <Tooltip>
               <TooltipTrigger asChild>
                 <Emojis.Coffee className="ml-4" />
               </TooltipTrigger>
-              <TooltipContent>
-                {t("curiosity")}
-              </TooltipContent>
+              <TooltipContent>{t("curiosity")}</TooltipContent>
             </Tooltip>
           </Typography.H2>
 
           <div>
             <div>
-              <Typography.H4 className="text-accent-foreground md:text-3xl text-xl">
+              <Typography.H4 className="text-accent-foreground text-xl md:text-3xl">
                 {t("role")}
               </Typography.H4>
               <Location />
             </div>
-            <Typography.P spacingTop={false} className="text-accent-foreground space-0 text-lg p-0">
+            <Typography.P
+              spacingTop={false}
+              className="text-accent-foreground space-0 p-0 text-lg"
+            >
               {t.rich("introduction", {
                 br: () => <br />,
                 years: () => <strong>{curretYear - 2022}</strong>,
               })}
             </Typography.P>
-            <Typography.P className="text-accent-foreground  text-lg max-w-full">
+            <Typography.P className="text-accent-foreground max-w-full text-lg">
               {t("professional_summary")}
-
             </Typography.P>
           </div>
 
-          <div className="flex flex-col mt-10">
-            <Typography.P className="text-primary ">
+          <div className="mt-10 flex flex-col">
+            <Typography.P className="text-primary">
               {t("social_invitation")}
             </Typography.P>
 
-            <span className="flex flex-row gap-6 flex-wrap">
+            <span className="flex flex-row flex-wrap gap-6">
               {socialLinks.map((social) => (
                 <NavLink
-                  className="z-10 hover:border-b-accent-foreground border border-transparent"
+                  className="hover:border-b-accent-foreground z-10 border border-transparent"
                   key={social.title}
                   link={social}
                   aria-label={`Visit Erik's ${social.title} profile`}
                 />
               ))}
-            </span >
+            </span>
           </div>
         </div>
-
       </Box>
-      <AccordionAbout />
+      <AboutAccordion />
     </PageWrapper>
   );
 };
