@@ -1,4 +1,4 @@
-import { IStack } from "@/interfaces/stack";
+import { IStack, IStackCategory, StackKey } from "@/interfaces/stack";
 import cypressImg from "@/assets/tech/cypress.webp";
 import nextjsImg from "@/assets/tech/nextjs.webp";
 import reactImg from "@/assets/tech/react.webp";
@@ -17,8 +17,23 @@ import gitImg from "@/assets/tech/git.webp";
 import restImg from "@/assets/tech/rest.webp";
 import pythonImg from "@/assets/tech/python.webp";
 import mongoDbImg from "@/assets/tech/mongodb.webp";
+import cssImg from "@/assets/tech/css.webp";
+import cursorImg from "@/assets/tech/cursor.webp";
+import redisImg from "@/assets/tech/redis.webp";
+import githubImg from "@/assets/tech/github.webp";
+import tailwindImg from "@/assets/tech/tailwind.webp";
 
 export const Stack: IStack = {
+  CSS: {
+    name: "CSS",
+    src: cssImg,
+    display: true,
+  },
+  tailwind: {
+    name: "Tailwind",
+    display: true,
+    src: tailwindImg,
+  },
   cypress: {
     name: "Cypress",
     src: cypressImg,
@@ -77,7 +92,7 @@ export const Stack: IStack = {
   jest: {
     name: "Jest",
     src: jestImg,
-    display: false,
+    display: true,
   },
   vitest: {
     name: "Vitest",
@@ -92,12 +107,12 @@ export const Stack: IStack = {
   git: {
     name: "Git",
     src: gitImg,
-    display: false,
+    display: true,
   },
   rest: {
     name: "REST API",
     src: restImg,
-    display: false,
+    display: true,
   },
   python: {
     name: "Python",
@@ -108,5 +123,88 @@ export const Stack: IStack = {
     name: "MongoDB",
     src: mongoDbImg,
     display: true,
+  },
+  redis: {
+    name: "Redis",
+    src: redisImg,
+    display: true,
+  },
+  cursor: {
+    name: "Cursor",
+    src: cursorImg,
+    display: true,
+  },
+  github: {
+    name: "Github",
+    src: githubImg,
+    display: true,
+  },
+};
+
+export const STACK_CATEGORIES: Record<IStackCategory, StackKey[]> = {
+  "Programming Languages": ["javascript", "typescript", "python", "CSS"],
+  Frameworks: [
+    "react",
+    "next",
+    "nestjs",
+    "express",
+    "fastify",
+    "tailwind",
+    "vite",
+  ],
+  Databases: ["postgres", "mongo", "redis"],
+  Tools: [
+    "cypress",
+    "jest",
+    "vitest",
+    "git",
+    "github",
+    "nodejs",
+    "graphql",
+    "rest",
+  ],
+  "AI Tooling": ["cursor"],
+};
+
+export const getSortedCategoryItems = (categoryKeys: StackKey[]) => {
+  return categoryKeys
+    .map((key) => Stack[key])
+    .filter((item) => item && item.display)
+    .sort((a, b) => a.name.localeCompare(b.name));
+};
+
+export const StackCategory: Record<IStackCategory, Partial<IStack>> = {
+  "Programming Languages": {
+    javascript: Stack.javascript,
+    typescript: Stack.typescript,
+    python: Stack.python,
+    CSS: Stack.CSS,
+  },
+  Frameworks: {
+    react: Stack.react,
+    next: Stack.next,
+    nestjs: Stack.nestjs,
+    express: Stack.express,
+    fastify: Stack.fastify,
+    tailwind: Stack.tailwind,
+    vite: Stack.vite,
+  },
+  Databases: {
+    postgres: Stack.postgres,
+    mongo: Stack.mongo,
+    redis: Stack.redis,
+  },
+  Tools: {
+    cypress: Stack.cypress,
+    jest: Stack.jest,
+    vitest: Stack.vitest,
+    git: Stack.git,
+    github: Stack.github,
+    nodejs: Stack.nodejs,
+    graphql: Stack.graphql,
+    rest: Stack.rest,
+  },
+  "AI Tooling": {
+    cursor: Stack.cursor,
   },
 };

@@ -1,30 +1,41 @@
 import { StaticImageData } from "next/image";
 
-
 export type StackKey =
+  | "CSS"
   | "cypress"
-  | "next"
-  | "react"
-  | "javascript"
-  | "typescript"
-  | "nodejs"
-  | "postgres"
-  | "nestjs"
   | "express"
   | "fastify"
+  | "git"
+  | "github"
   | "graphql"
   | "jest"
-  | "vitest"
-  | "vite"
-  | "git"
-  | "rest"
+  | "mongo"
+  | "nestjs"
+  | "next"
+  | "nodejs"
+  | "postgres"
   | "python"
-  | "mongo";
+  | "react"
+  | "rest"
+  | "tailwind"
+  | "typescript"
+  | "vite"
+  | "vitest"
+  | "javascript"
+  | "cursor"
+  | "redis";
 
 export type IStack = {
   [K in StackKey]: {
     name: string;
     src: StaticImageData;
-    display: boolean
-  }
+    display: boolean;
+  };
 };
+
+export type IStackCategory =
+  | "Programming Languages"
+  | "Frameworks"
+  | "Databases"
+  | "Tools"
+  | "AI Tooling";

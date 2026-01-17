@@ -1,10 +1,5 @@
-'use client'
+"use client";
 import Image from "next/image";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { Timeline } from "@/components/Timeline";
 import { ExternalLink, Milestone, Wrench } from "lucide-react";
 import {
@@ -13,27 +8,43 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Stack } from "@/constants/Stack";
-
+import { STACK_CATEGORIES, getSortedCategoryItems } from "@/constants/Stack";
 
 import { useTranslations } from "next-intl";
+import { useRef, useEffect, useState } from "react";
+import { Badge } from "../ui/badge";
+import { Typography } from "../Typography";
 
-
-const DISPLAYED_STACK_ITEMS = Object.values(Stack)
-  .filter((value) => value.display)
-  .sort((a, b) => a.name.localeCompare(b.name));
-
-
-export const AccordionAbout = () => {
+export const AboutAccordion = () => {
   const t = useTranslations("AboutPage");
+  const tStack = useTranslations("stack");
+  const accordionRef = useRef<HTMLDivElement>(null);
+
+  const [accordionValue, setAccordionValue] = useState<string | undefined>(
+    undefined,
+  );
+
+  useEffect(() => {
+    if (!!accordionValue && accordionRef.current) {
+      setTimeout(() => {
+        accordionRef.current?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }, 100);
+    }
+  }, [accordionValue]);
 
   return (
     <AccordionDefault
       type="single"
       collapsible
       className="animate-fade-in-slow text-primary w-full px-4"
-      aria-label="Professional information sections"   >
-      <AccordionItem value="career" >
+      aria-label="Professional information sections"
+      value={accordionValue}
+      onValueChange={setAccordionValue}
+      ref={accordionRef}
+    >
+      <AccordionItem value="career">
         <AccordionTrigger
           className="transform-all cursor-pointer text-2xl transition-discrete hover:scale-98"
           id="milestones"
@@ -70,28 +81,34 @@ export const AccordionAbout = () => {
           role="region"
           aria-label="Technical skills and tools"
         >
-          <div
-            className="flex flex-row gap-2"
-            role="list"
-            aria-label="Technologies and tools Erik uses"
-          >
-            {DISPLAYED_STACK_ITEMS.map((value) => (
-              <Tooltip key={value.name}>
-                <TooltipContent className="text-lg">{value.name}</TooltipContent>
-                <TooltipTrigger>
-                  <Image
-                    className="hover:scale-95"
-                    src={value.src}
-                    width={40}
-                    height={40}
-                    alt={`${value.name} technology logo`}
-                    role="listitem"
-                    aria-label={`${value.name} - technology used by Erik`}
-                  />
-                </TooltipTrigger>
-              </Tooltip>
-            ))}
-          </div>
+          {Object.entries(STACK_CATEGORIES).map(([category, keys]) => {
+            const items = getSortedCategoryItems(keys);
+            if (!items.length) return null;
+
+            return (
+              <div key={category} className="cursor-default">
+                <Typography.H4 className="text-accent-foreground mb-2 text-lg font-bold">
+                  {tStack(`category.${category}`)}
+                </Typography.H4>
+                <div className="flex flex-wrap gap-2">
+                  {items.map((item) => (
+                    <Badge
+                      key={item.name}
+                      className="dark:bg-background text-accent-foreground border-accent gap-2 border bg-gray-200 px-4 py-2 transition-all hover:scale-95"
+                    >
+                      <Image
+                        src={item.src}
+                        width={15}
+                        height={15}
+                        alt={item.name}
+                      />
+                      <Typography.Small>{item.name}</Typography.Small>
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </AccordionContent>
       </AccordionItem>
 
