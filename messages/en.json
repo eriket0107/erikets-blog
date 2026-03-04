@@ -62,13 +62,13 @@
     "multiplan": {
       "title": "Software Engineer",
       "company": "Multiplan Empreendimentos S.A, RJ",
-      "item1": "Implemented an end-to-end <strong>MVP</strong> for an automated parking lot system utilizing <strong>License Plate Recognition</strong>, leveraging <strong>Node.js</strong> and <strong>React</strong>.",
-      "item2": "Led <strong>frontend development</strong> for a <strong>high-traffic smart parking system</strong> (<strong>100k+ daily users</strong>, <strong>2M+ plates</strong>).",
-      "item3": "Optimized <strong>performance</strong> by refactoring <strong>caching</strong> with <strong>React Apollo Client</strong> (<strong>70% fewer API requests</strong>, faster UX).",
-      "item4": "Integrated <strong>4+ payment providers</strong> for seamless entry, exit, and payment.",
-      "item5": "Decreased <strong>critical errors</strong> by <strong>20%</strong> and cut costs by increasing <strong>test coverage</strong> and implementing <strong>analytics</strong> (<strong>MixPanel</strong>, <strong>BugSnag</strong>).",
-      "item6": "Refactored <strong>EV Chargers communication</strong> from <strong>WebSockets</strong> to <strong>GraphQL Polling</strong>, resolving sync bugs and increasing <strong>user retention</strong> by <strong>23%</strong>.",
-      "item7": "Architected a daily <strong>cron job</strong> for <strong>vehicle tier migration</strong> using <strong>Node.js</strong> and <strong>GraphQL</strong>, ensuring <strong>scalable</strong>, <strong>fault-tolerant execution</strong>."
+      "item1": "Developed and launched an <strong>end-to-end MVP</strong> for an automated <strong>License Plate Recognition (LPR) system</strong> using <strong>Node.js</strong> and <strong>React</strong>, successfully scaling to <strong>30k+ active users</strong> within the first month and growing to <strong>100k+ daily active users</strong> with over <strong>2M licensed plates</strong> stored.",
+      "item2": "Drove a <strong>200% increase in registered users</strong> (<strong>100k to 300k+</strong>) in 6 months by engineering the client-side orchestration of a <strong>multi-provider payment system</strong>, ensuring a frictionless checkout experience with providers like <strong>Sem Parar</strong>, <strong>ConectCar</strong> and <strong>Veloe</strong>.",
+      "item3": "Optimized application <strong>performance</strong> by refactoring the <strong>caching strategy</strong> with <strong>React Apollo Client</strong>, resulting in a <strong>70% reduction in API requests</strong> and a faster UX.",
+      "item4": "Reduced user <strong>processing time by 90%</strong> (<strong>10m to <60s</strong>) by engineering an automated <strong>parking exemption system</strong> for <strong>6+ major malls</strong>, eliminating physical tickets for partners like gyms and supermarkets.",
+      "item5": "Decreased <strong>critical errors</strong> by <strong>20%</strong> and cut operational costs by increasing <strong>test coverage by 30%</strong> and implementing advanced <strong>analytics and observability</strong> with <strong>MixPanel</strong> and <strong>BugSnag</strong>.",
+      "item6": "Boosted <strong>user retention</strong> by <strong>23%</strong> by migrating <strong>EV Charger communications</strong> from <strong>WebSockets</strong> to <strong>Polling</strong>, resolving critical sync issues under a tight deadline.",
+      "item7": "Architected daily <strong>cron job</strong> for <strong>vehicle tier migration</strong> using <strong>Node.js</strong>, orchestrating monolith and microservice communication via <strong>GraphQL</strong> with a <strong>batch processing strategy</strong> and <strong>Promise.allSettled</strong> for fault-tolerant execution, and developed internal <strong>backoffice tools</strong> for <strong>A/B testing</strong> and <strong>Feature Flags</strong>."
     },
     "pepsico": {
       "title": "Software Engineer (Contractor)",

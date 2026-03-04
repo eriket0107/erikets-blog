@@ -20,23 +20,24 @@ export const Milestone = ({
       <AnimatePresence>
         {active ? (
           <div className="fixed inset-0 grid place-items-center z-100 p-4">
-            <motion.button
-              key={`button-${milestone.title}-${id}`}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="flex absolute top-4 right-4 items-center justify-center bg-background rounded-full h-8 w-8 shadow-lg z-101"
-              onClick={() => setActive(false)}
-            >
-              <X />
-            </motion.button>
+
 
             <motion.div
               layoutId={`card-${milestone.title}-${id}`}
               ref={refModal}
-              className="w-full h-full md:h-fit flex flex-col bg-background border rounded-xl shadow-2xl overflow-y-auto scrollbar- scrollbar-track-transparent scrollbar-thumb-primary/40 hover:scrollbar-thumb-primary/60"
+              className="relative w-full h-full md:h-fit flex flex-col bg-background border rounded-xl shadow-2xl overflow-y-auto scrollbar- scrollbar-track-transparent scrollbar-thumb-primary/40 hover:scrollbar-thumb-primary/60"
             >
+              <motion.button
+                key={`button-${milestone.title}-${id}`}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                className="flex absolute top-4 right-4 items-center justify-center bg-background rounded-full h-8 w-8 shadow-lg z-101"
+                onClick={() => setActive(false)}
+              >
+                <X />
+              </motion.button>
               <div className="p-6 md:p-6">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
                   <div className="flex-1">
@@ -70,7 +71,7 @@ export const Milestone = ({
                   className="space-y-6"
                 >
                   {milestone.description && (
-                    <div className="text-base leading-relaxed ">
+                    <div className="text-base leading-relaxed">
                       {milestone.description}
                     </div>
                   )}

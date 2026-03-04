@@ -18,7 +18,7 @@ export const Timeline = () => {
 
       {SORTED_MILESTONES.map((milestone, index) => (
         <Milestone
-          key={milestone.id}
+          key={milestone.company}
           milestone={milestone}
           isLast={index === Expertise().length - 1}
         />
