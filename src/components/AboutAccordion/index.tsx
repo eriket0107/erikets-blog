@@ -120,10 +120,11 @@ export const AboutAccordion = () => {
           aria-label="Download Erik's resume"
         >
           <a
-            href="/erik_oliveira_resume.pdf"
+            href="https://docs.google.com/document/d/16Jhz6ChkAXno4INAIVXkY8IVp5Ly9UF-AqFsROhw0Gk/edit?usp=sharing
+            "
             target="_blank"
             className="flex gap-2"
-            aria-label="Download Erik Oliveira's CV/Resume as PDF"
+            aria-label="Erik Oliveira's CV/Resume as PDF"
           >
             <ExternalLink aria-hidden="true" size={30} />
             Resume
