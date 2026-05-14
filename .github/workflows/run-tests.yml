@@ -2,13 +2,12 @@ name: Run CI/CD
 on:
   push:
     branches:
+      - master
       - main
       - develop
       - feature/**
   pull_request:
-    branches:
-      - main
-      - develop
+
 jobs:
   setup:
     name: Run Setup
