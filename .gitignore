@@ -45,4 +45,4 @@ next-env.d.ts
 posts/mocks/*
 
 # PR Summary Template
-PR_SUMMARY.md
+PR_SUMMARY.md.gemini
