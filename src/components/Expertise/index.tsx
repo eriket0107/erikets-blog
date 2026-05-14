@@ -15,7 +15,7 @@ export const Expertise = (): MilestoneType[] => {
       id: 1,
       title: t("multiplan.title"),
       company: t("multiplan.company"),
-      startDate: "2022-02-01",
+      startDate: "2023-11-01",
       endDate: new Date().toISOString(),
       description: (
         <ul className={cn(listClass)} >
@@ -25,12 +25,25 @@ export const Expertise = (): MilestoneType[] => {
           <li>{t.rich("multiplan.item4", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
           <li>{t.rich("multiplan.item5", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
           <li>{t.rich("multiplan.item6", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
-          <li>{t.rich("multiplan.item7", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
         </ul>
       )
     },
     {
       id: 2,
+      title: t("multiplan_jr.title"),
+      company: t("multiplan_jr.company"),
+      startDate: "2022-02-01",
+      endDate: "2023-11-01",
+      description: (
+        <ul className={cn(listClass)} >
+          <li>{t.rich("multiplan_jr.item1", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("multiplan_jr.item2", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+          <li>{t.rich("multiplan_jr.item3", { strong: (chunks) => <strong className={highlightClass}>{chunks}</strong> })}</li>
+        </ul>
+      )
+    },
+    {
+      id: 3,
       title: t("pepsico.title"),
       company: t("pepsico.company"),
       startDate: "2024-07-01",
@@ -44,7 +57,7 @@ export const Expertise = (): MilestoneType[] => {
       )
     },
     {
-      id: 3,
+      id: 4,
       title: t("neurogram.title"),
       company: t("neurogram.company"),
       startDate: "2024-04-01",

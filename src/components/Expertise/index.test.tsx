@@ -11,21 +11,26 @@ vi.mock("next-intl", () => ({
 }));
 
 describe("Expertise", () => {
-  it("should return 3 milestones with correct structure", () => {
+  it("should return 4 milestones with correct structure", () => {
     const milestones = Expertise();
     
-    expect(milestones).toHaveLength(3);
+    expect(milestones).toHaveLength(4);
     expect(milestones[0]).toMatchObject({
       id: 1,
-      startDate: "2022-02-01",
+      startDate: "2023-11-01",
     });
     expect(milestones[1]).toMatchObject({
       id: 2,
-      startDate: "2024-07-01",
-      endDate: "2025-09-30",
+      startDate: "2022-02-01",
+      endDate: "2023-11-01",
     });
     expect(milestones[2]).toMatchObject({
       id: 3,
+      startDate: "2024-07-01",
+      endDate: "2025-09-30",
+    });
+    expect(milestones[3]).toMatchObject({
+      id: 4,
       startDate: "2024-04-01",
       endDate: "2024-09-30",
     });
