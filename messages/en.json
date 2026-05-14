@@ -13,7 +13,7 @@
     "role": "Software Engineer.",
     "introduction": "<years></years>+ years of professional experience building high-scale systems for major players like Multiplan and PepsiCo.",
     "curiosity": "(and as you probably have noticed, also a coffee lover).",
-    "professional_summary": "Expert in the JavaScript/TypeScript ecosystem with a strong focus on infrastructure optimization and performance. Proven ability to lead end-to-end product development, from initial MVPs to production environments serving 100k+ daily active users and millions of records.",
+    "professional_summary": "Scaled an MVP to 30k+ users in 30 days and managed production environments serving 100k+ DAU, while driving a 200% increase in user acquisition through infrastructure and API optimization. Combines deep expertise in System Design with end-to-end product ownership, from architecture decisions to production-grade deployment.",
     "personal_space": "This is my own corner of the web. You're more than welcome to jump in with ideas or start a conversation; any exchange that proves useful is always welcome.",
     "social_invitation": "Feel free to reach out to me on my social media!",
     "now": "My current moment",
@@ -62,27 +62,33 @@
     "multiplan": {
       "title": "Software Engineer",
       "company": "Multiplan Empreendimentos S.A, RJ",
-      "item1": "Developed and launched an <strong>end-to-end MVP</strong> for an automated <strong>License Plate Recognition (LPR) system</strong> using <strong>Node.js</strong> and <strong>React</strong>, successfully scaling to <strong>30k+ active users</strong> within the first month and growing to <strong>100k+ daily active users</strong> with over <strong>2M licensed plates</strong> stored.",
-      "item2": "Drove a <strong>200% increase in registered users</strong> (<strong>100k to 300k+</strong>) in 6 months by engineering the client-side orchestration of a <strong>multi-provider payment system</strong>, ensuring a frictionless checkout experience with providers like <strong>Sem Parar</strong>, <strong>ConectCar</strong> and <strong>Veloe</strong>.",
-      "item3": "Optimized application <strong>performance</strong> by refactoring the <strong>caching strategy</strong> with <strong>React Apollo Client</strong>, resulting in a <strong>70% reduction in API requests</strong> and a faster UX.",
-      "item4": "Reduced user <strong>processing time by 90%</strong> (<strong>10m to <60s</strong>) by engineering an automated <strong>parking exemption system</strong> for <strong>6+ major malls</strong>, eliminating physical tickets for partners like gyms and supermarkets.",
-      "item5": "Decreased <strong>critical errors</strong> by <strong>20%</strong> and cut operational costs by increasing <strong>test coverage by 30%</strong> and implementing advanced <strong>analytics and observability</strong> with <strong>MixPanel</strong> and <strong>BugSnag</strong>.",
-      "item6": "Boosted <strong>user retention</strong> by <strong>23%</strong> by migrating <strong>EV Charger communications</strong> from <strong>WebSockets</strong> to <strong>Polling</strong>, resolving critical sync issues under a tight deadline.",
-      "item7": "Architected daily <strong>cron job</strong> for <strong>vehicle tier migration</strong> using <strong>Node.js</strong>, orchestrating monolith and microservice communication via <strong>GraphQL</strong> with a <strong>batch processing strategy</strong> and <strong>Promise.allSettled</strong> for fault-tolerant execution, and developed internal <strong>backoffice tools</strong> for <strong>A/B testing</strong> and <strong>Feature Flags</strong>."
+      "item1": "Led frontend development for a high-traffic <strong>smart parking platform</strong> serving <strong>100k+ daily active users</strong> and storing data from over <strong>2M licensed plates</strong>, acting as the primary engineer for the product's core user-facing layer.",
+      "item2": "Drove a <strong>200% increase in registered users</strong> — from <strong>100k to 300k+</strong> — in 6 months by engineering the client-side orchestration of a <strong>multi-provider payment system</strong> with <strong>Sem Parar</strong>, <strong>ConectCar</strong>, and <strong>Veloe</strong>, delivering a frictionless checkout experience.",
+      "item3": "Optimized application performance by refactoring the caching strategy with <strong>React Apollo Client</strong>, achieving a <strong>70% reduction in API requests</strong> and a measurably faster UX.",
+      "item4": "Boosted user retention by <strong>23%</strong> by migrating <strong>EV Charger communications</strong> from <strong>WebSockets</strong> to <strong>Polling</strong>, resolving critical real-time sync issues under a tight production deadline.",
+      "item5": "Decreased critical errors by <strong>20%</strong> and reduced operational costs by increasing test coverage by <strong>30%</strong> and implementing advanced observability with <strong>MixPanel</strong> and <strong>BugSnag</strong>.",
+      "item6": "Architected a daily cron job for vehicle tier migration using <strong>Node.js</strong>, orchestrating communication between monolith and microservices via <strong>GraphQL</strong> with batch processing and <strong>Promise.allSettled</strong> for fault-tolerant, scalable execution."
+    },
+    "multiplan_jr": {
+      "title": "Software Engineer Jr",
+      "company": "Multiplan Empreendimentos S.A, RJ",
+      "item1": "Developed and launched an end-to-end MVP for an automated <strong>License Plate Recognition (LPR) system</strong> using <strong>Node.js</strong> and <strong>React</strong>, scaling to <strong>30k+ active users</strong> within the first month of production.",
+      "item2": "Reduced user processing time by <strong>90%</strong> — from 10 minutes to under 60 seconds — by engineering an automated parking exemption system deployed across <strong>6+ major malls</strong>, eliminating physical tickets for partner businesses such as gyms and supermarkets.",
+      "item3": "Architected internal <strong>backoffice tooling</strong> for <strong>A/B testing</strong> and <strong>Feature Flags</strong>, empowering Product and Marketing teams to run experiments independently and reducing engineering bottlenecks in the product release cycle."
     },
     "pepsico": {
-      "title": "Software Engineer (Contractor)",
-      "company": "Latop / PepsiCo",
-      "item1": "Architected and maintained a <strong>critical freight logistics platform</strong> for <strong>PepsiCo</strong> using <strong>Next.js</strong> and <strong>TypeScript</strong>, focusing on <strong>security</strong> and <strong>efficiency</strong>.",
-      "item2": "Reduced <strong>redundant API calls</strong> by <strong>20%</strong> and <strong>infrastructure costs</strong> by <strong>15%</strong> via <strong>React Query caching</strong> and monitoring.",
-      "item3": "Engineered a <strong>10-minute periodic sync</strong> for <strong>truck monitoring</strong>, ensuring <strong>dashboard accuracy</strong> and optimized <strong>network overhead</strong>."
+      "title": "Software Engineer",
+      "company": "Latop (PepsiCo)",
+      "item1": "Designed and delivered a <strong>freight logistics platform</strong> for <strong>PepsiCo</strong>, enabling real-time visibility and data synchronization across multiple national distribution centers.",
+      "item2": "Eliminated redundant network traffic and improved resource allocation for critical logistics features by refactoring the data synchronization layer with <strong>React Query</strong>, directly improving platform reliability.",
+      "item3": "Engineered a <strong>10-minute periodic synchronization mechanism</strong> for regional fleet monitoring, ensuring real-time dashboard accuracy across distribution hubs while optimizing network overhead."
     },
     "neurogram": {
-      "title": "Software Engineer (Contractor)",
+      "title": "Software Engineer",
       "company": "Neurogram",
-      "item1": "Developed <strong>high-performance dynamic landing pages</strong> in <strong>React</strong>, focused on <strong>product-driven UX</strong> and <strong>conversion optimization</strong>.",
-      "item2": "Automated <strong>delivery cycles</strong> with <strong>CI/CD pipelines</strong> (<strong>GitHub Actions</strong>, <strong>Firebase</strong>), increasing <strong>deployment frequency</strong> and <strong>scalability</strong>.",
-      "item3": "Integrated <strong>medical diagnostic algorithms</strong> into an <strong>EEG exam platform</strong>, enabling <strong>complex neurological data processing</strong> for <strong>clinical support</strong>."
+      "item1": "Integrated medical diagnostic algorithms into an <strong>EEG exam platform</strong>, enabling complex neurological data processing to support clinical decision-making for healthcare professionals.",
+      "item2": "Developed high-performance dynamic landing pages using <strong>React</strong>, optimizing for product-driven user experience and conversion.",
+      "item3": "Automated deployment cycles by implementing CI/CD pipelines with <strong>GitHub Actions</strong> and <strong>Firebase</strong>, increasing deployment frequency and ensuring infrastructure scalability."
     }
   },
   "BackButton": {

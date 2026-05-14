@@ -13,7 +13,7 @@
     "role": "Engenheiro de Software.",
     "introduction": "<years></years>+ anos de experiência na construção de sistemas de alta escala para grandes players como Multiplan e PepsiCo.",
     "curiosity": "(e como você pode perceber, também um viciado em café).",
-    "professional_summary": "Especialista no ecossistema JavaScript/TypeScript com foco em otimização de performance e eficiência de infraestrutura. Experiência comprovada liderando o ciclo completo de produtos, de MVPs a ambientes de produção com 100k+ usuários diários e milhões de registros.",
+    "professional_summary": "Escalei um MVP para mais de 30 mil usuários em 30 dias e gerenciei ambientes de produção atendendo mais de 100 mil DAU, impulsionando um aumento de 200% na aquisição de usuários por meio da otimização de infraestrutura e APIs. Combino profunda expertise em System Design com ownership de ponta a ponta do produto, desde decisões de arquitetura até deploys de nível de produção.",
     "personal_space": "Este é o meu espaço. Fique à vontade para trazer ideias e conversas; fico feliz se algo aqui se provar útil para você ou se pudermos construir algo novo juntos.",
     "social_invitation": "Fique à vontade para entrar em contato comigo nas minhas redes sociais!",
     "now": "Momento atual",
@@ -62,27 +62,33 @@
     "multiplan": {
       "title": "Engenheiro de Software",
       "company": "Multiplan Empreendimentos S.A, RJ",
-      "item1": "Desenvolvi e lancei um <strong>MVP completo</strong> para um sistema automatizado de <strong>Reconhecimento de Placas (LPR)</strong> usando <strong>Node.js</strong> e <strong>React</strong>, escalando com sucesso de <strong>30k+ usuários ativos</strong> no primeiro mês para <strong>100k+ usuários diários ativos</strong> com mais de <strong>2M de placas licenciadas</strong> armazenadas.",
-      "item2": "Impulsionei um <strong>aumento de 200% em usuários registrados</strong> (<strong>100k para 300k+</strong>) em 6 meses através da engenharia da orquestração client-side de um <strong>sistema de pagamento multi-provedor</strong>, garantindo uma experiência de checkout sem atritos com provedores como <strong>Sem Parar</strong>, <strong>ConectCar</strong> e <strong>Veloe</strong>.",
-      "item3": "Otimizei a <strong>performance</strong> da aplicação refatorando a <strong>estratégia de cache</strong> com <strong>React Apollo Client</strong>, resultando em uma <strong>redução de 70% nas requisições à API</strong> e uma UX mais rápida.",
-      "item4": "Reduzi o <strong>tempo de processamento</strong> do usuário em <strong>90%</strong> (<strong>10m para <60s</strong>) através da engenharia de um <strong>sistema automatizado de isenção de estacionamento</strong> para <strong>6+ shoppings principais</strong>, eliminando tickets físicos para parceiros como academias e supermercados.",
-      "item5": "Reduzi <strong>erros críticos</strong> em <strong>20%</strong> e cortei custos operacionais aumentando a <strong>cobertura de testes em 30%</strong> e implementando <strong>analytics e observabilidade</strong> avançados com <strong>MixPanel</strong> e <strong>BugSnag</strong>.",
-      "item6": "Aumentei a <strong>retenção de usuários</strong> em <strong>23%</strong> ao migrar as <strong>comunicações dos Carregadores EV</strong> de <strong>WebSockets</strong> para <strong>Polling</strong>, resolvendo problemas críticos de sincronização sob um prazo apertado.",
-      "item7": "Arquitetei <strong>cron job diário</strong> para <strong>migração de categoria de veículos</strong> usando <strong>Node.js</strong>, orquestrando comunicação entre monolito e microserviços via <strong>GraphQL</strong> com <strong>estratégia de processamento em lote</strong> e <strong>Promise.allSettled</strong> para execução tolerante a falhas, e desenvolvi <strong>ferramentas internas de backoffice</strong> para <strong>Testes A/B</strong> e <strong>Feature Flags</strong>."
+      "item1": "Liderei o desenvolvimento frontend de uma plataforma de <strong>estacionamento inteligente</strong> de alto tráfego atendendo <strong>100k+ usuários diários</strong> e armazenando dados de mais de <strong>2M de placas veiculares</strong>, atuando como engenheiro principal da camada voltada ao usuário.",
+      "item2": "Impulsionei um <strong>aumento de 200% em usuários registrados</strong> — de <strong>100k para 300k+</strong> — em 6 meses através da orquestração no client-side de um sistema de <strong>pagamento multi-provedor</strong> com <strong>Sem Parar</strong>, <strong>ConectCar</strong> e <strong>Veloe</strong>, entregando uma experiência de checkout sem atritos.",
+      "item3": "Otimizei a performance da aplicação refatorando a estratégia de cache com <strong>React Apollo Client</strong>, alcançando uma <strong>redução de 70% nas requisições de API</strong> e uma UX mais rápida.",
+      "item4": "Aumentei a retenção de usuários em <strong>23%</strong> migrando as comunicações de <strong>Carregadores EV</strong> de <strong>WebSockets</strong> para <strong>Polling</strong>, resolvendo problemas críticos de sincronização em tempo real.",
+      "item5": "Reduzi erros críticos em <strong>20%</strong> e cortei custos operacionais aumentando a cobertura de testes em <strong>30%</strong> e implementando observabilidade avançada com <strong>MixPanel</strong> e <strong>BugSnag</strong>.",
+      "item6": "Arquitetei um cron job diário para migração de categoria de veículos utilizando <strong>Node.js</strong>, orquestrando a comunicação entre monolito e microsserviços via <strong>GraphQL</strong> com processamento em lote e <strong>Promise.allSettled</strong> para execução escalável e tolerante a falhas."
+    },
+    "multiplan_jr": {
+      "title": "Engenheiro de Software Jr",
+      "company": "Multiplan Empreendimentos S.A, RJ",
+      "item1": "Desenvolvi e lancei um MVP completo para um sistema automatizado de <strong>Reconhecimento de Placas (LPR)</strong> usando <strong>Node.js</strong> e <strong>React</strong>, escalando para <strong>30k+ usuários ativos</strong> no primeiro mês de produção.",
+      "item2": "Reduzi o tempo de processamento do usuário em <strong>90%</strong> — de 10 minutos para menos de 60 segundos — através da engenharia de um sistema automatizado de isenção de estacionamento implementado em <strong>6+ grandes shoppings</strong>, eliminando tickets físicos.",
+      "item3": "Arquitetei ferramentas internas de <strong>backoffice</strong> para <strong>Testes A/B</strong> e <strong>Feature Flags</strong>, empoderando as equipes de Produto e Marketing a conduzir experimentos de forma independente."
     },
     "pepsico": {
-      "title": "Engenheiro de Software (Freelancer)",
-      "company": "Latop / PepsiCo",
-      "item1": "Arquitetei e mantive uma <strong>plataforma crítica de logística de cargas</strong> para a <strong>PepsiCo</strong> usando <strong>Next.js</strong> e <strong>TypeScript</strong>, com foco em <strong>segurança</strong> e <strong>eficiência</strong>.",
-      "item2": "Reduzi <strong>chamadas redundantes à API</strong> em <strong>20%</strong> e <strong>custos de infraestrutura</strong> em <strong>15%</strong> via <strong>cache do React Query</strong> e monitoramento.",
-      "item3": "Desenvolvi uma <strong>sincronização periódica de 10 minutos</strong> para <strong>monitoramento de caminhões</strong>, garantindo <strong>precisão no dashboard</strong> e otimizando <strong>overhead de rede</strong>."
+      "title": "Engenheiro de Software",
+      "company": "Latop (PepsiCo)",
+      "item1": "Projetei e entreguei uma <strong>plataforma de logística de frete</strong> para a <strong>PepsiCo</strong>, habilitando visibilidade em tempo real e sincronização de dados entre múltiplos centros de distribuição nacionais.",
+      "item2": "Eliminei tráfego de rede redundante e melhorei a alocação de recursos para funcionalidades logísticas refatorando a camada de sincronização de dados com <strong>React Query</strong>, melhorando a confiabilidade da plataforma.",
+      "item3": "Desenvolvi um <strong>mecanismo de sincronização periódica de 10 minutos</strong> para monitoramento de frota, garantindo a precisão dos dashboards em tempo real enquanto otimizava o overhead de rede."
     },
     "neurogram": {
-      "title": "Engenheiro de Software (Freelancer)",
+      "title": "Engenheiro de Software",
       "company": "Neurogram",
-      "item1": "Desenvolvi <strong>landing pages dinâmicas de alta performance</strong> em <strong>React</strong>, focadas em <strong>UX orientada a produto</strong> e <strong>otimização de conversão</strong>.",
-      "item2": "Automatizei <strong>ciclos de entrega</strong> com <strong>pipelines CI/CD</strong> (<strong>GitHub Actions</strong>, <strong>Firebase</strong>), aumentando a <strong>frequência de deploy</strong> e <strong>escalabilidade</strong>.",
-      "item3": "Integrei <strong>algoritmos de diagnóstico médico</strong> em uma <strong>plataforma de exames EEG</strong>, possibilitando <strong>processamento complexo de dados neurológicos</strong> para <strong>suporte clínico</strong>."
+      "item1": "Integrei algoritmos de diagnóstico médico em uma <strong>plataforma de exames EEG</strong>, possibilitando processamento complexo de dados neurológicos para suporte a decisões clínicas.",
+      "item2": "Desenvolvi landing pages dinâmicas de alta performance usando <strong>React</strong>, otimizando para uma experiência do usuário voltada ao produto e conversão.",
+      "item3": "Automatizei ciclos de deploy implementando pipelines de CI/CD com <strong>GitHub Actions</strong> e <strong>Firebase</strong>, aumentando a frequência de entregas e garantindo escalabilidade de infraestrutura."
     }
   },
   "BackButton": {
