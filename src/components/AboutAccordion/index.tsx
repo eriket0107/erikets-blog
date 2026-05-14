@@ -14,6 +14,7 @@ import { useTranslations } from "next-intl";
 import { useRef, useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 import { Typography } from "../Typography";
+import { Link } from "../Link";
 
 export const AboutAccordion = () => {
   const t = useTranslations("AboutPage");
@@ -119,16 +120,16 @@ export const AboutAccordion = () => {
           id="resume"
           aria-label="Download Erik's resume"
         >
-          <a
-            href="https://docs.google.com/document/d/16Jhz6ChkAXno4INAIVXkY8IVp5Ly9UF-AqFsROhw0Gk/edit?usp=sharing
-            "
+          <Link
+            prefetch
+            href="/resume"
             target="_blank"
             className="flex gap-2"
             aria-label="Erik Oliveira's CV/Resume as PDF"
           >
             <ExternalLink aria-hidden="true" size={30} />
             Resume
-          </a>
+          </Link>
         </AccordionTrigger>
       </AccordionItem>
     </AccordionDefault>
